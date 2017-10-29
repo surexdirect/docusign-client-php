@@ -3,5 +3,5 @@
 return [
     'openapi-file' => __DIR__ . '/esignature.rest.swagger.json',
     'namespace' => 'Surex\DocuSign',
-    'directory' => __DIR__ . '/src',
+    'directory' => __DIR__ . '/src/Surex/DocuSign',
 ];
