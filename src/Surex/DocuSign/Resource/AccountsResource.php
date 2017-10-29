@@ -246,11 +246,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('201' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (201 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\NewAccountSummary', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -280,8 +280,8 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('400' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -319,11 +319,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\Accounts', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -365,11 +365,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\BillingChargeResponse', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -402,11 +402,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\CaptiveRecipientInformation', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -441,11 +441,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\RecipientNamesResponse', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -475,11 +475,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\AccountSettingsInformation', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -510,8 +510,8 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('400' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -562,11 +562,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\AccountSharedAccess', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -604,11 +604,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\AccountSharedAccess', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -638,11 +638,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\SupportedLanguages', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -672,11 +672,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\FileTypeList', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -705,11 +705,11 @@ class AccountsResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ProvisioningInformation', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }

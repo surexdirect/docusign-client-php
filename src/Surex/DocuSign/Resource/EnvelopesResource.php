@@ -184,11 +184,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\EnvelopesInformation', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -883,11 +883,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('201' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (201 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\EnvelopeSummary', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -926,11 +926,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\Envelopes', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -994,11 +994,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\EnvelopeUpdateSummary', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1030,11 +1030,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\EnvelopeAuditEventResponse', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1083,11 +1083,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\PageImages', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1123,8 +1123,8 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('400' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1171,8 +1171,8 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('400' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1209,8 +1209,8 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('400' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1242,11 +1242,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\Notification', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1277,11 +1277,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\Notification', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1328,8 +1328,8 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('400' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1365,8 +1365,8 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('400' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1400,11 +1400,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\UserSignatures', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1451,8 +1451,8 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('400' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1488,8 +1488,8 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('400' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
@@ -1533,11 +1533,11 @@ class EnvelopesResource extends Resource
             return $promise;
         }
         $response = $promise->wait();
-        if (self::FETCH_OBJECT === $fetch) {
-            if ('200' === $response->getStatusCode()) {
+        if (self::FETCH_OBJECT == $fetch) {
+            if (200 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\EnvelopesInformation', 'json');
             }
-            if ('400' === $response->getStatusCode()) {
+            if (400 == $response->getStatusCode()) {
                 return $this->serializer->deserialize((string) $response->getBody(), 'Surex\\DocuSign\\Model\\ErrorDetails', 'json');
             }
         }
