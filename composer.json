@@ -1,0 +1,34 @@
+{
+    "name": "surexdirect/docusign-client-php",
+    "description": "Docusign Client auto built with Jane OpenAPI",
+    "type": "library",
+    "require": {
+        "docusign/esign-client": "^3.0",
+        "php-http/httplug": "^1.1",
+        "php-http/multipart-stream-builder": "^1.0",
+        "php-http/message": "^1.6",
+        "php-http/client-common": "^1.5",
+        "php-http/discovery": "^1.3",
+        "php-http/cache-plugin": "^1.4",
+        "phpunit/phpunit": "^5.7",
+        "jane/openapi-runtime": "^1.0",
+        "firebase/php-jwt": "^5.0",
+        "google/apiclient": "^2.2"
+    },
+    "require-dev": {
+        "php-http/guzzle6-adapter": "^1.1",
+        "guzzlehttp/psr7": "^1.4",
+        "jane/open-api": "^1.3",
+        "symfony/finder": "^3.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wesley O. Nichols",
+            "email": "spanishwes@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {"Surex\\DocuSign\\": "src/"}
+    }
+}
