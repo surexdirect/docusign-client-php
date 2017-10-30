@@ -7,11 +7,11 @@
 namespace Surex\DocuSign\User;
 
 /**
- * Interface DocuSignUser.
+ * Interface DocuSignUserProvider.
  *
  * @author Wesley O. Nichols <spanishwes@gmail.com>
  */
-interface DocuSignUser
+interface DocuSignUserProvider
 {
     /**
      * @return string

@@ -7,16 +7,16 @@
 namespace Surex\DocuSign\User;
 
 /**
- * Class DocuUser.
+ * Class DocuUserProvider.
  *
  * @author Wesley O. Nichols <spanishwes@gmail.com>
  */
-class DocuUser implements DocuSignUser
+class DocuUserProvider implements DocuSignUserProvider
 {
     private $userId;
 
     /**
-     * DocuUser constructor.
+     * DocuUserProvider constructor.
      *
      * @param string $userId
      */

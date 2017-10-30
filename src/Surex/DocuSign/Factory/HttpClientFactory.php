@@ -22,7 +22,7 @@ use Surex\DocuSign\Cache\MemoryCacheItemPool;
 use Surex\DocuSign\Http\Client\CodeAuthorizationClient;
 use Surex\DocuSign\Http\Message\Authentication\JWTAuthentication;
 use Surex\DocuSign\Authentication\CachedTokenFetcher;
-use Surex\DocuSign\User\DocuSignUser;
+use Surex\DocuSign\User\DocuSignUserProvider;
 
 class HttpClientFactory
 {
@@ -150,11 +150,11 @@ class HttpClientFactory
     }
 
     /**
-     * @param DocuSignUser $user
+     * @param DocuSignUserProvider $user
      *
      * @return PluginClient
      */
-    public function createServiceIntegrationClient(DocuSignUser $user)
+    public function createServiceIntegrationClient(DocuSignUserProvider $user)
     {
         $plugins = $this->getDefaultApiPlugins();
         $plugins[] = new Plugin\AuthenticationPlugin(
@@ -274,7 +274,7 @@ class HttpClientFactory
         return $this->getUriFactory()->createUri(self::API_ENDPOINT[$service]);
     }
 
-    private function getTokenStorage(DocuSignUser $user, $cached = false)
+    private function getTokenStorage(DocuSignUserProvider $user, $cached = false)
     {
         $fetcher = new JWTTokenFetcher(
             new JWTGenerator(

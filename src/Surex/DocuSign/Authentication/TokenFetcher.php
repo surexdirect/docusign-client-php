@@ -2,8 +2,6 @@
 
 namespace Surex\DocuSign\Authentication;
 
-use Surex\DocuSign\User\DocuSignUser;
-
 /**
  * Interface TokenFetcher.
  *
@@ -11,11 +9,6 @@ use Surex\DocuSign\User\DocuSignUser;
  */
 interface TokenFetcher
 {
-    /**
-     * @param DocuSignUser $user
-     */
-    public function setDocusignUser(DocuSignUser $user);
-
     /**
      * @return Token|null
      */

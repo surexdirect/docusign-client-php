@@ -9,7 +9,7 @@ namespace Surex\DocuSign\Authentication;
 use Http\Client\HttpClient;
 use Http\Message\RequestFactory;
 use Surex\DocuSign\Exception\AuthenticationException;
-use Surex\DocuSign\User\DocuSignUser;
+use Surex\DocuSign\User\DocuSignUserProvider;
 
 /**
  * Class JWTTokenFetcher.
@@ -36,33 +36,28 @@ class JWTTokenFetcher implements TokenFetcher
     private $requestFactory;
 
     /**
-     * @var DocuSignUser
+     * @var DocuSignUserProvider
      */
-    private $user;
+    private $userProvider;
 
     /**
      * JWTTokenFetcher constructor.
      *
-     * @param JWTGenerator   $generator
-     * @param HttpClient     $httpClient
-     * @param RequestFactory $requestFactory
-     * @param DocuSignUser   $user
+     * @param JWTGenerator         $generator
+     * @param HttpClient           $httpClient
+     * @param RequestFactory       $requestFactory
+     * @param DocuSignUserProvider $user
      */
     public function __construct(
         JWTGenerator $generator,
         HttpClient $httpClient,
         RequestFactory $requestFactory,
-        DocuSignUser $user
+        DocuSignUserProvider $user
     ) {
         $this->generator      = $generator;
         $this->httpClient     = $httpClient;
         $this->requestFactory = $requestFactory;
-        $this->user           = $user;
-    }
-
-    public function setDocusignUser(DocuSignUser $user)
-    {
-        $this->user = $user;
+        $this->userProvider   = $user;
     }
 
     public function fetchAccessToken()
@@ -73,7 +68,7 @@ class JWTTokenFetcher implements TokenFetcher
             ['Content-Type' => 'application/x-www-form-urlencoded'],
             http_build_query([
                 'grant_type' => self::JWT_URN,
-                'assertion'  => $this->generator->generate($this->user->getUserId()),
+                'assertion'  => $this->generator->generate($this->userProvider->getUserId()),
             ])
         );
 

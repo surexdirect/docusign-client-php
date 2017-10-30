@@ -1,9 +1,13 @@
 <?php
 
+/*
+ * Copyright (c) 2017, SurexDirect Ltd.
+ */
+
 namespace Surex\DocuSign\Authentication;
 
 use Psr\Cache\CacheItemPoolInterface;
-use Surex\DocuSign\User\DocuSignUser;
+use Surex\DocuSign\User\DocuSignUserProvider;
 
 /**
  * Class CachedTokenFetcher.
@@ -14,35 +18,31 @@ class CachedTokenFetcher implements TokenFetcher
 {
     private $cache;
     private $delegate;
-    private $docusignUser;
+    private $userProvider;
     private $lifetime;
     private $cachePrefix;
 
     /**
      * CachedTokenFetcher constructor.
+     *
      * @param CacheItemPoolInterface $cache
-     * @param TokenFetcher $delegate
-     * @param DocuSignUser $docusignUser
-     * @param int $lifetime
-     * @param string $cachePrefix
+     * @param TokenFetcher           $delegate
+     * @param DocuSignUserProvider   $userProvider
+     * @param int                    $lifetime
+     * @param string                 $cachePrefix
      */
     public function __construct(
         CacheItemPoolInterface $cache,
         TokenFetcher $delegate,
-        DocuSignUser $docusignUser,
+        DocuSignUserProvider $userProvider,
         $lifetime = 2280,
         $cachePrefix = 'docusign_cache'
     ) {
-        $this->cache = $cache;
-        $this->delegate = $delegate;
-        $this->docusignUser = $docusignUser;
-        $this->lifetime = $lifetime;
-        $this->cachePrefix = $cachePrefix;
-    }
-
-    public function setDocusignUser(DocuSignUser $user)
-    {
-        $this->docusignUser = $user;
+        $this->cache        = $cache;
+        $this->delegate     = $delegate;
+        $this->userProvider = $userProvider;
+        $this->lifetime     = $lifetime;
+        $this->cachePrefix  = $cachePrefix;
     }
 
     /**
@@ -50,14 +50,14 @@ class CachedTokenFetcher implements TokenFetcher
      */
     public function fetchAccessToken()
     {
-        $cacheKey = $this->getCacheKey($this->docusignUser->getUserId());
-        $item = $this->cache->getItem($cacheKey);
+        $cacheKey = $this->getCacheKey($this->userProvider->getUserId());
+        $item     = $this->cache->getItem($cacheKey);
 
         if ($item->isHit()) {
             return $item->get();
         }
 
-        $token = $this->delegate->fetchAccessToken();
+        $token     = $this->delegate->fetchAccessToken();
         $validTime = $token->getExpires() - time();
         $expireTtl = $validTime > $this->lifetime ? $this->lifetime : $validTime;
         $item->set($token)->expiresAfter($expireTtl);
