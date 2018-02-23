@@ -68,7 +68,7 @@ class JWTTokenFetcher implements TokenFetcher
             ['Content-Type' => 'application/x-www-form-urlencoded'],
             http_build_query([
                 'grant_type' => self::JWT_URN,
-                'assertion'  => $this->generator->generate($this->userProvider->getUserId()),
+                'assertion'  => $this->generator->generate($this->userProvider->getDocuSignUser()->getDocuSignUserId()),
             ])
         );
 

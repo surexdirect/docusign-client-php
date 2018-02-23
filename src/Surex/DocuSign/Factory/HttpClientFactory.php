@@ -35,6 +35,7 @@ class HttpClientFactory
         'debug'   => 'https://demo.docusign.net',
         'default' => 'https://www.docusign.net',
     ];
+    const CLIENT_USER_AGENT = 'surexdirect-docusign-php/v1 (https://github.com/surexdirect/docusign-client-php)';
 
     /**
      * @var bool
@@ -133,7 +134,7 @@ class HttpClientFactory
     {
         return [
             new Plugin\HeaderDefaultsPlugin([
-                'User-Agent' => 'surexdirect-docusign-php/v1 (https://github.com/surexdirect/docusign-client-php)',
+                'User-Agent' => self::CLIENT_USER_AGENT,
             ]),
             new Plugin\BaseUriPlugin($this->getAuthEndpoint()),
         ];
@@ -143,7 +144,7 @@ class HttpClientFactory
     {
         return [
             new Plugin\HeaderDefaultsPlugin([
-                'User-Agent' => 'surexdirect-docusign-php/v1 (https://github.com/surexdirect/docusign-client-php)',
+                'User-Agent' => self::CLIENT_USER_AGENT,
             ]),
             new Plugin\BaseUriPlugin($this->getApiEndpoint()),
         ];

@@ -50,7 +50,7 @@ class CachedTokenFetcher implements TokenFetcher
      */
     public function fetchAccessToken()
     {
-        $cacheKey = $this->getCacheKey($this->userProvider->getUserId());
+        $cacheKey = $this->getCacheKey($this->userProvider->getDocuSignUser()->getDocuSignUserId());
         $item     = $this->cache->getItem($cacheKey);
 
         if ($item->isHit()) {

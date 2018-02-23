@@ -13,7 +13,7 @@ namespace Surex\DocuSign\User;
  */
 class DocuUserProvider implements DocuSignUserProvider
 {
-    private $userId;
+    private $docuSignUser;
 
     /**
      * DocuUserProvider constructor.
@@ -22,14 +22,16 @@ class DocuUserProvider implements DocuSignUserProvider
      */
     public function __construct($userId)
     {
-        $this->userId = $userId;
+        $this->docuSignUser = new DefaultDocuSignUser($userId);
     }
 
-    /**
-     * @return string
-     */
-    public function getUserId()
+    public function getDocuSignUser()
     {
-        return $this->userId;
+        return $this->docuSignUser;
+    }
+
+    public function connectDocuSignUser(array $info)
+    {
+        $this->docuSignUser = new DefaultDocuSignUser($info['sub']);
     }
 }
