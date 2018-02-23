@@ -20,7 +20,7 @@ class AccountPasswordExpirePasswordDays
     /**
      * @return string
      */
-    public function getMaximumDays()
+    public function getMaximumDays(): ?string
     {
         return $this->maximumDays;
     }
@@ -30,7 +30,7 @@ class AccountPasswordExpirePasswordDays
      *
      * @return self
      */
-    public function setMaximumDays($maximumDays = null)
+    public function setMaximumDays(?string $maximumDays): self
     {
         $this->maximumDays = $maximumDays;
 
@@ -40,7 +40,7 @@ class AccountPasswordExpirePasswordDays
     /**
      * @return string
      */
-    public function getMinimumDays()
+    public function getMinimumDays(): ?string
     {
         return $this->minimumDays;
     }
@@ -50,7 +50,7 @@ class AccountPasswordExpirePasswordDays
      *
      * @return self
      */
-    public function setMinimumDays($minimumDays = null)
+    public function setMinimumDays(?string $minimumDays): self
     {
         $this->minimumDays = $minimumDays;
 

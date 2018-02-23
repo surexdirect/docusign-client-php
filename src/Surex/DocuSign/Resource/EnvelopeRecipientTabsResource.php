@@ -57,7 +57,7 @@ class EnvelopeRecipientTabsResource extends Resource
      * @param string $recipientId the `recipientId` used when the envelope or template was created
      * @param array  $parameters  {
      *
-     *     @var string $include_anchor_tab_locations When set to **true**, all tabs with anchor tab properties are included in the response.
+     *     @var string $include_anchor_tab_locations when set to **true**, all tabs with anchor tab properties are included in the response
      *     @var string $include_metadata Reserved for DocuSign.
      * }
      *

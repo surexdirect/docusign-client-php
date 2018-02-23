@@ -25,6 +25,8 @@ class ExternalFile
      */
     protected $name;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $size;
@@ -33,6 +35,8 @@ class ExternalFile
      */
     protected $supported;
     /**
+     * Type of the user. Valid values: type_owner, type_participant.
+     *
      * @var string
      */
     protected $type;
@@ -44,7 +48,7 @@ class ExternalFile
     /**
      * @return string
      */
-    public function getDate()
+    public function getDate(): ?string
     {
         return $this->date;
     }
@@ -54,7 +58,7 @@ class ExternalFile
      *
      * @return self
      */
-    public function setDate($date = null)
+    public function setDate(?string $date): self
     {
         $this->date = $date;
 
@@ -64,7 +68,7 @@ class ExternalFile
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -74,7 +78,7 @@ class ExternalFile
      *
      * @return self
      */
-    public function setId($id = null)
+    public function setId(?string $id): self
     {
         $this->id = $id;
 
@@ -84,7 +88,7 @@ class ExternalFile
     /**
      * @return string
      */
-    public function getImg()
+    public function getImg(): ?string
     {
         return $this->img;
     }
@@ -94,7 +98,7 @@ class ExternalFile
      *
      * @return self
      */
-    public function setImg($img = null)
+    public function setImg(?string $img): self
     {
         $this->img = $img;
 
@@ -104,7 +108,7 @@ class ExternalFile
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -114,7 +118,7 @@ class ExternalFile
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -122,19 +126,23 @@ class ExternalFile
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getSize()
+    public function getSize(): ?string
     {
         return $this->size;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $size
      *
      * @return self
      */
-    public function setSize($size = null)
+    public function setSize(?string $size): self
     {
         $this->size = $size;
 
@@ -144,7 +152,7 @@ class ExternalFile
     /**
      * @return string
      */
-    public function getSupported()
+    public function getSupported(): ?string
     {
         return $this->supported;
     }
@@ -154,7 +162,7 @@ class ExternalFile
      *
      * @return self
      */
-    public function setSupported($supported = null)
+    public function setSupported(?string $supported): self
     {
         $this->supported = $supported;
 
@@ -162,19 +170,23 @@ class ExternalFile
     }
 
     /**
+     * Type of the user. Valid values: type_owner, type_participant.
+     *
      * @return string
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
+     * Type of the user. Valid values: type_owner, type_participant.
+     *
      * @param string $type
      *
      * @return self
      */
-    public function setType($type = null)
+    public function setType(?string $type): self
     {
         $this->type = $type;
 
@@ -184,7 +196,7 @@ class ExternalFile
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -194,7 +206,7 @@ class ExternalFile
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 

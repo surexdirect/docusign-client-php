@@ -9,22 +9,32 @@ namespace Surex\DocuSign\Model;
 class EnvelopeTemplateDefinition
 {
     /**
+     * A sender-defined description of the line item.
+     *
      * @var string
      */
     protected $description;
     /**
+     * The ID for the folder.
+     *
      * @var string
      */
     protected $folderId;
     /**
+     *  The name of the folder in which the template is located.
+     *
      * @var string
      */
     protected $folderName;
     /**
+     * The URI of the folder.
+     *
      * @var string
      */
     protected $folderUri;
     /**
+     * Utc date and time the comment was last updated (can only be done by creator.).
+     *
      * @var string
      */
     protected $lastModified;
@@ -37,6 +47,8 @@ class EnvelopeTemplateDefinition
      */
     protected $name;
     /**
+     * The user's new password.
+     *
      * @var string
      */
     protected $newPassword;
@@ -45,6 +57,8 @@ class EnvelopeTemplateDefinition
      */
     protected $owner;
     /**
+     * An integer value specifying the number of document pages in the template. Omit this property if not submitting a page count.
+     *
      * @var int
      */
     protected $pageCount;
@@ -57,10 +71,14 @@ class EnvelopeTemplateDefinition
      */
     protected $password;
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @var string
      */
     protected $shared;
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @var string
      */
     protected $templateId;
@@ -70,19 +88,23 @@ class EnvelopeTemplateDefinition
     protected $uri;
 
     /**
+     * A sender-defined description of the line item.
+     *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
+     * A sender-defined description of the line item.
+     *
      * @param string $description
      *
      * @return self
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -90,19 +112,23 @@ class EnvelopeTemplateDefinition
     }
 
     /**
+     * The ID for the folder.
+     *
      * @return string
      */
-    public function getFolderId()
+    public function getFolderId(): ?string
     {
         return $this->folderId;
     }
 
     /**
+     * The ID for the folder.
+     *
      * @param string $folderId
      *
      * @return self
      */
-    public function setFolderId($folderId = null)
+    public function setFolderId(?string $folderId): self
     {
         $this->folderId = $folderId;
 
@@ -110,19 +136,23 @@ class EnvelopeTemplateDefinition
     }
 
     /**
+     *  The name of the folder in which the template is located.
+     *
      * @return string
      */
-    public function getFolderName()
+    public function getFolderName(): ?string
     {
         return $this->folderName;
     }
 
     /**
+     *  The name of the folder in which the template is located.
+     *
      * @param string $folderName
      *
      * @return self
      */
-    public function setFolderName($folderName = null)
+    public function setFolderName(?string $folderName): self
     {
         $this->folderName = $folderName;
 
@@ -130,19 +160,23 @@ class EnvelopeTemplateDefinition
     }
 
     /**
+     * The URI of the folder.
+     *
      * @return string
      */
-    public function getFolderUri()
+    public function getFolderUri(): ?string
     {
         return $this->folderUri;
     }
 
     /**
+     * The URI of the folder.
+     *
      * @param string $folderUri
      *
      * @return self
      */
-    public function setFolderUri($folderUri = null)
+    public function setFolderUri(?string $folderUri): self
     {
         $this->folderUri = $folderUri;
 
@@ -150,19 +184,23 @@ class EnvelopeTemplateDefinition
     }
 
     /**
+     * Utc date and time the comment was last updated (can only be done by creator.).
+     *
      * @return string
      */
-    public function getLastModified()
+    public function getLastModified(): ?string
     {
         return $this->lastModified;
     }
 
     /**
+     * Utc date and time the comment was last updated (can only be done by creator.).
+     *
      * @param string $lastModified
      *
      * @return self
      */
-    public function setLastModified($lastModified = null)
+    public function setLastModified(?string $lastModified): self
     {
         $this->lastModified = $lastModified;
 
@@ -172,7 +210,7 @@ class EnvelopeTemplateDefinition
     /**
      * @return UserInfo
      */
-    public function getLastModifiedBy()
+    public function getLastModifiedBy(): ?UserInfo
     {
         return $this->lastModifiedBy;
     }
@@ -182,7 +220,7 @@ class EnvelopeTemplateDefinition
      *
      * @return self
      */
-    public function setLastModifiedBy(UserInfo $lastModifiedBy = null)
+    public function setLastModifiedBy(?UserInfo $lastModifiedBy): self
     {
         $this->lastModifiedBy = $lastModifiedBy;
 
@@ -192,7 +230,7 @@ class EnvelopeTemplateDefinition
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -202,7 +240,7 @@ class EnvelopeTemplateDefinition
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -210,19 +248,23 @@ class EnvelopeTemplateDefinition
     }
 
     /**
+     * The user's new password.
+     *
      * @return string
      */
-    public function getNewPassword()
+    public function getNewPassword(): ?string
     {
         return $this->newPassword;
     }
 
     /**
+     * The user's new password.
+     *
      * @param string $newPassword
      *
      * @return self
      */
-    public function setNewPassword($newPassword = null)
+    public function setNewPassword(?string $newPassword): self
     {
         $this->newPassword = $newPassword;
 
@@ -232,7 +274,7 @@ class EnvelopeTemplateDefinition
     /**
      * @return UserInfo
      */
-    public function getOwner()
+    public function getOwner(): ?UserInfo
     {
         return $this->owner;
     }
@@ -242,7 +284,7 @@ class EnvelopeTemplateDefinition
      *
      * @return self
      */
-    public function setOwner(UserInfo $owner = null)
+    public function setOwner(?UserInfo $owner): self
     {
         $this->owner = $owner;
 
@@ -250,19 +292,23 @@ class EnvelopeTemplateDefinition
     }
 
     /**
+     * An integer value specifying the number of document pages in the template. Omit this property if not submitting a page count.
+     *
      * @return int
      */
-    public function getPageCount()
+    public function getPageCount(): ?int
     {
         return $this->pageCount;
     }
 
     /**
+     * An integer value specifying the number of document pages in the template. Omit this property if not submitting a page count.
+     *
      * @param int $pageCount
      *
      * @return self
      */
-    public function setPageCount($pageCount = null)
+    public function setPageCount(?int $pageCount): self
     {
         $this->pageCount = $pageCount;
 
@@ -272,7 +318,7 @@ class EnvelopeTemplateDefinition
     /**
      * @return string
      */
-    public function getParentFolderUri()
+    public function getParentFolderUri(): ?string
     {
         return $this->parentFolderUri;
     }
@@ -282,7 +328,7 @@ class EnvelopeTemplateDefinition
      *
      * @return self
      */
-    public function setParentFolderUri($parentFolderUri = null)
+    public function setParentFolderUri(?string $parentFolderUri): self
     {
         $this->parentFolderUri = $parentFolderUri;
 
@@ -292,7 +338,7 @@ class EnvelopeTemplateDefinition
     /**
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -302,7 +348,7 @@ class EnvelopeTemplateDefinition
      *
      * @return self
      */
-    public function setPassword($password = null)
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
 
@@ -310,19 +356,23 @@ class EnvelopeTemplateDefinition
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @return string
      */
-    public function getShared()
+    public function getShared(): ?string
     {
         return $this->shared;
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @param string $shared
      *
      * @return self
      */
-    public function setShared($shared = null)
+    public function setShared(?string $shared): self
     {
         $this->shared = $shared;
 
@@ -330,19 +380,23 @@ class EnvelopeTemplateDefinition
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @return string
      */
-    public function getTemplateId()
+    public function getTemplateId(): ?string
     {
         return $this->templateId;
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @param string $templateId
      *
      * @return self
      */
-    public function setTemplateId($templateId = null)
+    public function setTemplateId(?string $templateId): self
     {
         $this->templateId = $templateId;
 
@@ -352,7 +406,7 @@ class EnvelopeTemplateDefinition
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -362,7 +416,7 @@ class EnvelopeTemplateDefinition
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 

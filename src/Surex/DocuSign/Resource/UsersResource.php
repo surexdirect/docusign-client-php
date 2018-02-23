@@ -63,7 +63,7 @@ class UsersResource extends Resource
      *     @var string $include_usersettings_for_csv
      *     @var string $login_status
      *     @var string $not_group_id
-     *     @var string $start_position Starting value for the list.
+     *     @var string $start_position starting value for the list
      *     @var string $status filters the results by user status
      *     @var string $user_name_substring Filters the user records returned by the user name or a sub-string of user name.
      * }

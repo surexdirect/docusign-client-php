@@ -6,38 +6,40 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class CloudStorageNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class CloudStorageNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\CloudStorage' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\CloudStorage' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\CloudStorage) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\CloudStorage;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\CloudStorage();
         if (property_exists($data, 'endPosition')) {
             $object->setEndPosition($data->{'endPosition'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ExternalDocServiceErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ExternalDocServiceErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'id')) {
             $object->setId($data->{'id'});
@@ -45,7 +47,7 @@ class CloudStorageNormalizer extends SerializerAwareNormalizer implements Denorm
         if (property_exists($data, 'items')) {
             $values = [];
             foreach ($data->{'items'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\ExternalFile', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\ExternalFile', 'json', $context);
             }
             $object->setItems($values);
         }
@@ -78,7 +80,7 @@ class CloudStorageNormalizer extends SerializerAwareNormalizer implements Denorm
             $data->{'endPosition'} = $object->getEndPosition();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getId()) {
             $data->{'id'} = $object->getId();
@@ -86,7 +88,7 @@ class CloudStorageNormalizer extends SerializerAwareNormalizer implements Denorm
         if (null !== $object->getItems()) {
             $values = [];
             foreach ($object->getItems() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'items'} = $values;
         }

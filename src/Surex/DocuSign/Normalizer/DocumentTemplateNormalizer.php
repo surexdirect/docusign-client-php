@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class DocumentTemplateNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class DocumentTemplateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\DocumentTemplate' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\DocumentTemplate' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\DocumentTemplate) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\DocumentTemplate;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\DocumentTemplate();
         if (property_exists($data, 'documentEndPage')) {
             $object->setDocumentEndPage($data->{'documentEndPage'});
@@ -43,7 +45,7 @@ class DocumentTemplateNormalizer extends SerializerAwareNormalizer implements De
             $object->setDocumentStartPage($data->{'documentStartPage'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'templateId')) {
             $object->setTemplateId($data->{'templateId'});
@@ -65,7 +67,7 @@ class DocumentTemplateNormalizer extends SerializerAwareNormalizer implements De
             $data->{'documentStartPage'} = $object->getDocumentStartPage();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getTemplateId()) {
             $data->{'templateId'} = $object->getTemplateId();

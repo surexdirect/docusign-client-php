@@ -6,38 +6,40 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class TemplateSharedItemNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class TemplateSharedItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\TemplateSharedItem' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\TemplateSharedItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\TemplateSharedItem) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\TemplateSharedItem;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\TemplateSharedItem();
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'owner')) {
-            $object->setOwner($this->serializer->deserialize($data->{'owner'}, 'Surex\\DocuSign\\Model\\UserInfo', 'raw', $context));
+            $object->setOwner($this->denormalizer->denormalize($data->{'owner'}, 'Surex\\DocuSign\\Model\\UserInfo', 'json', $context));
         }
         if (property_exists($data, 'shared')) {
             $object->setShared($data->{'shared'});
@@ -45,14 +47,14 @@ class TemplateSharedItemNormalizer extends SerializerAwareNormalizer implements 
         if (property_exists($data, 'sharedGroups')) {
             $values = [];
             foreach ($data->{'sharedGroups'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\MemberGroupSharedItem', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\MemberGroupSharedItem', 'json', $context);
             }
             $object->setSharedGroups($values);
         }
         if (property_exists($data, 'sharedUsers')) {
             $values_1 = [];
             foreach ($data->{'sharedUsers'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\UserSharedItem', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\UserSharedItem', 'json', $context);
             }
             $object->setSharedUsers($values_1);
         }
@@ -70,10 +72,10 @@ class TemplateSharedItemNormalizer extends SerializerAwareNormalizer implements 
     {
         $data = new \stdClass();
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getOwner()) {
-            $data->{'owner'} = $this->serializer->serialize($object->getOwner(), 'raw', $context);
+            $data->{'owner'} = $this->normalizer->normalize($object->getOwner(), 'json', $context);
         }
         if (null !== $object->getShared()) {
             $data->{'shared'} = $object->getShared();
@@ -81,14 +83,14 @@ class TemplateSharedItemNormalizer extends SerializerAwareNormalizer implements 
         if (null !== $object->getSharedGroups()) {
             $values = [];
             foreach ($object->getSharedGroups() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'sharedGroups'} = $values;
         }
         if (null !== $object->getSharedUsers()) {
             $values_1 = [];
             foreach ($object->getSharedUsers() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'sharedUsers'} = $values_1;
         }

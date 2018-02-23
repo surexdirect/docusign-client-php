@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class FeatureSet
 {
     /**
+     * A complex type that contains alternate currency values that are configured for this plan feature set.
+     *
      * @var CurrencyFeatureSetPrice[]
      */
     protected $currencyFeatureSetPrices;
@@ -17,6 +19,8 @@ class FeatureSet
      */
     protected $envelopeFee;
     /**
+     * A unique ID for the feature set.
+     *
      * @var string
      */
     protected $featureSetId;
@@ -25,6 +29,8 @@ class FeatureSet
      */
     protected $fixedFee;
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @var string
      */
     protected $is21CFRPart11;
@@ -33,6 +39,8 @@ class FeatureSet
      */
     protected $isActive;
     /**
+     * Specifies whether the feature set is actively enabled as part of the plan.
+     *
      * @var string
      */
     protected $isEnabled;
@@ -41,24 +49,30 @@ class FeatureSet
      */
     protected $name;
     /**
+     * An incremental seat cost for seat-based plans. Only valid when isEnabled for the feature set is set to true.
+     *
      * @var string
      */
     protected $seatFee;
 
     /**
+     * A complex type that contains alternate currency values that are configured for this plan feature set.
+     *
      * @return CurrencyFeatureSetPrice[]
      */
-    public function getCurrencyFeatureSetPrices()
+    public function getCurrencyFeatureSetPrices(): ?array
     {
         return $this->currencyFeatureSetPrices;
     }
 
     /**
+     * A complex type that contains alternate currency values that are configured for this plan feature set.
+     *
      * @param CurrencyFeatureSetPrice[] $currencyFeatureSetPrices
      *
      * @return self
      */
-    public function setCurrencyFeatureSetPrices(array $currencyFeatureSetPrices = null)
+    public function setCurrencyFeatureSetPrices(?array $currencyFeatureSetPrices): self
     {
         $this->currencyFeatureSetPrices = $currencyFeatureSetPrices;
 
@@ -68,7 +82,7 @@ class FeatureSet
     /**
      * @return string
      */
-    public function getEnvelopeFee()
+    public function getEnvelopeFee(): ?string
     {
         return $this->envelopeFee;
     }
@@ -78,7 +92,7 @@ class FeatureSet
      *
      * @return self
      */
-    public function setEnvelopeFee($envelopeFee = null)
+    public function setEnvelopeFee(?string $envelopeFee): self
     {
         $this->envelopeFee = $envelopeFee;
 
@@ -86,19 +100,23 @@ class FeatureSet
     }
 
     /**
+     * A unique ID for the feature set.
+     *
      * @return string
      */
-    public function getFeatureSetId()
+    public function getFeatureSetId(): ?string
     {
         return $this->featureSetId;
     }
 
     /**
+     * A unique ID for the feature set.
+     *
      * @param string $featureSetId
      *
      * @return self
      */
-    public function setFeatureSetId($featureSetId = null)
+    public function setFeatureSetId(?string $featureSetId): self
     {
         $this->featureSetId = $featureSetId;
 
@@ -108,7 +126,7 @@ class FeatureSet
     /**
      * @return string
      */
-    public function getFixedFee()
+    public function getFixedFee(): ?string
     {
         return $this->fixedFee;
     }
@@ -118,7 +136,7 @@ class FeatureSet
      *
      * @return self
      */
-    public function setFixedFee($fixedFee = null)
+    public function setFixedFee(?string $fixedFee): self
     {
         $this->fixedFee = $fixedFee;
 
@@ -126,19 +144,23 @@ class FeatureSet
     }
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @return string
      */
-    public function getIs21CFRPart11()
+    public function getIs21CFRPart11(): ?string
     {
         return $this->is21CFRPart11;
     }
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @param string $is21CFRPart11
      *
      * @return self
      */
-    public function setIs21CFRPart11($is21CFRPart11 = null)
+    public function setIs21CFRPart11(?string $is21CFRPart11): self
     {
         $this->is21CFRPart11 = $is21CFRPart11;
 
@@ -148,7 +170,7 @@ class FeatureSet
     /**
      * @return string
      */
-    public function getIsActive()
+    public function getIsActive(): ?string
     {
         return $this->isActive;
     }
@@ -158,7 +180,7 @@ class FeatureSet
      *
      * @return self
      */
-    public function setIsActive($isActive = null)
+    public function setIsActive(?string $isActive): self
     {
         $this->isActive = $isActive;
 
@@ -166,19 +188,23 @@ class FeatureSet
     }
 
     /**
+     * Specifies whether the feature set is actively enabled as part of the plan.
+     *
      * @return string
      */
-    public function getIsEnabled()
+    public function getIsEnabled(): ?string
     {
         return $this->isEnabled;
     }
 
     /**
+     * Specifies whether the feature set is actively enabled as part of the plan.
+     *
      * @param string $isEnabled
      *
      * @return self
      */
-    public function setIsEnabled($isEnabled = null)
+    public function setIsEnabled(?string $isEnabled): self
     {
         $this->isEnabled = $isEnabled;
 
@@ -188,7 +214,7 @@ class FeatureSet
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -198,7 +224,7 @@ class FeatureSet
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -206,19 +232,23 @@ class FeatureSet
     }
 
     /**
+     * An incremental seat cost for seat-based plans. Only valid when isEnabled for the feature set is set to true.
+     *
      * @return string
      */
-    public function getSeatFee()
+    public function getSeatFee(): ?string
     {
         return $this->seatFee;
     }
 
     /**
+     * An incremental seat cost for seat-based plans. Only valid when isEnabled for the feature set is set to true.
+     *
      * @param string $seatFee
      *
      * @return self
      */
-    public function setSeatFee($seatFee = null)
+    public function setSeatFee(?string $seatFee): self
     {
         $this->seatFee = $seatFee;
 

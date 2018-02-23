@@ -6,38 +6,40 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class BillingPlanPreviewNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class BillingPlanPreviewNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\BillingPlanPreview' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\BillingPlanPreview' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\BillingPlanPreview) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\BillingPlanPreview;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\BillingPlanPreview();
         if (property_exists($data, 'currencyCode')) {
             $object->setCurrencyCode($data->{'currencyCode'});
         }
         if (property_exists($data, 'invoice')) {
-            $object->setInvoice($this->serializer->deserialize($data->{'invoice'}, 'Surex\\DocuSign\\Model\\Invoices', 'raw', $context));
+            $object->setInvoice($this->denormalizer->denormalize($data->{'invoice'}, 'Surex\\DocuSign\\Model\\Invoices', 'json', $context));
         }
         if (property_exists($data, 'isProrated')) {
             $object->setIsProrated($data->{'isProrated'});
@@ -62,7 +64,7 @@ class BillingPlanPreviewNormalizer extends SerializerAwareNormalizer implements 
             $data->{'currencyCode'} = $object->getCurrencyCode();
         }
         if (null !== $object->getInvoice()) {
-            $data->{'invoice'} = $this->serializer->serialize($object->getInvoice(), 'raw', $context);
+            $data->{'invoice'} = $this->normalizer->normalize($object->getInvoice(), 'json', $context);
         }
         if (null !== $object->getIsProrated()) {
             $data->{'isProrated'} = $object->getIsProrated();

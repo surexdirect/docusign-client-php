@@ -6,51 +6,53 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class TemplateRecipientsNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class TemplateRecipientsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\TemplateRecipients' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\TemplateRecipients' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\TemplateRecipients) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\TemplateRecipients;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\TemplateRecipients();
         if (property_exists($data, 'agents')) {
             $values = [];
             foreach ($data->{'agents'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\Agent', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\Agent', 'json', $context);
             }
             $object->setAgents($values);
         }
         if (property_exists($data, 'carbonCopies')) {
             $values_1 = [];
             foreach ($data->{'carbonCopies'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\CarbonCopy', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\CarbonCopy', 'json', $context);
             }
             $object->setCarbonCopies($values_1);
         }
         if (property_exists($data, 'certifiedDeliveries')) {
             $values_2 = [];
             foreach ($data->{'certifiedDeliveries'} as $value_2) {
-                $values_2[] = $this->serializer->deserialize($value_2, 'Surex\\DocuSign\\Model\\CertifiedDelivery', 'raw', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Surex\\DocuSign\\Model\\CertifiedDelivery', 'json', $context);
             }
             $object->setCertifiedDeliveries($values_2);
         }
@@ -60,24 +62,24 @@ class TemplateRecipientsNormalizer extends SerializerAwareNormalizer implements 
         if (property_exists($data, 'editors')) {
             $values_3 = [];
             foreach ($data->{'editors'} as $value_3) {
-                $values_3[] = $this->serializer->deserialize($value_3, 'Surex\\DocuSign\\Model\\Editor', 'raw', $context);
+                $values_3[] = $this->denormalizer->denormalize($value_3, 'Surex\\DocuSign\\Model\\Editor', 'json', $context);
             }
             $object->setEditors($values_3);
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'inPersonSigners')) {
             $values_4 = [];
             foreach ($data->{'inPersonSigners'} as $value_4) {
-                $values_4[] = $this->serializer->deserialize($value_4, 'Surex\\DocuSign\\Model\\InPersonSigner', 'raw', $context);
+                $values_4[] = $this->denormalizer->denormalize($value_4, 'Surex\\DocuSign\\Model\\InPersonSigner', 'json', $context);
             }
             $object->setInPersonSigners($values_4);
         }
         if (property_exists($data, 'intermediaries')) {
             $values_5 = [];
             foreach ($data->{'intermediaries'} as $value_5) {
-                $values_5[] = $this->serializer->deserialize($value_5, 'Surex\\DocuSign\\Model\\Intermediary', 'raw', $context);
+                $values_5[] = $this->denormalizer->denormalize($value_5, 'Surex\\DocuSign\\Model\\Intermediary', 'json', $context);
             }
             $object->setIntermediaries($values_5);
         }
@@ -87,7 +89,7 @@ class TemplateRecipientsNormalizer extends SerializerAwareNormalizer implements 
         if (property_exists($data, 'signers')) {
             $values_6 = [];
             foreach ($data->{'signers'} as $value_6) {
-                $values_6[] = $this->serializer->deserialize($value_6, 'Surex\\DocuSign\\Model\\Signer', 'raw', $context);
+                $values_6[] = $this->denormalizer->denormalize($value_6, 'Surex\\DocuSign\\Model\\Signer', 'json', $context);
             }
             $object->setSigners($values_6);
         }
@@ -101,21 +103,21 @@ class TemplateRecipientsNormalizer extends SerializerAwareNormalizer implements 
         if (null !== $object->getAgents()) {
             $values = [];
             foreach ($object->getAgents() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'agents'} = $values;
         }
         if (null !== $object->getCarbonCopies()) {
             $values_1 = [];
             foreach ($object->getCarbonCopies() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'carbonCopies'} = $values_1;
         }
         if (null !== $object->getCertifiedDeliveries()) {
             $values_2 = [];
             foreach ($object->getCertifiedDeliveries() as $value_2) {
-                $values_2[] = $this->serializer->serialize($value_2, 'raw', $context);
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data->{'certifiedDeliveries'} = $values_2;
         }
@@ -125,24 +127,24 @@ class TemplateRecipientsNormalizer extends SerializerAwareNormalizer implements 
         if (null !== $object->getEditors()) {
             $values_3 = [];
             foreach ($object->getEditors() as $value_3) {
-                $values_3[] = $this->serializer->serialize($value_3, 'raw', $context);
+                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data->{'editors'} = $values_3;
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getInPersonSigners()) {
             $values_4 = [];
             foreach ($object->getInPersonSigners() as $value_4) {
-                $values_4[] = $this->serializer->serialize($value_4, 'raw', $context);
+                $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
             $data->{'inPersonSigners'} = $values_4;
         }
         if (null !== $object->getIntermediaries()) {
             $values_5 = [];
             foreach ($object->getIntermediaries() as $value_5) {
-                $values_5[] = $this->serializer->serialize($value_5, 'raw', $context);
+                $values_5[] = $this->normalizer->normalize($value_5, 'json', $context);
             }
             $data->{'intermediaries'} = $values_5;
         }
@@ -152,7 +154,7 @@ class TemplateRecipientsNormalizer extends SerializerAwareNormalizer implements 
         if (null !== $object->getSigners()) {
             $values_6 = [];
             foreach ($object->getSigners() as $value_6) {
-                $values_6[] = $this->serializer->serialize($value_6, 'raw', $context);
+                $values_6[] = $this->normalizer->normalize($value_6, 'json', $context);
             }
             $data->{'signers'} = $values_6;
         }

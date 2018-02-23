@@ -20,7 +20,7 @@ class PropertyMetadata
     /**
      * @return string[]
      */
-    public function getOptions()
+    public function getOptions(): ?array
     {
         return $this->options;
     }
@@ -30,7 +30,7 @@ class PropertyMetadata
      *
      * @return self
      */
-    public function setOptions(array $options = null)
+    public function setOptions(?array $options): self
     {
         $this->options = $options;
 
@@ -40,7 +40,7 @@ class PropertyMetadata
     /**
      * @return string
      */
-    public function getRights()
+    public function getRights(): ?string
     {
         return $this->rights;
     }
@@ -50,7 +50,7 @@ class PropertyMetadata
      *
      * @return self
      */
-    public function setRights($rights = null)
+    public function setRights(?string $rights): self
     {
         $this->rights = $rights;
 

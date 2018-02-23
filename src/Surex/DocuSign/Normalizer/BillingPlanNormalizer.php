@@ -6,44 +6,46 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class BillingPlanNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class BillingPlanNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\BillingPlan' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\BillingPlan' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\BillingPlan) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\BillingPlan;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\BillingPlan();
         if (property_exists($data, 'appStoreProducts')) {
             $values = [];
             foreach ($data->{'appStoreProducts'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\AppStoreProduct', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\AppStoreProduct', 'json', $context);
             }
             $object->setAppStoreProducts($values);
         }
         if (property_exists($data, 'currencyPlanPrices')) {
             $values_1 = [];
             foreach ($data->{'currencyPlanPrices'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\CurrencyPlanPrice', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\CurrencyPlanPrice', 'json', $context);
             }
             $object->setCurrencyPlanPrices($values_1);
         }
@@ -71,7 +73,7 @@ class BillingPlanNormalizer extends SerializerAwareNormalizer implements Denorma
         if (property_exists($data, 'planFeatureSets')) {
             $values_2 = [];
             foreach ($data->{'planFeatureSets'} as $value_2) {
-                $values_2[] = $this->serializer->deserialize($value_2, 'Surex\\DocuSign\\Model\\FeatureSet', 'raw', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Surex\\DocuSign\\Model\\FeatureSet', 'json', $context);
             }
             $object->setPlanFeatureSets($values_2);
         }
@@ -84,7 +86,7 @@ class BillingPlanNormalizer extends SerializerAwareNormalizer implements Denorma
         if (property_exists($data, 'seatDiscounts')) {
             $values_3 = [];
             foreach ($data->{'seatDiscounts'} as $value_3) {
-                $values_3[] = $this->serializer->deserialize($value_3, 'Surex\\DocuSign\\Model\\SeatDiscount', 'raw', $context);
+                $values_3[] = $this->denormalizer->denormalize($value_3, 'Surex\\DocuSign\\Model\\SeatDiscount', 'json', $context);
             }
             $object->setSeatDiscounts($values_3);
         }
@@ -104,14 +106,14 @@ class BillingPlanNormalizer extends SerializerAwareNormalizer implements Denorma
         if (null !== $object->getAppStoreProducts()) {
             $values = [];
             foreach ($object->getAppStoreProducts() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'appStoreProducts'} = $values;
         }
         if (null !== $object->getCurrencyPlanPrices()) {
             $values_1 = [];
             foreach ($object->getCurrencyPlanPrices() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'currencyPlanPrices'} = $values_1;
         }
@@ -139,7 +141,7 @@ class BillingPlanNormalizer extends SerializerAwareNormalizer implements Denorma
         if (null !== $object->getPlanFeatureSets()) {
             $values_2 = [];
             foreach ($object->getPlanFeatureSets() as $value_2) {
-                $values_2[] = $this->serializer->serialize($value_2, 'raw', $context);
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data->{'planFeatureSets'} = $values_2;
         }
@@ -152,7 +154,7 @@ class BillingPlanNormalizer extends SerializerAwareNormalizer implements Denorma
         if (null !== $object->getSeatDiscounts()) {
             $values_3 = [];
             foreach ($object->getSeatDiscounts() as $value_3) {
-                $values_3[] = $this->serializer->serialize($value_3, 'raw', $context);
+                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data->{'seatDiscounts'} = $values_3;
         }

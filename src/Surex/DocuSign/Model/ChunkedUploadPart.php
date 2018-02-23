@@ -13,6 +13,8 @@ class ChunkedUploadPart
      */
     protected $sequence;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $size;
@@ -20,7 +22,7 @@ class ChunkedUploadPart
     /**
      * @return string
      */
-    public function getSequence()
+    public function getSequence(): ?string
     {
         return $this->sequence;
     }
@@ -30,7 +32,7 @@ class ChunkedUploadPart
      *
      * @return self
      */
-    public function setSequence($sequence = null)
+    public function setSequence(?string $sequence): self
     {
         $this->sequence = $sequence;
 
@@ -38,19 +40,23 @@ class ChunkedUploadPart
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getSize()
+    public function getSize(): ?string
     {
         return $this->size;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $size
      *
      * @return self
      */
-    public function setSize($size = null)
+    public function setSize(?string $size): self
     {
         $this->size = $size;
 

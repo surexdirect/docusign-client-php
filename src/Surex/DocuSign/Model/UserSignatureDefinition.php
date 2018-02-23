@@ -13,6 +13,8 @@ class UserSignatureDefinition
      */
     protected $signatureFont;
     /**
+     * Specifies the signature ID associated with the signature name. You can use the signature ID in the URI in place of the signature name, and the value stored in the `signatureName` property in the body is used. This allows the use of special characters (such as "&", "<", ">") in a the signature name. Note that with each update to signatures, the returned signature ID might change, so the caller will need to trigger off the signature name to get the new signature ID.
+     *
      * @var string
      */
     protected $signatureId;
@@ -21,6 +23,8 @@ class UserSignatureDefinition
      */
     protected $signatureInitials;
     /**
+     * Specifies the user signature name.
+     *
      * @var string
      */
     protected $signatureName;
@@ -28,7 +32,7 @@ class UserSignatureDefinition
     /**
      * @return string
      */
-    public function getSignatureFont()
+    public function getSignatureFont(): ?string
     {
         return $this->signatureFont;
     }
@@ -38,7 +42,7 @@ class UserSignatureDefinition
      *
      * @return self
      */
-    public function setSignatureFont($signatureFont = null)
+    public function setSignatureFont(?string $signatureFont): self
     {
         $this->signatureFont = $signatureFont;
 
@@ -46,19 +50,23 @@ class UserSignatureDefinition
     }
 
     /**
+     * Specifies the signature ID associated with the signature name. You can use the signature ID in the URI in place of the signature name, and the value stored in the `signatureName` property in the body is used. This allows the use of special characters (such as "&", "<", ">") in a the signature name. Note that with each update to signatures, the returned signature ID might change, so the caller will need to trigger off the signature name to get the new signature ID.
+     *
      * @return string
      */
-    public function getSignatureId()
+    public function getSignatureId(): ?string
     {
         return $this->signatureId;
     }
 
     /**
+     * Specifies the signature ID associated with the signature name. You can use the signature ID in the URI in place of the signature name, and the value stored in the `signatureName` property in the body is used. This allows the use of special characters (such as "&", "<", ">") in a the signature name. Note that with each update to signatures, the returned signature ID might change, so the caller will need to trigger off the signature name to get the new signature ID.
+     *
      * @param string $signatureId
      *
      * @return self
      */
-    public function setSignatureId($signatureId = null)
+    public function setSignatureId(?string $signatureId): self
     {
         $this->signatureId = $signatureId;
 
@@ -68,7 +76,7 @@ class UserSignatureDefinition
     /**
      * @return string
      */
-    public function getSignatureInitials()
+    public function getSignatureInitials(): ?string
     {
         return $this->signatureInitials;
     }
@@ -78,7 +86,7 @@ class UserSignatureDefinition
      *
      * @return self
      */
-    public function setSignatureInitials($signatureInitials = null)
+    public function setSignatureInitials(?string $signatureInitials): self
     {
         $this->signatureInitials = $signatureInitials;
 
@@ -86,19 +94,23 @@ class UserSignatureDefinition
     }
 
     /**
+     * Specifies the user signature name.
+     *
      * @return string
      */
-    public function getSignatureName()
+    public function getSignatureName(): ?string
     {
         return $this->signatureName;
     }
 
     /**
+     * Specifies the user signature name.
+     *
      * @param string $signatureName
      *
      * @return self
      */
-    public function setSignatureName($signatureName = null)
+    public function setSignatureName(?string $signatureName): self
     {
         $this->signatureName = $signatureName;
 

@@ -9,6 +9,14 @@ namespace Surex\DocuSign\Model;
 class PowerFormRecipient
 {
     /**
+     * If a value is provided, the recipient must enter the value as the access code to view and sign the envelope.
+
+     Maximum Length: 50 characters and it must conform to the account's access code format setting.
+
+     If blank, but the signer `accessCode` property is set in the envelope, then that value is used.
+
+     If blank and the signer `accessCode` property is not set, then the access code is not required.
+     *
      * @var string
      */
     protected $accessCode;
@@ -29,6 +37,9 @@ class PowerFormRecipient
      */
     protected $emailLocked;
     /**
+     * Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+     *Example*: Your account has ID Check and SMS Authentication available and in the web console Identify list these appear as 'ID Check $' and 'SMS Auth $'. To use ID check in an envelope, the idCheckConfigurationName should be 'ID Check '. If you wanted to use SMS, it would be 'SMS Auth $' and you would need to add you would need to add phone number information to the `smsAuthentication` node.
+     *
      * @var string
      */
     protected $idCheckConfigurationName;
@@ -45,10 +56,14 @@ class PowerFormRecipient
      */
     protected $recipientType;
     /**
+     * Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+     *
      * @var string
      */
     protected $roleName;
     /**
+     * Specifies the routing order of the recipient in the envelope.
+     *
      * @var string
      */
     protected $routingOrder;
@@ -62,19 +77,35 @@ class PowerFormRecipient
     protected $userNameLocked;
 
     /**
+     * If a value is provided, the recipient must enter the value as the access code to view and sign the envelope.
+
+     Maximum Length: 50 characters and it must conform to the account's access code format setting.
+
+     If blank, but the signer `accessCode` property is set in the envelope, then that value is used.
+
+     If blank and the signer `accessCode` property is not set, then the access code is not required.
+     *
      * @return string
      */
-    public function getAccessCode()
+    public function getAccessCode(): ?string
     {
         return $this->accessCode;
     }
 
     /**
+     * If a value is provided, the recipient must enter the value as the access code to view and sign the envelope.
+
+     Maximum Length: 50 characters and it must conform to the account's access code format setting.
+
+     If blank, but the signer `accessCode` property is set in the envelope, then that value is used.
+
+     If blank and the signer `accessCode` property is not set, then the access code is not required.
+     *
      * @param string $accessCode
      *
      * @return self
      */
-    public function setAccessCode($accessCode = null)
+    public function setAccessCode(?string $accessCode): self
     {
         $this->accessCode = $accessCode;
 
@@ -84,7 +115,7 @@ class PowerFormRecipient
     /**
      * @return string
      */
-    public function getAccessCodeLocked()
+    public function getAccessCodeLocked(): ?string
     {
         return $this->accessCodeLocked;
     }
@@ -94,7 +125,7 @@ class PowerFormRecipient
      *
      * @return self
      */
-    public function setAccessCodeLocked($accessCodeLocked = null)
+    public function setAccessCodeLocked(?string $accessCodeLocked): self
     {
         $this->accessCodeLocked = $accessCodeLocked;
 
@@ -104,7 +135,7 @@ class PowerFormRecipient
     /**
      * @return string
      */
-    public function getAccessCodeRequired()
+    public function getAccessCodeRequired(): ?string
     {
         return $this->accessCodeRequired;
     }
@@ -114,7 +145,7 @@ class PowerFormRecipient
      *
      * @return self
      */
-    public function setAccessCodeRequired($accessCodeRequired = null)
+    public function setAccessCodeRequired(?string $accessCodeRequired): self
     {
         $this->accessCodeRequired = $accessCodeRequired;
 
@@ -124,7 +155,7 @@ class PowerFormRecipient
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -134,7 +165,7 @@ class PowerFormRecipient
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -144,7 +175,7 @@ class PowerFormRecipient
     /**
      * @return string
      */
-    public function getEmailLocked()
+    public function getEmailLocked(): ?string
     {
         return $this->emailLocked;
     }
@@ -154,7 +185,7 @@ class PowerFormRecipient
      *
      * @return self
      */
-    public function setEmailLocked($emailLocked = null)
+    public function setEmailLocked(?string $emailLocked): self
     {
         $this->emailLocked = $emailLocked;
 
@@ -162,19 +193,25 @@ class PowerFormRecipient
     }
 
     /**
+     * Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+     *Example*: Your account has ID Check and SMS Authentication available and in the web console Identify list these appear as 'ID Check $' and 'SMS Auth $'. To use ID check in an envelope, the idCheckConfigurationName should be 'ID Check '. If you wanted to use SMS, it would be 'SMS Auth $' and you would need to add you would need to add phone number information to the `smsAuthentication` node.
+     *
      * @return string
      */
-    public function getIdCheckConfigurationName()
+    public function getIdCheckConfigurationName(): ?string
     {
         return $this->idCheckConfigurationName;
     }
 
     /**
+     * Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.
+     *Example*: Your account has ID Check and SMS Authentication available and in the web console Identify list these appear as 'ID Check $' and 'SMS Auth $'. To use ID check in an envelope, the idCheckConfigurationName should be 'ID Check '. If you wanted to use SMS, it would be 'SMS Auth $' and you would need to add you would need to add phone number information to the `smsAuthentication` node.
+     *
      * @param string $idCheckConfigurationName
      *
      * @return self
      */
-    public function setIdCheckConfigurationName($idCheckConfigurationName = null)
+    public function setIdCheckConfigurationName(?string $idCheckConfigurationName): self
     {
         $this->idCheckConfigurationName = $idCheckConfigurationName;
 
@@ -184,7 +221,7 @@ class PowerFormRecipient
     /**
      * @return string
      */
-    public function getIdCheckRequired()
+    public function getIdCheckRequired(): ?string
     {
         return $this->idCheckRequired;
     }
@@ -194,7 +231,7 @@ class PowerFormRecipient
      *
      * @return self
      */
-    public function setIdCheckRequired($idCheckRequired = null)
+    public function setIdCheckRequired(?string $idCheckRequired): self
     {
         $this->idCheckRequired = $idCheckRequired;
 
@@ -204,7 +241,7 @@ class PowerFormRecipient
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -214,7 +251,7 @@ class PowerFormRecipient
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -224,7 +261,7 @@ class PowerFormRecipient
     /**
      * @return string
      */
-    public function getRecipientType()
+    public function getRecipientType(): ?string
     {
         return $this->recipientType;
     }
@@ -234,7 +271,7 @@ class PowerFormRecipient
      *
      * @return self
      */
-    public function setRecipientType($recipientType = null)
+    public function setRecipientType(?string $recipientType): self
     {
         $this->recipientType = $recipientType;
 
@@ -242,19 +279,23 @@ class PowerFormRecipient
     }
 
     /**
+     * Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+     *
      * @return string
      */
-    public function getRoleName()
+    public function getRoleName(): ?string
     {
         return $this->roleName;
     }
 
     /**
+     * Optional element. Specifies the role name associated with the recipient.<br/><br/>This is required when working with template recipients.
+     *
      * @param string $roleName
      *
      * @return self
      */
-    public function setRoleName($roleName = null)
+    public function setRoleName(?string $roleName): self
     {
         $this->roleName = $roleName;
 
@@ -262,19 +303,23 @@ class PowerFormRecipient
     }
 
     /**
+     * Specifies the routing order of the recipient in the envelope.
+     *
      * @return string
      */
-    public function getRoutingOrder()
+    public function getRoutingOrder(): ?string
     {
         return $this->routingOrder;
     }
 
     /**
+     * Specifies the routing order of the recipient in the envelope.
+     *
      * @param string $routingOrder
      *
      * @return self
      */
-    public function setRoutingOrder($routingOrder = null)
+    public function setRoutingOrder(?string $routingOrder): self
     {
         $this->routingOrder = $routingOrder;
 
@@ -284,7 +329,7 @@ class PowerFormRecipient
     /**
      * @return string
      */
-    public function getTemplateRequiresIdLookup()
+    public function getTemplateRequiresIdLookup(): ?string
     {
         return $this->templateRequiresIdLookup;
     }
@@ -294,7 +339,7 @@ class PowerFormRecipient
      *
      * @return self
      */
-    public function setTemplateRequiresIdLookup($templateRequiresIdLookup = null)
+    public function setTemplateRequiresIdLookup(?string $templateRequiresIdLookup): self
     {
         $this->templateRequiresIdLookup = $templateRequiresIdLookup;
 
@@ -304,7 +349,7 @@ class PowerFormRecipient
     /**
      * @return string
      */
-    public function getUserNameLocked()
+    public function getUserNameLocked(): ?string
     {
         return $this->userNameLocked;
     }
@@ -314,7 +359,7 @@ class PowerFormRecipient
      *
      * @return self
      */
-    public function setUserNameLocked($userNameLocked = null)
+    public function setUserNameLocked(?string $userNameLocked): self
     {
         $this->userNameLocked = $userNameLocked;
 

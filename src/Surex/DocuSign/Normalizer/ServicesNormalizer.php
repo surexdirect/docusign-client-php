@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class ServicesNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class ServicesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\Services' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\Services' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\Services) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\Services;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\Services();
         if (property_exists($data, 'buildBranch')) {
             $object->setBuildBranch($data->{'buildBranch'});
@@ -55,7 +57,7 @@ class ServicesNormalizer extends SerializerAwareNormalizer implements Denormaliz
         if (property_exists($data, 'serviceVersions')) {
             $values_1 = [];
             foreach ($data->{'serviceVersions'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\ServiceVersion', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\ServiceVersion', 'json', $context);
             }
             $object->setServiceVersions($values_1);
         }
@@ -88,7 +90,7 @@ class ServicesNormalizer extends SerializerAwareNormalizer implements Denormaliz
         if (null !== $object->getServiceVersions()) {
             $values_1 = [];
             foreach ($object->getServiceVersions() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'serviceVersions'} = $values_1;
         }

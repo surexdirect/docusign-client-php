@@ -16,7 +16,7 @@ class TabMetadataList
     /**
      * @return CustomTabs[]
      */
-    public function getTabs()
+    public function getTabs(): ?array
     {
         return $this->tabs;
     }
@@ -26,7 +26,7 @@ class TabMetadataList
      *
      * @return self
      */
-    public function setTabs(array $tabs = null)
+    public function setTabs(?array $tabs): self
     {
         $this->tabs = $tabs;
 

@@ -9,28 +9,36 @@ namespace Surex\DocuSign\Model;
 class RecipientEvent
 {
     /**
+     * reserved.
+     *
      * @var string
      */
     protected $includeDocuments;
     /**
+     * Send a webhook notification for the following recipient statuses: Sent, Delivered, Completed, Declined, AuthenticationFailed, and AutoResponded.
+     *
      * @var string
      */
     protected $recipientEventStatusCode;
 
     /**
+     * reserved.
+     *
      * @return string
      */
-    public function getIncludeDocuments()
+    public function getIncludeDocuments(): ?string
     {
         return $this->includeDocuments;
     }
 
     /**
+     * reserved.
+     *
      * @param string $includeDocuments
      *
      * @return self
      */
-    public function setIncludeDocuments($includeDocuments = null)
+    public function setIncludeDocuments(?string $includeDocuments): self
     {
         $this->includeDocuments = $includeDocuments;
 
@@ -38,19 +46,23 @@ class RecipientEvent
     }
 
     /**
+     * Send a webhook notification for the following recipient statuses: Sent, Delivered, Completed, Declined, AuthenticationFailed, and AutoResponded.
+     *
      * @return string
      */
-    public function getRecipientEventStatusCode()
+    public function getRecipientEventStatusCode(): ?string
     {
         return $this->recipientEventStatusCode;
     }
 
     /**
+     * Send a webhook notification for the following recipient statuses: Sent, Delivered, Completed, Declined, AuthenticationFailed, and AutoResponded.
+     *
      * @param string $recipientEventStatusCode
      *
      * @return self
      */
-    public function setRecipientEventStatusCode($recipientEventStatusCode = null)
+    public function setRecipientEventStatusCode(?string $recipientEventStatusCode): self
     {
         $this->recipientEventStatusCode = $recipientEventStatusCode;
 

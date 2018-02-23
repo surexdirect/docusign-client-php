@@ -13,6 +13,8 @@ class FoldersRequest
      */
     protected $envelopeIds;
     /**
+     *  The folder ID the envelope is being moved from.
+     *
      * @var string
      */
     protected $fromFolderId;
@@ -20,7 +22,7 @@ class FoldersRequest
     /**
      * @return string[]
      */
-    public function getEnvelopeIds()
+    public function getEnvelopeIds(): ?array
     {
         return $this->envelopeIds;
     }
@@ -30,7 +32,7 @@ class FoldersRequest
      *
      * @return self
      */
-    public function setEnvelopeIds(array $envelopeIds = null)
+    public function setEnvelopeIds(?array $envelopeIds): self
     {
         $this->envelopeIds = $envelopeIds;
 
@@ -38,19 +40,23 @@ class FoldersRequest
     }
 
     /**
+     *  The folder ID the envelope is being moved from.
+     *
      * @return string
      */
-    public function getFromFolderId()
+    public function getFromFolderId(): ?string
     {
         return $this->fromFolderId;
     }
 
     /**
+     *  The folder ID the envelope is being moved from.
+     *
      * @param string $fromFolderId
      *
      * @return self
      */
-    public function setFromFolderId($fromFolderId = null)
+    public function setFromFolderId(?string $fromFolderId): self
     {
         $this->fromFolderId = $fromFolderId;
 

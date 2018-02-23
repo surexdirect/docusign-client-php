@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EnvelopeAttachmentsNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EnvelopeAttachmentsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EnvelopeAttachments' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EnvelopeAttachments' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EnvelopeAttachments) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EnvelopeAttachments;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EnvelopeAttachments();
         if (property_exists($data, 'accessControl')) {
             $object->setAccessControl($data->{'accessControl'});
@@ -43,7 +45,7 @@ class EnvelopeAttachmentsNormalizer extends SerializerAwareNormalizer implements
             $object->setAttachmentType($data->{'attachmentType'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'label')) {
             $object->setLabel($data->{'label'});
@@ -68,7 +70,7 @@ class EnvelopeAttachmentsNormalizer extends SerializerAwareNormalizer implements
             $data->{'attachmentType'} = $object->getAttachmentType();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getLabel()) {
             $data->{'label'} = $object->getLabel();

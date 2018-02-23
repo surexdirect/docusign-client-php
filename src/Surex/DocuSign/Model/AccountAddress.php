@@ -9,18 +9,28 @@ namespace Surex\DocuSign\Model;
 class AccountAddress
 {
     /**
+     * First Line of the address.
+     Maximum length: 100 characters.
+     *
      * @var string
      */
     protected $address1;
     /**
+     * Second Line of the address.
+     Maximum length: 100 characters.
+     *
      * @var string
      */
     protected $address2;
     /**
+     * The city value of the address.
+     *
      * @var string
      */
     protected $city;
     /**
+     * Specifies the country associated with the address.
+     *
      * @var string
      */
     protected $country;
@@ -33,6 +43,9 @@ class AccountAddress
      */
     protected $fax;
     /**
+     * The user's first name.
+     Maximum Length: 50 characters.
+     *
      * @var string
      */
     protected $firstName;
@@ -49,28 +62,38 @@ class AccountAddress
      */
     protected $postalCode;
     /**
+     * The state or province associated with the address.
+     *
      * @var string
      */
     protected $state;
     /**
+     * Contains an array of countries supported by the billing plan.
+     *
      * @var Country[]
      */
     protected $supportedCountries;
 
     /**
+     * First Line of the address.
+     Maximum length: 100 characters.
+     *
      * @return string
      */
-    public function getAddress1()
+    public function getAddress1(): ?string
     {
         return $this->address1;
     }
 
     /**
+     * First Line of the address.
+     Maximum length: 100 characters.
+     *
      * @param string $address1
      *
      * @return self
      */
-    public function setAddress1($address1 = null)
+    public function setAddress1(?string $address1): self
     {
         $this->address1 = $address1;
 
@@ -78,19 +101,25 @@ class AccountAddress
     }
 
     /**
+     * Second Line of the address.
+     Maximum length: 100 characters.
+     *
      * @return string
      */
-    public function getAddress2()
+    public function getAddress2(): ?string
     {
         return $this->address2;
     }
 
     /**
+     * Second Line of the address.
+     Maximum length: 100 characters.
+     *
      * @param string $address2
      *
      * @return self
      */
-    public function setAddress2($address2 = null)
+    public function setAddress2(?string $address2): self
     {
         $this->address2 = $address2;
 
@@ -98,19 +127,23 @@ class AccountAddress
     }
 
     /**
+     * The city value of the address.
+     *
      * @return string
      */
-    public function getCity()
+    public function getCity(): ?string
     {
         return $this->city;
     }
 
     /**
+     * The city value of the address.
+     *
      * @param string $city
      *
      * @return self
      */
-    public function setCity($city = null)
+    public function setCity(?string $city): self
     {
         $this->city = $city;
 
@@ -118,19 +151,23 @@ class AccountAddress
     }
 
     /**
+     * Specifies the country associated with the address.
+     *
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): ?string
     {
         return $this->country;
     }
 
     /**
+     * Specifies the country associated with the address.
+     *
      * @param string $country
      *
      * @return self
      */
-    public function setCountry($country = null)
+    public function setCountry(?string $country): self
     {
         $this->country = $country;
 
@@ -140,7 +177,7 @@ class AccountAddress
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -150,7 +187,7 @@ class AccountAddress
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -160,7 +197,7 @@ class AccountAddress
     /**
      * @return string
      */
-    public function getFax()
+    public function getFax(): ?string
     {
         return $this->fax;
     }
@@ -170,7 +207,7 @@ class AccountAddress
      *
      * @return self
      */
-    public function setFax($fax = null)
+    public function setFax(?string $fax): self
     {
         $this->fax = $fax;
 
@@ -178,19 +215,25 @@ class AccountAddress
     }
 
     /**
+     * The user's first name.
+     Maximum Length: 50 characters.
+     *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
 
     /**
+     * The user's first name.
+     Maximum Length: 50 characters.
+     *
      * @param string $firstName
      *
      * @return self
      */
-    public function setFirstName($firstName = null)
+    public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
 
@@ -200,7 +243,7 @@ class AccountAddress
     /**
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
@@ -210,7 +253,7 @@ class AccountAddress
      *
      * @return self
      */
-    public function setLastName($lastName = null)
+    public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
 
@@ -220,7 +263,7 @@ class AccountAddress
     /**
      * @return string
      */
-    public function getPhone()
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
@@ -230,7 +273,7 @@ class AccountAddress
      *
      * @return self
      */
-    public function setPhone($phone = null)
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 
@@ -240,7 +283,7 @@ class AccountAddress
     /**
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
@@ -250,7 +293,7 @@ class AccountAddress
      *
      * @return self
      */
-    public function setPostalCode($postalCode = null)
+    public function setPostalCode(?string $postalCode): self
     {
         $this->postalCode = $postalCode;
 
@@ -258,19 +301,23 @@ class AccountAddress
     }
 
     /**
+     * The state or province associated with the address.
+     *
      * @return string
      */
-    public function getState()
+    public function getState(): ?string
     {
         return $this->state;
     }
 
     /**
+     * The state or province associated with the address.
+     *
      * @param string $state
      *
      * @return self
      */
-    public function setState($state = null)
+    public function setState(?string $state): self
     {
         $this->state = $state;
 
@@ -278,19 +325,23 @@ class AccountAddress
     }
 
     /**
+     * Contains an array of countries supported by the billing plan.
+     *
      * @return Country[]
      */
-    public function getSupportedCountries()
+    public function getSupportedCountries(): ?array
     {
         return $this->supportedCountries;
     }
 
     /**
+     * Contains an array of countries supported by the billing plan.
+     *
      * @param Country[] $supportedCountries
      *
      * @return self
      */
-    public function setSupportedCountries(array $supportedCountries = null)
+    public function setSupportedCountries(?array $supportedCountries): self
     {
         $this->supportedCountries = $supportedCountries;
 

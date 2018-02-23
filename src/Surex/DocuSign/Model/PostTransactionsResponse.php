@@ -20,7 +20,7 @@ class PostTransactionsResponse
     /**
      * @return string
      */
-    public function getDocumentData()
+    public function getDocumentData(): ?string
     {
         return $this->documentData;
     }
@@ -30,7 +30,7 @@ class PostTransactionsResponse
      *
      * @return self
      */
-    public function setDocumentData($documentData = null)
+    public function setDocumentData(?string $documentData): self
     {
         $this->documentData = $documentData;
 
@@ -40,7 +40,7 @@ class PostTransactionsResponse
     /**
      * @return string
      */
-    public function getTransactionSid()
+    public function getTransactionSid(): ?string
     {
         return $this->transactionSid;
     }
@@ -50,7 +50,7 @@ class PostTransactionsResponse
      *
      * @return self
      */
-    public function setTransactionSid($transactionSid = null)
+    public function setTransactionSid(?string $transactionSid): self
     {
         $this->transactionSid = $transactionSid;
 

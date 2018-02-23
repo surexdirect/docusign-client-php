@@ -9,32 +9,42 @@ namespace Surex\DocuSign\Model;
 class Expirations
 {
     /**
+     * An integer that sets the number of days the envelope is active.
+     *
      * @var string
      */
     protected $expireAfter;
     /**
+     * When set to **true**, the envelope expires (is no longer available for signing) in the set number of days. If false, the account default setting is used. If the account does not have an expiration setting, the DocuSign default value of 120 days is used.
+     *
      * @var string
      */
     protected $expireEnabled;
     /**
+     * An integer that sets the number of days before envelope expiration that an expiration warning email is sent to the recipient. If set to 0 (zero), no warning email is sent.
+     *
      * @var string
      */
     protected $expireWarn;
 
     /**
+     * An integer that sets the number of days the envelope is active.
+     *
      * @return string
      */
-    public function getExpireAfter()
+    public function getExpireAfter(): ?string
     {
         return $this->expireAfter;
     }
 
     /**
+     * An integer that sets the number of days the envelope is active.
+     *
      * @param string $expireAfter
      *
      * @return self
      */
-    public function setExpireAfter($expireAfter = null)
+    public function setExpireAfter(?string $expireAfter): self
     {
         $this->expireAfter = $expireAfter;
 
@@ -42,19 +52,23 @@ class Expirations
     }
 
     /**
+     * When set to **true**, the envelope expires (is no longer available for signing) in the set number of days. If false, the account default setting is used. If the account does not have an expiration setting, the DocuSign default value of 120 days is used.
+     *
      * @return string
      */
-    public function getExpireEnabled()
+    public function getExpireEnabled(): ?string
     {
         return $this->expireEnabled;
     }
 
     /**
+     * When set to **true**, the envelope expires (is no longer available for signing) in the set number of days. If false, the account default setting is used. If the account does not have an expiration setting, the DocuSign default value of 120 days is used.
+     *
      * @param string $expireEnabled
      *
      * @return self
      */
-    public function setExpireEnabled($expireEnabled = null)
+    public function setExpireEnabled(?string $expireEnabled): self
     {
         $this->expireEnabled = $expireEnabled;
 
@@ -62,19 +76,23 @@ class Expirations
     }
 
     /**
+     * An integer that sets the number of days before envelope expiration that an expiration warning email is sent to the recipient. If set to 0 (zero), no warning email is sent.
+     *
      * @return string
      */
-    public function getExpireWarn()
+    public function getExpireWarn(): ?string
     {
         return $this->expireWarn;
     }
 
     /**
+     * An integer that sets the number of days before envelope expiration that an expiration warning email is sent to the recipient. If set to 0 (zero), no warning email is sent.
+     *
      * @param string $expireWarn
      *
      * @return self
      */
-    public function setExpireWarn($expireWarn = null)
+    public function setExpireWarn(?string $expireWarn): self
     {
         $this->expireWarn = $expireWarn;
 

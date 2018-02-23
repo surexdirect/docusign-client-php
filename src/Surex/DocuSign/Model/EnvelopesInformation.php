@@ -9,52 +9,72 @@ namespace Surex\DocuSign\Model;
 class EnvelopesInformation
 {
     /**
+     * The last position in the result set.
+     *
      * @var string
      */
     protected $endPosition;
     /**
+     * Set of envelope information.
+     *
      * @var Envelopes[]
      */
     protected $envelopes;
     /**
+     * Array of envelope statuses and transaction Ids in the result set.
+     *
      * @var EnvelopeTransactionStatus[]
      */
     protected $envelopeTransactionStatuses;
     /**
+     * The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search.
+     *
      * @var string
      */
     protected $nextUri;
     /**
+     * The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search.
+     *
      * @var string
      */
     protected $previousUri;
     /**
+     * The number of results returned in this response.
+     *
      * @var string
      */
     protected $resultSetSize;
     /**
+     * Starting position of the current result set.
+     *
      * @var string
      */
     protected $startPosition;
     /**
+     * The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+     *
      * @var string
      */
     protected $totalSetSize;
 
     /**
+     * The last position in the result set.
+     *
      * @return string
      */
-    public function getEndPosition()
+    public function getEndPosition(): ?string
     {
         return $this->endPosition;
     }
 
     /**
+     * The last position in the result set.
+     *
      * @param string $endPosition
      *
      * @return self
      */
-    public function setEndPosition($endPosition = null)
+    public function setEndPosition(?string $endPosition): self
     {
         $this->endPosition = $endPosition;
 
@@ -62,19 +82,23 @@ class EnvelopesInformation
     }
 
     /**
+     * Set of envelope information.
+     *
      * @return Envelopes[]
      */
-    public function getEnvelopes()
+    public function getEnvelopes(): ?array
     {
         return $this->envelopes;
     }
 
     /**
+     * Set of envelope information.
+     *
      * @param Envelopes[] $envelopes
      *
      * @return self
      */
-    public function setEnvelopes(array $envelopes = null)
+    public function setEnvelopes(?array $envelopes): self
     {
         $this->envelopes = $envelopes;
 
@@ -82,19 +106,23 @@ class EnvelopesInformation
     }
 
     /**
+     * Array of envelope statuses and transaction Ids in the result set.
+     *
      * @return EnvelopeTransactionStatus[]
      */
-    public function getEnvelopeTransactionStatuses()
+    public function getEnvelopeTransactionStatuses(): ?array
     {
         return $this->envelopeTransactionStatuses;
     }
 
     /**
+     * Array of envelope statuses and transaction Ids in the result set.
+     *
      * @param EnvelopeTransactionStatus[] $envelopeTransactionStatuses
      *
      * @return self
      */
-    public function setEnvelopeTransactionStatuses(array $envelopeTransactionStatuses = null)
+    public function setEnvelopeTransactionStatuses(?array $envelopeTransactionStatuses): self
     {
         $this->envelopeTransactionStatuses = $envelopeTransactionStatuses;
 
@@ -102,19 +130,23 @@ class EnvelopesInformation
     }
 
     /**
+     * The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search.
+     *
      * @return string
      */
-    public function getNextUri()
+    public function getNextUri(): ?string
     {
         return $this->nextUri;
     }
 
     /**
+     * The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search.
+     *
      * @param string $nextUri
      *
      * @return self
      */
-    public function setNextUri($nextUri = null)
+    public function setNextUri(?string $nextUri): self
     {
         $this->nextUri = $nextUri;
 
@@ -122,19 +154,23 @@ class EnvelopesInformation
     }
 
     /**
+     * The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search.
+     *
      * @return string
      */
-    public function getPreviousUri()
+    public function getPreviousUri(): ?string
     {
         return $this->previousUri;
     }
 
     /**
+     * The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search.
+     *
      * @param string $previousUri
      *
      * @return self
      */
-    public function setPreviousUri($previousUri = null)
+    public function setPreviousUri(?string $previousUri): self
     {
         $this->previousUri = $previousUri;
 
@@ -142,19 +178,23 @@ class EnvelopesInformation
     }
 
     /**
+     * The number of results returned in this response.
+     *
      * @return string
      */
-    public function getResultSetSize()
+    public function getResultSetSize(): ?string
     {
         return $this->resultSetSize;
     }
 
     /**
+     * The number of results returned in this response.
+     *
      * @param string $resultSetSize
      *
      * @return self
      */
-    public function setResultSetSize($resultSetSize = null)
+    public function setResultSetSize(?string $resultSetSize): self
     {
         $this->resultSetSize = $resultSetSize;
 
@@ -162,19 +202,23 @@ class EnvelopesInformation
     }
 
     /**
+     * Starting position of the current result set.
+     *
      * @return string
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?string
     {
         return $this->startPosition;
     }
 
     /**
+     * Starting position of the current result set.
+     *
      * @param string $startPosition
      *
      * @return self
      */
-    public function setStartPosition($startPosition = null)
+    public function setStartPosition(?string $startPosition): self
     {
         $this->startPosition = $startPosition;
 
@@ -182,19 +226,23 @@ class EnvelopesInformation
     }
 
     /**
+     * The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+     *
      * @return string
      */
-    public function getTotalSetSize()
+    public function getTotalSetSize(): ?string
     {
         return $this->totalSetSize;
     }
 
     /**
+     * The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+     *
      * @param string $totalSetSize
      *
      * @return self
      */
-    public function setTotalSetSize($totalSetSize = null)
+    public function setTotalSetSize(?string $totalSetSize): self
     {
         $this->totalSetSize = $totalSetSize;
 

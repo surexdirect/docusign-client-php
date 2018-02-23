@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class CurrencyPlanPrice
 {
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @var string
      */
     protected $currencyCode;
     /**
+     * Specifies the currency symbol for the account.
+     *
      * @var string
      */
     protected $currencySymbol;
@@ -25,28 +29,36 @@ class CurrencyPlanPrice
      */
     protected $supportedCardTypes;
     /**
+     * The support incident fee charged for each support incident.
+     *
      * @var string
      */
     protected $supportIncidentFee;
     /**
+     * The support plan fee charged for this plan.
+     *
      * @var string
      */
     protected $supportPlanFee;
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @param string $currencyCode
      *
      * @return self
      */
-    public function setCurrencyCode($currencyCode = null)
+    public function setCurrencyCode(?string $currencyCode): self
     {
         $this->currencyCode = $currencyCode;
 
@@ -54,19 +66,23 @@ class CurrencyPlanPrice
     }
 
     /**
+     * Specifies the currency symbol for the account.
+     *
      * @return string
      */
-    public function getCurrencySymbol()
+    public function getCurrencySymbol(): ?string
     {
         return $this->currencySymbol;
     }
 
     /**
+     * Specifies the currency symbol for the account.
+     *
      * @param string $currencySymbol
      *
      * @return self
      */
-    public function setCurrencySymbol($currencySymbol = null)
+    public function setCurrencySymbol(?string $currencySymbol): self
     {
         $this->currencySymbol = $currencySymbol;
 
@@ -76,7 +92,7 @@ class CurrencyPlanPrice
     /**
      * @return string
      */
-    public function getPerSeatPrice()
+    public function getPerSeatPrice(): ?string
     {
         return $this->perSeatPrice;
     }
@@ -86,7 +102,7 @@ class CurrencyPlanPrice
      *
      * @return self
      */
-    public function setPerSeatPrice($perSeatPrice = null)
+    public function setPerSeatPrice(?string $perSeatPrice): self
     {
         $this->perSeatPrice = $perSeatPrice;
 
@@ -96,7 +112,7 @@ class CurrencyPlanPrice
     /**
      * @return CreditCardTypes
      */
-    public function getSupportedCardTypes()
+    public function getSupportedCardTypes(): ?CreditCardTypes
     {
         return $this->supportedCardTypes;
     }
@@ -106,7 +122,7 @@ class CurrencyPlanPrice
      *
      * @return self
      */
-    public function setSupportedCardTypes(CreditCardTypes $supportedCardTypes = null)
+    public function setSupportedCardTypes(?CreditCardTypes $supportedCardTypes): self
     {
         $this->supportedCardTypes = $supportedCardTypes;
 
@@ -114,19 +130,23 @@ class CurrencyPlanPrice
     }
 
     /**
+     * The support incident fee charged for each support incident.
+     *
      * @return string
      */
-    public function getSupportIncidentFee()
+    public function getSupportIncidentFee(): ?string
     {
         return $this->supportIncidentFee;
     }
 
     /**
+     * The support incident fee charged for each support incident.
+     *
      * @param string $supportIncidentFee
      *
      * @return self
      */
-    public function setSupportIncidentFee($supportIncidentFee = null)
+    public function setSupportIncidentFee(?string $supportIncidentFee): self
     {
         $this->supportIncidentFee = $supportIncidentFee;
 
@@ -134,19 +154,23 @@ class CurrencyPlanPrice
     }
 
     /**
+     * The support plan fee charged for this plan.
+     *
      * @return string
      */
-    public function getSupportPlanFee()
+    public function getSupportPlanFee(): ?string
     {
         return $this->supportPlanFee;
     }
 
     /**
+     * The support plan fee charged for this plan.
+     *
      * @param string $supportPlanFee
      *
      * @return self
      */
-    public function setSupportPlanFee($supportPlanFee = null)
+    public function setSupportPlanFee(?string $supportPlanFee): self
     {
         $this->supportPlanFee = $supportPlanFee;
 

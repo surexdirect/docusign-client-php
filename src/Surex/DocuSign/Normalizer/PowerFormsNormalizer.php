@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class PowerFormsNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class PowerFormsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\PowerForms' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\PowerForms' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\PowerForms) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\PowerForms;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\PowerForms();
         if (property_exists($data, 'createdDateTime')) {
             $object->setCreatedDateTime($data->{'createdDateTime'});
@@ -45,12 +47,12 @@ class PowerFormsNormalizer extends SerializerAwareNormalizer implements Denormal
         if (property_exists($data, 'envelopes')) {
             $values = [];
             foreach ($data->{'envelopes'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\Envelopes', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\Envelopes', 'json', $context);
             }
             $object->setEnvelopes($values);
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'instructions')) {
             $object->setInstructions($data->{'instructions'});
@@ -85,7 +87,7 @@ class PowerFormsNormalizer extends SerializerAwareNormalizer implements Denormal
         if (property_exists($data, 'recipients')) {
             $values_1 = [];
             foreach ($data->{'recipients'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\PowerFormRecipient', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\PowerFormRecipient', 'json', $context);
             }
             $object->setRecipients($values_1);
         }
@@ -132,12 +134,12 @@ class PowerFormsNormalizer extends SerializerAwareNormalizer implements Denormal
         if (null !== $object->getEnvelopes()) {
             $values = [];
             foreach ($object->getEnvelopes() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'envelopes'} = $values;
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getInstructions()) {
             $data->{'instructions'} = $object->getInstructions();
@@ -172,7 +174,7 @@ class PowerFormsNormalizer extends SerializerAwareNormalizer implements Denormal
         if (null !== $object->getRecipients()) {
             $values_1 = [];
             foreach ($object->getRecipients() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'recipients'} = $values_1;
         }

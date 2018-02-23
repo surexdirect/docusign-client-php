@@ -9,18 +9,26 @@ namespace Surex\DocuSign\Model;
 class BillingPlan
 {
     /**
+     * Reserved: TBD.
+     *
      * @var AppStoreProduct[]
      */
     protected $appStoreProducts;
     /**
+     * Contains the currencyCode and currencySymbol for the alternate currency values for envelopeFee, fixedFee, and seatFee that are configured for this plan feature set.
+     *
      * @var CurrencyPlanPrice[]
      */
     protected $currencyPlanPrices;
     /**
+     * When set to **true**, then customer support is provided as part of the account plan.
+     *
      * @var string
      */
     protected $enableSupport;
     /**
+     * The number of seats (users) included.
+     *
      * @var string
      */
     protected $includedSeats;
@@ -29,6 +37,8 @@ class BillingPlan
      */
     protected $otherDiscountPercent;
     /**
+     *  The payment cycle associated with the plan. The possible values are: Monthly or Annually.
+     *
      * @var string
      */
     protected $paymentCycle;
@@ -37,22 +47,32 @@ class BillingPlan
      */
     protected $paymentMethod;
     /**
+     * The per seat price for the plan.
+     *
      * @var string
      */
     protected $perSeatPrice;
     /**
+     * Identifies the type of plan. Examples include Business, Corporate, Enterprise, Free.
+     *
      * @var string
      */
     protected $planClassification;
     /**
+     * A complex type that sets the feature sets for the account.
+     *
      * @var FeatureSet[]
      */
     protected $planFeatureSets;
     /**
+     * The DocuSign Plan ID for the account.
+     *
      * @var string
      */
     protected $planId;
     /**
+     * The name of the Billing Plan.
+     *
      * @var string
      */
     protected $planName;
@@ -61,28 +81,36 @@ class BillingPlan
      */
     protected $seatDiscounts;
     /**
+     * The support incident fee charged for each support incident.
+     *
      * @var string
      */
     protected $supportIncidentFee;
     /**
+     * The support plan fee charged for this plan.
+     *
      * @var string
      */
     protected $supportPlanFee;
 
     /**
+     * Reserved: TBD.
+     *
      * @return AppStoreProduct[]
      */
-    public function getAppStoreProducts()
+    public function getAppStoreProducts(): ?array
     {
         return $this->appStoreProducts;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param AppStoreProduct[] $appStoreProducts
      *
      * @return self
      */
-    public function setAppStoreProducts(array $appStoreProducts = null)
+    public function setAppStoreProducts(?array $appStoreProducts): self
     {
         $this->appStoreProducts = $appStoreProducts;
 
@@ -90,19 +118,23 @@ class BillingPlan
     }
 
     /**
+     * Contains the currencyCode and currencySymbol for the alternate currency values for envelopeFee, fixedFee, and seatFee that are configured for this plan feature set.
+     *
      * @return CurrencyPlanPrice[]
      */
-    public function getCurrencyPlanPrices()
+    public function getCurrencyPlanPrices(): ?array
     {
         return $this->currencyPlanPrices;
     }
 
     /**
+     * Contains the currencyCode and currencySymbol for the alternate currency values for envelopeFee, fixedFee, and seatFee that are configured for this plan feature set.
+     *
      * @param CurrencyPlanPrice[] $currencyPlanPrices
      *
      * @return self
      */
-    public function setCurrencyPlanPrices(array $currencyPlanPrices = null)
+    public function setCurrencyPlanPrices(?array $currencyPlanPrices): self
     {
         $this->currencyPlanPrices = $currencyPlanPrices;
 
@@ -110,19 +142,23 @@ class BillingPlan
     }
 
     /**
+     * When set to **true**, then customer support is provided as part of the account plan.
+     *
      * @return string
      */
-    public function getEnableSupport()
+    public function getEnableSupport(): ?string
     {
         return $this->enableSupport;
     }
 
     /**
+     * When set to **true**, then customer support is provided as part of the account plan.
+     *
      * @param string $enableSupport
      *
      * @return self
      */
-    public function setEnableSupport($enableSupport = null)
+    public function setEnableSupport(?string $enableSupport): self
     {
         $this->enableSupport = $enableSupport;
 
@@ -130,19 +166,23 @@ class BillingPlan
     }
 
     /**
+     * The number of seats (users) included.
+     *
      * @return string
      */
-    public function getIncludedSeats()
+    public function getIncludedSeats(): ?string
     {
         return $this->includedSeats;
     }
 
     /**
+     * The number of seats (users) included.
+     *
      * @param string $includedSeats
      *
      * @return self
      */
-    public function setIncludedSeats($includedSeats = null)
+    public function setIncludedSeats(?string $includedSeats): self
     {
         $this->includedSeats = $includedSeats;
 
@@ -152,7 +192,7 @@ class BillingPlan
     /**
      * @return string
      */
-    public function getOtherDiscountPercent()
+    public function getOtherDiscountPercent(): ?string
     {
         return $this->otherDiscountPercent;
     }
@@ -162,7 +202,7 @@ class BillingPlan
      *
      * @return self
      */
-    public function setOtherDiscountPercent($otherDiscountPercent = null)
+    public function setOtherDiscountPercent(?string $otherDiscountPercent): self
     {
         $this->otherDiscountPercent = $otherDiscountPercent;
 
@@ -170,19 +210,23 @@ class BillingPlan
     }
 
     /**
+     *  The payment cycle associated with the plan. The possible values are: Monthly or Annually.
+     *
      * @return string
      */
-    public function getPaymentCycle()
+    public function getPaymentCycle(): ?string
     {
         return $this->paymentCycle;
     }
 
     /**
+     *  The payment cycle associated with the plan. The possible values are: Monthly or Annually.
+     *
      * @param string $paymentCycle
      *
      * @return self
      */
-    public function setPaymentCycle($paymentCycle = null)
+    public function setPaymentCycle(?string $paymentCycle): self
     {
         $this->paymentCycle = $paymentCycle;
 
@@ -192,7 +236,7 @@ class BillingPlan
     /**
      * @return string
      */
-    public function getPaymentMethod()
+    public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
     }
@@ -202,7 +246,7 @@ class BillingPlan
      *
      * @return self
      */
-    public function setPaymentMethod($paymentMethod = null)
+    public function setPaymentMethod(?string $paymentMethod): self
     {
         $this->paymentMethod = $paymentMethod;
 
@@ -210,19 +254,23 @@ class BillingPlan
     }
 
     /**
+     * The per seat price for the plan.
+     *
      * @return string
      */
-    public function getPerSeatPrice()
+    public function getPerSeatPrice(): ?string
     {
         return $this->perSeatPrice;
     }
 
     /**
+     * The per seat price for the plan.
+     *
      * @param string $perSeatPrice
      *
      * @return self
      */
-    public function setPerSeatPrice($perSeatPrice = null)
+    public function setPerSeatPrice(?string $perSeatPrice): self
     {
         $this->perSeatPrice = $perSeatPrice;
 
@@ -230,19 +278,23 @@ class BillingPlan
     }
 
     /**
+     * Identifies the type of plan. Examples include Business, Corporate, Enterprise, Free.
+     *
      * @return string
      */
-    public function getPlanClassification()
+    public function getPlanClassification(): ?string
     {
         return $this->planClassification;
     }
 
     /**
+     * Identifies the type of plan. Examples include Business, Corporate, Enterprise, Free.
+     *
      * @param string $planClassification
      *
      * @return self
      */
-    public function setPlanClassification($planClassification = null)
+    public function setPlanClassification(?string $planClassification): self
     {
         $this->planClassification = $planClassification;
 
@@ -250,19 +302,23 @@ class BillingPlan
     }
 
     /**
+     * A complex type that sets the feature sets for the account.
+     *
      * @return FeatureSet[]
      */
-    public function getPlanFeatureSets()
+    public function getPlanFeatureSets(): ?array
     {
         return $this->planFeatureSets;
     }
 
     /**
+     * A complex type that sets the feature sets for the account.
+     *
      * @param FeatureSet[] $planFeatureSets
      *
      * @return self
      */
-    public function setPlanFeatureSets(array $planFeatureSets = null)
+    public function setPlanFeatureSets(?array $planFeatureSets): self
     {
         $this->planFeatureSets = $planFeatureSets;
 
@@ -270,19 +326,23 @@ class BillingPlan
     }
 
     /**
+     * The DocuSign Plan ID for the account.
+     *
      * @return string
      */
-    public function getPlanId()
+    public function getPlanId(): ?string
     {
         return $this->planId;
     }
 
     /**
+     * The DocuSign Plan ID for the account.
+     *
      * @param string $planId
      *
      * @return self
      */
-    public function setPlanId($planId = null)
+    public function setPlanId(?string $planId): self
     {
         $this->planId = $planId;
 
@@ -290,19 +350,23 @@ class BillingPlan
     }
 
     /**
+     * The name of the Billing Plan.
+     *
      * @return string
      */
-    public function getPlanName()
+    public function getPlanName(): ?string
     {
         return $this->planName;
     }
 
     /**
+     * The name of the Billing Plan.
+     *
      * @param string $planName
      *
      * @return self
      */
-    public function setPlanName($planName = null)
+    public function setPlanName(?string $planName): self
     {
         $this->planName = $planName;
 
@@ -312,7 +376,7 @@ class BillingPlan
     /**
      * @return SeatDiscount[]
      */
-    public function getSeatDiscounts()
+    public function getSeatDiscounts(): ?array
     {
         return $this->seatDiscounts;
     }
@@ -322,7 +386,7 @@ class BillingPlan
      *
      * @return self
      */
-    public function setSeatDiscounts(array $seatDiscounts = null)
+    public function setSeatDiscounts(?array $seatDiscounts): self
     {
         $this->seatDiscounts = $seatDiscounts;
 
@@ -330,19 +394,23 @@ class BillingPlan
     }
 
     /**
+     * The support incident fee charged for each support incident.
+     *
      * @return string
      */
-    public function getSupportIncidentFee()
+    public function getSupportIncidentFee(): ?string
     {
         return $this->supportIncidentFee;
     }
 
     /**
+     * The support incident fee charged for each support incident.
+     *
      * @param string $supportIncidentFee
      *
      * @return self
      */
-    public function setSupportIncidentFee($supportIncidentFee = null)
+    public function setSupportIncidentFee(?string $supportIncidentFee): self
     {
         $this->supportIncidentFee = $supportIncidentFee;
 
@@ -350,19 +418,23 @@ class BillingPlan
     }
 
     /**
+     * The support plan fee charged for this plan.
+     *
      * @return string
      */
-    public function getSupportPlanFee()
+    public function getSupportPlanFee(): ?string
     {
         return $this->supportPlanFee;
     }
 
     /**
+     * The support plan fee charged for this plan.
+     *
      * @param string $supportPlanFee
      *
      * @return self
      */
-    public function setSupportPlanFee($supportPlanFee = null)
+    public function setSupportPlanFee(?string $supportPlanFee): self
     {
         $this->supportPlanFee = $supportPlanFee;
 

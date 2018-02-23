@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class Filter
 {
     /**
+     * Access token information.
+     *
      * @var string
      */
     protected $actionRequired;
@@ -29,6 +31,13 @@ class Filter
      */
     protected $isTemplate;
     /**
+     * An optional value that sets the direction order used to sort the item list.
+
+     Valid values are:
+
+     * asc = ascending sort order
+     * desc = descending sort order
+     *
      * @var string
      */
     protected $order;
@@ -45,28 +54,39 @@ class Filter
      */
     protected $searchText;
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @var string
      */
     protected $status;
     /**
+     * Must be set to "bearer".
+     *
      * @var string
      */
     protected $toDateTime;
 
     /**
+     * Access token information.
+     *
      * @return string
      */
-    public function getActionRequired()
+    public function getActionRequired(): ?string
     {
         return $this->actionRequired;
     }
 
     /**
+     * Access token information.
+     *
      * @param string $actionRequired
      *
      * @return self
      */
-    public function setActionRequired($actionRequired = null)
+    public function setActionRequired(?string $actionRequired): self
     {
         $this->actionRequired = $actionRequired;
 
@@ -76,7 +96,7 @@ class Filter
     /**
      * @return string
      */
-    public function getExpires()
+    public function getExpires(): ?string
     {
         return $this->expires;
     }
@@ -86,7 +106,7 @@ class Filter
      *
      * @return self
      */
-    public function setExpires($expires = null)
+    public function setExpires(?string $expires): self
     {
         $this->expires = $expires;
 
@@ -96,7 +116,7 @@ class Filter
     /**
      * @return string
      */
-    public function getFolderIds()
+    public function getFolderIds(): ?string
     {
         return $this->folderIds;
     }
@@ -106,7 +126,7 @@ class Filter
      *
      * @return self
      */
-    public function setFolderIds($folderIds = null)
+    public function setFolderIds(?string $folderIds): self
     {
         $this->folderIds = $folderIds;
 
@@ -116,7 +136,7 @@ class Filter
     /**
      * @return string
      */
-    public function getFromDateTime()
+    public function getFromDateTime(): ?string
     {
         return $this->fromDateTime;
     }
@@ -126,7 +146,7 @@ class Filter
      *
      * @return self
      */
-    public function setFromDateTime($fromDateTime = null)
+    public function setFromDateTime(?string $fromDateTime): self
     {
         $this->fromDateTime = $fromDateTime;
 
@@ -136,7 +156,7 @@ class Filter
     /**
      * @return string
      */
-    public function getIsTemplate()
+    public function getIsTemplate(): ?string
     {
         return $this->isTemplate;
     }
@@ -146,7 +166,7 @@ class Filter
      *
      * @return self
      */
-    public function setIsTemplate($isTemplate = null)
+    public function setIsTemplate(?string $isTemplate): self
     {
         $this->isTemplate = $isTemplate;
 
@@ -154,19 +174,33 @@ class Filter
     }
 
     /**
+     * An optional value that sets the direction order used to sort the item list.
+
+     Valid values are:
+
+     * asc = ascending sort order
+     * desc = descending sort order
+     *
      * @return string
      */
-    public function getOrder()
+    public function getOrder(): ?string
     {
         return $this->order;
     }
 
     /**
+     * An optional value that sets the direction order used to sort the item list.
+
+     Valid values are:
+
+     * asc = ascending sort order
+     * desc = descending sort order
+     *
      * @param string $order
      *
      * @return self
      */
-    public function setOrder($order = null)
+    public function setOrder(?string $order): self
     {
         $this->order = $order;
 
@@ -176,7 +210,7 @@ class Filter
     /**
      * @return string
      */
-    public function getOrderBy()
+    public function getOrderBy(): ?string
     {
         return $this->orderBy;
     }
@@ -186,7 +220,7 @@ class Filter
      *
      * @return self
      */
-    public function setOrderBy($orderBy = null)
+    public function setOrderBy(?string $orderBy): self
     {
         $this->orderBy = $orderBy;
 
@@ -196,7 +230,7 @@ class Filter
     /**
      * @return string
      */
-    public function getSearchTarget()
+    public function getSearchTarget(): ?string
     {
         return $this->searchTarget;
     }
@@ -206,7 +240,7 @@ class Filter
      *
      * @return self
      */
-    public function setSearchTarget($searchTarget = null)
+    public function setSearchTarget(?string $searchTarget): self
     {
         $this->searchTarget = $searchTarget;
 
@@ -216,7 +250,7 @@ class Filter
     /**
      * @return string
      */
-    public function getSearchText()
+    public function getSearchText(): ?string
     {
         return $this->searchText;
     }
@@ -226,7 +260,7 @@ class Filter
      *
      * @return self
      */
-    public function setSearchText($searchText = null)
+    public function setSearchText(?string $searchText): self
     {
         $this->searchText = $searchText;
 
@@ -234,19 +268,29 @@ class Filter
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @param string $status
      *
      * @return self
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 
@@ -254,19 +298,23 @@ class Filter
     }
 
     /**
+     * Must be set to "bearer".
+     *
      * @return string
      */
-    public function getToDateTime()
+    public function getToDateTime(): ?string
     {
         return $this->toDateTime;
     }
 
     /**
+     * Must be set to "bearer".
+     *
      * @param string $toDateTime
      *
      * @return self
      */
-    public function setToDateTime($toDateTime = null)
+    public function setToDateTime(?string $toDateTime): self
     {
         $this->toDateTime = $toDateTime;
 

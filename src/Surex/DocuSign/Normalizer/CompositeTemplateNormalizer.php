@@ -6,43 +6,45 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class CompositeTemplateNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class CompositeTemplateNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\CompositeTemplate' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\CompositeTemplate' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\CompositeTemplate) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\CompositeTemplate;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\CompositeTemplate();
         if (property_exists($data, 'compositeTemplateId')) {
             $object->setCompositeTemplateId($data->{'compositeTemplateId'});
         }
         if (property_exists($data, 'document')) {
-            $object->setDocument($this->serializer->deserialize($data->{'document'}, 'Surex\\DocuSign\\Model\\Document', 'raw', $context));
+            $object->setDocument($this->denormalizer->denormalize($data->{'document'}, 'Surex\\DocuSign\\Model\\Document', 'json', $context));
         }
         if (property_exists($data, 'inlineTemplates')) {
             $values = [];
             foreach ($data->{'inlineTemplates'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\InlineTemplate', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\InlineTemplate', 'json', $context);
             }
             $object->setInlineTemplates($values);
         }
@@ -52,7 +54,7 @@ class CompositeTemplateNormalizer extends SerializerAwareNormalizer implements D
         if (property_exists($data, 'serverTemplates')) {
             $values_1 = [];
             foreach ($data->{'serverTemplates'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\ServerTemplate', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\ServerTemplate', 'json', $context);
             }
             $object->setServerTemplates($values_1);
         }
@@ -67,12 +69,12 @@ class CompositeTemplateNormalizer extends SerializerAwareNormalizer implements D
             $data->{'compositeTemplateId'} = $object->getCompositeTemplateId();
         }
         if (null !== $object->getDocument()) {
-            $data->{'document'} = $this->serializer->serialize($object->getDocument(), 'raw', $context);
+            $data->{'document'} = $this->normalizer->normalize($object->getDocument(), 'json', $context);
         }
         if (null !== $object->getInlineTemplates()) {
             $values = [];
             foreach ($object->getInlineTemplates() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'inlineTemplates'} = $values;
         }
@@ -82,7 +84,7 @@ class CompositeTemplateNormalizer extends SerializerAwareNormalizer implements D
         if (null !== $object->getServerTemplates()) {
             $values_1 = [];
             foreach ($object->getServerTemplates() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'serverTemplates'} = $values_1;
         }

@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class Payments
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $amount;
     /**
+     * A sender-defined description of the line item.
+     *
      * @var string
      */
     protected $description;
@@ -25,24 +29,32 @@ class Payments
      */
     protected $paymentId;
     /**
+     * When set to **true**, a PDF version of the invoice is available.
+
+     To get the PDF, make the call again and change "Accept:" in the header to "Accept: application/pdf".
+     *
      * @var string
      */
     protected $paymentNumber;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getAmount()
+    public function getAmount(): ?string
     {
         return $this->amount;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $amount
      *
      * @return self
      */
-    public function setAmount($amount = null)
+    public function setAmount(?string $amount): self
     {
         $this->amount = $amount;
 
@@ -50,19 +62,23 @@ class Payments
     }
 
     /**
+     * A sender-defined description of the line item.
+     *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
+     * A sender-defined description of the line item.
+     *
      * @param string $description
      *
      * @return self
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -72,7 +88,7 @@ class Payments
     /**
      * @return string
      */
-    public function getPaymentDate()
+    public function getPaymentDate(): ?string
     {
         return $this->paymentDate;
     }
@@ -82,7 +98,7 @@ class Payments
      *
      * @return self
      */
-    public function setPaymentDate($paymentDate = null)
+    public function setPaymentDate(?string $paymentDate): self
     {
         $this->paymentDate = $paymentDate;
 
@@ -92,7 +108,7 @@ class Payments
     /**
      * @return string
      */
-    public function getPaymentId()
+    public function getPaymentId(): ?string
     {
         return $this->paymentId;
     }
@@ -102,7 +118,7 @@ class Payments
      *
      * @return self
      */
-    public function setPaymentId($paymentId = null)
+    public function setPaymentId(?string $paymentId): self
     {
         $this->paymentId = $paymentId;
 
@@ -110,19 +126,27 @@ class Payments
     }
 
     /**
+     * When set to **true**, a PDF version of the invoice is available.
+
+     To get the PDF, make the call again and change "Accept:" in the header to "Accept: application/pdf".
+     *
      * @return string
      */
-    public function getPaymentNumber()
+    public function getPaymentNumber(): ?string
     {
         return $this->paymentNumber;
     }
 
     /**
+     * When set to **true**, a PDF version of the invoice is available.
+
+     To get the PDF, make the call again and change "Accept:" in the header to "Accept: application/pdf".
+     *
      * @param string $paymentNumber
      *
      * @return self
      */
-    public function setPaymentNumber($paymentNumber = null)
+    public function setPaymentNumber(?string $paymentNumber): self
     {
         $this->paymentNumber = $paymentNumber;
 

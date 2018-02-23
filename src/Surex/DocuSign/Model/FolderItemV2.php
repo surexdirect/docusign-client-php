@@ -9,26 +9,38 @@ namespace Surex\DocuSign\Model;
 class FolderItemV2
 {
     /**
+     * Specifies the date and time this item was completed.
+     *
      * @var string
      */
     protected $completedDateTime;
     /**
+     * Indicates the date and time the item was created.
+     *
      * @var string
      */
     protected $createdDateTime;
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @var string
      */
     protected $envelopeId;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @var string
      */
     protected $envelopeUri;
     /**
+     * The date and time the envelope is set to expire.
+     *
      * @var string
      */
     protected $expireDateTime;
     /**
+     * The ID of the folder being accessed.
+     *
      * @var string
      */
     protected $folderId;
@@ -37,6 +49,8 @@ class FolderItemV2
      */
     protected $folderUri;
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @var string
      */
     protected $is21CFRPart11;
@@ -45,6 +59,8 @@ class FolderItemV2
      */
     protected $isSignatureProviderEnvelope;
     /**
+     * The date and time the item was last modified.
+     *
      * @var string
      */
     protected $lastModifiedDateTime;
@@ -53,10 +69,14 @@ class FolderItemV2
      */
     protected $ownerName;
     /**
+     * Envelope recipients.
+     *
      * @var EnvelopeRecipients
      */
     protected $recipients;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the recipients.
+     *
      * @var string
      */
     protected $recipientsUri;
@@ -77,10 +97,17 @@ class FolderItemV2
      */
     protected $senderUserId;
     /**
+     * The date and time the envelope was sent.
+     *
      * @var string
      */
     protected $sentDateTime;
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @var string
      */
     protected $status;
@@ -90,19 +117,23 @@ class FolderItemV2
     protected $subject;
 
     /**
+     * Specifies the date and time this item was completed.
+     *
      * @return string
      */
-    public function getCompletedDateTime()
+    public function getCompletedDateTime(): ?string
     {
         return $this->completedDateTime;
     }
 
     /**
+     * Specifies the date and time this item was completed.
+     *
      * @param string $completedDateTime
      *
      * @return self
      */
-    public function setCompletedDateTime($completedDateTime = null)
+    public function setCompletedDateTime(?string $completedDateTime): self
     {
         $this->completedDateTime = $completedDateTime;
 
@@ -110,19 +141,23 @@ class FolderItemV2
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @return string
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): ?string
     {
         return $this->createdDateTime;
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @param string $createdDateTime
      *
      * @return self
      */
-    public function setCreatedDateTime($createdDateTime = null)
+    public function setCreatedDateTime(?string $createdDateTime): self
     {
         $this->createdDateTime = $createdDateTime;
 
@@ -130,19 +165,23 @@ class FolderItemV2
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @return string
      */
-    public function getEnvelopeId()
+    public function getEnvelopeId(): ?string
     {
         return $this->envelopeId;
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @param string $envelopeId
      *
      * @return self
      */
-    public function setEnvelopeId($envelopeId = null)
+    public function setEnvelopeId(?string $envelopeId): self
     {
         $this->envelopeId = $envelopeId;
 
@@ -150,19 +189,23 @@ class FolderItemV2
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @return string
      */
-    public function getEnvelopeUri()
+    public function getEnvelopeUri(): ?string
     {
         return $this->envelopeUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @param string $envelopeUri
      *
      * @return self
      */
-    public function setEnvelopeUri($envelopeUri = null)
+    public function setEnvelopeUri(?string $envelopeUri): self
     {
         $this->envelopeUri = $envelopeUri;
 
@@ -170,19 +213,23 @@ class FolderItemV2
     }
 
     /**
+     * The date and time the envelope is set to expire.
+     *
      * @return string
      */
-    public function getExpireDateTime()
+    public function getExpireDateTime(): ?string
     {
         return $this->expireDateTime;
     }
 
     /**
+     * The date and time the envelope is set to expire.
+     *
      * @param string $expireDateTime
      *
      * @return self
      */
-    public function setExpireDateTime($expireDateTime = null)
+    public function setExpireDateTime(?string $expireDateTime): self
     {
         $this->expireDateTime = $expireDateTime;
 
@@ -190,19 +237,23 @@ class FolderItemV2
     }
 
     /**
+     * The ID of the folder being accessed.
+     *
      * @return string
      */
-    public function getFolderId()
+    public function getFolderId(): ?string
     {
         return $this->folderId;
     }
 
     /**
+     * The ID of the folder being accessed.
+     *
      * @param string $folderId
      *
      * @return self
      */
-    public function setFolderId($folderId = null)
+    public function setFolderId(?string $folderId): self
     {
         $this->folderId = $folderId;
 
@@ -212,7 +263,7 @@ class FolderItemV2
     /**
      * @return string
      */
-    public function getFolderUri()
+    public function getFolderUri(): ?string
     {
         return $this->folderUri;
     }
@@ -222,7 +273,7 @@ class FolderItemV2
      *
      * @return self
      */
-    public function setFolderUri($folderUri = null)
+    public function setFolderUri(?string $folderUri): self
     {
         $this->folderUri = $folderUri;
 
@@ -230,19 +281,23 @@ class FolderItemV2
     }
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @return string
      */
-    public function getIs21CFRPart11()
+    public function getIs21CFRPart11(): ?string
     {
         return $this->is21CFRPart11;
     }
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @param string $is21CFRPart11
      *
      * @return self
      */
-    public function setIs21CFRPart11($is21CFRPart11 = null)
+    public function setIs21CFRPart11(?string $is21CFRPart11): self
     {
         $this->is21CFRPart11 = $is21CFRPart11;
 
@@ -252,7 +307,7 @@ class FolderItemV2
     /**
      * @return string
      */
-    public function getIsSignatureProviderEnvelope()
+    public function getIsSignatureProviderEnvelope(): ?string
     {
         return $this->isSignatureProviderEnvelope;
     }
@@ -262,7 +317,7 @@ class FolderItemV2
      *
      * @return self
      */
-    public function setIsSignatureProviderEnvelope($isSignatureProviderEnvelope = null)
+    public function setIsSignatureProviderEnvelope(?string $isSignatureProviderEnvelope): self
     {
         $this->isSignatureProviderEnvelope = $isSignatureProviderEnvelope;
 
@@ -270,19 +325,23 @@ class FolderItemV2
     }
 
     /**
+     * The date and time the item was last modified.
+     *
      * @return string
      */
-    public function getLastModifiedDateTime()
+    public function getLastModifiedDateTime(): ?string
     {
         return $this->lastModifiedDateTime;
     }
 
     /**
+     * The date and time the item was last modified.
+     *
      * @param string $lastModifiedDateTime
      *
      * @return self
      */
-    public function setLastModifiedDateTime($lastModifiedDateTime = null)
+    public function setLastModifiedDateTime(?string $lastModifiedDateTime): self
     {
         $this->lastModifiedDateTime = $lastModifiedDateTime;
 
@@ -292,7 +351,7 @@ class FolderItemV2
     /**
      * @return string
      */
-    public function getOwnerName()
+    public function getOwnerName(): ?string
     {
         return $this->ownerName;
     }
@@ -302,7 +361,7 @@ class FolderItemV2
      *
      * @return self
      */
-    public function setOwnerName($ownerName = null)
+    public function setOwnerName(?string $ownerName): self
     {
         $this->ownerName = $ownerName;
 
@@ -310,19 +369,23 @@ class FolderItemV2
     }
 
     /**
+     * Envelope recipients.
+     *
      * @return EnvelopeRecipients
      */
-    public function getRecipients()
+    public function getRecipients(): ?EnvelopeRecipients
     {
         return $this->recipients;
     }
 
     /**
+     * Envelope recipients.
+     *
      * @param EnvelopeRecipients $recipients
      *
      * @return self
      */
-    public function setRecipients(EnvelopeRecipients $recipients = null)
+    public function setRecipients(?EnvelopeRecipients $recipients): self
     {
         $this->recipients = $recipients;
 
@@ -330,19 +393,23 @@ class FolderItemV2
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the recipients.
+     *
      * @return string
      */
-    public function getRecipientsUri()
+    public function getRecipientsUri(): ?string
     {
         return $this->recipientsUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the recipients.
+     *
      * @param string $recipientsUri
      *
      * @return self
      */
-    public function setRecipientsUri($recipientsUri = null)
+    public function setRecipientsUri(?string $recipientsUri): self
     {
         $this->recipientsUri = $recipientsUri;
 
@@ -352,7 +419,7 @@ class FolderItemV2
     /**
      * @return string
      */
-    public function getSenderCompany()
+    public function getSenderCompany(): ?string
     {
         return $this->senderCompany;
     }
@@ -362,7 +429,7 @@ class FolderItemV2
      *
      * @return self
      */
-    public function setSenderCompany($senderCompany = null)
+    public function setSenderCompany(?string $senderCompany): self
     {
         $this->senderCompany = $senderCompany;
 
@@ -372,7 +439,7 @@ class FolderItemV2
     /**
      * @return string
      */
-    public function getSenderEmail()
+    public function getSenderEmail(): ?string
     {
         return $this->senderEmail;
     }
@@ -382,7 +449,7 @@ class FolderItemV2
      *
      * @return self
      */
-    public function setSenderEmail($senderEmail = null)
+    public function setSenderEmail(?string $senderEmail): self
     {
         $this->senderEmail = $senderEmail;
 
@@ -392,7 +459,7 @@ class FolderItemV2
     /**
      * @return string
      */
-    public function getSenderName()
+    public function getSenderName(): ?string
     {
         return $this->senderName;
     }
@@ -402,7 +469,7 @@ class FolderItemV2
      *
      * @return self
      */
-    public function setSenderName($senderName = null)
+    public function setSenderName(?string $senderName): self
     {
         $this->senderName = $senderName;
 
@@ -412,7 +479,7 @@ class FolderItemV2
     /**
      * @return string
      */
-    public function getSenderUserId()
+    public function getSenderUserId(): ?string
     {
         return $this->senderUserId;
     }
@@ -422,7 +489,7 @@ class FolderItemV2
      *
      * @return self
      */
-    public function setSenderUserId($senderUserId = null)
+    public function setSenderUserId(?string $senderUserId): self
     {
         $this->senderUserId = $senderUserId;
 
@@ -430,19 +497,23 @@ class FolderItemV2
     }
 
     /**
+     * The date and time the envelope was sent.
+     *
      * @return string
      */
-    public function getSentDateTime()
+    public function getSentDateTime(): ?string
     {
         return $this->sentDateTime;
     }
 
     /**
+     * The date and time the envelope was sent.
+     *
      * @param string $sentDateTime
      *
      * @return self
      */
-    public function setSentDateTime($sentDateTime = null)
+    public function setSentDateTime(?string $sentDateTime): self
     {
         $this->sentDateTime = $sentDateTime;
 
@@ -450,19 +521,29 @@ class FolderItemV2
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @param string $status
      *
      * @return self
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 
@@ -472,7 +553,7 @@ class FolderItemV2
     /**
      * @return string
      */
-    public function getSubject()
+    public function getSubject(): ?string
     {
         return $this->subject;
     }
@@ -482,7 +563,7 @@ class FolderItemV2
      *
      * @return self
      */
-    public function setSubject($subject = null)
+    public function setSubject(?string $subject): self
     {
         $this->subject = $subject;
 

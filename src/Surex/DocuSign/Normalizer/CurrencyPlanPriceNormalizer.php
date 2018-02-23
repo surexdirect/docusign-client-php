@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class CurrencyPlanPriceNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class CurrencyPlanPriceNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\CurrencyPlanPrice' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\CurrencyPlanPrice' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\CurrencyPlanPrice) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\CurrencyPlanPrice;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\CurrencyPlanPrice();
         if (property_exists($data, 'currencyCode')) {
             $object->setCurrencyCode($data->{'currencyCode'});
@@ -43,7 +45,7 @@ class CurrencyPlanPriceNormalizer extends SerializerAwareNormalizer implements D
             $object->setPerSeatPrice($data->{'perSeatPrice'});
         }
         if (property_exists($data, 'supportedCardTypes')) {
-            $object->setSupportedCardTypes($this->serializer->deserialize($data->{'supportedCardTypes'}, 'Surex\\DocuSign\\Model\\CreditCardTypes', 'raw', $context));
+            $object->setSupportedCardTypes($this->denormalizer->denormalize($data->{'supportedCardTypes'}, 'Surex\\DocuSign\\Model\\CreditCardTypes', 'json', $context));
         }
         if (property_exists($data, 'supportIncidentFee')) {
             $object->setSupportIncidentFee($data->{'supportIncidentFee'});
@@ -68,7 +70,7 @@ class CurrencyPlanPriceNormalizer extends SerializerAwareNormalizer implements D
             $data->{'perSeatPrice'} = $object->getPerSeatPrice();
         }
         if (null !== $object->getSupportedCardTypes()) {
-            $data->{'supportedCardTypes'} = $this->serializer->serialize($object->getSupportedCardTypes(), 'raw', $context);
+            $data->{'supportedCardTypes'} = $this->normalizer->normalize($object->getSupportedCardTypes(), 'json', $context);
         }
         if (null !== $object->getSupportIncidentFee()) {
             $data->{'supportIncidentFee'} = $object->getSupportIncidentFee();

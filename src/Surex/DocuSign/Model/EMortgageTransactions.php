@@ -28,7 +28,7 @@ class EMortgageTransactions
     /**
      * @return string
      */
-    public function getDocumentData()
+    public function getDocumentData(): ?string
     {
         return $this->documentData;
     }
@@ -38,7 +38,7 @@ class EMortgageTransactions
      *
      * @return self
      */
-    public function setDocumentData($documentData = null)
+    public function setDocumentData(?string $documentData): self
     {
         $this->documentData = $documentData;
 
@@ -48,7 +48,7 @@ class EMortgageTransactions
     /**
      * @return string
      */
-    public function getDptName()
+    public function getDptName(): ?string
     {
         return $this->dptName;
     }
@@ -58,7 +58,7 @@ class EMortgageTransactions
      *
      * @return self
      */
-    public function setDptName($dptName = null)
+    public function setDptName(?string $dptName): self
     {
         $this->dptName = $dptName;
 
@@ -68,7 +68,7 @@ class EMortgageTransactions
     /**
      * @return string
      */
-    public function getTransactionName()
+    public function getTransactionName(): ?string
     {
         return $this->transactionName;
     }
@@ -78,7 +78,7 @@ class EMortgageTransactions
      *
      * @return self
      */
-    public function setTransactionName($transactionName = null)
+    public function setTransactionName(?string $transactionName): self
     {
         $this->transactionName = $transactionName;
 
@@ -88,7 +88,7 @@ class EMortgageTransactions
     /**
      * @return string
      */
-    public function getTransactionTypeName()
+    public function getTransactionTypeName(): ?string
     {
         return $this->transactionTypeName;
     }
@@ -98,7 +98,7 @@ class EMortgageTransactions
      *
      * @return self
      */
-    public function setTransactionTypeName($transactionTypeName = null)
+    public function setTransactionTypeName(?string $transactionTypeName): self
     {
         $this->transactionTypeName = $transactionTypeName;
 

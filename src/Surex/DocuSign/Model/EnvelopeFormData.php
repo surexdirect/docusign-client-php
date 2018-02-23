@@ -9,10 +9,16 @@ namespace Surex\DocuSign\Model;
 class EnvelopeFormData
 {
     /**
+     * Specifies the subject of the email that is sent to all recipients.
+
+     See [ML:Template Email Subject Merge Fields] for information about adding merge field information to the email subject.
+     *
      * @var string
      */
     protected $emailSubject;
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @var string
      */
     protected $envelopeId;
@@ -25,28 +31,43 @@ class EnvelopeFormData
      */
     protected $recipientFormData;
     /**
+     * The date and time the envelope was sent.
+     *
      * @var string
      */
     protected $sentDateTime;
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @var string
      */
     protected $status;
 
     /**
+     * Specifies the subject of the email that is sent to all recipients.
+
+     See [ML:Template Email Subject Merge Fields] for information about adding merge field information to the email subject.
+     *
      * @return string
      */
-    public function getEmailSubject()
+    public function getEmailSubject(): ?string
     {
         return $this->emailSubject;
     }
 
     /**
+     * Specifies the subject of the email that is sent to all recipients.
+
+     See [ML:Template Email Subject Merge Fields] for information about adding merge field information to the email subject.
+     *
      * @param string $emailSubject
      *
      * @return self
      */
-    public function setEmailSubject($emailSubject = null)
+    public function setEmailSubject(?string $emailSubject): self
     {
         $this->emailSubject = $emailSubject;
 
@@ -54,19 +75,23 @@ class EnvelopeFormData
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @return string
      */
-    public function getEnvelopeId()
+    public function getEnvelopeId(): ?string
     {
         return $this->envelopeId;
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @param string $envelopeId
      *
      * @return self
      */
-    public function setEnvelopeId($envelopeId = null)
+    public function setEnvelopeId(?string $envelopeId): self
     {
         $this->envelopeId = $envelopeId;
 
@@ -76,7 +101,7 @@ class EnvelopeFormData
     /**
      * @return NameValue[]
      */
-    public function getFormData()
+    public function getFormData(): ?array
     {
         return $this->formData;
     }
@@ -86,7 +111,7 @@ class EnvelopeFormData
      *
      * @return self
      */
-    public function setFormData(array $formData = null)
+    public function setFormData(?array $formData): self
     {
         $this->formData = $formData;
 
@@ -96,7 +121,7 @@ class EnvelopeFormData
     /**
      * @return RecipientFormData[]
      */
-    public function getRecipientFormData()
+    public function getRecipientFormData(): ?array
     {
         return $this->recipientFormData;
     }
@@ -106,7 +131,7 @@ class EnvelopeFormData
      *
      * @return self
      */
-    public function setRecipientFormData(array $recipientFormData = null)
+    public function setRecipientFormData(?array $recipientFormData): self
     {
         $this->recipientFormData = $recipientFormData;
 
@@ -114,19 +139,23 @@ class EnvelopeFormData
     }
 
     /**
+     * The date and time the envelope was sent.
+     *
      * @return string
      */
-    public function getSentDateTime()
+    public function getSentDateTime(): ?string
     {
         return $this->sentDateTime;
     }
 
     /**
+     * The date and time the envelope was sent.
+     *
      * @param string $sentDateTime
      *
      * @return self
      */
-    public function setSentDateTime($sentDateTime = null)
+    public function setSentDateTime(?string $sentDateTime): self
     {
         $this->sentDateTime = $sentDateTime;
 
@@ -134,19 +163,29 @@ class EnvelopeFormData
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @param string $status
      *
      * @return self
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 

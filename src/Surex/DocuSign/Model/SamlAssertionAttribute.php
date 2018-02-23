@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class SamlAssertionAttribute
 {
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -17,28 +19,36 @@ class SamlAssertionAttribute
      */
     protected $name;
     /**
+     * The initial value of the tab when it was sent to the recipient.
+     *
      * @var string
      */
     protected $originalValue;
     /**
+     * The value associated with the named SAML assertion attribute.
+     *
      * @var string
      */
     protected $value;
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -48,7 +58,7 @@ class SamlAssertionAttribute
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -58,7 +68,7 @@ class SamlAssertionAttribute
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -66,19 +76,23 @@ class SamlAssertionAttribute
     }
 
     /**
+     * The initial value of the tab when it was sent to the recipient.
+     *
      * @return string
      */
-    public function getOriginalValue()
+    public function getOriginalValue(): ?string
     {
         return $this->originalValue;
     }
 
     /**
+     * The initial value of the tab when it was sent to the recipient.
+     *
      * @param string $originalValue
      *
      * @return self
      */
-    public function setOriginalValue($originalValue = null)
+    public function setOriginalValue(?string $originalValue): self
     {
         $this->originalValue = $originalValue;
 
@@ -86,19 +100,23 @@ class SamlAssertionAttribute
     }
 
     /**
+     * The value associated with the named SAML assertion attribute.
+     *
      * @return string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
 
     /**
+     * The value associated with the named SAML assertion attribute.
+     *
      * @param string $value
      *
      * @return self
      */
-    public function setValue($value = null)
+    public function setValue(?string $value): self
     {
         $this->value = $value;
 

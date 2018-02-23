@@ -6,35 +6,37 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class BulkRecipientsUpdateResponseNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class BulkRecipientsUpdateResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\BulkRecipientsUpdateResponse' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\BulkRecipientsUpdateResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\BulkRecipientsUpdateResponse) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\BulkRecipientsUpdateResponse;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\BulkRecipientsUpdateResponse();
         if (property_exists($data, 'signer')) {
-            $object->setSigner($this->serializer->deserialize($data->{'signer'}, 'Surex\\DocuSign\\Model\\Signer', 'raw', $context));
+            $object->setSigner($this->denormalizer->denormalize($data->{'signer'}, 'Surex\\DocuSign\\Model\\Signer', 'json', $context));
         }
 
         return $object;
@@ -44,7 +46,7 @@ class BulkRecipientsUpdateResponseNormalizer extends SerializerAwareNormalizer i
     {
         $data = new \stdClass();
         if (null !== $object->getSigner()) {
-            $data->{'signer'} = $this->serializer->serialize($object->getSigner(), 'raw', $context);
+            $data->{'signer'} = $this->normalizer->normalize($object->getSigner(), 'json', $context);
         }
 
         return $data;

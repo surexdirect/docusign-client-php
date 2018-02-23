@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class PaymentDetailsNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class PaymentDetailsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\PaymentDetails' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\PaymentDetails' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\PaymentDetails) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\PaymentDetails;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\PaymentDetails();
         if (property_exists($data, 'chargeId')) {
             $object->setChargeId($data->{'chargeId'});
@@ -48,7 +50,7 @@ class PaymentDetailsNormalizer extends SerializerAwareNormalizer implements Deno
         if (property_exists($data, 'lineItems')) {
             $values = [];
             foreach ($data->{'lineItems'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\PaymentLineItem', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\PaymentLineItem', 'json', $context);
             }
             $object->setLineItems($values);
         }
@@ -56,7 +58,7 @@ class PaymentDetailsNormalizer extends SerializerAwareNormalizer implements Deno
             $object->setStatus($data->{'status'});
         }
         if (property_exists($data, 'total')) {
-            $object->setTotal($this->serializer->deserialize($data->{'total'}, 'Surex\\DocuSign\\Model\\Money', 'raw', $context));
+            $object->setTotal($this->denormalizer->denormalize($data->{'total'}, 'Surex\\DocuSign\\Model\\Money', 'json', $context));
         }
 
         return $object;
@@ -80,7 +82,7 @@ class PaymentDetailsNormalizer extends SerializerAwareNormalizer implements Deno
         if (null !== $object->getLineItems()) {
             $values = [];
             foreach ($object->getLineItems() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'lineItems'} = $values;
         }
@@ -88,7 +90,7 @@ class PaymentDetailsNormalizer extends SerializerAwareNormalizer implements Deno
             $data->{'status'} = $object->getStatus();
         }
         if (null !== $object->getTotal()) {
-            $data->{'total'} = $this->serializer->serialize($object->getTotal(), 'raw', $context);
+            $data->{'total'} = $this->normalizer->normalize($object->getTotal(), 'json', $context);
         }
 
         return $data;

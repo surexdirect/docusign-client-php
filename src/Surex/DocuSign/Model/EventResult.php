@@ -17,6 +17,11 @@ class EventResult
      */
     protected $failureDescription;
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @var string
      */
     protected $status;
@@ -28,7 +33,7 @@ class EventResult
     /**
      * @return string
      */
-    public function getEventTimestamp()
+    public function getEventTimestamp(): ?string
     {
         return $this->eventTimestamp;
     }
@@ -38,7 +43,7 @@ class EventResult
      *
      * @return self
      */
-    public function setEventTimestamp($eventTimestamp = null)
+    public function setEventTimestamp(?string $eventTimestamp): self
     {
         $this->eventTimestamp = $eventTimestamp;
 
@@ -48,7 +53,7 @@ class EventResult
     /**
      * @return string
      */
-    public function getFailureDescription()
+    public function getFailureDescription(): ?string
     {
         return $this->failureDescription;
     }
@@ -58,7 +63,7 @@ class EventResult
      *
      * @return self
      */
-    public function setFailureDescription($failureDescription = null)
+    public function setFailureDescription(?string $failureDescription): self
     {
         $this->failureDescription = $failureDescription;
 
@@ -66,19 +71,29 @@ class EventResult
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @param string $status
      *
      * @return self
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 
@@ -88,7 +103,7 @@ class EventResult
     /**
      * @return string
      */
-    public function getVendorFailureStatusCode()
+    public function getVendorFailureStatusCode(): ?string
     {
         return $this->vendorFailureStatusCode;
     }
@@ -98,7 +113,7 @@ class EventResult
      *
      * @return self
      */
-    public function setVendorFailureStatusCode($vendorFailureStatusCode = null)
+    public function setVendorFailureStatusCode(?string $vendorFailureStatusCode): self
     {
         $this->vendorFailureStatusCode = $vendorFailureStatusCode;
 

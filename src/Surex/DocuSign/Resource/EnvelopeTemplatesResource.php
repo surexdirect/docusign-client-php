@@ -20,6 +20,7 @@ class EnvelopeTemplatesResource extends Resource
      *
      *     @var string $include A comma-separated list
      * }
+     *
      * @param string $fetch Fetch mode (object or response)
      *
      * @return \Psr\Http\Message\ResponseInterface|\Surex\DocuSign\Model\EnvelopeTemplates|\Surex\DocuSign\Model\ErrorDetails

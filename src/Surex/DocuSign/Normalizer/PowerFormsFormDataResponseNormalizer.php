@@ -6,37 +6,39 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class PowerFormsFormDataResponseNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class PowerFormsFormDataResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\PowerFormsFormDataResponse' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\PowerFormsFormDataResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\PowerFormsFormDataResponse) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\PowerFormsFormDataResponse;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\PowerFormsFormDataResponse();
         if (property_exists($data, 'envelopes')) {
             $values = [];
             foreach ($data->{'envelopes'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\PowerFormData', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\PowerFormData', 'json', $context);
             }
             $object->setEnvelopes($values);
         }
@@ -50,7 +52,7 @@ class PowerFormsFormDataResponseNormalizer extends SerializerAwareNormalizer imp
         if (null !== $object->getEnvelopes()) {
             $values = [];
             foreach ($object->getEnvelopes() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'envelopes'} = $values;
         }

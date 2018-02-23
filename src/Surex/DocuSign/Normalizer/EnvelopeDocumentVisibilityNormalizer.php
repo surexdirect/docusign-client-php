@@ -6,37 +6,39 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EnvelopeDocumentVisibilityNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EnvelopeDocumentVisibilityNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EnvelopeDocumentVisibility' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EnvelopeDocumentVisibility' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EnvelopeDocumentVisibility) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EnvelopeDocumentVisibility;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EnvelopeDocumentVisibility();
         if (property_exists($data, 'documentVisibility')) {
             $values = [];
             foreach ($data->{'documentVisibility'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\DocumentVisibility', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\DocumentVisibility', 'json', $context);
             }
             $object->setDocumentVisibility($values);
         }
@@ -50,7 +52,7 @@ class EnvelopeDocumentVisibilityNormalizer extends SerializerAwareNormalizer imp
         if (null !== $object->getDocumentVisibility()) {
             $values = [];
             foreach ($object->getDocumentVisibility() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'documentVisibility'} = $values;
         }

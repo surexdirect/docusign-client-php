@@ -14,20 +14,20 @@ class CloudStorageResource extends Resource
     /**
      * Retrieves a list of all the items in a specified folder from the specified cloud storage provider.
      *
-     * @param string $serviceId  The ID of the service to access.
+     * @param string $serviceId  the ID of the service to access
      * @param string $userId     The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
      * @param array  $parameters {
      *
-     *     @var string $cloud_storage_folder_path A comma separated list of folder IDs included in the request.
-     *     @var string $count An optional value that sets how many items are included in the response.
+     *     @var string $cloud_storage_folder_path a comma separated list of folder IDs included in the request
+     *     @var string $count an optional value that sets how many items are included in the response
 
-     *     @var string $order An optional value that sets the direction order used to sort the item list.
+     *     @var string $order an optional value that sets the direction order used to sort the item list
 
      Valid values are:
 
      * asc = ascending sort order
      * desc = descending sort order
-     *     @var string $order_by An optional value that sets the file attribute used to sort the item list.
+     *     @var string $order_by an optional value that sets the file attribute used to sort the item list
 
      Valid values are:
 
@@ -79,20 +79,20 @@ class CloudStorageResource extends Resource
      * Retrieves a list of all the items in all  the folders associated with the user from the specified cloud storage provider. You can limit the scope of the returned items by providing a comma separated list of folder IDs in the request.
      *
      * @param string $folderId   the ID of the folder being accessed
-     * @param string $serviceId  The ID of the service to access.
+     * @param string $serviceId  the ID of the service to access
      * @param string $userId     The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
      * @param array  $parameters {
      *
      *     @var string $cloud_storage_folder_path
-     *     @var string $count An optional value that sets how many items are included in the response.
+     *     @var string $count an optional value that sets how many items are included in the response
 
-     *     @var string $order An optional value that sets the direction order used to sort the item list.
+     *     @var string $order an optional value that sets the direction order used to sort the item list
 
      Valid values are:
 
      * asc = ascending sort order
      * desc = descending sort order
-     *     @var string $order_by An optional value that sets the file attribute used to sort the item list.
+     *     @var string $order_by an optional value that sets the file attribute used to sort the item list
 
      Valid values are:
 

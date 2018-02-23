@@ -13,6 +13,8 @@ class EnvelopeIdsRequest
      */
     protected $envelopeIds;
     /**
+     *  A list of transaction Id's used to determining the status of envelopes sent asynchronously. See **transactionId** property on envelopes.
+     *
      * @var string[]
      */
     protected $transactionIds;
@@ -20,7 +22,7 @@ class EnvelopeIdsRequest
     /**
      * @return string[]
      */
-    public function getEnvelopeIds()
+    public function getEnvelopeIds(): ?array
     {
         return $this->envelopeIds;
     }
@@ -30,7 +32,7 @@ class EnvelopeIdsRequest
      *
      * @return self
      */
-    public function setEnvelopeIds(array $envelopeIds = null)
+    public function setEnvelopeIds(?array $envelopeIds): self
     {
         $this->envelopeIds = $envelopeIds;
 
@@ -38,19 +40,23 @@ class EnvelopeIdsRequest
     }
 
     /**
+     *  A list of transaction Id's used to determining the status of envelopes sent asynchronously. See **transactionId** property on envelopes.
+     *
      * @return string[]
      */
-    public function getTransactionIds()
+    public function getTransactionIds(): ?array
     {
         return $this->transactionIds;
     }
 
     /**
+     *  A list of transaction Id's used to determining the status of envelopes sent asynchronously. See **transactionId** property on envelopes.
+     *
      * @param string[] $transactionIds
      *
      * @return self
      */
-    public function setTransactionIds(array $transactionIds = null)
+    public function setTransactionIds(?array $transactionIds): self
     {
         $this->transactionIds = $transactionIds;
 

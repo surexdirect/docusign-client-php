@@ -16,7 +16,7 @@ class UserSignaturesInformation
     /**
      * @return UserSignatures[]
      */
-    public function getUserSignatures()
+    public function getUserSignatures(): ?array
     {
         return $this->userSignatures;
     }
@@ -26,7 +26,7 @@ class UserSignaturesInformation
      *
      * @return self
      */
-    public function setUserSignatures(array $userSignatures = null)
+    public function setUserSignatures(?array $userSignatures): self
     {
         $this->userSignatures = $userSignatures;
 

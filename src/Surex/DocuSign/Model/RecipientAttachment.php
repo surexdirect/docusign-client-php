@@ -36,7 +36,7 @@ class RecipientAttachment
     /**
      * @return string
      */
-    public function getAttachmentId()
+    public function getAttachmentId(): ?string
     {
         return $this->attachmentId;
     }
@@ -46,7 +46,7 @@ class RecipientAttachment
      *
      * @return self
      */
-    public function setAttachmentId($attachmentId = null)
+    public function setAttachmentId(?string $attachmentId): self
     {
         $this->attachmentId = $attachmentId;
 
@@ -56,7 +56,7 @@ class RecipientAttachment
     /**
      * @return string
      */
-    public function getAttachmentType()
+    public function getAttachmentType(): ?string
     {
         return $this->attachmentType;
     }
@@ -66,7 +66,7 @@ class RecipientAttachment
      *
      * @return self
      */
-    public function setAttachmentType($attachmentType = null)
+    public function setAttachmentType(?string $attachmentType): self
     {
         $this->attachmentType = $attachmentType;
 
@@ -76,7 +76,7 @@ class RecipientAttachment
     /**
      * @return string
      */
-    public function getData()
+    public function getData(): ?string
     {
         return $this->data;
     }
@@ -86,7 +86,7 @@ class RecipientAttachment
      *
      * @return self
      */
-    public function setData($data = null)
+    public function setData(?string $data): self
     {
         $this->data = $data;
 
@@ -96,7 +96,7 @@ class RecipientAttachment
     /**
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): ?string
     {
         return $this->label;
     }
@@ -106,7 +106,7 @@ class RecipientAttachment
      *
      * @return self
      */
-    public function setLabel($label = null)
+    public function setLabel(?string $label): self
     {
         $this->label = $label;
 
@@ -116,7 +116,7 @@ class RecipientAttachment
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -126,7 +126,7 @@ class RecipientAttachment
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -136,7 +136,7 @@ class RecipientAttachment
     /**
      * @return string
      */
-    public function getRemoteUrl()
+    public function getRemoteUrl(): ?string
     {
         return $this->remoteUrl;
     }
@@ -146,7 +146,7 @@ class RecipientAttachment
      *
      * @return self
      */
-    public function setRemoteUrl($remoteUrl = null)
+    public function setRemoteUrl(?string $remoteUrl): self
     {
         $this->remoteUrl = $remoteUrl;
 

@@ -17,6 +17,8 @@ class Attachment
      */
     protected $attachmentId;
     /**
+     * Specifies the type of the attachment for the recipient.
+     *
      * @var string
      */
     protected $attachmentType;
@@ -40,7 +42,7 @@ class Attachment
     /**
      * @return string
      */
-    public function getAccessControl()
+    public function getAccessControl(): ?string
     {
         return $this->accessControl;
     }
@@ -50,7 +52,7 @@ class Attachment
      *
      * @return self
      */
-    public function setAccessControl($accessControl = null)
+    public function setAccessControl(?string $accessControl): self
     {
         $this->accessControl = $accessControl;
 
@@ -60,7 +62,7 @@ class Attachment
     /**
      * @return string
      */
-    public function getAttachmentId()
+    public function getAttachmentId(): ?string
     {
         return $this->attachmentId;
     }
@@ -70,7 +72,7 @@ class Attachment
      *
      * @return self
      */
-    public function setAttachmentId($attachmentId = null)
+    public function setAttachmentId(?string $attachmentId): self
     {
         $this->attachmentId = $attachmentId;
 
@@ -78,19 +80,23 @@ class Attachment
     }
 
     /**
+     * Specifies the type of the attachment for the recipient.
+     *
      * @return string
      */
-    public function getAttachmentType()
+    public function getAttachmentType(): ?string
     {
         return $this->attachmentType;
     }
 
     /**
+     * Specifies the type of the attachment for the recipient.
+     *
      * @param string $attachmentType
      *
      * @return self
      */
-    public function setAttachmentType($attachmentType = null)
+    public function setAttachmentType(?string $attachmentType): self
     {
         $this->attachmentType = $attachmentType;
 
@@ -100,7 +106,7 @@ class Attachment
     /**
      * @return string
      */
-    public function getData()
+    public function getData(): ?string
     {
         return $this->data;
     }
@@ -110,7 +116,7 @@ class Attachment
      *
      * @return self
      */
-    public function setData($data = null)
+    public function setData(?string $data): self
     {
         $this->data = $data;
 
@@ -120,7 +126,7 @@ class Attachment
     /**
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): ?string
     {
         return $this->label;
     }
@@ -130,7 +136,7 @@ class Attachment
      *
      * @return self
      */
-    public function setLabel($label = null)
+    public function setLabel(?string $label): self
     {
         $this->label = $label;
 
@@ -140,7 +146,7 @@ class Attachment
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -150,7 +156,7 @@ class Attachment
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -160,7 +166,7 @@ class Attachment
     /**
      * @return string
      */
-    public function getRemoteUrl()
+    public function getRemoteUrl(): ?string
     {
         return $this->remoteUrl;
     }
@@ -170,7 +176,7 @@ class Attachment
      *
      * @return self
      */
-    public function setRemoteUrl($remoteUrl = null)
+    public function setRemoteUrl(?string $remoteUrl): self
     {
         $this->remoteUrl = $remoteUrl;
 

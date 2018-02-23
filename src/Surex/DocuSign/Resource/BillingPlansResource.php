@@ -25,7 +25,7 @@ class BillingPlansResource extends Resource
      * @param array $parameters {
      *
      *     @var string $include_credit_card_information when set to **true**, excludes credit card information from the response
-     *     @var string $include_metadata When set to **true**, the `canUpgrade` and `renewalStatus` properities are included the response and an array of `supportedCountries` property is added to the `billingAddress` information.
+     *     @var string $include_metadata when set to **true**, the `canUpgrade` and `renewalStatus` properities are included the response and an array of `supportedCountries` property is added to the `billingAddress` information
      *     @var string $include_successor_plans When set to **true**, excludes successor information from the response.
      * }
      *

@@ -9,40 +9,54 @@ namespace Surex\DocuSign\Model;
 class BillingInvoiceItem
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $chargeAmount;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $chargeName;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $invoiceItemId;
     /**
+     * The quantity of envelopes to add to the account.
+     *
      * @var string
      */
     protected $quantity;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $unitPrice;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getChargeAmount()
+    public function getChargeAmount(): ?string
     {
         return $this->chargeAmount;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $chargeAmount
      *
      * @return self
      */
-    public function setChargeAmount($chargeAmount = null)
+    public function setChargeAmount(?string $chargeAmount): self
     {
         $this->chargeAmount = $chargeAmount;
 
@@ -50,19 +64,23 @@ class BillingInvoiceItem
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getChargeName()
+    public function getChargeName(): ?string
     {
         return $this->chargeName;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $chargeName
      *
      * @return self
      */
-    public function setChargeName($chargeName = null)
+    public function setChargeName(?string $chargeName): self
     {
         $this->chargeName = $chargeName;
 
@@ -70,19 +88,23 @@ class BillingInvoiceItem
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getInvoiceItemId()
+    public function getInvoiceItemId(): ?string
     {
         return $this->invoiceItemId;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $invoiceItemId
      *
      * @return self
      */
-    public function setInvoiceItemId($invoiceItemId = null)
+    public function setInvoiceItemId(?string $invoiceItemId): self
     {
         $this->invoiceItemId = $invoiceItemId;
 
@@ -90,19 +112,23 @@ class BillingInvoiceItem
     }
 
     /**
+     * The quantity of envelopes to add to the account.
+     *
      * @return string
      */
-    public function getQuantity()
+    public function getQuantity(): ?string
     {
         return $this->quantity;
     }
 
     /**
+     * The quantity of envelopes to add to the account.
+     *
      * @param string $quantity
      *
      * @return self
      */
-    public function setQuantity($quantity = null)
+    public function setQuantity(?string $quantity): self
     {
         $this->quantity = $quantity;
 
@@ -110,19 +136,23 @@ class BillingInvoiceItem
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getUnitPrice()
+    public function getUnitPrice(): ?string
     {
         return $this->unitPrice;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $unitPrice
      *
      * @return self
      */
-    public function setUnitPrice($unitPrice = null)
+    public function setUnitPrice(?string $unitPrice): self
     {
         $this->unitPrice = $unitPrice;
 

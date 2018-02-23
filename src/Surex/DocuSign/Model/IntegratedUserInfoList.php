@@ -13,26 +13,38 @@ class IntegratedUserInfoList
      */
     protected $allUsersSelected;
     /**
+     * The last position in the result set.
+     *
      * @var string
      */
     protected $endPosition;
     /**
+     * The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search.
+     *
      * @var string
      */
     protected $nextUri;
     /**
+     * The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search.
+     *
      * @var string
      */
     protected $previousUri;
     /**
+     * The number of results returned in this response.
+     *
      * @var string
      */
     protected $resultSetSize;
     /**
+     * Starting position of the current result set.
+     *
      * @var string
      */
     protected $startPosition;
     /**
+     * The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+     *
      * @var string
      */
     protected $totalSetSize;
@@ -44,7 +56,7 @@ class IntegratedUserInfoList
     /**
      * @return string
      */
-    public function getAllUsersSelected()
+    public function getAllUsersSelected(): ?string
     {
         return $this->allUsersSelected;
     }
@@ -54,7 +66,7 @@ class IntegratedUserInfoList
      *
      * @return self
      */
-    public function setAllUsersSelected($allUsersSelected = null)
+    public function setAllUsersSelected(?string $allUsersSelected): self
     {
         $this->allUsersSelected = $allUsersSelected;
 
@@ -62,19 +74,23 @@ class IntegratedUserInfoList
     }
 
     /**
+     * The last position in the result set.
+     *
      * @return string
      */
-    public function getEndPosition()
+    public function getEndPosition(): ?string
     {
         return $this->endPosition;
     }
 
     /**
+     * The last position in the result set.
+     *
      * @param string $endPosition
      *
      * @return self
      */
-    public function setEndPosition($endPosition = null)
+    public function setEndPosition(?string $endPosition): self
     {
         $this->endPosition = $endPosition;
 
@@ -82,19 +98,23 @@ class IntegratedUserInfoList
     }
 
     /**
+     * The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search.
+     *
      * @return string
      */
-    public function getNextUri()
+    public function getNextUri(): ?string
     {
         return $this->nextUri;
     }
 
     /**
+     * The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search.
+     *
      * @param string $nextUri
      *
      * @return self
      */
-    public function setNextUri($nextUri = null)
+    public function setNextUri(?string $nextUri): self
     {
         $this->nextUri = $nextUri;
 
@@ -102,19 +122,23 @@ class IntegratedUserInfoList
     }
 
     /**
+     * The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search.
+     *
      * @return string
      */
-    public function getPreviousUri()
+    public function getPreviousUri(): ?string
     {
         return $this->previousUri;
     }
 
     /**
+     * The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search.
+     *
      * @param string $previousUri
      *
      * @return self
      */
-    public function setPreviousUri($previousUri = null)
+    public function setPreviousUri(?string $previousUri): self
     {
         $this->previousUri = $previousUri;
 
@@ -122,19 +146,23 @@ class IntegratedUserInfoList
     }
 
     /**
+     * The number of results returned in this response.
+     *
      * @return string
      */
-    public function getResultSetSize()
+    public function getResultSetSize(): ?string
     {
         return $this->resultSetSize;
     }
 
     /**
+     * The number of results returned in this response.
+     *
      * @param string $resultSetSize
      *
      * @return self
      */
-    public function setResultSetSize($resultSetSize = null)
+    public function setResultSetSize(?string $resultSetSize): self
     {
         $this->resultSetSize = $resultSetSize;
 
@@ -142,19 +170,23 @@ class IntegratedUserInfoList
     }
 
     /**
+     * Starting position of the current result set.
+     *
      * @return string
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?string
     {
         return $this->startPosition;
     }
 
     /**
+     * Starting position of the current result set.
+     *
      * @param string $startPosition
      *
      * @return self
      */
-    public function setStartPosition($startPosition = null)
+    public function setStartPosition(?string $startPosition): self
     {
         $this->startPosition = $startPosition;
 
@@ -162,19 +194,23 @@ class IntegratedUserInfoList
     }
 
     /**
+     * The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+     *
      * @return string
      */
-    public function getTotalSetSize()
+    public function getTotalSetSize(): ?string
     {
         return $this->totalSetSize;
     }
 
     /**
+     * The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+     *
      * @param string $totalSetSize
      *
      * @return self
      */
-    public function setTotalSetSize($totalSetSize = null)
+    public function setTotalSetSize(?string $totalSetSize): self
     {
         $this->totalSetSize = $totalSetSize;
 
@@ -184,7 +220,7 @@ class IntegratedUserInfoList
     /**
      * @return UserInfo[]
      */
-    public function getUsers()
+    public function getUsers(): ?array
     {
         return $this->users;
     }
@@ -194,7 +230,7 @@ class IntegratedUserInfoList
      *
      * @return self
      */
-    public function setUsers(array $users = null)
+    public function setUsers(?array $users): self
     {
         $this->users = $users;
 

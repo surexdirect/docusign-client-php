@@ -13,26 +13,40 @@ class UserProfiles
      */
     protected $address;
     /**
+     * These properties cannot be modified in the PUT.
+
+     Indicates the authentication methods used by the user.
+     *
      * @var AuthenticationMethod[]
      */
     protected $authenticationMethods;
     /**
+     * The name of the user's Company.
+     *
      * @var string
      */
     protected $companyName;
     /**
+     *  When set to **true**, the user's company and title information are shown on the ID card.
+     *
      * @var string
      */
     protected $displayOrganizationInfo;
     /**
+     * When set to **true**, the user's Address and Phone number are shown on the ID card.
+     *
      * @var string
      */
     protected $displayPersonalInfo;
     /**
+     * When set to **true**, the user's ID card can be viewed from signed documents and envelope history.
+     *
      * @var string
      */
     protected $displayProfile;
     /**
+     * When set to **true**, the user's usage information is shown on the ID card.
+     *
      * @var string
      */
     protected $displayUsageHistory;
@@ -41,14 +55,25 @@ class UserProfiles
      */
     protected $profileImageUri;
     /**
+     * The title of the user.
+     *
      * @var string
      */
     protected $title;
     /**
+     * A complex element consisting of:.
+
+     * lastSentDateTime - the date and time the user last sent an envelope.
+     * lastSignedDateTime - the date and time the user last signed an envelope.
+     * sentCount - the number of envelopes the user has sent.
+     * signedCount - the number of envelopes the user has signed.
+     *
      * @var UsageHistory
      */
     protected $usageHistory;
     /**
+     * User management.
+     *
      * @var Users
      */
     protected $userDetails;
@@ -60,7 +85,7 @@ class UserProfiles
     /**
      * @return AddressInformationV2
      */
-    public function getAddress()
+    public function getAddress(): ?AddressInformationV2
     {
         return $this->address;
     }
@@ -70,7 +95,7 @@ class UserProfiles
      *
      * @return self
      */
-    public function setAddress(AddressInformationV2 $address = null)
+    public function setAddress(?AddressInformationV2 $address): self
     {
         $this->address = $address;
 
@@ -78,19 +103,27 @@ class UserProfiles
     }
 
     /**
+     * These properties cannot be modified in the PUT.
+
+     Indicates the authentication methods used by the user.
+     *
      * @return AuthenticationMethod[]
      */
-    public function getAuthenticationMethods()
+    public function getAuthenticationMethods(): ?array
     {
         return $this->authenticationMethods;
     }
 
     /**
+     * These properties cannot be modified in the PUT.
+
+     Indicates the authentication methods used by the user.
+     *
      * @param AuthenticationMethod[] $authenticationMethods
      *
      * @return self
      */
-    public function setAuthenticationMethods(array $authenticationMethods = null)
+    public function setAuthenticationMethods(?array $authenticationMethods): self
     {
         $this->authenticationMethods = $authenticationMethods;
 
@@ -98,19 +131,23 @@ class UserProfiles
     }
 
     /**
+     * The name of the user's Company.
+     *
      * @return string
      */
-    public function getCompanyName()
+    public function getCompanyName(): ?string
     {
         return $this->companyName;
     }
 
     /**
+     * The name of the user's Company.
+     *
      * @param string $companyName
      *
      * @return self
      */
-    public function setCompanyName($companyName = null)
+    public function setCompanyName(?string $companyName): self
     {
         $this->companyName = $companyName;
 
@@ -118,19 +155,23 @@ class UserProfiles
     }
 
     /**
+     *  When set to **true**, the user's company and title information are shown on the ID card.
+     *
      * @return string
      */
-    public function getDisplayOrganizationInfo()
+    public function getDisplayOrganizationInfo(): ?string
     {
         return $this->displayOrganizationInfo;
     }
 
     /**
+     *  When set to **true**, the user's company and title information are shown on the ID card.
+     *
      * @param string $displayOrganizationInfo
      *
      * @return self
      */
-    public function setDisplayOrganizationInfo($displayOrganizationInfo = null)
+    public function setDisplayOrganizationInfo(?string $displayOrganizationInfo): self
     {
         $this->displayOrganizationInfo = $displayOrganizationInfo;
 
@@ -138,19 +179,23 @@ class UserProfiles
     }
 
     /**
+     * When set to **true**, the user's Address and Phone number are shown on the ID card.
+     *
      * @return string
      */
-    public function getDisplayPersonalInfo()
+    public function getDisplayPersonalInfo(): ?string
     {
         return $this->displayPersonalInfo;
     }
 
     /**
+     * When set to **true**, the user's Address and Phone number are shown on the ID card.
+     *
      * @param string $displayPersonalInfo
      *
      * @return self
      */
-    public function setDisplayPersonalInfo($displayPersonalInfo = null)
+    public function setDisplayPersonalInfo(?string $displayPersonalInfo): self
     {
         $this->displayPersonalInfo = $displayPersonalInfo;
 
@@ -158,19 +203,23 @@ class UserProfiles
     }
 
     /**
+     * When set to **true**, the user's ID card can be viewed from signed documents and envelope history.
+     *
      * @return string
      */
-    public function getDisplayProfile()
+    public function getDisplayProfile(): ?string
     {
         return $this->displayProfile;
     }
 
     /**
+     * When set to **true**, the user's ID card can be viewed from signed documents and envelope history.
+     *
      * @param string $displayProfile
      *
      * @return self
      */
-    public function setDisplayProfile($displayProfile = null)
+    public function setDisplayProfile(?string $displayProfile): self
     {
         $this->displayProfile = $displayProfile;
 
@@ -178,19 +227,23 @@ class UserProfiles
     }
 
     /**
+     * When set to **true**, the user's usage information is shown on the ID card.
+     *
      * @return string
      */
-    public function getDisplayUsageHistory()
+    public function getDisplayUsageHistory(): ?string
     {
         return $this->displayUsageHistory;
     }
 
     /**
+     * When set to **true**, the user's usage information is shown on the ID card.
+     *
      * @param string $displayUsageHistory
      *
      * @return self
      */
-    public function setDisplayUsageHistory($displayUsageHistory = null)
+    public function setDisplayUsageHistory(?string $displayUsageHistory): self
     {
         $this->displayUsageHistory = $displayUsageHistory;
 
@@ -200,7 +253,7 @@ class UserProfiles
     /**
      * @return string
      */
-    public function getProfileImageUri()
+    public function getProfileImageUri(): ?string
     {
         return $this->profileImageUri;
     }
@@ -210,7 +263,7 @@ class UserProfiles
      *
      * @return self
      */
-    public function setProfileImageUri($profileImageUri = null)
+    public function setProfileImageUri(?string $profileImageUri): self
     {
         $this->profileImageUri = $profileImageUri;
 
@@ -218,19 +271,23 @@ class UserProfiles
     }
 
     /**
+     * The title of the user.
+     *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
     /**
+     * The title of the user.
+     *
      * @param string $title
      *
      * @return self
      */
-    public function setTitle($title = null)
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -238,19 +295,33 @@ class UserProfiles
     }
 
     /**
+     * A complex element consisting of:.
+
+     * lastSentDateTime - the date and time the user last sent an envelope.
+     * lastSignedDateTime - the date and time the user last signed an envelope.
+     * sentCount - the number of envelopes the user has sent.
+     * signedCount - the number of envelopes the user has signed.
+     *
      * @return UsageHistory
      */
-    public function getUsageHistory()
+    public function getUsageHistory(): ?UsageHistory
     {
         return $this->usageHistory;
     }
 
     /**
+     * A complex element consisting of:.
+
+     * lastSentDateTime - the date and time the user last sent an envelope.
+     * lastSignedDateTime - the date and time the user last signed an envelope.
+     * sentCount - the number of envelopes the user has sent.
+     * signedCount - the number of envelopes the user has signed.
+     *
      * @param UsageHistory $usageHistory
      *
      * @return self
      */
-    public function setUsageHistory(UsageHistory $usageHistory = null)
+    public function setUsageHistory(?UsageHistory $usageHistory): self
     {
         $this->usageHistory = $usageHistory;
 
@@ -258,19 +329,23 @@ class UserProfiles
     }
 
     /**
+     * User management.
+     *
      * @return Users
      */
-    public function getUserDetails()
+    public function getUserDetails(): ?Users
     {
         return $this->userDetails;
     }
 
     /**
+     * User management.
+     *
      * @param Users $userDetails
      *
      * @return self
      */
-    public function setUserDetails(Users $userDetails = null)
+    public function setUserDetails(?Users $userDetails): self
     {
         $this->userDetails = $userDetails;
 
@@ -280,7 +355,7 @@ class UserProfiles
     /**
      * @return string
      */
-    public function getUserProfileLastModifiedDate()
+    public function getUserProfileLastModifiedDate(): ?string
     {
         return $this->userProfileLastModifiedDate;
     }
@@ -290,7 +365,7 @@ class UserProfiles
      *
      * @return self
      */
-    public function setUserProfileLastModifiedDate($userProfileLastModifiedDate = null)
+    public function setUserProfileLastModifiedDate(?string $userProfileLastModifiedDate): self
     {
         $this->userProfileLastModifiedDate = $userProfileLastModifiedDate;
 

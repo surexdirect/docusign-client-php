@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class GroupsNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class GroupsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\Groups' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\Groups' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\Groups) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\Groups;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\Groups();
         if (property_exists($data, 'endPosition')) {
             $object->setEndPosition($data->{'endPosition'});
@@ -39,7 +41,7 @@ class GroupsNormalizer extends SerializerAwareNormalizer implements Denormalizer
         if (property_exists($data, 'groups')) {
             $values = [];
             foreach ($data->{'groups'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\Group', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\Group', 'json', $context);
             }
             $object->setGroups($values);
         }
@@ -71,7 +73,7 @@ class GroupsNormalizer extends SerializerAwareNormalizer implements Denormalizer
         if (null !== $object->getGroups()) {
             $values = [];
             foreach ($object->getGroups() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'groups'} = $values;
         }

@@ -6,40 +6,42 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class UserProfilesNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class UserProfilesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\UserProfiles' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\UserProfiles' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\UserProfiles) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\UserProfiles;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\UserProfiles();
         if (property_exists($data, 'address')) {
-            $object->setAddress($this->serializer->deserialize($data->{'address'}, 'Surex\\DocuSign\\Model\\AddressInformationV2', 'raw', $context));
+            $object->setAddress($this->denormalizer->denormalize($data->{'address'}, 'Surex\\DocuSign\\Model\\AddressInformationV2', 'json', $context));
         }
         if (property_exists($data, 'authenticationMethods')) {
             $values = [];
             foreach ($data->{'authenticationMethods'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\AuthenticationMethod', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\AuthenticationMethod', 'json', $context);
             }
             $object->setAuthenticationMethods($values);
         }
@@ -65,10 +67,10 @@ class UserProfilesNormalizer extends SerializerAwareNormalizer implements Denorm
             $object->setTitle($data->{'title'});
         }
         if (property_exists($data, 'usageHistory')) {
-            $object->setUsageHistory($this->serializer->deserialize($data->{'usageHistory'}, 'Surex\\DocuSign\\Model\\UsageHistory', 'raw', $context));
+            $object->setUsageHistory($this->denormalizer->denormalize($data->{'usageHistory'}, 'Surex\\DocuSign\\Model\\UsageHistory', 'json', $context));
         }
         if (property_exists($data, 'userDetails')) {
-            $object->setUserDetails($this->serializer->deserialize($data->{'userDetails'}, 'Surex\\DocuSign\\Model\\Users', 'raw', $context));
+            $object->setUserDetails($this->denormalizer->denormalize($data->{'userDetails'}, 'Surex\\DocuSign\\Model\\Users', 'json', $context));
         }
         if (property_exists($data, 'userProfileLastModifiedDate')) {
             $object->setUserProfileLastModifiedDate($data->{'userProfileLastModifiedDate'});
@@ -81,12 +83,12 @@ class UserProfilesNormalizer extends SerializerAwareNormalizer implements Denorm
     {
         $data = new \stdClass();
         if (null !== $object->getAddress()) {
-            $data->{'address'} = $this->serializer->serialize($object->getAddress(), 'raw', $context);
+            $data->{'address'} = $this->normalizer->normalize($object->getAddress(), 'json', $context);
         }
         if (null !== $object->getAuthenticationMethods()) {
             $values = [];
             foreach ($object->getAuthenticationMethods() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'authenticationMethods'} = $values;
         }
@@ -112,10 +114,10 @@ class UserProfilesNormalizer extends SerializerAwareNormalizer implements Denorm
             $data->{'title'} = $object->getTitle();
         }
         if (null !== $object->getUsageHistory()) {
-            $data->{'usageHistory'} = $this->serializer->serialize($object->getUsageHistory(), 'raw', $context);
+            $data->{'usageHistory'} = $this->normalizer->normalize($object->getUsageHistory(), 'json', $context);
         }
         if (null !== $object->getUserDetails()) {
-            $data->{'userDetails'} = $this->serializer->serialize($object->getUserDetails(), 'raw', $context);
+            $data->{'userDetails'} = $this->normalizer->normalize($object->getUserDetails(), 'json', $context);
         }
         if (null !== $object->getUserProfileLastModifiedDate()) {
             $data->{'userProfileLastModifiedDate'} = $object->getUserProfileLastModifiedDate();

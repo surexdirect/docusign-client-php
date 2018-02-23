@@ -20,7 +20,7 @@ class ConnectFailureFilter
     /**
      * @return string[]
      */
-    public function getEnvelopeIds()
+    public function getEnvelopeIds(): ?array
     {
         return $this->envelopeIds;
     }
@@ -30,7 +30,7 @@ class ConnectFailureFilter
      *
      * @return self
      */
-    public function setEnvelopeIds(array $envelopeIds = null)
+    public function setEnvelopeIds(?array $envelopeIds): self
     {
         $this->envelopeIds = $envelopeIds;
 
@@ -40,7 +40,7 @@ class ConnectFailureFilter
     /**
      * @return string
      */
-    public function getSynchronous()
+    public function getSynchronous(): ?string
     {
         return $this->synchronous;
     }
@@ -50,7 +50,7 @@ class ConnectFailureFilter
      *
      * @return self
      */
-    public function setSynchronous($synchronous = null)
+    public function setSynchronous(?string $synchronous): self
     {
         $this->synchronous = $synchronous;
 

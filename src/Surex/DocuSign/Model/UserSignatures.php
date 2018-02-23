@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class UserSignatures
 {
     /**
+     * The date and time the user adopted their signature.
+     *
      * @var string
      */
     protected $adoptedDateTime;
     /**
+     * Indicates the date and time the item was created.
+     *
      * @var string
      */
     protected $createdDateTime;
@@ -21,6 +25,8 @@ class UserSignatures
      */
     protected $dateStampProperties;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -29,6 +35,8 @@ class UserSignatures
      */
     protected $externalID;
     /**
+     * One of **signature_image** or **initials_image**.
+     *
      * @var string
      */
     protected $imageType;
@@ -37,6 +45,8 @@ class UserSignatures
      */
     protected $initials150ImageId;
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the initials image.
+     *
      * @var string
      */
     protected $initialsImageUri;
@@ -53,22 +63,35 @@ class UserSignatures
      */
     protected $signature150ImageId;
     /**
+     * The font type for the signature, if the signature is not drawn. The supported font types are:.
+
+     "7_DocuSign", "1_DocuSign", "6_DocuSign", "8_DocuSign", "3_DocuSign", "Mistral", "4_DocuSign", "2_DocuSign", "5_DocuSign", "Rage Italic"
+
+     *
      * @var string
      */
     protected $signatureFont;
     /**
+     * Specifies the signature ID associated with the signature name. You can use the signature ID in the URI in place of the signature name, and the value stored in the `signatureName` property in the body is used. This allows the use of special characters (such as "&", "<", ">") in a the signature name. Note that with each update to signatures, the returned signature ID might change, so the caller will need to trigger off the signature name to get the new signature ID.
+     *
      * @var string
      */
     protected $signatureId;
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the signature image.
+     *
      * @var string
      */
     protected $signatureImageUri;
     /**
+     *  The initials associated with the signature.
+     *
      * @var string
      */
     protected $signatureInitials;
     /**
+     * Specifies the user signature name.
+     *
      * @var string
      */
     protected $signatureName;
@@ -94,19 +117,23 @@ class UserSignatures
     protected $stampType;
 
     /**
+     * The date and time the user adopted their signature.
+     *
      * @return string
      */
-    public function getAdoptedDateTime()
+    public function getAdoptedDateTime(): ?string
     {
         return $this->adoptedDateTime;
     }
 
     /**
+     * The date and time the user adopted their signature.
+     *
      * @param string $adoptedDateTime
      *
      * @return self
      */
-    public function setAdoptedDateTime($adoptedDateTime = null)
+    public function setAdoptedDateTime(?string $adoptedDateTime): self
     {
         $this->adoptedDateTime = $adoptedDateTime;
 
@@ -114,19 +141,23 @@ class UserSignatures
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @return string
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): ?string
     {
         return $this->createdDateTime;
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @param string $createdDateTime
      *
      * @return self
      */
-    public function setCreatedDateTime($createdDateTime = null)
+    public function setCreatedDateTime(?string $createdDateTime): self
     {
         $this->createdDateTime = $createdDateTime;
 
@@ -136,7 +167,7 @@ class UserSignatures
     /**
      * @return DateStampProperties
      */
-    public function getDateStampProperties()
+    public function getDateStampProperties(): ?DateStampProperties
     {
         return $this->dateStampProperties;
     }
@@ -146,7 +177,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setDateStampProperties(DateStampProperties $dateStampProperties = null)
+    public function setDateStampProperties(?DateStampProperties $dateStampProperties): self
     {
         $this->dateStampProperties = $dateStampProperties;
 
@@ -154,19 +185,23 @@ class UserSignatures
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -176,7 +211,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getExternalID()
+    public function getExternalID(): ?string
     {
         return $this->externalID;
     }
@@ -186,7 +221,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setExternalID($externalID = null)
+    public function setExternalID(?string $externalID): self
     {
         $this->externalID = $externalID;
 
@@ -194,19 +229,23 @@ class UserSignatures
     }
 
     /**
+     * One of **signature_image** or **initials_image**.
+     *
      * @return string
      */
-    public function getImageType()
+    public function getImageType(): ?string
     {
         return $this->imageType;
     }
 
     /**
+     * One of **signature_image** or **initials_image**.
+     *
      * @param string $imageType
      *
      * @return self
      */
-    public function setImageType($imageType = null)
+    public function setImageType(?string $imageType): self
     {
         $this->imageType = $imageType;
 
@@ -216,7 +255,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getInitials150ImageId()
+    public function getInitials150ImageId(): ?string
     {
         return $this->initials150ImageId;
     }
@@ -226,7 +265,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setInitials150ImageId($initials150ImageId = null)
+    public function setInitials150ImageId(?string $initials150ImageId): self
     {
         $this->initials150ImageId = $initials150ImageId;
 
@@ -234,19 +273,23 @@ class UserSignatures
     }
 
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the initials image.
+     *
      * @return string
      */
-    public function getInitialsImageUri()
+    public function getInitialsImageUri(): ?string
     {
         return $this->initialsImageUri;
     }
 
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the initials image.
+     *
      * @param string $initialsImageUri
      *
      * @return self
      */
-    public function setInitialsImageUri($initialsImageUri = null)
+    public function setInitialsImageUri(?string $initialsImageUri): self
     {
         $this->initialsImageUri = $initialsImageUri;
 
@@ -256,7 +299,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getIsDefault()
+    public function getIsDefault(): ?string
     {
         return $this->isDefault;
     }
@@ -266,7 +309,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setIsDefault($isDefault = null)
+    public function setIsDefault(?string $isDefault): self
     {
         $this->isDefault = $isDefault;
 
@@ -276,7 +319,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getPhoneticName()
+    public function getPhoneticName(): ?string
     {
         return $this->phoneticName;
     }
@@ -286,7 +329,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setPhoneticName($phoneticName = null)
+    public function setPhoneticName(?string $phoneticName): self
     {
         $this->phoneticName = $phoneticName;
 
@@ -296,7 +339,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getSignature150ImageId()
+    public function getSignature150ImageId(): ?string
     {
         return $this->signature150ImageId;
     }
@@ -306,7 +349,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setSignature150ImageId($signature150ImageId = null)
+    public function setSignature150ImageId(?string $signature150ImageId): self
     {
         $this->signature150ImageId = $signature150ImageId;
 
@@ -314,19 +357,29 @@ class UserSignatures
     }
 
     /**
+     * The font type for the signature, if the signature is not drawn. The supported font types are:.
+
+     "7_DocuSign", "1_DocuSign", "6_DocuSign", "8_DocuSign", "3_DocuSign", "Mistral", "4_DocuSign", "2_DocuSign", "5_DocuSign", "Rage Italic"
+
+     *
      * @return string
      */
-    public function getSignatureFont()
+    public function getSignatureFont(): ?string
     {
         return $this->signatureFont;
     }
 
     /**
+     * The font type for the signature, if the signature is not drawn. The supported font types are:.
+
+     "7_DocuSign", "1_DocuSign", "6_DocuSign", "8_DocuSign", "3_DocuSign", "Mistral", "4_DocuSign", "2_DocuSign", "5_DocuSign", "Rage Italic"
+
+     *
      * @param string $signatureFont
      *
      * @return self
      */
-    public function setSignatureFont($signatureFont = null)
+    public function setSignatureFont(?string $signatureFont): self
     {
         $this->signatureFont = $signatureFont;
 
@@ -334,19 +387,23 @@ class UserSignatures
     }
 
     /**
+     * Specifies the signature ID associated with the signature name. You can use the signature ID in the URI in place of the signature name, and the value stored in the `signatureName` property in the body is used. This allows the use of special characters (such as "&", "<", ">") in a the signature name. Note that with each update to signatures, the returned signature ID might change, so the caller will need to trigger off the signature name to get the new signature ID.
+     *
      * @return string
      */
-    public function getSignatureId()
+    public function getSignatureId(): ?string
     {
         return $this->signatureId;
     }
 
     /**
+     * Specifies the signature ID associated with the signature name. You can use the signature ID in the URI in place of the signature name, and the value stored in the `signatureName` property in the body is used. This allows the use of special characters (such as "&", "<", ">") in a the signature name. Note that with each update to signatures, the returned signature ID might change, so the caller will need to trigger off the signature name to get the new signature ID.
+     *
      * @param string $signatureId
      *
      * @return self
      */
-    public function setSignatureId($signatureId = null)
+    public function setSignatureId(?string $signatureId): self
     {
         $this->signatureId = $signatureId;
 
@@ -354,19 +411,23 @@ class UserSignatures
     }
 
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the signature image.
+     *
      * @return string
      */
-    public function getSignatureImageUri()
+    public function getSignatureImageUri(): ?string
     {
         return $this->signatureImageUri;
     }
 
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the signature image.
+     *
      * @param string $signatureImageUri
      *
      * @return self
      */
-    public function setSignatureImageUri($signatureImageUri = null)
+    public function setSignatureImageUri(?string $signatureImageUri): self
     {
         $this->signatureImageUri = $signatureImageUri;
 
@@ -374,19 +435,23 @@ class UserSignatures
     }
 
     /**
+     *  The initials associated with the signature.
+     *
      * @return string
      */
-    public function getSignatureInitials()
+    public function getSignatureInitials(): ?string
     {
         return $this->signatureInitials;
     }
 
     /**
+     *  The initials associated with the signature.
+     *
      * @param string $signatureInitials
      *
      * @return self
      */
-    public function setSignatureInitials($signatureInitials = null)
+    public function setSignatureInitials(?string $signatureInitials): self
     {
         $this->signatureInitials = $signatureInitials;
 
@@ -394,19 +459,23 @@ class UserSignatures
     }
 
     /**
+     * Specifies the user signature name.
+     *
      * @return string
      */
-    public function getSignatureName()
+    public function getSignatureName(): ?string
     {
         return $this->signatureName;
     }
 
     /**
+     * Specifies the user signature name.
+     *
      * @param string $signatureName
      *
      * @return self
      */
-    public function setSignatureName($signatureName = null)
+    public function setSignatureName(?string $signatureName): self
     {
         $this->signatureName = $signatureName;
 
@@ -416,7 +485,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getSignatureType()
+    public function getSignatureType(): ?string
     {
         return $this->signatureType;
     }
@@ -426,7 +495,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setSignatureType($signatureType = null)
+    public function setSignatureType(?string $signatureType): self
     {
         $this->signatureType = $signatureType;
 
@@ -436,7 +505,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getStampFormat()
+    public function getStampFormat(): ?string
     {
         return $this->stampFormat;
     }
@@ -446,7 +515,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setStampFormat($stampFormat = null)
+    public function setStampFormat(?string $stampFormat): self
     {
         $this->stampFormat = $stampFormat;
 
@@ -456,7 +525,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getStampImageUri()
+    public function getStampImageUri(): ?string
     {
         return $this->stampImageUri;
     }
@@ -466,7 +535,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setStampImageUri($stampImageUri = null)
+    public function setStampImageUri(?string $stampImageUri): self
     {
         $this->stampImageUri = $stampImageUri;
 
@@ -476,7 +545,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getStampSizeMM()
+    public function getStampSizeMM(): ?string
     {
         return $this->stampSizeMM;
     }
@@ -486,7 +555,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setStampSizeMM($stampSizeMM = null)
+    public function setStampSizeMM(?string $stampSizeMM): self
     {
         $this->stampSizeMM = $stampSizeMM;
 
@@ -496,7 +565,7 @@ class UserSignatures
     /**
      * @return string
      */
-    public function getStampType()
+    public function getStampType(): ?string
     {
         return $this->stampType;
     }
@@ -506,7 +575,7 @@ class UserSignatures
      *
      * @return self
      */
-    public function setStampType($stampType = null)
+    public function setStampType(?string $stampType): self
     {
         $this->stampType = $stampType;
 

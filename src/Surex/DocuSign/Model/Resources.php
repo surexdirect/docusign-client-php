@@ -16,7 +16,7 @@ class Resources
     /**
      * @return NameValue[]
      */
-    public function getResources()
+    public function getResources(): ?array
     {
         return $this->resources;
     }
@@ -26,7 +26,7 @@ class Resources
      *
      * @return self
      */
-    public function setResources(array $resources = null)
+    public function setResources(?array $resources): self
     {
         $this->resources = $resources;
 

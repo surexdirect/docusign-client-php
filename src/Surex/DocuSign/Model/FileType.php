@@ -13,6 +13,8 @@ class FileType
      */
     protected $fileExtension;
     /**
+     * The mime-type of a file type listed in a fileTypes collection.
+     *
      * @var string
      */
     protected $mimeType;
@@ -20,7 +22,7 @@ class FileType
     /**
      * @return string
      */
-    public function getFileExtension()
+    public function getFileExtension(): ?string
     {
         return $this->fileExtension;
     }
@@ -30,7 +32,7 @@ class FileType
      *
      * @return self
      */
-    public function setFileExtension($fileExtension = null)
+    public function setFileExtension(?string $fileExtension): self
     {
         $this->fileExtension = $fileExtension;
 
@@ -38,19 +40,23 @@ class FileType
     }
 
     /**
+     * The mime-type of a file type listed in a fileTypes collection.
+     *
      * @return string
      */
-    public function getMimeType()
+    public function getMimeType(): ?string
     {
         return $this->mimeType;
     }
 
     /**
+     * The mime-type of a file type listed in a fileTypes collection.
+     *
      * @param string $mimeType
      *
      * @return self
      */
-    public function setMimeType($mimeType = null)
+    public function setMimeType(?string $mimeType): self
     {
         $this->mimeType = $mimeType;
 

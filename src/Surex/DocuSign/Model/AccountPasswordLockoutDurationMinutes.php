@@ -20,7 +20,7 @@ class AccountPasswordLockoutDurationMinutes
     /**
      * @return string
      */
-    public function getMaximumMinutes()
+    public function getMaximumMinutes(): ?string
     {
         return $this->maximumMinutes;
     }
@@ -30,7 +30,7 @@ class AccountPasswordLockoutDurationMinutes
      *
      * @return self
      */
-    public function setMaximumMinutes($maximumMinutes = null)
+    public function setMaximumMinutes(?string $maximumMinutes): self
     {
         $this->maximumMinutes = $maximumMinutes;
 
@@ -40,7 +40,7 @@ class AccountPasswordLockoutDurationMinutes
     /**
      * @return string
      */
-    public function getMinimumMinutes()
+    public function getMinimumMinutes(): ?string
     {
         return $this->minimumMinutes;
     }
@@ -50,7 +50,7 @@ class AccountPasswordLockoutDurationMinutes
      *
      * @return self
      */
-    public function setMinimumMinutes($minimumMinutes = null)
+    public function setMinimumMinutes(?string $minimumMinutes): self
     {
         $this->minimumMinutes = $minimumMinutes;
 

@@ -24,7 +24,7 @@ class TemplateMatch
     /**
      * @return string
      */
-    public function getDocumentEndPage()
+    public function getDocumentEndPage(): ?string
     {
         return $this->documentEndPage;
     }
@@ -34,7 +34,7 @@ class TemplateMatch
      *
      * @return self
      */
-    public function setDocumentEndPage($documentEndPage = null)
+    public function setDocumentEndPage(?string $documentEndPage): self
     {
         $this->documentEndPage = $documentEndPage;
 
@@ -44,7 +44,7 @@ class TemplateMatch
     /**
      * @return string
      */
-    public function getDocumentStartPage()
+    public function getDocumentStartPage(): ?string
     {
         return $this->documentStartPage;
     }
@@ -54,7 +54,7 @@ class TemplateMatch
      *
      * @return self
      */
-    public function setDocumentStartPage($documentStartPage = null)
+    public function setDocumentStartPage(?string $documentStartPage): self
     {
         $this->documentStartPage = $documentStartPage;
 
@@ -64,7 +64,7 @@ class TemplateMatch
     /**
      * @return string
      */
-    public function getMatchPercentage()
+    public function getMatchPercentage(): ?string
     {
         return $this->matchPercentage;
     }
@@ -74,7 +74,7 @@ class TemplateMatch
      *
      * @return self
      */
-    public function setMatchPercentage($matchPercentage = null)
+    public function setMatchPercentage(?string $matchPercentage): self
     {
         $this->matchPercentage = $matchPercentage;
 

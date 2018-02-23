@@ -92,7 +92,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getExpirePassword()
+    public function getExpirePassword(): ?string
     {
         return $this->expirePassword;
     }
@@ -102,7 +102,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setExpirePassword($expirePassword = null)
+    public function setExpirePassword(?string $expirePassword): self
     {
         $this->expirePassword = $expirePassword;
 
@@ -112,7 +112,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getExpirePasswordDays()
+    public function getExpirePasswordDays(): ?string
     {
         return $this->expirePasswordDays;
     }
@@ -122,7 +122,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setExpirePasswordDays($expirePasswordDays = null)
+    public function setExpirePasswordDays(?string $expirePasswordDays): self
     {
         $this->expirePasswordDays = $expirePasswordDays;
 
@@ -132,7 +132,7 @@ class AccountPasswordRules
     /**
      * @return AccountPasswordExpirePasswordDays
      */
-    public function getExpirePasswordDaysMetadata()
+    public function getExpirePasswordDaysMetadata(): ?AccountPasswordExpirePasswordDays
     {
         return $this->expirePasswordDaysMetadata;
     }
@@ -142,7 +142,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setExpirePasswordDaysMetadata(AccountPasswordExpirePasswordDays $expirePasswordDaysMetadata = null)
+    public function setExpirePasswordDaysMetadata(?AccountPasswordExpirePasswordDays $expirePasswordDaysMetadata): self
     {
         $this->expirePasswordDaysMetadata = $expirePasswordDaysMetadata;
 
@@ -152,7 +152,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getLockoutDurationMinutes()
+    public function getLockoutDurationMinutes(): ?string
     {
         return $this->lockoutDurationMinutes;
     }
@@ -162,7 +162,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setLockoutDurationMinutes($lockoutDurationMinutes = null)
+    public function setLockoutDurationMinutes(?string $lockoutDurationMinutes): self
     {
         $this->lockoutDurationMinutes = $lockoutDurationMinutes;
 
@@ -172,7 +172,7 @@ class AccountPasswordRules
     /**
      * @return AccountPasswordLockoutDurationMinutes
      */
-    public function getLockoutDurationMinutesMetadata()
+    public function getLockoutDurationMinutesMetadata(): ?AccountPasswordLockoutDurationMinutes
     {
         return $this->lockoutDurationMinutesMetadata;
     }
@@ -182,7 +182,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setLockoutDurationMinutesMetadata(AccountPasswordLockoutDurationMinutes $lockoutDurationMinutesMetadata = null)
+    public function setLockoutDurationMinutesMetadata(?AccountPasswordLockoutDurationMinutes $lockoutDurationMinutesMetadata): self
     {
         $this->lockoutDurationMinutesMetadata = $lockoutDurationMinutesMetadata;
 
@@ -192,7 +192,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getLockoutDurationType()
+    public function getLockoutDurationType(): ?string
     {
         return $this->lockoutDurationType;
     }
@@ -202,7 +202,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setLockoutDurationType($lockoutDurationType = null)
+    public function setLockoutDurationType(?string $lockoutDurationType): self
     {
         $this->lockoutDurationType = $lockoutDurationType;
 
@@ -212,7 +212,7 @@ class AccountPasswordRules
     /**
      * @return AccountPasswordLockoutDurationType
      */
-    public function getLockoutDurationTypeMetadata()
+    public function getLockoutDurationTypeMetadata(): ?AccountPasswordLockoutDurationType
     {
         return $this->lockoutDurationTypeMetadata;
     }
@@ -222,7 +222,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setLockoutDurationTypeMetadata(AccountPasswordLockoutDurationType $lockoutDurationTypeMetadata = null)
+    public function setLockoutDurationTypeMetadata(?AccountPasswordLockoutDurationType $lockoutDurationTypeMetadata): self
     {
         $this->lockoutDurationTypeMetadata = $lockoutDurationTypeMetadata;
 
@@ -232,7 +232,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getMinimumPasswordAgeDays()
+    public function getMinimumPasswordAgeDays(): ?string
     {
         return $this->minimumPasswordAgeDays;
     }
@@ -242,7 +242,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setMinimumPasswordAgeDays($minimumPasswordAgeDays = null)
+    public function setMinimumPasswordAgeDays(?string $minimumPasswordAgeDays): self
     {
         $this->minimumPasswordAgeDays = $minimumPasswordAgeDays;
 
@@ -252,7 +252,7 @@ class AccountPasswordRules
     /**
      * @return AccountPasswordMinimumPasswordAgeDays
      */
-    public function getMinimumPasswordAgeDaysMetadata()
+    public function getMinimumPasswordAgeDaysMetadata(): ?AccountPasswordMinimumPasswordAgeDays
     {
         return $this->minimumPasswordAgeDaysMetadata;
     }
@@ -262,7 +262,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setMinimumPasswordAgeDaysMetadata(AccountPasswordMinimumPasswordAgeDays $minimumPasswordAgeDaysMetadata = null)
+    public function setMinimumPasswordAgeDaysMetadata(?AccountPasswordMinimumPasswordAgeDays $minimumPasswordAgeDaysMetadata): self
     {
         $this->minimumPasswordAgeDaysMetadata = $minimumPasswordAgeDaysMetadata;
 
@@ -272,7 +272,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getMinimumPasswordLength()
+    public function getMinimumPasswordLength(): ?string
     {
         return $this->minimumPasswordLength;
     }
@@ -282,7 +282,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setMinimumPasswordLength($minimumPasswordLength = null)
+    public function setMinimumPasswordLength(?string $minimumPasswordLength): self
     {
         $this->minimumPasswordLength = $minimumPasswordLength;
 
@@ -292,7 +292,7 @@ class AccountPasswordRules
     /**
      * @return AccountMinimumPasswordLength
      */
-    public function getMinimumPasswordLengthMetadata()
+    public function getMinimumPasswordLengthMetadata(): ?AccountMinimumPasswordLength
     {
         return $this->minimumPasswordLengthMetadata;
     }
@@ -302,7 +302,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setMinimumPasswordLengthMetadata(AccountMinimumPasswordLength $minimumPasswordLengthMetadata = null)
+    public function setMinimumPasswordLengthMetadata(?AccountMinimumPasswordLength $minimumPasswordLengthMetadata): self
     {
         $this->minimumPasswordLengthMetadata = $minimumPasswordLengthMetadata;
 
@@ -312,7 +312,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getPasswordIncludeDigit()
+    public function getPasswordIncludeDigit(): ?string
     {
         return $this->passwordIncludeDigit;
     }
@@ -322,7 +322,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setPasswordIncludeDigit($passwordIncludeDigit = null)
+    public function setPasswordIncludeDigit(?string $passwordIncludeDigit): self
     {
         $this->passwordIncludeDigit = $passwordIncludeDigit;
 
@@ -332,7 +332,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getPasswordIncludeDigitOrSpecialCharacter()
+    public function getPasswordIncludeDigitOrSpecialCharacter(): ?string
     {
         return $this->passwordIncludeDigitOrSpecialCharacter;
     }
@@ -342,7 +342,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setPasswordIncludeDigitOrSpecialCharacter($passwordIncludeDigitOrSpecialCharacter = null)
+    public function setPasswordIncludeDigitOrSpecialCharacter(?string $passwordIncludeDigitOrSpecialCharacter): self
     {
         $this->passwordIncludeDigitOrSpecialCharacter = $passwordIncludeDigitOrSpecialCharacter;
 
@@ -352,7 +352,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getPasswordIncludeLowerCase()
+    public function getPasswordIncludeLowerCase(): ?string
     {
         return $this->passwordIncludeLowerCase;
     }
@@ -362,7 +362,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setPasswordIncludeLowerCase($passwordIncludeLowerCase = null)
+    public function setPasswordIncludeLowerCase(?string $passwordIncludeLowerCase): self
     {
         $this->passwordIncludeLowerCase = $passwordIncludeLowerCase;
 
@@ -372,7 +372,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getPasswordIncludeSpecialCharacter()
+    public function getPasswordIncludeSpecialCharacter(): ?string
     {
         return $this->passwordIncludeSpecialCharacter;
     }
@@ -382,7 +382,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setPasswordIncludeSpecialCharacter($passwordIncludeSpecialCharacter = null)
+    public function setPasswordIncludeSpecialCharacter(?string $passwordIncludeSpecialCharacter): self
     {
         $this->passwordIncludeSpecialCharacter = $passwordIncludeSpecialCharacter;
 
@@ -392,7 +392,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getPasswordIncludeUpperCase()
+    public function getPasswordIncludeUpperCase(): ?string
     {
         return $this->passwordIncludeUpperCase;
     }
@@ -402,7 +402,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setPasswordIncludeUpperCase($passwordIncludeUpperCase = null)
+    public function setPasswordIncludeUpperCase(?string $passwordIncludeUpperCase): self
     {
         $this->passwordIncludeUpperCase = $passwordIncludeUpperCase;
 
@@ -412,7 +412,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getPasswordStrengthType()
+    public function getPasswordStrengthType(): ?string
     {
         return $this->passwordStrengthType;
     }
@@ -422,7 +422,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setPasswordStrengthType($passwordStrengthType = null)
+    public function setPasswordStrengthType(?string $passwordStrengthType): self
     {
         $this->passwordStrengthType = $passwordStrengthType;
 
@@ -432,7 +432,7 @@ class AccountPasswordRules
     /**
      * @return AccountPasswordStrengthType
      */
-    public function getPasswordStrengthTypeMetadata()
+    public function getPasswordStrengthTypeMetadata(): ?AccountPasswordStrengthType
     {
         return $this->passwordStrengthTypeMetadata;
     }
@@ -442,7 +442,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setPasswordStrengthTypeMetadata(AccountPasswordStrengthType $passwordStrengthTypeMetadata = null)
+    public function setPasswordStrengthTypeMetadata(?AccountPasswordStrengthType $passwordStrengthTypeMetadata): self
     {
         $this->passwordStrengthTypeMetadata = $passwordStrengthTypeMetadata;
 
@@ -452,7 +452,7 @@ class AccountPasswordRules
     /**
      * @return string
      */
-    public function getQuestionsRequired()
+    public function getQuestionsRequired(): ?string
     {
         return $this->questionsRequired;
     }
@@ -462,7 +462,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setQuestionsRequired($questionsRequired = null)
+    public function setQuestionsRequired(?string $questionsRequired): self
     {
         $this->questionsRequired = $questionsRequired;
 
@@ -472,7 +472,7 @@ class AccountPasswordRules
     /**
      * @return AccountPasswordQuestionsRequired
      */
-    public function getQuestionsRequiredMetadata()
+    public function getQuestionsRequiredMetadata(): ?AccountPasswordQuestionsRequired
     {
         return $this->questionsRequiredMetadata;
     }
@@ -482,7 +482,7 @@ class AccountPasswordRules
      *
      * @return self
      */
-    public function setQuestionsRequiredMetadata(AccountPasswordQuestionsRequired $questionsRequiredMetadata = null)
+    public function setQuestionsRequiredMetadata(?AccountPasswordQuestionsRequired $questionsRequiredMetadata): self
     {
         $this->questionsRequiredMetadata = $questionsRequiredMetadata;
 

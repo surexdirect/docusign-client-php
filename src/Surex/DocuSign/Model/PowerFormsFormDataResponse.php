@@ -16,7 +16,7 @@ class PowerFormsFormDataResponse
     /**
      * @return PowerFormData[]
      */
-    public function getEnvelopes()
+    public function getEnvelopes(): ?array
     {
         return $this->envelopes;
     }
@@ -26,7 +26,7 @@ class PowerFormsFormDataResponse
      *
      * @return self
      */
-    public function setEnvelopes(array $envelopes = null)
+    public function setEnvelopes(?array $envelopes): self
     {
         $this->envelopes = $envelopes;
 

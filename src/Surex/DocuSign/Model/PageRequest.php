@@ -13,6 +13,8 @@ class PageRequest
      */
     protected $password;
     /**
+     * Sets the direction the page image is rotated. The possible settings are: left or right.
+     *
      * @var string
      */
     protected $rotate;
@@ -20,7 +22,7 @@ class PageRequest
     /**
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -30,7 +32,7 @@ class PageRequest
      *
      * @return self
      */
-    public function setPassword($password = null)
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
 
@@ -38,19 +40,23 @@ class PageRequest
     }
 
     /**
+     * Sets the direction the page image is rotated. The possible settings are: left or right.
+     *
      * @return string
      */
-    public function getRotate()
+    public function getRotate(): ?string
     {
         return $this->rotate;
     }
 
     /**
+     * Sets the direction the page image is rotated. The possible settings are: left or right.
+     *
      * @param string $rotate
      *
      * @return self
      */
-    public function setRotate($rotate = null)
+    public function setRotate(?string $rotate): self
     {
         $this->rotate = $rotate;
 

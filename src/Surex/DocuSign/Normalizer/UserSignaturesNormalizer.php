@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class UserSignaturesNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class UserSignaturesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\UserSignatures' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\UserSignatures' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\UserSignatures) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\UserSignatures;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\UserSignatures();
         if (property_exists($data, 'adoptedDateTime')) {
             $object->setAdoptedDateTime($data->{'adoptedDateTime'});
@@ -40,10 +42,10 @@ class UserSignaturesNormalizer extends SerializerAwareNormalizer implements Deno
             $object->setCreatedDateTime($data->{'createdDateTime'});
         }
         if (property_exists($data, 'dateStampProperties')) {
-            $object->setDateStampProperties($this->serializer->deserialize($data->{'dateStampProperties'}, 'Surex\\DocuSign\\Model\\DateStampProperties', 'raw', $context));
+            $object->setDateStampProperties($this->denormalizer->denormalize($data->{'dateStampProperties'}, 'Surex\\DocuSign\\Model\\DateStampProperties', 'json', $context));
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'externalID')) {
             $object->setExternalID($data->{'externalID'});
@@ -110,10 +112,10 @@ class UserSignaturesNormalizer extends SerializerAwareNormalizer implements Deno
             $data->{'createdDateTime'} = $object->getCreatedDateTime();
         }
         if (null !== $object->getDateStampProperties()) {
-            $data->{'dateStampProperties'} = $this->serializer->serialize($object->getDateStampProperties(), 'raw', $context);
+            $data->{'dateStampProperties'} = $this->normalizer->normalize($object->getDateStampProperties(), 'json', $context);
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getExternalID()) {
             $data->{'externalID'} = $object->getExternalID();

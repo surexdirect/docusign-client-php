@@ -9,10 +9,18 @@ namespace Surex\DocuSign\Model;
 class BulkEnvelope
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $bulkRecipientRow;
     /**
+     * Indicates the status of the bulk send operation. Returned values can be:
+     * queued
+     * processing
+     * sent
+     * failed.
+     *
      * @var string
      */
     protected $bulkStatus;
@@ -21,14 +29,20 @@ class BulkEnvelope
      */
     protected $email;
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @var string
      */
     protected $envelopeId;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @var string
      */
     protected $envelopeUri;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -41,24 +55,30 @@ class BulkEnvelope
      */
     protected $submittedDateTime;
     /**
+     *  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+     *
      * @var string
      */
     protected $transactionId;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBulkRecipientRow()
+    public function getBulkRecipientRow(): ?string
     {
         return $this->bulkRecipientRow;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $bulkRecipientRow
      *
      * @return self
      */
-    public function setBulkRecipientRow($bulkRecipientRow = null)
+    public function setBulkRecipientRow(?string $bulkRecipientRow): self
     {
         $this->bulkRecipientRow = $bulkRecipientRow;
 
@@ -66,19 +86,31 @@ class BulkEnvelope
     }
 
     /**
+     * Indicates the status of the bulk send operation. Returned values can be:
+     * queued
+     * processing
+     * sent
+     * failed.
+     *
      * @return string
      */
-    public function getBulkStatus()
+    public function getBulkStatus(): ?string
     {
         return $this->bulkStatus;
     }
 
     /**
+     * Indicates the status of the bulk send operation. Returned values can be:
+     * queued
+     * processing
+     * sent
+     * failed.
+     *
      * @param string $bulkStatus
      *
      * @return self
      */
-    public function setBulkStatus($bulkStatus = null)
+    public function setBulkStatus(?string $bulkStatus): self
     {
         $this->bulkStatus = $bulkStatus;
 
@@ -88,7 +120,7 @@ class BulkEnvelope
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -98,7 +130,7 @@ class BulkEnvelope
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -106,19 +138,23 @@ class BulkEnvelope
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @return string
      */
-    public function getEnvelopeId()
+    public function getEnvelopeId(): ?string
     {
         return $this->envelopeId;
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @param string $envelopeId
      *
      * @return self
      */
-    public function setEnvelopeId($envelopeId = null)
+    public function setEnvelopeId(?string $envelopeId): self
     {
         $this->envelopeId = $envelopeId;
 
@@ -126,19 +162,23 @@ class BulkEnvelope
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @return string
      */
-    public function getEnvelopeUri()
+    public function getEnvelopeUri(): ?string
     {
         return $this->envelopeUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @param string $envelopeUri
      *
      * @return self
      */
-    public function setEnvelopeUri($envelopeUri = null)
+    public function setEnvelopeUri(?string $envelopeUri): self
     {
         $this->envelopeUri = $envelopeUri;
 
@@ -146,19 +186,23 @@ class BulkEnvelope
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -168,7 +212,7 @@ class BulkEnvelope
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -178,7 +222,7 @@ class BulkEnvelope
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -188,7 +232,7 @@ class BulkEnvelope
     /**
      * @return string
      */
-    public function getSubmittedDateTime()
+    public function getSubmittedDateTime(): ?string
     {
         return $this->submittedDateTime;
     }
@@ -198,7 +242,7 @@ class BulkEnvelope
      *
      * @return self
      */
-    public function setSubmittedDateTime($submittedDateTime = null)
+    public function setSubmittedDateTime(?string $submittedDateTime): self
     {
         $this->submittedDateTime = $submittedDateTime;
 
@@ -206,19 +250,23 @@ class BulkEnvelope
     }
 
     /**
+     *  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+     *
      * @return string
      */
-    public function getTransactionId()
+    public function getTransactionId(): ?string
     {
         return $this->transactionId;
     }
 
     /**
+     *  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+     *
      * @param string $transactionId
      *
      * @return self
      */
-    public function setTransactionId($transactionId = null)
+    public function setTransactionId(?string $transactionId): self
     {
         $this->transactionId = $transactionId;
 

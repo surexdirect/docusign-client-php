@@ -16,7 +16,7 @@ class DocumentTemplateList
     /**
      * @return DocumentTemplate[]
      */
-    public function getDocumentTemplates()
+    public function getDocumentTemplates(): ?array
     {
         return $this->documentTemplates;
     }
@@ -26,7 +26,7 @@ class DocumentTemplateList
      *
      * @return self
      */
-    public function setDocumentTemplates(array $documentTemplates = null)
+    public function setDocumentTemplates(?array $documentTemplates): self
     {
         $this->documentTemplates = $documentTemplates;
 

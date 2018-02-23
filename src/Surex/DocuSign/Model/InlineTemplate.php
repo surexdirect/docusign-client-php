@@ -9,40 +9,54 @@ namespace Surex\DocuSign\Model;
 class InlineTemplate
 {
     /**
+     * Custom Fields.
+     *
      * @var AccountCustomFields
      */
     protected $customFields;
     /**
+     * Complex element contains the details on the documents in the envelope.
+     *
      * @var Document[]
      */
     protected $documents;
     /**
+     * Envelope creation, management.
+     *
      * @var Envelopes
      */
     protected $envelope;
     /**
+     * Envelope recipients.
+     *
      * @var EnvelopeRecipients
      */
     protected $recipients;
     /**
+     * Specifies the order in which templates are overlaid.
+     *
      * @var string
      */
     protected $sequence;
 
     /**
+     * Custom Fields.
+     *
      * @return AccountCustomFields
      */
-    public function getCustomFields()
+    public function getCustomFields(): ?AccountCustomFields
     {
         return $this->customFields;
     }
 
     /**
+     * Custom Fields.
+     *
      * @param AccountCustomFields $customFields
      *
      * @return self
      */
-    public function setCustomFields(AccountCustomFields $customFields = null)
+    public function setCustomFields(?AccountCustomFields $customFields): self
     {
         $this->customFields = $customFields;
 
@@ -50,19 +64,23 @@ class InlineTemplate
     }
 
     /**
+     * Complex element contains the details on the documents in the envelope.
+     *
      * @return Document[]
      */
-    public function getDocuments()
+    public function getDocuments(): ?array
     {
         return $this->documents;
     }
 
     /**
+     * Complex element contains the details on the documents in the envelope.
+     *
      * @param Document[] $documents
      *
      * @return self
      */
-    public function setDocuments(array $documents = null)
+    public function setDocuments(?array $documents): self
     {
         $this->documents = $documents;
 
@@ -70,19 +88,23 @@ class InlineTemplate
     }
 
     /**
+     * Envelope creation, management.
+     *
      * @return Envelopes
      */
-    public function getEnvelope()
+    public function getEnvelope(): ?Envelopes
     {
         return $this->envelope;
     }
 
     /**
+     * Envelope creation, management.
+     *
      * @param Envelopes $envelope
      *
      * @return self
      */
-    public function setEnvelope(Envelopes $envelope = null)
+    public function setEnvelope(?Envelopes $envelope): self
     {
         $this->envelope = $envelope;
 
@@ -90,19 +112,23 @@ class InlineTemplate
     }
 
     /**
+     * Envelope recipients.
+     *
      * @return EnvelopeRecipients
      */
-    public function getRecipients()
+    public function getRecipients(): ?EnvelopeRecipients
     {
         return $this->recipients;
     }
 
     /**
+     * Envelope recipients.
+     *
      * @param EnvelopeRecipients $recipients
      *
      * @return self
      */
-    public function setRecipients(EnvelopeRecipients $recipients = null)
+    public function setRecipients(?EnvelopeRecipients $recipients): self
     {
         $this->recipients = $recipients;
 
@@ -110,19 +136,23 @@ class InlineTemplate
     }
 
     /**
+     * Specifies the order in which templates are overlaid.
+     *
      * @return string
      */
-    public function getSequence()
+    public function getSequence(): ?string
     {
         return $this->sequence;
     }
 
     /**
+     * Specifies the order in which templates are overlaid.
+     *
      * @param string $sequence
      *
      * @return self
      */
-    public function setSequence($sequence = null)
+    public function setSequence(?string $sequence): self
     {
         $this->sequence = $sequence;
 

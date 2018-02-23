@@ -28,7 +28,7 @@ class BrandEmailContent
     /**
      * @return string
      */
-    public function getContent()
+    public function getContent(): ?string
     {
         return $this->content;
     }
@@ -38,7 +38,7 @@ class BrandEmailContent
      *
      * @return self
      */
-    public function setContent($content = null)
+    public function setContent(?string $content): self
     {
         $this->content = $content;
 
@@ -48,7 +48,7 @@ class BrandEmailContent
     /**
      * @return string
      */
-    public function getEmailContentType()
+    public function getEmailContentType(): ?string
     {
         return $this->emailContentType;
     }
@@ -58,7 +58,7 @@ class BrandEmailContent
      *
      * @return self
      */
-    public function setEmailContentType($emailContentType = null)
+    public function setEmailContentType(?string $emailContentType): self
     {
         $this->emailContentType = $emailContentType;
 
@@ -68,7 +68,7 @@ class BrandEmailContent
     /**
      * @return string
      */
-    public function getEmailToLink()
+    public function getEmailToLink(): ?string
     {
         return $this->emailToLink;
     }
@@ -78,7 +78,7 @@ class BrandEmailContent
      *
      * @return self
      */
-    public function setEmailToLink($emailToLink = null)
+    public function setEmailToLink(?string $emailToLink): self
     {
         $this->emailToLink = $emailToLink;
 
@@ -88,7 +88,7 @@ class BrandEmailContent
     /**
      * @return string
      */
-    public function getLinkText()
+    public function getLinkText(): ?string
     {
         return $this->linkText;
     }
@@ -98,7 +98,7 @@ class BrandEmailContent
      *
      * @return self
      */
-    public function setLinkText($linkText = null)
+    public function setLinkText(?string $linkText): self
     {
         $this->linkText = $linkText;
 

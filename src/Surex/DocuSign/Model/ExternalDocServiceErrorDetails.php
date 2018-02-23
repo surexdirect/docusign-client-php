@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class ExternalDocServiceErrorDetails
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $authenticationUrl;
@@ -22,19 +24,23 @@ class ExternalDocServiceErrorDetails
     protected $message;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getAuthenticationUrl()
+    public function getAuthenticationUrl(): ?string
     {
         return $this->authenticationUrl;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $authenticationUrl
      *
      * @return self
      */
-    public function setAuthenticationUrl($authenticationUrl = null)
+    public function setAuthenticationUrl(?string $authenticationUrl): self
     {
         $this->authenticationUrl = $authenticationUrl;
 
@@ -44,7 +50,7 @@ class ExternalDocServiceErrorDetails
     /**
      * @return string
      */
-    public function getErrorCode()
+    public function getErrorCode(): ?string
     {
         return $this->errorCode;
     }
@@ -54,7 +60,7 @@ class ExternalDocServiceErrorDetails
      *
      * @return self
      */
-    public function setErrorCode($errorCode = null)
+    public function setErrorCode(?string $errorCode): self
     {
         $this->errorCode = $errorCode;
 
@@ -64,7 +70,7 @@ class ExternalDocServiceErrorDetails
     /**
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->message;
     }
@@ -74,7 +80,7 @@ class ExternalDocServiceErrorDetails
      *
      * @return self
      */
-    public function setMessage($message = null)
+    public function setMessage(?string $message): self
     {
         $this->message = $message;
 

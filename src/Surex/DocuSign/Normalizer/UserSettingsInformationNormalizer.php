@@ -6,46 +6,48 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class UserSettingsInformationNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class UserSettingsInformationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\UserSettingsInformation' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\UserSettingsInformation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\UserSettingsInformation) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\UserSettingsInformation;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\UserSettingsInformation();
         if (property_exists($data, 'accountManagementGranular')) {
-            $object->setAccountManagementGranular($this->serializer->deserialize($data->{'accountManagementGranular'}, 'Surex\\DocuSign\\Model\\UserAccountManagementGranularInformation', 'raw', $context));
+            $object->setAccountManagementGranular($this->denormalizer->denormalize($data->{'accountManagementGranular'}, 'Surex\\DocuSign\\Model\\UserAccountManagementGranularInformation', 'json', $context));
         }
         if (property_exists($data, 'senderEmailNotifications')) {
-            $object->setSenderEmailNotifications($this->serializer->deserialize($data->{'senderEmailNotifications'}, 'Surex\\DocuSign\\Model\\SenderEmailNotifications', 'raw', $context));
+            $object->setSenderEmailNotifications($this->denormalizer->denormalize($data->{'senderEmailNotifications'}, 'Surex\\DocuSign\\Model\\SenderEmailNotifications', 'json', $context));
         }
         if (property_exists($data, 'signerEmailNotifications')) {
-            $object->setSignerEmailNotifications($this->serializer->deserialize($data->{'signerEmailNotifications'}, 'Surex\\DocuSign\\Model\\SignerEmailNotifications', 'raw', $context));
+            $object->setSignerEmailNotifications($this->denormalizer->denormalize($data->{'signerEmailNotifications'}, 'Surex\\DocuSign\\Model\\SignerEmailNotifications', 'json', $context));
         }
         if (property_exists($data, 'userSettings')) {
             $values = [];
             foreach ($data->{'userSettings'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\NameValue', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\NameValue', 'json', $context);
             }
             $object->setUserSettings($values);
         }
@@ -57,18 +59,18 @@ class UserSettingsInformationNormalizer extends SerializerAwareNormalizer implem
     {
         $data = new \stdClass();
         if (null !== $object->getAccountManagementGranular()) {
-            $data->{'accountManagementGranular'} = $this->serializer->serialize($object->getAccountManagementGranular(), 'raw', $context);
+            $data->{'accountManagementGranular'} = $this->normalizer->normalize($object->getAccountManagementGranular(), 'json', $context);
         }
         if (null !== $object->getSenderEmailNotifications()) {
-            $data->{'senderEmailNotifications'} = $this->serializer->serialize($object->getSenderEmailNotifications(), 'raw', $context);
+            $data->{'senderEmailNotifications'} = $this->normalizer->normalize($object->getSenderEmailNotifications(), 'json', $context);
         }
         if (null !== $object->getSignerEmailNotifications()) {
-            $data->{'signerEmailNotifications'} = $this->serializer->serialize($object->getSignerEmailNotifications(), 'raw', $context);
+            $data->{'signerEmailNotifications'} = $this->normalizer->normalize($object->getSignerEmailNotifications(), 'json', $context);
         }
         if (null !== $object->getUserSettings()) {
             $values = [];
             foreach ($object->getUserSettings() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'userSettings'} = $values;
         }

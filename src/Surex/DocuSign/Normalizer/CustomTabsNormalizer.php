@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class CustomTabsNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class CustomTabsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\CustomTabs' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\CustomTabs' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\CustomTabs) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\CustomTabs;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\CustomTabs();
         if (property_exists($data, 'anchor')) {
             $object->setAnchor($data->{'anchor'});
@@ -122,7 +124,7 @@ class CustomTabsNormalizer extends SerializerAwareNormalizer implements Denormal
             $object->setMaximumLength($data->{'maximumLength'});
         }
         if (property_exists($data, 'mergeField')) {
-            $object->setMergeField($this->serializer->deserialize($data->{'mergeField'}, 'Surex\\DocuSign\\Model\\MergeField', 'raw', $context));
+            $object->setMergeField($this->denormalizer->denormalize($data->{'mergeField'}, 'Surex\\DocuSign\\Model\\MergeField', 'json', $context));
         }
         if (property_exists($data, 'name')) {
             $object->setName($data->{'name'});
@@ -140,7 +142,7 @@ class CustomTabsNormalizer extends SerializerAwareNormalizer implements Denormal
             $object->setStampType($data->{'stampType'});
         }
         if (property_exists($data, 'stampTypeMetadata')) {
-            $object->setStampTypeMetadata($this->serializer->deserialize($data->{'stampTypeMetadata'}, 'Surex\\DocuSign\\Model\\PropertyMetadata', 'raw', $context));
+            $object->setStampTypeMetadata($this->denormalizer->denormalize($data->{'stampTypeMetadata'}, 'Surex\\DocuSign\\Model\\PropertyMetadata', 'json', $context));
         }
         if (property_exists($data, 'tabLabel')) {
             $object->setTabLabel($data->{'tabLabel'});
@@ -256,7 +258,7 @@ class CustomTabsNormalizer extends SerializerAwareNormalizer implements Denormal
             $data->{'maximumLength'} = $object->getMaximumLength();
         }
         if (null !== $object->getMergeField()) {
-            $data->{'mergeField'} = $this->serializer->serialize($object->getMergeField(), 'raw', $context);
+            $data->{'mergeField'} = $this->normalizer->normalize($object->getMergeField(), 'json', $context);
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
@@ -274,7 +276,7 @@ class CustomTabsNormalizer extends SerializerAwareNormalizer implements Denormal
             $data->{'stampType'} = $object->getStampType();
         }
         if (null !== $object->getStampTypeMetadata()) {
-            $data->{'stampTypeMetadata'} = $this->serializer->serialize($object->getStampTypeMetadata(), 'raw', $context);
+            $data->{'stampTypeMetadata'} = $this->normalizer->normalize($object->getStampTypeMetadata(), 'json', $context);
         }
         if (null !== $object->getTabLabel()) {
             $data->{'tabLabel'} = $object->getTabLabel();

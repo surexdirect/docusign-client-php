@@ -98,6 +98,7 @@ class EnvelopeDocumentsResource extends Resource
      *
      *     @var string $apply_document_fields When **true**, document fields
      * }
+     *
      * @param string $fetch Fetch mode (object or response)
      *
      * @return \Psr\Http\Message\ResponseInterface|\Surex\DocuSign\Model\EnvelopeDocuments|\Surex\DocuSign\Model\ErrorDetails
@@ -150,7 +151,7 @@ class EnvelopeDocumentsResource extends Resource
      *     @var string $encrypt When set to **true**, the PDF bytes returned in the response are encrypted for all the key managers configured on your DocuSign account. The documents can be decrypted with the KeyManager Decrypt Document API.
      *     @var string $language Specifies the language for the Certificate of Completion in the response. The supported languages, with the language value shown in parenthesis, are: Chinese Simplified (zh_CN), , Chinese Traditional (zh_TW), Dutch (nl), English US (en), French (fr), German (de), Italian (it), Japanese (ja), Korean (ko), Portuguese (pt), Portuguese (Brazil) (pt_BR), Russian (ru), Spanish (es).
      *     @var string $recipient_id
-     *     @var string $show_changes When set to **true**, any changed fields for the returned PDF are highlighted in yellow and optional signatures or initials outlined in red.
+     *     @var string $show_changes when set to **true**, any changed fields for the returned PDF are highlighted in yellow and optional signatures or initials outlined in red
      *     @var string $watermark When set to **true**, the account has the watermark feature enabled, and the envelope is not complete, the watermark for the account is added to the PDF documents. This option can remove the watermark.
      * }
      *
@@ -199,6 +200,7 @@ class EnvelopeDocumentsResource extends Resource
      *
      *     @var string $apply_document_fields When **true**, document fields
      * }
+     *
      * @param string $fetch Fetch mode (object or response)
      *
      * @return \Psr\Http\Message\ResponseInterface|\Surex\DocuSign\Model\ErrorDetails

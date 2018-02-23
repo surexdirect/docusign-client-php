@@ -40,7 +40,7 @@ class BrandResources
     /**
      * @return UserInfo
      */
-    public function getCreatedByUserInfo()
+    public function getCreatedByUserInfo(): ?UserInfo
     {
         return $this->createdByUserInfo;
     }
@@ -50,7 +50,7 @@ class BrandResources
      *
      * @return self
      */
-    public function setCreatedByUserInfo(UserInfo $createdByUserInfo = null)
+    public function setCreatedByUserInfo(?UserInfo $createdByUserInfo): self
     {
         $this->createdByUserInfo = $createdByUserInfo;
 
@@ -60,7 +60,7 @@ class BrandResources
     /**
      * @return string
      */
-    public function getCreatedDate()
+    public function getCreatedDate(): ?string
     {
         return $this->createdDate;
     }
@@ -70,7 +70,7 @@ class BrandResources
      *
      * @return self
      */
-    public function setCreatedDate($createdDate = null)
+    public function setCreatedDate(?string $createdDate): self
     {
         $this->createdDate = $createdDate;
 
@@ -80,7 +80,7 @@ class BrandResources
     /**
      * @return UserInfo
      */
-    public function getModifiedByUserInfo()
+    public function getModifiedByUserInfo(): ?UserInfo
     {
         return $this->modifiedByUserInfo;
     }
@@ -90,7 +90,7 @@ class BrandResources
      *
      * @return self
      */
-    public function setModifiedByUserInfo(UserInfo $modifiedByUserInfo = null)
+    public function setModifiedByUserInfo(?UserInfo $modifiedByUserInfo): self
     {
         $this->modifiedByUserInfo = $modifiedByUserInfo;
 
@@ -100,7 +100,7 @@ class BrandResources
     /**
      * @return string
      */
-    public function getModifiedDate()
+    public function getModifiedDate(): ?string
     {
         return $this->modifiedDate;
     }
@@ -110,7 +110,7 @@ class BrandResources
      *
      * @return self
      */
-    public function setModifiedDate($modifiedDate = null)
+    public function setModifiedDate(?string $modifiedDate): self
     {
         $this->modifiedDate = $modifiedDate;
 
@@ -120,7 +120,7 @@ class BrandResources
     /**
      * @return string[]
      */
-    public function getModifiedTemplates()
+    public function getModifiedTemplates(): ?array
     {
         return $this->modifiedTemplates;
     }
@@ -130,7 +130,7 @@ class BrandResources
      *
      * @return self
      */
-    public function setModifiedTemplates(array $modifiedTemplates = null)
+    public function setModifiedTemplates(?array $modifiedTemplates): self
     {
         $this->modifiedTemplates = $modifiedTemplates;
 
@@ -140,7 +140,7 @@ class BrandResources
     /**
      * @return string
      */
-    public function getResourcesContentType()
+    public function getResourcesContentType(): ?string
     {
         return $this->resourcesContentType;
     }
@@ -150,7 +150,7 @@ class BrandResources
      *
      * @return self
      */
-    public function setResourcesContentType($resourcesContentType = null)
+    public function setResourcesContentType(?string $resourcesContentType): self
     {
         $this->resourcesContentType = $resourcesContentType;
 
@@ -160,7 +160,7 @@ class BrandResources
     /**
      * @return string
      */
-    public function getResourcesContentUri()
+    public function getResourcesContentUri(): ?string
     {
         return $this->resourcesContentUri;
     }
@@ -170,7 +170,7 @@ class BrandResources
      *
      * @return self
      */
-    public function setResourcesContentUri($resourcesContentUri = null)
+    public function setResourcesContentUri(?string $resourcesContentUri): self
     {
         $this->resourcesContentUri = $resourcesContentUri;
 

@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class DateSignedNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class DateSignedNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\DateSigned' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\DateSigned' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\DateSigned) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\DateSigned;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\DateSigned();
         if (property_exists($data, 'anchorCaseSensitive')) {
             $object->setAnchorCaseSensitive($data->{'anchorCaseSensitive'});
@@ -73,7 +75,7 @@ class DateSignedNormalizer extends SerializerAwareNormalizer implements Denormal
             $object->setDocumentId($data->{'documentId'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'font')) {
             $object->setFont($data->{'font'});
@@ -88,7 +90,7 @@ class DateSignedNormalizer extends SerializerAwareNormalizer implements Denormal
             $object->setItalic($data->{'italic'});
         }
         if (property_exists($data, 'mergeField')) {
-            $object->setMergeField($this->serializer->deserialize($data->{'mergeField'}, 'Surex\\DocuSign\\Model\\MergeField', 'raw', $context));
+            $object->setMergeField($this->denormalizer->denormalize($data->{'mergeField'}, 'Surex\\DocuSign\\Model\\MergeField', 'json', $context));
         }
         if (property_exists($data, 'name')) {
             $object->setName($data->{'name'});
@@ -176,7 +178,7 @@ class DateSignedNormalizer extends SerializerAwareNormalizer implements Denormal
             $data->{'documentId'} = $object->getDocumentId();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getFont()) {
             $data->{'font'} = $object->getFont();
@@ -191,7 +193,7 @@ class DateSignedNormalizer extends SerializerAwareNormalizer implements Denormal
             $data->{'italic'} = $object->getItalic();
         }
         if (null !== $object->getMergeField()) {
-            $data->{'mergeField'} = $this->serializer->serialize($object->getMergeField(), 'raw', $context);
+            $data->{'mergeField'} = $this->normalizer->normalize($object->getMergeField(), 'json', $context);
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();

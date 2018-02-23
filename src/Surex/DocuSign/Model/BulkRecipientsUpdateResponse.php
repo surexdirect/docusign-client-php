@@ -16,7 +16,7 @@ class BulkRecipientsUpdateResponse
     /**
      * @return Signer
      */
-    public function getSigner()
+    public function getSigner(): ?Signer
     {
         return $this->signer;
     }
@@ -26,7 +26,7 @@ class BulkRecipientsUpdateResponse
      *
      * @return self
      */
-    public function setSigner(Signer $signer = null)
+    public function setSigner(?Signer $signer): self
     {
         $this->signer = $signer;
 

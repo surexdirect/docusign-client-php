@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EnvelopeTemplateDefinitionNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EnvelopeTemplateDefinitionNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EnvelopeTemplateDefinition' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EnvelopeTemplateDefinition' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EnvelopeTemplateDefinition) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EnvelopeTemplateDefinition;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EnvelopeTemplateDefinition();
         if (property_exists($data, 'description')) {
             $object->setDescription($data->{'description'});
@@ -49,7 +51,7 @@ class EnvelopeTemplateDefinitionNormalizer extends SerializerAwareNormalizer imp
             $object->setLastModified($data->{'lastModified'});
         }
         if (property_exists($data, 'lastModifiedBy')) {
-            $object->setLastModifiedBy($this->serializer->deserialize($data->{'lastModifiedBy'}, 'Surex\\DocuSign\\Model\\UserInfo', 'raw', $context));
+            $object->setLastModifiedBy($this->denormalizer->denormalize($data->{'lastModifiedBy'}, 'Surex\\DocuSign\\Model\\UserInfo', 'json', $context));
         }
         if (property_exists($data, 'name')) {
             $object->setName($data->{'name'});
@@ -58,7 +60,7 @@ class EnvelopeTemplateDefinitionNormalizer extends SerializerAwareNormalizer imp
             $object->setNewPassword($data->{'newPassword'});
         }
         if (property_exists($data, 'owner')) {
-            $object->setOwner($this->serializer->deserialize($data->{'owner'}, 'Surex\\DocuSign\\Model\\UserInfo', 'raw', $context));
+            $object->setOwner($this->denormalizer->denormalize($data->{'owner'}, 'Surex\\DocuSign\\Model\\UserInfo', 'json', $context));
         }
         if (property_exists($data, 'pageCount')) {
             $object->setPageCount($data->{'pageCount'});
@@ -101,7 +103,7 @@ class EnvelopeTemplateDefinitionNormalizer extends SerializerAwareNormalizer imp
             $data->{'lastModified'} = $object->getLastModified();
         }
         if (null !== $object->getLastModifiedBy()) {
-            $data->{'lastModifiedBy'} = $this->serializer->serialize($object->getLastModifiedBy(), 'raw', $context);
+            $data->{'lastModifiedBy'} = $this->normalizer->normalize($object->getLastModifiedBy(), 'json', $context);
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
@@ -110,7 +112,7 @@ class EnvelopeTemplateDefinitionNormalizer extends SerializerAwareNormalizer imp
             $data->{'newPassword'} = $object->getNewPassword();
         }
         if (null !== $object->getOwner()) {
-            $data->{'owner'} = $this->serializer->serialize($object->getOwner(), 'raw', $context);
+            $data->{'owner'} = $this->normalizer->normalize($object->getOwner(), 'json', $context);
         }
         if (null !== $object->getPageCount()) {
             $data->{'pageCount'} = $object->getPageCount();

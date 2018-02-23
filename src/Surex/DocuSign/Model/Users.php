@@ -13,14 +13,20 @@ class Users
      */
     protected $accountManagementGranular;
     /**
+     * The activation code the new user must enter when activating their account.
+     *
      * @var string
      */
     protected $activationAccessCode;
     /**
+     * Indicates the date and time the item was created.
+     *
      * @var string
      */
     protected $createdDateTime;
     /**
+     * The name/value pair information for the user custom setting.
+     *
      * @var NameValue[]
      */
     protected $customSettings;
@@ -29,22 +35,41 @@ class Users
      */
     protected $email;
     /**
+     * Specifies whether the user is enabled for updates from DocuSign Connect. Valid values: true or false.
+     *
      * @var string
      */
     protected $enableConnectForUser;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
     /**
+     * The user's first name.
+     Maximum Length: 50 characters.
+     *
      * @var string
      */
     protected $firstName;
     /**
+     * A complex element that has up to four Question/Answer pairs for forgotten password information.
+     *
      * @var ForgottenPasswordInformation
      */
     protected $forgottenPasswordInfo;
     /**
+     * A list of the group information for groups to add the user to. Group information can be found by calling [ML:GET group information]. The only required parameter is groupId.
+
+     The parameters are:
+
+     * groupId - The DocuSign group ID for the group.
+     * groupName - The name of the group
+     * permissionProfileId - The ID of the permission profile associated with the group.
+     * groupType - The group type.
+
+     *
      * @var Group[]
      */
     protected $groupList;
@@ -53,26 +78,47 @@ class Users
      */
     protected $homeAddress;
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the initials image.
+     *
      * @var string
      */
     protected $initialsImageUri;
     /**
+     * Determines if the feature set is actively set as part of the plan.
+     *
      * @var string
      */
     protected $isAdmin;
     /**
+     * Shows the date-time when the user last logged on to the system.
+     *
      * @var string
      */
     protected $lastLogin;
     /**
+     * The user's last name.
+     Maximum Length: 50 characters.
+     *
      * @var string
      */
     protected $lastName;
     /**
+     * Shows the current status of the user's password. Possible values are:.
+
+     * password_reset
+     * password_active
+     * password_expired
+     * password_locked
+     * password_reset_failed
+
+     *
      * @var string
      */
     protected $loginStatus;
     /**
+     * The user's middle name.
+     Maximum Length: 50 characters.
+     *
      * @var string
      */
     protected $middleName;
@@ -97,18 +143,28 @@ class Users
      */
     protected $profileImageUri;
     /**
+     * When set to **true**, specifies that an additional activation email is sent to the user if they fail a log on before activating their account.
+     *
      * @var string
      */
     protected $sendActivationOnInvalidLogin;
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the signature image.
+     *
      * @var string
      */
     protected $signatureImageUri;
     /**
+     * The suffix for the user's name.
+
+     Maximum Length: 50 characters.
+     *
      * @var string
      */
     protected $suffixName;
     /**
+     * The title of the user.
+     *
      * @var string
      */
     protected $title;
@@ -117,6 +173,8 @@ class Users
      */
     protected $uri;
     /**
+     * The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+     *
      * @var string
      */
     protected $userId;
@@ -129,6 +187,8 @@ class Users
      */
     protected $userProfileLastModifiedDate;
     /**
+     *  The name/value pair information for user settings. These determine the actions that a user can take in the account. The `[ML:userSettings]` are listed and described below.
+     *
      * @var NameValue[]
      */
     protected $userSettings;
@@ -148,7 +208,7 @@ class Users
     /**
      * @return UserAccountManagementGranularInformation
      */
-    public function getAccountManagementGranular()
+    public function getAccountManagementGranular(): ?UserAccountManagementGranularInformation
     {
         return $this->accountManagementGranular;
     }
@@ -158,7 +218,7 @@ class Users
      *
      * @return self
      */
-    public function setAccountManagementGranular(UserAccountManagementGranularInformation $accountManagementGranular = null)
+    public function setAccountManagementGranular(?UserAccountManagementGranularInformation $accountManagementGranular): self
     {
         $this->accountManagementGranular = $accountManagementGranular;
 
@@ -166,19 +226,23 @@ class Users
     }
 
     /**
+     * The activation code the new user must enter when activating their account.
+     *
      * @return string
      */
-    public function getActivationAccessCode()
+    public function getActivationAccessCode(): ?string
     {
         return $this->activationAccessCode;
     }
 
     /**
+     * The activation code the new user must enter when activating their account.
+     *
      * @param string $activationAccessCode
      *
      * @return self
      */
-    public function setActivationAccessCode($activationAccessCode = null)
+    public function setActivationAccessCode(?string $activationAccessCode): self
     {
         $this->activationAccessCode = $activationAccessCode;
 
@@ -186,19 +250,23 @@ class Users
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @return string
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): ?string
     {
         return $this->createdDateTime;
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @param string $createdDateTime
      *
      * @return self
      */
-    public function setCreatedDateTime($createdDateTime = null)
+    public function setCreatedDateTime(?string $createdDateTime): self
     {
         $this->createdDateTime = $createdDateTime;
 
@@ -206,19 +274,23 @@ class Users
     }
 
     /**
+     * The name/value pair information for the user custom setting.
+     *
      * @return NameValue[]
      */
-    public function getCustomSettings()
+    public function getCustomSettings(): ?array
     {
         return $this->customSettings;
     }
 
     /**
+     * The name/value pair information for the user custom setting.
+     *
      * @param NameValue[] $customSettings
      *
      * @return self
      */
-    public function setCustomSettings(array $customSettings = null)
+    public function setCustomSettings(?array $customSettings): self
     {
         $this->customSettings = $customSettings;
 
@@ -228,7 +300,7 @@ class Users
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -238,7 +310,7 @@ class Users
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -246,19 +318,23 @@ class Users
     }
 
     /**
+     * Specifies whether the user is enabled for updates from DocuSign Connect. Valid values: true or false.
+     *
      * @return string
      */
-    public function getEnableConnectForUser()
+    public function getEnableConnectForUser(): ?string
     {
         return $this->enableConnectForUser;
     }
 
     /**
+     * Specifies whether the user is enabled for updates from DocuSign Connect. Valid values: true or false.
+     *
      * @param string $enableConnectForUser
      *
      * @return self
      */
-    public function setEnableConnectForUser($enableConnectForUser = null)
+    public function setEnableConnectForUser(?string $enableConnectForUser): self
     {
         $this->enableConnectForUser = $enableConnectForUser;
 
@@ -266,19 +342,23 @@ class Users
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -286,19 +366,25 @@ class Users
     }
 
     /**
+     * The user's first name.
+     Maximum Length: 50 characters.
+     *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
 
     /**
+     * The user's first name.
+     Maximum Length: 50 characters.
+     *
      * @param string $firstName
      *
      * @return self
      */
-    public function setFirstName($firstName = null)
+    public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
 
@@ -306,19 +392,23 @@ class Users
     }
 
     /**
+     * A complex element that has up to four Question/Answer pairs for forgotten password information.
+     *
      * @return ForgottenPasswordInformation
      */
-    public function getForgottenPasswordInfo()
+    public function getForgottenPasswordInfo(): ?ForgottenPasswordInformation
     {
         return $this->forgottenPasswordInfo;
     }
 
     /**
+     * A complex element that has up to four Question/Answer pairs for forgotten password information.
+     *
      * @param ForgottenPasswordInformation $forgottenPasswordInfo
      *
      * @return self
      */
-    public function setForgottenPasswordInfo(ForgottenPasswordInformation $forgottenPasswordInfo = null)
+    public function setForgottenPasswordInfo(?ForgottenPasswordInformation $forgottenPasswordInfo): self
     {
         $this->forgottenPasswordInfo = $forgottenPasswordInfo;
 
@@ -326,19 +416,39 @@ class Users
     }
 
     /**
+     * A list of the group information for groups to add the user to. Group information can be found by calling [ML:GET group information]. The only required parameter is groupId.
+
+     The parameters are:
+
+     * groupId - The DocuSign group ID for the group.
+     * groupName - The name of the group
+     * permissionProfileId - The ID of the permission profile associated with the group.
+     * groupType - The group type.
+
+     *
      * @return Group[]
      */
-    public function getGroupList()
+    public function getGroupList(): ?array
     {
         return $this->groupList;
     }
 
     /**
+     * A list of the group information for groups to add the user to. Group information can be found by calling [ML:GET group information]. The only required parameter is groupId.
+
+     The parameters are:
+
+     * groupId - The DocuSign group ID for the group.
+     * groupName - The name of the group
+     * permissionProfileId - The ID of the permission profile associated with the group.
+     * groupType - The group type.
+
+     *
      * @param Group[] $groupList
      *
      * @return self
      */
-    public function setGroupList(array $groupList = null)
+    public function setGroupList(?array $groupList): self
     {
         $this->groupList = $groupList;
 
@@ -348,7 +458,7 @@ class Users
     /**
      * @return AddressInformationV2
      */
-    public function getHomeAddress()
+    public function getHomeAddress(): ?AddressInformationV2
     {
         return $this->homeAddress;
     }
@@ -358,7 +468,7 @@ class Users
      *
      * @return self
      */
-    public function setHomeAddress(AddressInformationV2 $homeAddress = null)
+    public function setHomeAddress(?AddressInformationV2 $homeAddress): self
     {
         $this->homeAddress = $homeAddress;
 
@@ -366,19 +476,23 @@ class Users
     }
 
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the initials image.
+     *
      * @return string
      */
-    public function getInitialsImageUri()
+    public function getInitialsImageUri(): ?string
     {
         return $this->initialsImageUri;
     }
 
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the initials image.
+     *
      * @param string $initialsImageUri
      *
      * @return self
      */
-    public function setInitialsImageUri($initialsImageUri = null)
+    public function setInitialsImageUri(?string $initialsImageUri): self
     {
         $this->initialsImageUri = $initialsImageUri;
 
@@ -386,19 +500,23 @@ class Users
     }
 
     /**
+     * Determines if the feature set is actively set as part of the plan.
+     *
      * @return string
      */
-    public function getIsAdmin()
+    public function getIsAdmin(): ?string
     {
         return $this->isAdmin;
     }
 
     /**
+     * Determines if the feature set is actively set as part of the plan.
+     *
      * @param string $isAdmin
      *
      * @return self
      */
-    public function setIsAdmin($isAdmin = null)
+    public function setIsAdmin(?string $isAdmin): self
     {
         $this->isAdmin = $isAdmin;
 
@@ -406,19 +524,23 @@ class Users
     }
 
     /**
+     * Shows the date-time when the user last logged on to the system.
+     *
      * @return string
      */
-    public function getLastLogin()
+    public function getLastLogin(): ?string
     {
         return $this->lastLogin;
     }
 
     /**
+     * Shows the date-time when the user last logged on to the system.
+     *
      * @param string $lastLogin
      *
      * @return self
      */
-    public function setLastLogin($lastLogin = null)
+    public function setLastLogin(?string $lastLogin): self
     {
         $this->lastLogin = $lastLogin;
 
@@ -426,19 +548,25 @@ class Users
     }
 
     /**
+     * The user's last name.
+     Maximum Length: 50 characters.
+     *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
 
     /**
+     * The user's last name.
+     Maximum Length: 50 characters.
+     *
      * @param string $lastName
      *
      * @return self
      */
-    public function setLastName($lastName = null)
+    public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
 
@@ -446,19 +574,37 @@ class Users
     }
 
     /**
+     * Shows the current status of the user's password. Possible values are:.
+
+     * password_reset
+     * password_active
+     * password_expired
+     * password_locked
+     * password_reset_failed
+
+     *
      * @return string
      */
-    public function getLoginStatus()
+    public function getLoginStatus(): ?string
     {
         return $this->loginStatus;
     }
 
     /**
+     * Shows the current status of the user's password. Possible values are:.
+
+     * password_reset
+     * password_active
+     * password_expired
+     * password_locked
+     * password_reset_failed
+
+     *
      * @param string $loginStatus
      *
      * @return self
      */
-    public function setLoginStatus($loginStatus = null)
+    public function setLoginStatus(?string $loginStatus): self
     {
         $this->loginStatus = $loginStatus;
 
@@ -466,19 +612,25 @@ class Users
     }
 
     /**
+     * The user's middle name.
+     Maximum Length: 50 characters.
+     *
      * @return string
      */
-    public function getMiddleName()
+    public function getMiddleName(): ?string
     {
         return $this->middleName;
     }
 
     /**
+     * The user's middle name.
+     Maximum Length: 50 characters.
+     *
      * @param string $middleName
      *
      * @return self
      */
-    public function setMiddleName($middleName = null)
+    public function setMiddleName(?string $middleName): self
     {
         $this->middleName = $middleName;
 
@@ -488,7 +640,7 @@ class Users
     /**
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -498,7 +650,7 @@ class Users
      *
      * @return self
      */
-    public function setPassword($password = null)
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
 
@@ -508,7 +660,7 @@ class Users
     /**
      * @return string
      */
-    public function getPasswordExpiration()
+    public function getPasswordExpiration(): ?string
     {
         return $this->passwordExpiration;
     }
@@ -518,7 +670,7 @@ class Users
      *
      * @return self
      */
-    public function setPasswordExpiration($passwordExpiration = null)
+    public function setPasswordExpiration(?string $passwordExpiration): self
     {
         $this->passwordExpiration = $passwordExpiration;
 
@@ -528,7 +680,7 @@ class Users
     /**
      * @return string
      */
-    public function getPermissionProfileId()
+    public function getPermissionProfileId(): ?string
     {
         return $this->permissionProfileId;
     }
@@ -538,7 +690,7 @@ class Users
      *
      * @return self
      */
-    public function setPermissionProfileId($permissionProfileId = null)
+    public function setPermissionProfileId(?string $permissionProfileId): self
     {
         $this->permissionProfileId = $permissionProfileId;
 
@@ -548,7 +700,7 @@ class Users
     /**
      * @return string
      */
-    public function getPermissionProfileName()
+    public function getPermissionProfileName(): ?string
     {
         return $this->permissionProfileName;
     }
@@ -558,7 +710,7 @@ class Users
      *
      * @return self
      */
-    public function setPermissionProfileName($permissionProfileName = null)
+    public function setPermissionProfileName(?string $permissionProfileName): self
     {
         $this->permissionProfileName = $permissionProfileName;
 
@@ -568,7 +720,7 @@ class Users
     /**
      * @return string
      */
-    public function getProfileImageUri()
+    public function getProfileImageUri(): ?string
     {
         return $this->profileImageUri;
     }
@@ -578,7 +730,7 @@ class Users
      *
      * @return self
      */
-    public function setProfileImageUri($profileImageUri = null)
+    public function setProfileImageUri(?string $profileImageUri): self
     {
         $this->profileImageUri = $profileImageUri;
 
@@ -586,19 +738,23 @@ class Users
     }
 
     /**
+     * When set to **true**, specifies that an additional activation email is sent to the user if they fail a log on before activating their account.
+     *
      * @return string
      */
-    public function getSendActivationOnInvalidLogin()
+    public function getSendActivationOnInvalidLogin(): ?string
     {
         return $this->sendActivationOnInvalidLogin;
     }
 
     /**
+     * When set to **true**, specifies that an additional activation email is sent to the user if they fail a log on before activating their account.
+     *
      * @param string $sendActivationOnInvalidLogin
      *
      * @return self
      */
-    public function setSendActivationOnInvalidLogin($sendActivationOnInvalidLogin = null)
+    public function setSendActivationOnInvalidLogin(?string $sendActivationOnInvalidLogin): self
     {
         $this->sendActivationOnInvalidLogin = $sendActivationOnInvalidLogin;
 
@@ -606,19 +762,23 @@ class Users
     }
 
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the signature image.
+     *
      * @return string
      */
-    public function getSignatureImageUri()
+    public function getSignatureImageUri(): ?string
     {
         return $this->signatureImageUri;
     }
 
     /**
+     * Contains the URI for an endpoint that you can use to retrieve the signature image.
+     *
      * @param string $signatureImageUri
      *
      * @return self
      */
-    public function setSignatureImageUri($signatureImageUri = null)
+    public function setSignatureImageUri(?string $signatureImageUri): self
     {
         $this->signatureImageUri = $signatureImageUri;
 
@@ -626,19 +786,27 @@ class Users
     }
 
     /**
+     * The suffix for the user's name.
+
+     Maximum Length: 50 characters.
+     *
      * @return string
      */
-    public function getSuffixName()
+    public function getSuffixName(): ?string
     {
         return $this->suffixName;
     }
 
     /**
+     * The suffix for the user's name.
+
+     Maximum Length: 50 characters.
+     *
      * @param string $suffixName
      *
      * @return self
      */
-    public function setSuffixName($suffixName = null)
+    public function setSuffixName(?string $suffixName): self
     {
         $this->suffixName = $suffixName;
 
@@ -646,19 +814,23 @@ class Users
     }
 
     /**
+     * The title of the user.
+     *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
     /**
+     * The title of the user.
+     *
      * @param string $title
      *
      * @return self
      */
-    public function setTitle($title = null)
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -668,7 +840,7 @@ class Users
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -678,7 +850,7 @@ class Users
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 
@@ -686,19 +858,23 @@ class Users
     }
 
     /**
+     * The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+     *
      * @return string
      */
-    public function getUserId()
+    public function getUserId(): ?string
     {
         return $this->userId;
     }
 
     /**
+     * The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+     *
      * @param string $userId
      *
      * @return self
      */
-    public function setUserId($userId = null)
+    public function setUserId(?string $userId): self
     {
         $this->userId = $userId;
 
@@ -708,7 +884,7 @@ class Users
     /**
      * @return string
      */
-    public function getUserName()
+    public function getUserName(): ?string
     {
         return $this->userName;
     }
@@ -718,7 +894,7 @@ class Users
      *
      * @return self
      */
-    public function setUserName($userName = null)
+    public function setUserName(?string $userName): self
     {
         $this->userName = $userName;
 
@@ -728,7 +904,7 @@ class Users
     /**
      * @return string
      */
-    public function getUserProfileLastModifiedDate()
+    public function getUserProfileLastModifiedDate(): ?string
     {
         return $this->userProfileLastModifiedDate;
     }
@@ -738,7 +914,7 @@ class Users
      *
      * @return self
      */
-    public function setUserProfileLastModifiedDate($userProfileLastModifiedDate = null)
+    public function setUserProfileLastModifiedDate(?string $userProfileLastModifiedDate): self
     {
         $this->userProfileLastModifiedDate = $userProfileLastModifiedDate;
 
@@ -746,19 +922,23 @@ class Users
     }
 
     /**
+     *  The name/value pair information for user settings. These determine the actions that a user can take in the account. The `[ML:userSettings]` are listed and described below.
+     *
      * @return NameValue[]
      */
-    public function getUserSettings()
+    public function getUserSettings(): ?array
     {
         return $this->userSettings;
     }
 
     /**
+     *  The name/value pair information for user settings. These determine the actions that a user can take in the account. The `[ML:userSettings]` are listed and described below.
+     *
      * @param NameValue[] $userSettings
      *
      * @return self
      */
-    public function setUserSettings(array $userSettings = null)
+    public function setUserSettings(?array $userSettings): self
     {
         $this->userSettings = $userSettings;
 
@@ -768,7 +948,7 @@ class Users
     /**
      * @return string
      */
-    public function getUserStatus()
+    public function getUserStatus(): ?string
     {
         return $this->userStatus;
     }
@@ -778,7 +958,7 @@ class Users
      *
      * @return self
      */
-    public function setUserStatus($userStatus = null)
+    public function setUserStatus(?string $userStatus): self
     {
         $this->userStatus = $userStatus;
 
@@ -788,7 +968,7 @@ class Users
     /**
      * @return string
      */
-    public function getUserType()
+    public function getUserType(): ?string
     {
         return $this->userType;
     }
@@ -798,7 +978,7 @@ class Users
      *
      * @return self
      */
-    public function setUserType($userType = null)
+    public function setUserType(?string $userType): self
     {
         $this->userType = $userType;
 
@@ -808,7 +988,7 @@ class Users
     /**
      * @return AddressInformationV2
      */
-    public function getWorkAddress()
+    public function getWorkAddress(): ?AddressInformationV2
     {
         return $this->workAddress;
     }
@@ -818,7 +998,7 @@ class Users
      *
      * @return self
      */
-    public function setWorkAddress(AddressInformationV2 $workAddress = null)
+    public function setWorkAddress(?AddressInformationV2 $workAddress): self
     {
         $this->workAddress = $workAddress;
 

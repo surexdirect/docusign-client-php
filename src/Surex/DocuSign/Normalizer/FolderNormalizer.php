@@ -6,38 +6,40 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class FolderNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class FolderNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\Folder' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\Folder' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\Folder) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\Folder;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\Folder();
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'filter')) {
-            $object->setFilter($this->serializer->deserialize($data->{'filter'}, 'Surex\\DocuSign\\Model\\Filter', 'raw', $context));
+            $object->setFilter($this->denormalizer->denormalize($data->{'filter'}, 'Surex\\DocuSign\\Model\\Filter', 'json', $context));
         }
         if (property_exists($data, 'folderId')) {
             $object->setFolderId($data->{'folderId'});
@@ -45,7 +47,7 @@ class FolderNormalizer extends SerializerAwareNormalizer implements Denormalizer
         if (property_exists($data, 'folders')) {
             $values = [];
             foreach ($data->{'folders'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\Folder', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\Folder', 'json', $context);
             }
             $object->setFolders($values);
         }
@@ -81,10 +83,10 @@ class FolderNormalizer extends SerializerAwareNormalizer implements Denormalizer
     {
         $data = new \stdClass();
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getFilter()) {
-            $data->{'filter'} = $this->serializer->serialize($object->getFilter(), 'raw', $context);
+            $data->{'filter'} = $this->normalizer->normalize($object->getFilter(), 'json', $context);
         }
         if (null !== $object->getFolderId()) {
             $data->{'folderId'} = $object->getFolderId();
@@ -92,7 +94,7 @@ class FolderNormalizer extends SerializerAwareNormalizer implements Denormalizer
         if (null !== $object->getFolders()) {
             $values = [];
             foreach ($object->getFolders() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'folders'} = $values;
         }

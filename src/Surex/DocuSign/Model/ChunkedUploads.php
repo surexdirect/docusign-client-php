@@ -48,7 +48,7 @@ class ChunkedUploads
     /**
      * @return string
      */
-    public function getChecksum()
+    public function getChecksum(): ?string
     {
         return $this->checksum;
     }
@@ -58,7 +58,7 @@ class ChunkedUploads
      *
      * @return self
      */
-    public function setChecksum($checksum = null)
+    public function setChecksum(?string $checksum): self
     {
         $this->checksum = $checksum;
 
@@ -68,7 +68,7 @@ class ChunkedUploads
     /**
      * @return string
      */
-    public function getChunkedUploadId()
+    public function getChunkedUploadId(): ?string
     {
         return $this->chunkedUploadId;
     }
@@ -78,7 +78,7 @@ class ChunkedUploads
      *
      * @return self
      */
-    public function setChunkedUploadId($chunkedUploadId = null)
+    public function setChunkedUploadId(?string $chunkedUploadId): self
     {
         $this->chunkedUploadId = $chunkedUploadId;
 
@@ -88,7 +88,7 @@ class ChunkedUploads
     /**
      * @return ChunkedUploadPart[]
      */
-    public function getChunkedUploadParts()
+    public function getChunkedUploadParts(): ?array
     {
         return $this->chunkedUploadParts;
     }
@@ -98,7 +98,7 @@ class ChunkedUploads
      *
      * @return self
      */
-    public function setChunkedUploadParts(array $chunkedUploadParts = null)
+    public function setChunkedUploadParts(?array $chunkedUploadParts): self
     {
         $this->chunkedUploadParts = $chunkedUploadParts;
 
@@ -108,7 +108,7 @@ class ChunkedUploads
     /**
      * @return string
      */
-    public function getChunkedUploadUri()
+    public function getChunkedUploadUri(): ?string
     {
         return $this->chunkedUploadUri;
     }
@@ -118,7 +118,7 @@ class ChunkedUploads
      *
      * @return self
      */
-    public function setChunkedUploadUri($chunkedUploadUri = null)
+    public function setChunkedUploadUri(?string $chunkedUploadUri): self
     {
         $this->chunkedUploadUri = $chunkedUploadUri;
 
@@ -128,7 +128,7 @@ class ChunkedUploads
     /**
      * @return string
      */
-    public function getCommitted()
+    public function getCommitted(): ?string
     {
         return $this->committed;
     }
@@ -138,7 +138,7 @@ class ChunkedUploads
      *
      * @return self
      */
-    public function setCommitted($committed = null)
+    public function setCommitted(?string $committed): self
     {
         $this->committed = $committed;
 
@@ -148,7 +148,7 @@ class ChunkedUploads
     /**
      * @return string
      */
-    public function getExpirationDateTime()
+    public function getExpirationDateTime(): ?string
     {
         return $this->expirationDateTime;
     }
@@ -158,7 +158,7 @@ class ChunkedUploads
      *
      * @return self
      */
-    public function setExpirationDateTime($expirationDateTime = null)
+    public function setExpirationDateTime(?string $expirationDateTime): self
     {
         $this->expirationDateTime = $expirationDateTime;
 
@@ -168,7 +168,7 @@ class ChunkedUploads
     /**
      * @return string
      */
-    public function getMaxChunkedUploadParts()
+    public function getMaxChunkedUploadParts(): ?string
     {
         return $this->maxChunkedUploadParts;
     }
@@ -178,7 +178,7 @@ class ChunkedUploads
      *
      * @return self
      */
-    public function setMaxChunkedUploadParts($maxChunkedUploadParts = null)
+    public function setMaxChunkedUploadParts(?string $maxChunkedUploadParts): self
     {
         $this->maxChunkedUploadParts = $maxChunkedUploadParts;
 
@@ -188,7 +188,7 @@ class ChunkedUploads
     /**
      * @return string
      */
-    public function getMaxTotalSize()
+    public function getMaxTotalSize(): ?string
     {
         return $this->maxTotalSize;
     }
@@ -198,7 +198,7 @@ class ChunkedUploads
      *
      * @return self
      */
-    public function setMaxTotalSize($maxTotalSize = null)
+    public function setMaxTotalSize(?string $maxTotalSize): self
     {
         $this->maxTotalSize = $maxTotalSize;
 
@@ -208,7 +208,7 @@ class ChunkedUploads
     /**
      * @return string
      */
-    public function getTotalSize()
+    public function getTotalSize(): ?string
     {
         return $this->totalSize;
     }
@@ -218,7 +218,7 @@ class ChunkedUploads
      *
      * @return self
      */
-    public function setTotalSize($totalSize = null)
+    public function setTotalSize(?string $totalSize): self
     {
         $this->totalSize = $totalSize;
 

@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class WorkspaceItems
 {
     /**
+     * Provides properties that describe user authorization to a workspace.
+     *
      * @var WorkspaceUserAuthorization
      */
     protected $callerAuthorization;
@@ -17,6 +19,8 @@ class WorkspaceItems
      */
     protected $contentType;
     /**
+     * The UTC DateTime when the workspace item was created.
+     *
      * @var string
      */
     protected $created;
@@ -25,6 +29,8 @@ class WorkspaceItems
      */
     protected $createdById;
     /**
+     * A workspaceUser representing the user. This property is only returned in response to user specific GET call.
+     *
      * @var WorkspaceUser
      */
     protected $createdByInformation;
@@ -45,22 +51,32 @@ class WorkspaceItems
      */
     protected $id;
     /**
+     *  If true, this supersedes need for bit mask permission with workspaceUserAuthorization.
+     *
      * @var string
      */
     protected $isPublic;
     /**
+     * Utc date and time the comment was last updated (can only be done by creator.).
+     *
      * @var string
      */
     protected $lastModified;
     /**
+     * Utc date and time the comment was last updated (can only be done by creator).
+     *
      * @var string
      */
     protected $lastModifiedById;
     /**
+     * A workspaceUser representing the user. This property is only returned in response to user specific GET call.
+     *
      * @var WorkspaceUser
      */
     protected $lastModifiedByInformation;
     /**
+     * A simple string description of the item, such as a file name or a folder name.
+     *
      * @var string
      */
     protected $name;
@@ -69,6 +85,8 @@ class WorkspaceItems
      */
     protected $pageCount;
     /**
+     * The ID of the parent folder. This is the GUID of the parent folder, or the special value 'root' for the root folder.
+     *
      * @var string
      */
     protected $parentFolderId;
@@ -77,6 +95,8 @@ class WorkspaceItems
      */
     protected $parentFolderUri;
     /**
+     * The type of the workspace item. Valid values are file, folder.
+     *
      * @var string
      */
     protected $type;
@@ -86,19 +106,23 @@ class WorkspaceItems
     protected $uri;
 
     /**
+     * Provides properties that describe user authorization to a workspace.
+     *
      * @return WorkspaceUserAuthorization
      */
-    public function getCallerAuthorization()
+    public function getCallerAuthorization(): ?WorkspaceUserAuthorization
     {
         return $this->callerAuthorization;
     }
 
     /**
+     * Provides properties that describe user authorization to a workspace.
+     *
      * @param WorkspaceUserAuthorization $callerAuthorization
      *
      * @return self
      */
-    public function setCallerAuthorization(WorkspaceUserAuthorization $callerAuthorization = null)
+    public function setCallerAuthorization(?WorkspaceUserAuthorization $callerAuthorization): self
     {
         $this->callerAuthorization = $callerAuthorization;
 
@@ -108,7 +132,7 @@ class WorkspaceItems
     /**
      * @return string
      */
-    public function getContentType()
+    public function getContentType(): ?string
     {
         return $this->contentType;
     }
@@ -118,7 +142,7 @@ class WorkspaceItems
      *
      * @return self
      */
-    public function setContentType($contentType = null)
+    public function setContentType(?string $contentType): self
     {
         $this->contentType = $contentType;
 
@@ -126,19 +150,23 @@ class WorkspaceItems
     }
 
     /**
+     * The UTC DateTime when the workspace item was created.
+     *
      * @return string
      */
-    public function getCreated()
+    public function getCreated(): ?string
     {
         return $this->created;
     }
 
     /**
+     * The UTC DateTime when the workspace item was created.
+     *
      * @param string $created
      *
      * @return self
      */
-    public function setCreated($created = null)
+    public function setCreated(?string $created): self
     {
         $this->created = $created;
 
@@ -148,7 +176,7 @@ class WorkspaceItems
     /**
      * @return string
      */
-    public function getCreatedById()
+    public function getCreatedById(): ?string
     {
         return $this->createdById;
     }
@@ -158,7 +186,7 @@ class WorkspaceItems
      *
      * @return self
      */
-    public function setCreatedById($createdById = null)
+    public function setCreatedById(?string $createdById): self
     {
         $this->createdById = $createdById;
 
@@ -166,19 +194,23 @@ class WorkspaceItems
     }
 
     /**
+     * A workspaceUser representing the user. This property is only returned in response to user specific GET call.
+     *
      * @return WorkspaceUser
      */
-    public function getCreatedByInformation()
+    public function getCreatedByInformation(): ?WorkspaceUser
     {
         return $this->createdByInformation;
     }
 
     /**
+     * A workspaceUser representing the user. This property is only returned in response to user specific GET call.
+     *
      * @param WorkspaceUser $createdByInformation
      *
      * @return self
      */
-    public function setCreatedByInformation(WorkspaceUser $createdByInformation = null)
+    public function setCreatedByInformation(?WorkspaceUser $createdByInformation): self
     {
         $this->createdByInformation = $createdByInformation;
 
@@ -188,7 +220,7 @@ class WorkspaceItems
     /**
      * @return string
      */
-    public function getExtension()
+    public function getExtension(): ?string
     {
         return $this->extension;
     }
@@ -198,7 +230,7 @@ class WorkspaceItems
      *
      * @return self
      */
-    public function setExtension($extension = null)
+    public function setExtension(?string $extension): self
     {
         $this->extension = $extension;
 
@@ -208,7 +240,7 @@ class WorkspaceItems
     /**
      * @return string
      */
-    public function getFileSize()
+    public function getFileSize(): ?string
     {
         return $this->fileSize;
     }
@@ -218,7 +250,7 @@ class WorkspaceItems
      *
      * @return self
      */
-    public function setFileSize($fileSize = null)
+    public function setFileSize(?string $fileSize): self
     {
         $this->fileSize = $fileSize;
 
@@ -228,7 +260,7 @@ class WorkspaceItems
     /**
      * @return string
      */
-    public function getFileUri()
+    public function getFileUri(): ?string
     {
         return $this->fileUri;
     }
@@ -238,7 +270,7 @@ class WorkspaceItems
      *
      * @return self
      */
-    public function setFileUri($fileUri = null)
+    public function setFileUri(?string $fileUri): self
     {
         $this->fileUri = $fileUri;
 
@@ -248,7 +280,7 @@ class WorkspaceItems
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -258,7 +290,7 @@ class WorkspaceItems
      *
      * @return self
      */
-    public function setId($id = null)
+    public function setId(?string $id): self
     {
         $this->id = $id;
 
@@ -266,19 +298,23 @@ class WorkspaceItems
     }
 
     /**
+     *  If true, this supersedes need for bit mask permission with workspaceUserAuthorization.
+     *
      * @return string
      */
-    public function getIsPublic()
+    public function getIsPublic(): ?string
     {
         return $this->isPublic;
     }
 
     /**
+     *  If true, this supersedes need for bit mask permission with workspaceUserAuthorization.
+     *
      * @param string $isPublic
      *
      * @return self
      */
-    public function setIsPublic($isPublic = null)
+    public function setIsPublic(?string $isPublic): self
     {
         $this->isPublic = $isPublic;
 
@@ -286,19 +322,23 @@ class WorkspaceItems
     }
 
     /**
+     * Utc date and time the comment was last updated (can only be done by creator.).
+     *
      * @return string
      */
-    public function getLastModified()
+    public function getLastModified(): ?string
     {
         return $this->lastModified;
     }
 
     /**
+     * Utc date and time the comment was last updated (can only be done by creator.).
+     *
      * @param string $lastModified
      *
      * @return self
      */
-    public function setLastModified($lastModified = null)
+    public function setLastModified(?string $lastModified): self
     {
         $this->lastModified = $lastModified;
 
@@ -306,19 +346,23 @@ class WorkspaceItems
     }
 
     /**
+     * Utc date and time the comment was last updated (can only be done by creator).
+     *
      * @return string
      */
-    public function getLastModifiedById()
+    public function getLastModifiedById(): ?string
     {
         return $this->lastModifiedById;
     }
 
     /**
+     * Utc date and time the comment was last updated (can only be done by creator).
+     *
      * @param string $lastModifiedById
      *
      * @return self
      */
-    public function setLastModifiedById($lastModifiedById = null)
+    public function setLastModifiedById(?string $lastModifiedById): self
     {
         $this->lastModifiedById = $lastModifiedById;
 
@@ -326,19 +370,23 @@ class WorkspaceItems
     }
 
     /**
+     * A workspaceUser representing the user. This property is only returned in response to user specific GET call.
+     *
      * @return WorkspaceUser
      */
-    public function getLastModifiedByInformation()
+    public function getLastModifiedByInformation(): ?WorkspaceUser
     {
         return $this->lastModifiedByInformation;
     }
 
     /**
+     * A workspaceUser representing the user. This property is only returned in response to user specific GET call.
+     *
      * @param WorkspaceUser $lastModifiedByInformation
      *
      * @return self
      */
-    public function setLastModifiedByInformation(WorkspaceUser $lastModifiedByInformation = null)
+    public function setLastModifiedByInformation(?WorkspaceUser $lastModifiedByInformation): self
     {
         $this->lastModifiedByInformation = $lastModifiedByInformation;
 
@@ -346,19 +394,23 @@ class WorkspaceItems
     }
 
     /**
+     * A simple string description of the item, such as a file name or a folder name.
+     *
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
+     * A simple string description of the item, such as a file name or a folder name.
+     *
      * @param string $name
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -368,7 +420,7 @@ class WorkspaceItems
     /**
      * @return string
      */
-    public function getPageCount()
+    public function getPageCount(): ?string
     {
         return $this->pageCount;
     }
@@ -378,7 +430,7 @@ class WorkspaceItems
      *
      * @return self
      */
-    public function setPageCount($pageCount = null)
+    public function setPageCount(?string $pageCount): self
     {
         $this->pageCount = $pageCount;
 
@@ -386,19 +438,23 @@ class WorkspaceItems
     }
 
     /**
+     * The ID of the parent folder. This is the GUID of the parent folder, or the special value 'root' for the root folder.
+     *
      * @return string
      */
-    public function getParentFolderId()
+    public function getParentFolderId(): ?string
     {
         return $this->parentFolderId;
     }
 
     /**
+     * The ID of the parent folder. This is the GUID of the parent folder, or the special value 'root' for the root folder.
+     *
      * @param string $parentFolderId
      *
      * @return self
      */
-    public function setParentFolderId($parentFolderId = null)
+    public function setParentFolderId(?string $parentFolderId): self
     {
         $this->parentFolderId = $parentFolderId;
 
@@ -408,7 +464,7 @@ class WorkspaceItems
     /**
      * @return string
      */
-    public function getParentFolderUri()
+    public function getParentFolderUri(): ?string
     {
         return $this->parentFolderUri;
     }
@@ -418,7 +474,7 @@ class WorkspaceItems
      *
      * @return self
      */
-    public function setParentFolderUri($parentFolderUri = null)
+    public function setParentFolderUri(?string $parentFolderUri): self
     {
         $this->parentFolderUri = $parentFolderUri;
 
@@ -426,19 +482,23 @@ class WorkspaceItems
     }
 
     /**
+     * The type of the workspace item. Valid values are file, folder.
+     *
      * @return string
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
+     * The type of the workspace item. Valid values are file, folder.
+     *
      * @param string $type
      *
      * @return self
      */
-    public function setType($type = null)
+    public function setType(?string $type): self
     {
         $this->type = $type;
 
@@ -448,7 +508,7 @@ class WorkspaceItems
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -458,7 +518,7 @@ class WorkspaceItems
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 

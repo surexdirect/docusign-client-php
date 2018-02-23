@@ -20,7 +20,7 @@ class ContactPhoneNumber
     /**
      * @return string
      */
-    public function getPhoneNumber()
+    public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
@@ -30,7 +30,7 @@ class ContactPhoneNumber
      *
      * @return self
      */
-    public function setPhoneNumber($phoneNumber = null)
+    public function setPhoneNumber(?string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
 
@@ -40,7 +40,7 @@ class ContactPhoneNumber
     /**
      * @return string
      */
-    public function getPhoneType()
+    public function getPhoneType(): ?string
     {
         return $this->phoneType;
     }
@@ -50,7 +50,7 @@ class ContactPhoneNumber
      *
      * @return self
      */
-    public function setPhoneType($phoneType = null)
+    public function setPhoneType(?string $phoneType): self
     {
         $this->phoneType = $phoneType;
 

@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class BillingPlanPreview
 {
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @var string
      */
     protected $currencyCode;
     /**
+     * Invoices.
+     *
      * @var Invoices
      */
     protected $invoice;
@@ -34,19 +38,23 @@ class BillingPlanPreview
     protected $totalAmount;
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @param string $currencyCode
      *
      * @return self
      */
-    public function setCurrencyCode($currencyCode = null)
+    public function setCurrencyCode(?string $currencyCode): self
     {
         $this->currencyCode = $currencyCode;
 
@@ -54,19 +62,23 @@ class BillingPlanPreview
     }
 
     /**
+     * Invoices.
+     *
      * @return Invoices
      */
-    public function getInvoice()
+    public function getInvoice(): ?Invoices
     {
         return $this->invoice;
     }
 
     /**
+     * Invoices.
+     *
      * @param Invoices $invoice
      *
      * @return self
      */
-    public function setInvoice(Invoices $invoice = null)
+    public function setInvoice(?Invoices $invoice): self
     {
         $this->invoice = $invoice;
 
@@ -76,7 +88,7 @@ class BillingPlanPreview
     /**
      * @return string
      */
-    public function getIsProrated()
+    public function getIsProrated(): ?string
     {
         return $this->isProrated;
     }
@@ -86,7 +98,7 @@ class BillingPlanPreview
      *
      * @return self
      */
-    public function setIsProrated($isProrated = null)
+    public function setIsProrated(?string $isProrated): self
     {
         $this->isProrated = $isProrated;
 
@@ -96,7 +108,7 @@ class BillingPlanPreview
     /**
      * @return string
      */
-    public function getSubtotalAmount()
+    public function getSubtotalAmount(): ?string
     {
         return $this->subtotalAmount;
     }
@@ -106,7 +118,7 @@ class BillingPlanPreview
      *
      * @return self
      */
-    public function setSubtotalAmount($subtotalAmount = null)
+    public function setSubtotalAmount(?string $subtotalAmount): self
     {
         $this->subtotalAmount = $subtotalAmount;
 
@@ -116,7 +128,7 @@ class BillingPlanPreview
     /**
      * @return string
      */
-    public function getTaxAmount()
+    public function getTaxAmount(): ?string
     {
         return $this->taxAmount;
     }
@@ -126,7 +138,7 @@ class BillingPlanPreview
      *
      * @return self
      */
-    public function setTaxAmount($taxAmount = null)
+    public function setTaxAmount(?string $taxAmount): self
     {
         $this->taxAmount = $taxAmount;
 
@@ -136,7 +148,7 @@ class BillingPlanPreview
     /**
      * @return string
      */
-    public function getTotalAmount()
+    public function getTotalAmount(): ?string
     {
         return $this->totalAmount;
     }
@@ -146,7 +158,7 @@ class BillingPlanPreview
      *
      * @return self
      */
-    public function setTotalAmount($totalAmount = null)
+    public function setTotalAmount(?string $totalAmount): self
     {
         $this->totalAmount = $totalAmount;
 

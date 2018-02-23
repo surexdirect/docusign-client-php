@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class RadioGroupNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class RadioGroupNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\RadioGroup' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\RadioGroup' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\RadioGroup) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\RadioGroup;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\RadioGroup();
         if (property_exists($data, 'conditionalParentLabel')) {
             $object->setConditionalParentLabel($data->{'conditionalParentLabel'});
@@ -48,7 +50,7 @@ class RadioGroupNormalizer extends SerializerAwareNormalizer implements Denormal
         if (property_exists($data, 'radios')) {
             $values = [];
             foreach ($data->{'radios'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\Radio', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\Radio', 'json', $context);
             }
             $object->setRadios($values);
         }
@@ -86,7 +88,7 @@ class RadioGroupNormalizer extends SerializerAwareNormalizer implements Denormal
         if (null !== $object->getRadios()) {
             $values = [];
             foreach ($object->getRadios() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'radios'} = $values;
         }

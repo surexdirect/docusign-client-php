@@ -16,7 +16,7 @@ class NewUsersSummary
     /**
      * @return NewUser[]
      */
-    public function getNewUsers()
+    public function getNewUsers(): ?array
     {
         return $this->newUsers;
     }
@@ -26,7 +26,7 @@ class NewUsersSummary
      *
      * @return self
      */
-    public function setNewUsers(array $newUsers = null)
+    public function setNewUsers(?array $newUsers): self
     {
         $this->newUsers = $newUsers;
 

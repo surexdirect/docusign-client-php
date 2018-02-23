@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class ServiceVersion
 {
     /**
+     * The version of the rest API.
+     *
      * @var string
      */
     protected $version;
@@ -18,19 +20,23 @@ class ServiceVersion
     protected $versionUrl;
 
     /**
+     * The version of the rest API.
+     *
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): ?string
     {
         return $this->version;
     }
 
     /**
+     * The version of the rest API.
+     *
      * @param string $version
      *
      * @return self
      */
-    public function setVersion($version = null)
+    public function setVersion(?string $version): self
     {
         $this->version = $version;
 
@@ -40,7 +46,7 @@ class ServiceVersion
     /**
      * @return string
      */
-    public function getVersionUrl()
+    public function getVersionUrl(): ?string
     {
         return $this->versionUrl;
     }
@@ -50,7 +56,7 @@ class ServiceVersion
      *
      * @return self
      */
-    public function setVersionUrl($versionUrl = null)
+    public function setVersionUrl(?string $versionUrl): self
     {
         $this->versionUrl = $versionUrl;
 

@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class AccountAddressNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class AccountAddressNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\AccountAddress' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\AccountAddress' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\AccountAddress) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\AccountAddress;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\AccountAddress();
         if (property_exists($data, 'address1')) {
             $object->setAddress1($data->{'address1'});
@@ -69,7 +71,7 @@ class AccountAddressNormalizer extends SerializerAwareNormalizer implements Deno
         if (property_exists($data, 'supportedCountries')) {
             $values = [];
             foreach ($data->{'supportedCountries'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\Country', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\Country', 'json', $context);
             }
             $object->setSupportedCountries($values);
         }
@@ -116,7 +118,7 @@ class AccountAddressNormalizer extends SerializerAwareNormalizer implements Deno
         if (null !== $object->getSupportedCountries()) {
             $values = [];
             foreach ($object->getSupportedCountries() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'supportedCountries'} = $values;
         }

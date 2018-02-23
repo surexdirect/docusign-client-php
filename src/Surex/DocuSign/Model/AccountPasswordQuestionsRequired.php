@@ -20,7 +20,7 @@ class AccountPasswordQuestionsRequired
     /**
      * @return string
      */
-    public function getMaximumQuestions()
+    public function getMaximumQuestions(): ?string
     {
         return $this->maximumQuestions;
     }
@@ -30,7 +30,7 @@ class AccountPasswordQuestionsRequired
      *
      * @return self
      */
-    public function setMaximumQuestions($maximumQuestions = null)
+    public function setMaximumQuestions(?string $maximumQuestions): self
     {
         $this->maximumQuestions = $maximumQuestions;
 
@@ -40,7 +40,7 @@ class AccountPasswordQuestionsRequired
     /**
      * @return string
      */
-    public function getMinimumQuestions()
+    public function getMinimumQuestions(): ?string
     {
         return $this->minimumQuestions;
     }
@@ -50,7 +50,7 @@ class AccountPasswordQuestionsRequired
      *
      * @return self
      */
-    public function setMinimumQuestions($minimumQuestions = null)
+    public function setMinimumQuestions(?string $minimumQuestions): self
     {
         $this->minimumQuestions = $minimumQuestions;
 

@@ -9,14 +9,20 @@ namespace Surex\DocuSign\Model;
 class DocumentVisibility
 {
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @var string
      */
     protected $documentId;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @var string
      */
     protected $recipientId;
@@ -30,19 +36,23 @@ class DocumentVisibility
     protected $visible;
 
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @return string
      */
-    public function getDocumentId()
+    public function getDocumentId(): ?string
     {
         return $this->documentId;
     }
 
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @param string $documentId
      *
      * @return self
      */
-    public function setDocumentId($documentId = null)
+    public function setDocumentId(?string $documentId): self
     {
         $this->documentId = $documentId;
 
@@ -50,19 +60,23 @@ class DocumentVisibility
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -70,19 +84,23 @@ class DocumentVisibility
     }
 
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @return string
      */
-    public function getRecipientId()
+    public function getRecipientId(): ?string
     {
         return $this->recipientId;
     }
 
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @param string $recipientId
      *
      * @return self
      */
-    public function setRecipientId($recipientId = null)
+    public function setRecipientId(?string $recipientId): self
     {
         $this->recipientId = $recipientId;
 
@@ -92,7 +110,7 @@ class DocumentVisibility
     /**
      * @return string
      */
-    public function getRights()
+    public function getRights(): ?string
     {
         return $this->rights;
     }
@@ -102,7 +120,7 @@ class DocumentVisibility
      *
      * @return self
      */
-    public function setRights($rights = null)
+    public function setRights(?string $rights): self
     {
         $this->rights = $rights;
 
@@ -112,7 +130,7 @@ class DocumentVisibility
     /**
      * @return string
      */
-    public function getVisible()
+    public function getVisible(): ?string
     {
         return $this->visible;
     }
@@ -122,7 +140,7 @@ class DocumentVisibility
      *
      * @return self
      */
-    public function setVisible($visible = null)
+    public function setVisible(?string $visible): self
     {
         $this->visible = $visible;
 

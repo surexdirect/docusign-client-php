@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class RecipientNamesResponse
 {
     /**
+     * Indicates whether email address is used by more than one user.
+     *
      * @var string
      */
     protected $multipleUsers;
@@ -22,19 +24,23 @@ class RecipientNamesResponse
     protected $reservedRecipientEmail;
 
     /**
+     * Indicates whether email address is used by more than one user.
+     *
      * @return string
      */
-    public function getMultipleUsers()
+    public function getMultipleUsers(): ?string
     {
         return $this->multipleUsers;
     }
 
     /**
+     * Indicates whether email address is used by more than one user.
+     *
      * @param string $multipleUsers
      *
      * @return self
      */
-    public function setMultipleUsers($multipleUsers = null)
+    public function setMultipleUsers(?string $multipleUsers): self
     {
         $this->multipleUsers = $multipleUsers;
 
@@ -44,7 +50,7 @@ class RecipientNamesResponse
     /**
      * @return string[]
      */
-    public function getRecipientNames()
+    public function getRecipientNames(): ?array
     {
         return $this->recipientNames;
     }
@@ -54,7 +60,7 @@ class RecipientNamesResponse
      *
      * @return self
      */
-    public function setRecipientNames(array $recipientNames = null)
+    public function setRecipientNames(?array $recipientNames): self
     {
         $this->recipientNames = $recipientNames;
 
@@ -64,7 +70,7 @@ class RecipientNamesResponse
     /**
      * @return string
      */
-    public function getReservedRecipientEmail()
+    public function getReservedRecipientEmail(): ?string
     {
         return $this->reservedRecipientEmail;
     }
@@ -74,7 +80,7 @@ class RecipientNamesResponse
      *
      * @return self
      */
-    public function setReservedRecipientEmail($reservedRecipientEmail = null)
+    public function setReservedRecipientEmail(?string $reservedRecipientEmail): self
     {
         $this->reservedRecipientEmail = $reservedRecipientEmail;
 

@@ -9,36 +9,48 @@ namespace Surex\DocuSign\Model;
 class RecipientPhoneAuthentication
 {
     /**
+     * Boolean. When set to **true**, the recipient can supply a phone number their choice.
+     *
      * @var string
      */
     protected $recipMayProvideNumber;
     /**
+     * Reserved.
+     *
      * @var string
      */
     protected $recordVoicePrint;
     /**
+     * An Array containing a list of phone numbers the recipient may use for SMS text authentication.
+     *
      * @var string[]
      */
     protected $senderProvidedNumbers;
     /**
+     *  Reserved.
+     *
      * @var string
      */
     protected $validateRecipProvidedNumber;
 
     /**
+     * Boolean. When set to **true**, the recipient can supply a phone number their choice.
+     *
      * @return string
      */
-    public function getRecipMayProvideNumber()
+    public function getRecipMayProvideNumber(): ?string
     {
         return $this->recipMayProvideNumber;
     }
 
     /**
+     * Boolean. When set to **true**, the recipient can supply a phone number their choice.
+     *
      * @param string $recipMayProvideNumber
      *
      * @return self
      */
-    public function setRecipMayProvideNumber($recipMayProvideNumber = null)
+    public function setRecipMayProvideNumber(?string $recipMayProvideNumber): self
     {
         $this->recipMayProvideNumber = $recipMayProvideNumber;
 
@@ -46,19 +58,23 @@ class RecipientPhoneAuthentication
     }
 
     /**
+     * Reserved.
+     *
      * @return string
      */
-    public function getRecordVoicePrint()
+    public function getRecordVoicePrint(): ?string
     {
         return $this->recordVoicePrint;
     }
 
     /**
+     * Reserved.
+     *
      * @param string $recordVoicePrint
      *
      * @return self
      */
-    public function setRecordVoicePrint($recordVoicePrint = null)
+    public function setRecordVoicePrint(?string $recordVoicePrint): self
     {
         $this->recordVoicePrint = $recordVoicePrint;
 
@@ -66,19 +82,23 @@ class RecipientPhoneAuthentication
     }
 
     /**
+     * An Array containing a list of phone numbers the recipient may use for SMS text authentication.
+     *
      * @return string[]
      */
-    public function getSenderProvidedNumbers()
+    public function getSenderProvidedNumbers(): ?array
     {
         return $this->senderProvidedNumbers;
     }
 
     /**
+     * An Array containing a list of phone numbers the recipient may use for SMS text authentication.
+     *
      * @param string[] $senderProvidedNumbers
      *
      * @return self
      */
-    public function setSenderProvidedNumbers(array $senderProvidedNumbers = null)
+    public function setSenderProvidedNumbers(?array $senderProvidedNumbers): self
     {
         $this->senderProvidedNumbers = $senderProvidedNumbers;
 
@@ -86,19 +106,23 @@ class RecipientPhoneAuthentication
     }
 
     /**
+     *  Reserved.
+     *
      * @return string
      */
-    public function getValidateRecipProvidedNumber()
+    public function getValidateRecipProvidedNumber(): ?string
     {
         return $this->validateRecipProvidedNumber;
     }
 
     /**
+     *  Reserved.
+     *
      * @param string $validateRecipProvidedNumber
      *
      * @return self
      */
-    public function setValidateRecipProvidedNumber($validateRecipProvidedNumber = null)
+    public function setValidateRecipProvidedNumber(?string $validateRecipProvidedNumber): self
     {
         $this->validateRecipProvidedNumber = $validateRecipProvidedNumber;
 

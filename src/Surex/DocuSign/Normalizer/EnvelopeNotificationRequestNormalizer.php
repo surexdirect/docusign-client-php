@@ -6,38 +6,40 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EnvelopeNotificationRequestNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EnvelopeNotificationRequestNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EnvelopeNotificationRequest' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EnvelopeNotificationRequest' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EnvelopeNotificationRequest) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EnvelopeNotificationRequest;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EnvelopeNotificationRequest();
         if (property_exists($data, 'expirations')) {
-            $object->setExpirations($this->serializer->deserialize($data->{'expirations'}, 'Surex\\DocuSign\\Model\\Expirations', 'raw', $context));
+            $object->setExpirations($this->denormalizer->denormalize($data->{'expirations'}, 'Surex\\DocuSign\\Model\\Expirations', 'json', $context));
         }
         if (property_exists($data, 'reminders')) {
-            $object->setReminders($this->serializer->deserialize($data->{'reminders'}, 'Surex\\DocuSign\\Model\\Reminders', 'raw', $context));
+            $object->setReminders($this->denormalizer->denormalize($data->{'reminders'}, 'Surex\\DocuSign\\Model\\Reminders', 'json', $context));
         }
         if (property_exists($data, 'useAccountDefaults')) {
             $object->setUseAccountDefaults($data->{'useAccountDefaults'});
@@ -50,10 +52,10 @@ class EnvelopeNotificationRequestNormalizer extends SerializerAwareNormalizer im
     {
         $data = new \stdClass();
         if (null !== $object->getExpirations()) {
-            $data->{'expirations'} = $this->serializer->serialize($object->getExpirations(), 'raw', $context);
+            $data->{'expirations'} = $this->normalizer->normalize($object->getExpirations(), 'json', $context);
         }
         if (null !== $object->getReminders()) {
-            $data->{'reminders'} = $this->serializer->serialize($object->getReminders(), 'raw', $context);
+            $data->{'reminders'} = $this->normalizer->normalize($object->getReminders(), 'json', $context);
         }
         if (null !== $object->getUseAccountDefaults()) {
             $data->{'useAccountDefaults'} = $object->getUseAccountDefaults();

@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class FolderItemNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class FolderItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\FolderItem' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\FolderItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\FolderItem) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\FolderItem;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\FolderItem();
         if (property_exists($data, 'completedDateTime')) {
             $object->setCompletedDateTime($data->{'completedDateTime'});
@@ -42,7 +44,7 @@ class FolderItemNormalizer extends SerializerAwareNormalizer implements Denormal
         if (property_exists($data, 'customFields')) {
             $values = [];
             foreach ($data->{'customFields'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\CustomFieldV2', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\CustomFieldV2', 'json', $context);
             }
             $object->setCustomFields($values);
         }
@@ -116,7 +118,7 @@ class FolderItemNormalizer extends SerializerAwareNormalizer implements Denormal
         if (null !== $object->getCustomFields()) {
             $values = [];
             foreach ($object->getCustomFields() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'customFields'} = $values;
         }

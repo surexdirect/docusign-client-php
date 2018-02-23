@@ -16,7 +16,7 @@ class AccountSignatureProviders
     /**
      * @return AccountSignatureProvider[]
      */
-    public function getSignatureProviders()
+    public function getSignatureProviders(): ?array
     {
         return $this->signatureProviders;
     }
@@ -26,7 +26,7 @@ class AccountSignatureProviders
      *
      * @return self
      */
-    public function setSignatureProviders(array $signatureProviders = null)
+    public function setSignatureProviders(?array $signatureProviders): self
     {
         $this->signatureProviders = $signatureProviders;
 

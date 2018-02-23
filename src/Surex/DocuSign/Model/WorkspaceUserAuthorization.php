@@ -25,6 +25,8 @@ class WorkspaceUserAuthorization
      */
     protected $canView;
     /**
+     * The UTC DateTime when the workspace user authorization was created.
+     *
      * @var string
      */
     protected $created;
@@ -33,6 +35,8 @@ class WorkspaceUserAuthorization
      */
     protected $createdById;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -49,6 +53,8 @@ class WorkspaceUserAuthorization
      */
     protected $workspaceUserId;
     /**
+     * A workspaceUser representing the user. This property is only returned in response to user specific GET call.
+     *
      * @var WorkspaceUser
      */
     protected $workspaceUserInformation;
@@ -56,7 +62,7 @@ class WorkspaceUserAuthorization
     /**
      * @return string
      */
-    public function getCanDelete()
+    public function getCanDelete(): ?string
     {
         return $this->canDelete;
     }
@@ -66,7 +72,7 @@ class WorkspaceUserAuthorization
      *
      * @return self
      */
-    public function setCanDelete($canDelete = null)
+    public function setCanDelete(?string $canDelete): self
     {
         $this->canDelete = $canDelete;
 
@@ -76,7 +82,7 @@ class WorkspaceUserAuthorization
     /**
      * @return string
      */
-    public function getCanMove()
+    public function getCanMove(): ?string
     {
         return $this->canMove;
     }
@@ -86,7 +92,7 @@ class WorkspaceUserAuthorization
      *
      * @return self
      */
-    public function setCanMove($canMove = null)
+    public function setCanMove(?string $canMove): self
     {
         $this->canMove = $canMove;
 
@@ -96,7 +102,7 @@ class WorkspaceUserAuthorization
     /**
      * @return string
      */
-    public function getCanTransact()
+    public function getCanTransact(): ?string
     {
         return $this->canTransact;
     }
@@ -106,7 +112,7 @@ class WorkspaceUserAuthorization
      *
      * @return self
      */
-    public function setCanTransact($canTransact = null)
+    public function setCanTransact(?string $canTransact): self
     {
         $this->canTransact = $canTransact;
 
@@ -116,7 +122,7 @@ class WorkspaceUserAuthorization
     /**
      * @return string
      */
-    public function getCanView()
+    public function getCanView(): ?string
     {
         return $this->canView;
     }
@@ -126,7 +132,7 @@ class WorkspaceUserAuthorization
      *
      * @return self
      */
-    public function setCanView($canView = null)
+    public function setCanView(?string $canView): self
     {
         $this->canView = $canView;
 
@@ -134,19 +140,23 @@ class WorkspaceUserAuthorization
     }
 
     /**
+     * The UTC DateTime when the workspace user authorization was created.
+     *
      * @return string
      */
-    public function getCreated()
+    public function getCreated(): ?string
     {
         return $this->created;
     }
 
     /**
+     * The UTC DateTime when the workspace user authorization was created.
+     *
      * @param string $created
      *
      * @return self
      */
-    public function setCreated($created = null)
+    public function setCreated(?string $created): self
     {
         $this->created = $created;
 
@@ -156,7 +166,7 @@ class WorkspaceUserAuthorization
     /**
      * @return string
      */
-    public function getCreatedById()
+    public function getCreatedById(): ?string
     {
         return $this->createdById;
     }
@@ -166,7 +176,7 @@ class WorkspaceUserAuthorization
      *
      * @return self
      */
-    public function setCreatedById($createdById = null)
+    public function setCreatedById(?string $createdById): self
     {
         $this->createdById = $createdById;
 
@@ -174,19 +184,23 @@ class WorkspaceUserAuthorization
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -196,7 +210,7 @@ class WorkspaceUserAuthorization
     /**
      * @return string
      */
-    public function getModified()
+    public function getModified(): ?string
     {
         return $this->modified;
     }
@@ -206,7 +220,7 @@ class WorkspaceUserAuthorization
      *
      * @return self
      */
-    public function setModified($modified = null)
+    public function setModified(?string $modified): self
     {
         $this->modified = $modified;
 
@@ -216,7 +230,7 @@ class WorkspaceUserAuthorization
     /**
      * @return string
      */
-    public function getModifiedById()
+    public function getModifiedById(): ?string
     {
         return $this->modifiedById;
     }
@@ -226,7 +240,7 @@ class WorkspaceUserAuthorization
      *
      * @return self
      */
-    public function setModifiedById($modifiedById = null)
+    public function setModifiedById(?string $modifiedById): self
     {
         $this->modifiedById = $modifiedById;
 
@@ -236,7 +250,7 @@ class WorkspaceUserAuthorization
     /**
      * @return string
      */
-    public function getWorkspaceUserId()
+    public function getWorkspaceUserId(): ?string
     {
         return $this->workspaceUserId;
     }
@@ -246,7 +260,7 @@ class WorkspaceUserAuthorization
      *
      * @return self
      */
-    public function setWorkspaceUserId($workspaceUserId = null)
+    public function setWorkspaceUserId(?string $workspaceUserId): self
     {
         $this->workspaceUserId = $workspaceUserId;
 
@@ -254,19 +268,23 @@ class WorkspaceUserAuthorization
     }
 
     /**
+     * A workspaceUser representing the user. This property is only returned in response to user specific GET call.
+     *
      * @return WorkspaceUser
      */
-    public function getWorkspaceUserInformation()
+    public function getWorkspaceUserInformation(): ?WorkspaceUser
     {
         return $this->workspaceUserInformation;
     }
 
     /**
+     * A workspaceUser representing the user. This property is only returned in response to user specific GET call.
+     *
      * @param WorkspaceUser $workspaceUserInformation
      *
      * @return self
      */
-    public function setWorkspaceUserInformation(WorkspaceUser $workspaceUserInformation = null)
+    public function setWorkspaceUserInformation(?WorkspaceUser $workspaceUserInformation): self
     {
         $this->workspaceUserInformation = $workspaceUserInformation;
 

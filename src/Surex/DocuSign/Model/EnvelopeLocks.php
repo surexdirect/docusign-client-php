@@ -9,14 +9,25 @@ namespace Surex\DocuSign\Model;
 class EnvelopeLocks
 {
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
     /**
+     * Sets the time, in seconds, until the lock expires when there is no activity on the envelope.
+
+     If no value is entered, then the default value of 300 seconds is used. The maximum value is 1,800 seconds.
+
+     The lock duration can be extended.
+
+     *
      * @var string
      */
     protected $lockDurationInSeconds;
     /**
+     * Specifies the friendly name of  the application that is locking the envelope.
+     *
      * @var string
      */
     protected $lockedByApp;
@@ -25,36 +36,51 @@ class EnvelopeLocks
      */
     protected $lockedByUser;
     /**
+     * The datetime until the envelope lock expires.
+     *
      * @var string
      */
     protected $lockedUntilDateTime;
     /**
+     * A unique identifier provided to the owner of the envelope lock.   Used to prove ownership of the lock.
+     *
      * @var string
      */
     protected $lockToken;
     /**
+     * The type of envelope lock.  Currently "edit" is the only supported type.
+     *
      * @var string
      */
     protected $lockType;
     /**
+     * Reserved for future use.
+
+     Indicates whether a scratchpad is used for editing information.
+
+     *
      * @var string
      */
     protected $useScratchPad;
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -62,19 +88,33 @@ class EnvelopeLocks
     }
 
     /**
+     * Sets the time, in seconds, until the lock expires when there is no activity on the envelope.
+
+     If no value is entered, then the default value of 300 seconds is used. The maximum value is 1,800 seconds.
+
+     The lock duration can be extended.
+
+     *
      * @return string
      */
-    public function getLockDurationInSeconds()
+    public function getLockDurationInSeconds(): ?string
     {
         return $this->lockDurationInSeconds;
     }
 
     /**
+     * Sets the time, in seconds, until the lock expires when there is no activity on the envelope.
+
+     If no value is entered, then the default value of 300 seconds is used. The maximum value is 1,800 seconds.
+
+     The lock duration can be extended.
+
+     *
      * @param string $lockDurationInSeconds
      *
      * @return self
      */
-    public function setLockDurationInSeconds($lockDurationInSeconds = null)
+    public function setLockDurationInSeconds(?string $lockDurationInSeconds): self
     {
         $this->lockDurationInSeconds = $lockDurationInSeconds;
 
@@ -82,19 +122,23 @@ class EnvelopeLocks
     }
 
     /**
+     * Specifies the friendly name of  the application that is locking the envelope.
+     *
      * @return string
      */
-    public function getLockedByApp()
+    public function getLockedByApp(): ?string
     {
         return $this->lockedByApp;
     }
 
     /**
+     * Specifies the friendly name of  the application that is locking the envelope.
+     *
      * @param string $lockedByApp
      *
      * @return self
      */
-    public function setLockedByApp($lockedByApp = null)
+    public function setLockedByApp(?string $lockedByApp): self
     {
         $this->lockedByApp = $lockedByApp;
 
@@ -104,7 +148,7 @@ class EnvelopeLocks
     /**
      * @return UserInfo
      */
-    public function getLockedByUser()
+    public function getLockedByUser(): ?UserInfo
     {
         return $this->lockedByUser;
     }
@@ -114,7 +158,7 @@ class EnvelopeLocks
      *
      * @return self
      */
-    public function setLockedByUser(UserInfo $lockedByUser = null)
+    public function setLockedByUser(?UserInfo $lockedByUser): self
     {
         $this->lockedByUser = $lockedByUser;
 
@@ -122,19 +166,23 @@ class EnvelopeLocks
     }
 
     /**
+     * The datetime until the envelope lock expires.
+     *
      * @return string
      */
-    public function getLockedUntilDateTime()
+    public function getLockedUntilDateTime(): ?string
     {
         return $this->lockedUntilDateTime;
     }
 
     /**
+     * The datetime until the envelope lock expires.
+     *
      * @param string $lockedUntilDateTime
      *
      * @return self
      */
-    public function setLockedUntilDateTime($lockedUntilDateTime = null)
+    public function setLockedUntilDateTime(?string $lockedUntilDateTime): self
     {
         $this->lockedUntilDateTime = $lockedUntilDateTime;
 
@@ -142,19 +190,23 @@ class EnvelopeLocks
     }
 
     /**
+     * A unique identifier provided to the owner of the envelope lock.   Used to prove ownership of the lock.
+     *
      * @return string
      */
-    public function getLockToken()
+    public function getLockToken(): ?string
     {
         return $this->lockToken;
     }
 
     /**
+     * A unique identifier provided to the owner of the envelope lock.   Used to prove ownership of the lock.
+     *
      * @param string $lockToken
      *
      * @return self
      */
-    public function setLockToken($lockToken = null)
+    public function setLockToken(?string $lockToken): self
     {
         $this->lockToken = $lockToken;
 
@@ -162,19 +214,23 @@ class EnvelopeLocks
     }
 
     /**
+     * The type of envelope lock.  Currently "edit" is the only supported type.
+     *
      * @return string
      */
-    public function getLockType()
+    public function getLockType(): ?string
     {
         return $this->lockType;
     }
 
     /**
+     * The type of envelope lock.  Currently "edit" is the only supported type.
+     *
      * @param string $lockType
      *
      * @return self
      */
-    public function setLockType($lockType = null)
+    public function setLockType(?string $lockType): self
     {
         $this->lockType = $lockType;
 
@@ -182,19 +238,29 @@ class EnvelopeLocks
     }
 
     /**
+     * Reserved for future use.
+
+     Indicates whether a scratchpad is used for editing information.
+
+     *
      * @return string
      */
-    public function getUseScratchPad()
+    public function getUseScratchPad(): ?string
     {
         return $this->useScratchPad;
     }
 
     /**
+     * Reserved for future use.
+
+     Indicates whether a scratchpad is used for editing information.
+
+     *
      * @param string $useScratchPad
      *
      * @return self
      */
-    public function setUseScratchPad($useScratchPad = null)
+    public function setUseScratchPad(?string $useScratchPad): self
     {
         $this->useScratchPad = $useScratchPad;
 

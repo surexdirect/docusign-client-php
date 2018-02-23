@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class PaymentProcessorInformation
 {
     /**
+     * Contains address information.
+     *
      * @var AddressInformation
      */
     protected $address;
@@ -22,19 +24,23 @@ class PaymentProcessorInformation
     protected $email;
 
     /**
+     * Contains address information.
+     *
      * @return AddressInformation
      */
-    public function getAddress()
+    public function getAddress(): ?AddressInformation
     {
         return $this->address;
     }
 
     /**
+     * Contains address information.
+     *
      * @param AddressInformation $address
      *
      * @return self
      */
-    public function setAddress(AddressInformation $address = null)
+    public function setAddress(?AddressInformation $address): self
     {
         $this->address = $address;
 
@@ -44,7 +50,7 @@ class PaymentProcessorInformation
     /**
      * @return string
      */
-    public function getBillingAgreementId()
+    public function getBillingAgreementId(): ?string
     {
         return $this->billingAgreementId;
     }
@@ -54,7 +60,7 @@ class PaymentProcessorInformation
      *
      * @return self
      */
-    public function setBillingAgreementId($billingAgreementId = null)
+    public function setBillingAgreementId(?string $billingAgreementId): self
     {
         $this->billingAgreementId = $billingAgreementId;
 
@@ -64,7 +70,7 @@ class PaymentProcessorInformation
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -74,7 +80,7 @@ class PaymentProcessorInformation
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 

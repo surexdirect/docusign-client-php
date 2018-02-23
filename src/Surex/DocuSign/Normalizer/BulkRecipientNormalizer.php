@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class BulkRecipientNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class BulkRecipientNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\BulkRecipient' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\BulkRecipient' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\BulkRecipient) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\BulkRecipient;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\BulkRecipient();
         if (property_exists($data, 'accessCode')) {
             $object->setAccessCode($data->{'accessCode'});
@@ -42,7 +44,7 @@ class BulkRecipientNormalizer extends SerializerAwareNormalizer implements Denor
         if (property_exists($data, 'errorDetails')) {
             $values = [];
             foreach ($data->{'errorDetails'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context);
             }
             $object->setErrorDetails($values);
         }
@@ -61,7 +63,7 @@ class BulkRecipientNormalizer extends SerializerAwareNormalizer implements Denor
         if (property_exists($data, 'recipientSignatureProviderInfo')) {
             $values_1 = [];
             foreach ($data->{'recipientSignatureProviderInfo'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\BulkRecipientSignatureProvider', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\BulkRecipientSignatureProvider', 'json', $context);
             }
             $object->setRecipientSignatureProviderInfo($values_1);
         }
@@ -71,7 +73,7 @@ class BulkRecipientNormalizer extends SerializerAwareNormalizer implements Denor
         if (property_exists($data, 'tabLabels')) {
             $values_2 = [];
             foreach ($data->{'tabLabels'} as $value_2) {
-                $values_2[] = $this->serializer->deserialize($value_2, 'Surex\\DocuSign\\Model\\BulkRecipientTabLabel', 'raw', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Surex\\DocuSign\\Model\\BulkRecipientTabLabel', 'json', $context);
             }
             $object->setTabLabels($values_2);
         }
@@ -91,7 +93,7 @@ class BulkRecipientNormalizer extends SerializerAwareNormalizer implements Denor
         if (null !== $object->getErrorDetails()) {
             $values = [];
             foreach ($object->getErrorDetails() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'errorDetails'} = $values;
         }
@@ -110,7 +112,7 @@ class BulkRecipientNormalizer extends SerializerAwareNormalizer implements Denor
         if (null !== $object->getRecipientSignatureProviderInfo()) {
             $values_1 = [];
             foreach ($object->getRecipientSignatureProviderInfo() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'recipientSignatureProviderInfo'} = $values_1;
         }
@@ -120,7 +122,7 @@ class BulkRecipientNormalizer extends SerializerAwareNormalizer implements Denor
         if (null !== $object->getTabLabels()) {
             $values_2 = [];
             foreach ($object->getTabLabels() as $value_2) {
-                $values_2[] = $this->serializer->serialize($value_2, 'raw', $context);
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data->{'tabLabels'} = $values_2;
         }

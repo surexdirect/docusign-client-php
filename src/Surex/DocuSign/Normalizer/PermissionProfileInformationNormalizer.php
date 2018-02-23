@@ -6,37 +6,39 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class PermissionProfileInformationNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class PermissionProfileInformationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\PermissionProfileInformation' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\PermissionProfileInformation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\PermissionProfileInformation) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\PermissionProfileInformation;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\PermissionProfileInformation();
         if (property_exists($data, 'permissionProfiles')) {
             $values = [];
             foreach ($data->{'permissionProfiles'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\AccountPermissionProfiles', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\AccountPermissionProfiles', 'json', $context);
             }
             $object->setPermissionProfiles($values);
         }
@@ -50,7 +52,7 @@ class PermissionProfileInformationNormalizer extends SerializerAwareNormalizer i
         if (null !== $object->getPermissionProfiles()) {
             $values = [];
             foreach ($object->getPermissionProfiles() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'permissionProfiles'} = $values;
         }

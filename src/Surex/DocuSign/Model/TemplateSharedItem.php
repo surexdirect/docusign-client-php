@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class TemplateSharedItem
 {
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -17,6 +19,8 @@ class TemplateSharedItem
      */
     protected $owner;
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @var string
      */
     protected $shared;
@@ -29,6 +33,8 @@ class TemplateSharedItem
      */
     protected $sharedUsers;
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @var string
      */
     protected $templateId;
@@ -38,19 +44,23 @@ class TemplateSharedItem
     protected $templateName;
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -60,7 +70,7 @@ class TemplateSharedItem
     /**
      * @return UserInfo
      */
-    public function getOwner()
+    public function getOwner(): ?UserInfo
     {
         return $this->owner;
     }
@@ -70,7 +80,7 @@ class TemplateSharedItem
      *
      * @return self
      */
-    public function setOwner(UserInfo $owner = null)
+    public function setOwner(?UserInfo $owner): self
     {
         $this->owner = $owner;
 
@@ -78,19 +88,23 @@ class TemplateSharedItem
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @return string
      */
-    public function getShared()
+    public function getShared(): ?string
     {
         return $this->shared;
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @param string $shared
      *
      * @return self
      */
-    public function setShared($shared = null)
+    public function setShared(?string $shared): self
     {
         $this->shared = $shared;
 
@@ -100,7 +114,7 @@ class TemplateSharedItem
     /**
      * @return MemberGroupSharedItem[]
      */
-    public function getSharedGroups()
+    public function getSharedGroups(): ?array
     {
         return $this->sharedGroups;
     }
@@ -110,7 +124,7 @@ class TemplateSharedItem
      *
      * @return self
      */
-    public function setSharedGroups(array $sharedGroups = null)
+    public function setSharedGroups(?array $sharedGroups): self
     {
         $this->sharedGroups = $sharedGroups;
 
@@ -120,7 +134,7 @@ class TemplateSharedItem
     /**
      * @return UserSharedItem[]
      */
-    public function getSharedUsers()
+    public function getSharedUsers(): ?array
     {
         return $this->sharedUsers;
     }
@@ -130,7 +144,7 @@ class TemplateSharedItem
      *
      * @return self
      */
-    public function setSharedUsers(array $sharedUsers = null)
+    public function setSharedUsers(?array $sharedUsers): self
     {
         $this->sharedUsers = $sharedUsers;
 
@@ -138,19 +152,23 @@ class TemplateSharedItem
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @return string
      */
-    public function getTemplateId()
+    public function getTemplateId(): ?string
     {
         return $this->templateId;
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @param string $templateId
      *
      * @return self
      */
-    public function setTemplateId($templateId = null)
+    public function setTemplateId(?string $templateId): self
     {
         $this->templateId = $templateId;
 
@@ -160,7 +178,7 @@ class TemplateSharedItem
     /**
      * @return string
      */
-    public function getTemplateName()
+    public function getTemplateName(): ?string
     {
         return $this->templateName;
     }
@@ -170,7 +188,7 @@ class TemplateSharedItem
      *
      * @return self
      */
-    public function setTemplateName($templateName = null)
+    public function setTemplateName(?string $templateName): self
     {
         $this->templateName = $templateName;
 

@@ -29,6 +29,8 @@ class RecipientFormData
      */
     protected $name;
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @var string
      */
     protected $recipientId;
@@ -44,7 +46,7 @@ class RecipientFormData
     /**
      * @return string
      */
-    public function getDeclinedTime()
+    public function getDeclinedTime(): ?string
     {
         return $this->declinedTime;
     }
@@ -54,7 +56,7 @@ class RecipientFormData
      *
      * @return self
      */
-    public function setDeclinedTime($declinedTime = null)
+    public function setDeclinedTime(?string $declinedTime): self
     {
         $this->declinedTime = $declinedTime;
 
@@ -64,7 +66,7 @@ class RecipientFormData
     /**
      * @return string
      */
-    public function getDeliveredTime()
+    public function getDeliveredTime(): ?string
     {
         return $this->deliveredTime;
     }
@@ -74,7 +76,7 @@ class RecipientFormData
      *
      * @return self
      */
-    public function setDeliveredTime($deliveredTime = null)
+    public function setDeliveredTime(?string $deliveredTime): self
     {
         $this->deliveredTime = $deliveredTime;
 
@@ -84,7 +86,7 @@ class RecipientFormData
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -94,7 +96,7 @@ class RecipientFormData
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -104,7 +106,7 @@ class RecipientFormData
     /**
      * @return NameValue[]
      */
-    public function getFormData()
+    public function getFormData(): ?array
     {
         return $this->formData;
     }
@@ -114,7 +116,7 @@ class RecipientFormData
      *
      * @return self
      */
-    public function setFormData(array $formData = null)
+    public function setFormData(?array $formData): self
     {
         $this->formData = $formData;
 
@@ -124,7 +126,7 @@ class RecipientFormData
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -134,7 +136,7 @@ class RecipientFormData
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -142,19 +144,23 @@ class RecipientFormData
     }
 
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @return string
      */
-    public function getRecipientId()
+    public function getRecipientId(): ?string
     {
         return $this->recipientId;
     }
 
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @param string $recipientId
      *
      * @return self
      */
-    public function setRecipientId($recipientId = null)
+    public function setRecipientId(?string $recipientId): self
     {
         $this->recipientId = $recipientId;
 
@@ -164,7 +170,7 @@ class RecipientFormData
     /**
      * @return string
      */
-    public function getSentTime()
+    public function getSentTime(): ?string
     {
         return $this->sentTime;
     }
@@ -174,7 +180,7 @@ class RecipientFormData
      *
      * @return self
      */
-    public function setSentTime($sentTime = null)
+    public function setSentTime(?string $sentTime): self
     {
         $this->sentTime = $sentTime;
 
@@ -184,7 +190,7 @@ class RecipientFormData
     /**
      * @return string
      */
-    public function getSignedTime()
+    public function getSignedTime(): ?string
     {
         return $this->signedTime;
     }
@@ -194,7 +200,7 @@ class RecipientFormData
      *
      * @return self
      */
-    public function setSignedTime($signedTime = null)
+    public function setSignedTime(?string $signedTime): self
     {
         $this->signedTime = $signedTime;
 

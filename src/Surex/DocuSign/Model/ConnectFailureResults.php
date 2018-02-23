@@ -16,7 +16,7 @@ class ConnectFailureResults
     /**
      * @return ConnectFailureResult[]
      */
-    public function getRetryQueue()
+    public function getRetryQueue(): ?array
     {
         return $this->retryQueue;
     }
@@ -26,7 +26,7 @@ class ConnectFailureResults
      *
      * @return self
      */
-    public function setRetryQueue(array $retryQueue = null)
+    public function setRetryQueue(?array $retryQueue): self
     {
         $this->retryQueue = $retryQueue;
 

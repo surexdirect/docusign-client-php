@@ -28,7 +28,7 @@ class RecipientDomain
     /**
      * @return string
      */
-    public function getActive()
+    public function getActive(): ?string
     {
         return $this->active;
     }
@@ -38,7 +38,7 @@ class RecipientDomain
      *
      * @return self
      */
-    public function setActive($active = null)
+    public function setActive(?string $active): self
     {
         $this->active = $active;
 
@@ -48,7 +48,7 @@ class RecipientDomain
     /**
      * @return string
      */
-    public function getDomainCode()
+    public function getDomainCode(): ?string
     {
         return $this->domainCode;
     }
@@ -58,7 +58,7 @@ class RecipientDomain
      *
      * @return self
      */
-    public function setDomainCode($domainCode = null)
+    public function setDomainCode(?string $domainCode): self
     {
         $this->domainCode = $domainCode;
 
@@ -68,7 +68,7 @@ class RecipientDomain
     /**
      * @return string
      */
-    public function getDomainName()
+    public function getDomainName(): ?string
     {
         return $this->domainName;
     }
@@ -78,7 +78,7 @@ class RecipientDomain
      *
      * @return self
      */
-    public function setDomainName($domainName = null)
+    public function setDomainName(?string $domainName): self
     {
         $this->domainName = $domainName;
 
@@ -88,7 +88,7 @@ class RecipientDomain
     /**
      * @return string
      */
-    public function getRecipientDomainId()
+    public function getRecipientDomainId(): ?string
     {
         return $this->recipientDomainId;
     }
@@ -98,7 +98,7 @@ class RecipientDomain
      *
      * @return self
      */
-    public function setRecipientDomainId($recipientDomainId = null)
+    public function setRecipientDomainId(?string $recipientDomainId): self
     {
         $this->recipientDomainId = $recipientDomainId;
 

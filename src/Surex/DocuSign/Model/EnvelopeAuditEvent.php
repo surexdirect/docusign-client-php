@@ -16,7 +16,7 @@ class EnvelopeAuditEvent
     /**
      * @return NameValue[]
      */
-    public function getEventFields()
+    public function getEventFields(): ?array
     {
         return $this->eventFields;
     }
@@ -26,7 +26,7 @@ class EnvelopeAuditEvent
      *
      * @return self
      */
-    public function setEventFields(array $eventFields = null)
+    public function setEventFields(?array $eventFields): self
     {
         $this->eventFields = $eventFields;
 

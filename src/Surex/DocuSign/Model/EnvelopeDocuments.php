@@ -13,6 +13,8 @@ class EnvelopeDocuments
      */
     protected $envelopeDocuments;
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @var string
      */
     protected $envelopeId;
@@ -20,7 +22,7 @@ class EnvelopeDocuments
     /**
      * @return EnvelopeDocument[]
      */
-    public function getEnvelopeDocuments()
+    public function getEnvelopeDocuments(): ?array
     {
         return $this->envelopeDocuments;
     }
@@ -30,7 +32,7 @@ class EnvelopeDocuments
      *
      * @return self
      */
-    public function setEnvelopeDocuments(array $envelopeDocuments = null)
+    public function setEnvelopeDocuments(?array $envelopeDocuments): self
     {
         $this->envelopeDocuments = $envelopeDocuments;
 
@@ -38,19 +40,23 @@ class EnvelopeDocuments
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @return string
      */
-    public function getEnvelopeId()
+    public function getEnvelopeId(): ?string
     {
         return $this->envelopeId;
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @param string $envelopeId
      *
      * @return self
      */
-    public function setEnvelopeId($envelopeId = null)
+    public function setEnvelopeId(?string $envelopeId): self
     {
         $this->envelopeId = $envelopeId;
 

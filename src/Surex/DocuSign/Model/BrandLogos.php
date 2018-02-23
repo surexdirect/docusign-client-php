@@ -24,7 +24,7 @@ class BrandLogos
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -34,7 +34,7 @@ class BrandLogos
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -44,7 +44,7 @@ class BrandLogos
     /**
      * @return string
      */
-    public function getPrimary()
+    public function getPrimary(): ?string
     {
         return $this->primary;
     }
@@ -54,7 +54,7 @@ class BrandLogos
      *
      * @return self
      */
-    public function setPrimary($primary = null)
+    public function setPrimary(?string $primary): self
     {
         $this->primary = $primary;
 
@@ -64,7 +64,7 @@ class BrandLogos
     /**
      * @return string
      */
-    public function getSecondary()
+    public function getSecondary(): ?string
     {
         return $this->secondary;
     }
@@ -74,7 +74,7 @@ class BrandLogos
      *
      * @return self
      */
-    public function setSecondary($secondary = null)
+    public function setSecondary(?string $secondary): self
     {
         $this->secondary = $secondary;
 

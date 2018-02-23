@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class TemplateSummaryNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class TemplateSummaryNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\TemplateSummary' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\TemplateSummary' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\TemplateSummary) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\TemplateSummary;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\TemplateSummary();
         if (property_exists($data, 'applied')) {
             $object->setApplied($data->{'applied'});
@@ -49,7 +51,7 @@ class TemplateSummaryNormalizer extends SerializerAwareNormalizer implements Den
             $object->setTemplateId($data->{'templateId'});
         }
         if (property_exists($data, 'templateMatch')) {
-            $object->setTemplateMatch($this->serializer->deserialize($data->{'templateMatch'}, 'Surex\\DocuSign\\Model\\TemplateMatch', 'raw', $context));
+            $object->setTemplateMatch($this->denormalizer->denormalize($data->{'templateMatch'}, 'Surex\\DocuSign\\Model\\TemplateMatch', 'json', $context));
         }
         if (property_exists($data, 'uri')) {
             $object->setUri($data->{'uri'});
@@ -77,7 +79,7 @@ class TemplateSummaryNormalizer extends SerializerAwareNormalizer implements Den
             $data->{'templateId'} = $object->getTemplateId();
         }
         if (null !== $object->getTemplateMatch()) {
-            $data->{'templateMatch'} = $this->serializer->serialize($object->getTemplateMatch(), 'raw', $context);
+            $data->{'templateMatch'} = $this->normalizer->normalize($object->getTemplateMatch(), 'json', $context);
         }
         if (null !== $object->getUri()) {
             $data->{'uri'} = $object->getUri();

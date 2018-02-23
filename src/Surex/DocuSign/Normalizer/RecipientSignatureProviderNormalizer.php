@@ -6,38 +6,40 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class RecipientSignatureProviderNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class RecipientSignatureProviderNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\RecipientSignatureProvider' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\RecipientSignatureProvider' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\RecipientSignatureProvider) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\RecipientSignatureProvider;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\RecipientSignatureProvider();
         if (property_exists($data, 'signatureProviderName')) {
             $object->setSignatureProviderName($data->{'signatureProviderName'});
         }
         if (property_exists($data, 'signatureProviderOptions')) {
-            $object->setSignatureProviderOptions($this->serializer->deserialize($data->{'signatureProviderOptions'}, 'Surex\\DocuSign\\Model\\RecipientSignatureProviderOptions', 'raw', $context));
+            $object->setSignatureProviderOptions($this->denormalizer->denormalize($data->{'signatureProviderOptions'}, 'Surex\\DocuSign\\Model\\RecipientSignatureProviderOptions', 'json', $context));
         }
 
         return $object;
@@ -50,7 +52,7 @@ class RecipientSignatureProviderNormalizer extends SerializerAwareNormalizer imp
             $data->{'signatureProviderName'} = $object->getSignatureProviderName();
         }
         if (null !== $object->getSignatureProviderOptions()) {
-            $data->{'signatureProviderOptions'} = $this->serializer->serialize($object->getSignatureProviderOptions(), 'raw', $context);
+            $data->{'signatureProviderOptions'} = $this->normalizer->normalize($object->getSignatureProviderOptions(), 'json', $context);
         }
 
         return $data;

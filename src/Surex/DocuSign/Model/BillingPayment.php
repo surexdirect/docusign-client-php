@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class BillingPayment
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $amount;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $invoiceId;
@@ -22,19 +26,23 @@ class BillingPayment
     protected $paymentId;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getAmount()
+    public function getAmount(): ?string
     {
         return $this->amount;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $amount
      *
      * @return self
      */
-    public function setAmount($amount = null)
+    public function setAmount(?string $amount): self
     {
         $this->amount = $amount;
 
@@ -42,19 +50,23 @@ class BillingPayment
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getInvoiceId()
+    public function getInvoiceId(): ?string
     {
         return $this->invoiceId;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $invoiceId
      *
      * @return self
      */
-    public function setInvoiceId($invoiceId = null)
+    public function setInvoiceId(?string $invoiceId): self
     {
         $this->invoiceId = $invoiceId;
 
@@ -64,7 +76,7 @@ class BillingPayment
     /**
      * @return string
      */
-    public function getPaymentId()
+    public function getPaymentId(): ?string
     {
         return $this->paymentId;
     }
@@ -74,7 +86,7 @@ class BillingPayment
      *
      * @return self
      */
-    public function setPaymentId($paymentId = null)
+    public function setPaymentId(?string $paymentId): self
     {
         $this->paymentId = $paymentId;
 

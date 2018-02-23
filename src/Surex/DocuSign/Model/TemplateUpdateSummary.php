@@ -13,10 +13,14 @@ class TemplateUpdateSummary
      */
     protected $bulkEnvelopeStatus;
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @var string
      */
     protected $envelopeId;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -25,6 +29,8 @@ class TemplateUpdateSummary
      */
     protected $listCustomFieldUpdateResults;
     /**
+     * Envelope locks.
+     *
      * @var EnvelopeLocks
      */
     protected $lockInformation;
@@ -33,6 +39,8 @@ class TemplateUpdateSummary
      */
     protected $recipientUpdateResults;
     /**
+     * Envelope tabs.
+     *
      * @var EnvelopeRecipientTabs
      */
     protected $tabUpdateResults;
@@ -44,7 +52,7 @@ class TemplateUpdateSummary
     /**
      * @return BulkEnvelopeStatus
      */
-    public function getBulkEnvelopeStatus()
+    public function getBulkEnvelopeStatus(): ?BulkEnvelopeStatus
     {
         return $this->bulkEnvelopeStatus;
     }
@@ -54,7 +62,7 @@ class TemplateUpdateSummary
      *
      * @return self
      */
-    public function setBulkEnvelopeStatus(BulkEnvelopeStatus $bulkEnvelopeStatus = null)
+    public function setBulkEnvelopeStatus(?BulkEnvelopeStatus $bulkEnvelopeStatus): self
     {
         $this->bulkEnvelopeStatus = $bulkEnvelopeStatus;
 
@@ -62,19 +70,23 @@ class TemplateUpdateSummary
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @return string
      */
-    public function getEnvelopeId()
+    public function getEnvelopeId(): ?string
     {
         return $this->envelopeId;
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @param string $envelopeId
      *
      * @return self
      */
-    public function setEnvelopeId($envelopeId = null)
+    public function setEnvelopeId(?string $envelopeId): self
     {
         $this->envelopeId = $envelopeId;
 
@@ -82,19 +94,23 @@ class TemplateUpdateSummary
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -104,7 +120,7 @@ class TemplateUpdateSummary
     /**
      * @return ListCustomField[]
      */
-    public function getListCustomFieldUpdateResults()
+    public function getListCustomFieldUpdateResults(): ?array
     {
         return $this->listCustomFieldUpdateResults;
     }
@@ -114,7 +130,7 @@ class TemplateUpdateSummary
      *
      * @return self
      */
-    public function setListCustomFieldUpdateResults(array $listCustomFieldUpdateResults = null)
+    public function setListCustomFieldUpdateResults(?array $listCustomFieldUpdateResults): self
     {
         $this->listCustomFieldUpdateResults = $listCustomFieldUpdateResults;
 
@@ -122,19 +138,23 @@ class TemplateUpdateSummary
     }
 
     /**
+     * Envelope locks.
+     *
      * @return EnvelopeLocks
      */
-    public function getLockInformation()
+    public function getLockInformation(): ?EnvelopeLocks
     {
         return $this->lockInformation;
     }
 
     /**
+     * Envelope locks.
+     *
      * @param EnvelopeLocks $lockInformation
      *
      * @return self
      */
-    public function setLockInformation(EnvelopeLocks $lockInformation = null)
+    public function setLockInformation(?EnvelopeLocks $lockInformation): self
     {
         $this->lockInformation = $lockInformation;
 
@@ -144,7 +164,7 @@ class TemplateUpdateSummary
     /**
      * @return RecipientUpdateResponse[]
      */
-    public function getRecipientUpdateResults()
+    public function getRecipientUpdateResults(): ?array
     {
         return $this->recipientUpdateResults;
     }
@@ -154,7 +174,7 @@ class TemplateUpdateSummary
      *
      * @return self
      */
-    public function setRecipientUpdateResults(array $recipientUpdateResults = null)
+    public function setRecipientUpdateResults(?array $recipientUpdateResults): self
     {
         $this->recipientUpdateResults = $recipientUpdateResults;
 
@@ -162,19 +182,23 @@ class TemplateUpdateSummary
     }
 
     /**
+     * Envelope tabs.
+     *
      * @return EnvelopeRecipientTabs
      */
-    public function getTabUpdateResults()
+    public function getTabUpdateResults(): ?EnvelopeRecipientTabs
     {
         return $this->tabUpdateResults;
     }
 
     /**
+     * Envelope tabs.
+     *
      * @param EnvelopeRecipientTabs $tabUpdateResults
      *
      * @return self
      */
-    public function setTabUpdateResults(EnvelopeRecipientTabs $tabUpdateResults = null)
+    public function setTabUpdateResults(?EnvelopeRecipientTabs $tabUpdateResults): self
     {
         $this->tabUpdateResults = $tabUpdateResults;
 
@@ -184,7 +208,7 @@ class TemplateUpdateSummary
     /**
      * @return TextCustomField[]
      */
-    public function getTextCustomFieldUpdateResults()
+    public function getTextCustomFieldUpdateResults(): ?array
     {
         return $this->textCustomFieldUpdateResults;
     }
@@ -194,7 +218,7 @@ class TemplateUpdateSummary
      *
      * @return self
      */
-    public function setTextCustomFieldUpdateResults(array $textCustomFieldUpdateResults = null)
+    public function setTextCustomFieldUpdateResults(?array $textCustomFieldUpdateResults): self
     {
         $this->textCustomFieldUpdateResults = $textCustomFieldUpdateResults;
 

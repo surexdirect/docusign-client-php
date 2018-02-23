@@ -6,35 +6,37 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class CreditCardInformationNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class CreditCardInformationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\CreditCardInformation' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\CreditCardInformation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\CreditCardInformation) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\CreditCardInformation;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\CreditCardInformation();
         if (property_exists($data, 'address')) {
-            $object->setAddress($this->serializer->deserialize($data->{'address'}, 'Surex\\DocuSign\\Model\\AddressInformation', 'raw', $context));
+            $object->setAddress($this->denormalizer->denormalize($data->{'address'}, 'Surex\\DocuSign\\Model\\AddressInformation', 'json', $context));
         }
         if (property_exists($data, 'cardNumber')) {
             $object->setCardNumber($data->{'cardNumber'});
@@ -59,7 +61,7 @@ class CreditCardInformationNormalizer extends SerializerAwareNormalizer implemen
     {
         $data = new \stdClass();
         if (null !== $object->getAddress()) {
-            $data->{'address'} = $this->serializer->serialize($object->getAddress(), 'raw', $context);
+            $data->{'address'} = $this->normalizer->normalize($object->getAddress(), 'json', $context);
         }
         if (null !== $object->getCardNumber()) {
             $data->{'cardNumber'} = $object->getCardNumber();

@@ -20,7 +20,7 @@ class ViewLinkRequest
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -30,7 +30,7 @@ class ViewLinkRequest
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -40,7 +40,7 @@ class ViewLinkRequest
     /**
      * @return string
      */
-    public function getReturnUrl()
+    public function getReturnUrl(): ?string
     {
         return $this->returnUrl;
     }
@@ -50,7 +50,7 @@ class ViewLinkRequest
      *
      * @return self
      */
-    public function setReturnUrl($returnUrl = null)
+    public function setReturnUrl(?string $returnUrl): self
     {
         $this->returnUrl = $returnUrl;
 

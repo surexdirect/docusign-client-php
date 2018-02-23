@@ -9,32 +9,42 @@ namespace Surex\DocuSign\Model;
 class RequestLogs
 {
     /**
+     *  When set to **true**, enables API request logging for the user.
+     *
      * @var string
      */
     protected $apiRequestLogging;
     /**
+     * Specifies the maximum number of API requests to log.
+     *
      * @var string
      */
     protected $apiRequestLogMaxEntries;
     /**
+     * Indicates the remaining number of API requests that can be logged.
+     *
      * @var string
      */
     protected $apiRequestLogRemainingEntries;
 
     /**
+     *  When set to **true**, enables API request logging for the user.
+     *
      * @return string
      */
-    public function getApiRequestLogging()
+    public function getApiRequestLogging(): ?string
     {
         return $this->apiRequestLogging;
     }
 
     /**
+     *  When set to **true**, enables API request logging for the user.
+     *
      * @param string $apiRequestLogging
      *
      * @return self
      */
-    public function setApiRequestLogging($apiRequestLogging = null)
+    public function setApiRequestLogging(?string $apiRequestLogging): self
     {
         $this->apiRequestLogging = $apiRequestLogging;
 
@@ -42,19 +52,23 @@ class RequestLogs
     }
 
     /**
+     * Specifies the maximum number of API requests to log.
+     *
      * @return string
      */
-    public function getApiRequestLogMaxEntries()
+    public function getApiRequestLogMaxEntries(): ?string
     {
         return $this->apiRequestLogMaxEntries;
     }
 
     /**
+     * Specifies the maximum number of API requests to log.
+     *
      * @param string $apiRequestLogMaxEntries
      *
      * @return self
      */
-    public function setApiRequestLogMaxEntries($apiRequestLogMaxEntries = null)
+    public function setApiRequestLogMaxEntries(?string $apiRequestLogMaxEntries): self
     {
         $this->apiRequestLogMaxEntries = $apiRequestLogMaxEntries;
 
@@ -62,19 +76,23 @@ class RequestLogs
     }
 
     /**
+     * Indicates the remaining number of API requests that can be logged.
+     *
      * @return string
      */
-    public function getApiRequestLogRemainingEntries()
+    public function getApiRequestLogRemainingEntries(): ?string
     {
         return $this->apiRequestLogRemainingEntries;
     }
 
     /**
+     * Indicates the remaining number of API requests that can be logged.
+     *
      * @param string $apiRequestLogRemainingEntries
      *
      * @return self
      */
-    public function setApiRequestLogRemainingEntries($apiRequestLogRemainingEntries = null)
+    public function setApiRequestLogRemainingEntries(?string $apiRequestLogRemainingEntries): self
     {
         $this->apiRequestLogRemainingEntries = $apiRequestLogRemainingEntries;
 

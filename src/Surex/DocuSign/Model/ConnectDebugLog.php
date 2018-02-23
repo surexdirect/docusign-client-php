@@ -13,6 +13,8 @@ class ConnectDebugLog
      */
     protected $connectConfig;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -32,7 +34,7 @@ class ConnectDebugLog
     /**
      * @return string
      */
-    public function getConnectConfig()
+    public function getConnectConfig(): ?string
     {
         return $this->connectConfig;
     }
@@ -42,7 +44,7 @@ class ConnectDebugLog
      *
      * @return self
      */
-    public function setConnectConfig($connectConfig = null)
+    public function setConnectConfig(?string $connectConfig): self
     {
         $this->connectConfig = $connectConfig;
 
@@ -50,19 +52,23 @@ class ConnectDebugLog
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -72,7 +78,7 @@ class ConnectDebugLog
     /**
      * @return string
      */
-    public function getEventDateTime()
+    public function getEventDateTime(): ?string
     {
         return $this->eventDateTime;
     }
@@ -82,7 +88,7 @@ class ConnectDebugLog
      *
      * @return self
      */
-    public function setEventDateTime($eventDateTime = null)
+    public function setEventDateTime(?string $eventDateTime): self
     {
         $this->eventDateTime = $eventDateTime;
 
@@ -92,7 +98,7 @@ class ConnectDebugLog
     /**
      * @return string
      */
-    public function getEventDescription()
+    public function getEventDescription(): ?string
     {
         return $this->eventDescription;
     }
@@ -102,7 +108,7 @@ class ConnectDebugLog
      *
      * @return self
      */
-    public function setEventDescription($eventDescription = null)
+    public function setEventDescription(?string $eventDescription): self
     {
         $this->eventDescription = $eventDescription;
 
@@ -112,7 +118,7 @@ class ConnectDebugLog
     /**
      * @return string
      */
-    public function getPayload()
+    public function getPayload(): ?string
     {
         return $this->payload;
     }
@@ -122,7 +128,7 @@ class ConnectDebugLog
      *
      * @return self
      */
-    public function setPayload($payload = null)
+    public function setPayload(?string $payload): self
     {
         $this->payload = $payload;
 

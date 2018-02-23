@@ -9,14 +9,23 @@ namespace Surex\DocuSign\Model;
 class EnvelopeSummary
 {
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @var string
      */
     protected $envelopeId;
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @var string
      */
     protected $status;
     /**
+     * The DateTime that the envelope changed status (i.e. was created or sent.).
+     *
      * @var string
      */
     protected $statusDateTime;
@@ -26,19 +35,23 @@ class EnvelopeSummary
     protected $uri;
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @return string
      */
-    public function getEnvelopeId()
+    public function getEnvelopeId(): ?string
     {
         return $this->envelopeId;
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @param string $envelopeId
      *
      * @return self
      */
-    public function setEnvelopeId($envelopeId = null)
+    public function setEnvelopeId(?string $envelopeId): self
     {
         $this->envelopeId = $envelopeId;
 
@@ -46,19 +59,29 @@ class EnvelopeSummary
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @param string $status
      *
      * @return self
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 
@@ -66,19 +89,23 @@ class EnvelopeSummary
     }
 
     /**
+     * The DateTime that the envelope changed status (i.e. was created or sent.).
+     *
      * @return string
      */
-    public function getStatusDateTime()
+    public function getStatusDateTime(): ?string
     {
         return $this->statusDateTime;
     }
 
     /**
+     * The DateTime that the envelope changed status (i.e. was created or sent.).
+     *
      * @param string $statusDateTime
      *
      * @return self
      */
-    public function setStatusDateTime($statusDateTime = null)
+    public function setStatusDateTime(?string $statusDateTime): self
     {
         $this->statusDateTime = $statusDateTime;
 
@@ -88,7 +115,7 @@ class EnvelopeSummary
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -98,7 +125,7 @@ class EnvelopeSummary
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 

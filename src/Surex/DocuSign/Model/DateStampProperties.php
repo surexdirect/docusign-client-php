@@ -28,7 +28,7 @@ class DateStampProperties
     /**
      * @return string
      */
-    public function getDateAreaHeight()
+    public function getDateAreaHeight(): ?string
     {
         return $this->dateAreaHeight;
     }
@@ -38,7 +38,7 @@ class DateStampProperties
      *
      * @return self
      */
-    public function setDateAreaHeight($dateAreaHeight = null)
+    public function setDateAreaHeight(?string $dateAreaHeight): self
     {
         $this->dateAreaHeight = $dateAreaHeight;
 
@@ -48,7 +48,7 @@ class DateStampProperties
     /**
      * @return string
      */
-    public function getDateAreaWidth()
+    public function getDateAreaWidth(): ?string
     {
         return $this->dateAreaWidth;
     }
@@ -58,7 +58,7 @@ class DateStampProperties
      *
      * @return self
      */
-    public function setDateAreaWidth($dateAreaWidth = null)
+    public function setDateAreaWidth(?string $dateAreaWidth): self
     {
         $this->dateAreaWidth = $dateAreaWidth;
 
@@ -68,7 +68,7 @@ class DateStampProperties
     /**
      * @return string
      */
-    public function getDateAreaX()
+    public function getDateAreaX(): ?string
     {
         return $this->dateAreaX;
     }
@@ -78,7 +78,7 @@ class DateStampProperties
      *
      * @return self
      */
-    public function setDateAreaX($dateAreaX = null)
+    public function setDateAreaX(?string $dateAreaX): self
     {
         $this->dateAreaX = $dateAreaX;
 
@@ -88,7 +88,7 @@ class DateStampProperties
     /**
      * @return string
      */
-    public function getDateAreaY()
+    public function getDateAreaY(): ?string
     {
         return $this->dateAreaY;
     }
@@ -98,7 +98,7 @@ class DateStampProperties
      *
      * @return self
      */
-    public function setDateAreaY($dateAreaY = null)
+    public function setDateAreaY(?string $dateAreaY): self
     {
         $this->dateAreaY = $dateAreaY;
 

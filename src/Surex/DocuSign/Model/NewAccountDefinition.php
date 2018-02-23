@@ -9,14 +9,28 @@ namespace Surex\DocuSign\Model;
 class NewAccountDefinition
 {
     /**
+     * The account name for the new account.
+     *
      * @var string
      */
     protected $accountName;
     /**
+     * The list of.
+     [account settings][accountsettings]
+     that determine
+     the features available for the account.
+     Note that some features are determined
+     by the plan used to create the account and cannot be overridden.
+
+     [accountsettings]: /esign/restapi/Accounts/Accounts/create/#account-settings
+
+     *
      * @var NameValue[]
      */
     protected $accountSettings;
     /**
+     * Contains information about an account address.
+     *
      * @var AccountAddress
      */
     protected $addressInformation;
@@ -25,14 +39,20 @@ class NewAccountDefinition
      */
     protected $creditCardInformation;
     /**
+     * The code that identifies the billing plan groups and plans for the new account.
+     *
      * @var string
      */
     protected $distributorCode;
     /**
+     * The password for the distributorCode.
+     *
      * @var string
      */
     protected $distributorPassword;
     /**
+     * User management.
+     *
      * @var Users
      */
     protected $initialUser;
@@ -41,32 +61,44 @@ class NewAccountDefinition
      */
     protected $paymentProcessorInformation;
     /**
+     * An object used to identify the features and attributes of the account being created.
+     *
      * @var PlanInformation
      */
     protected $planInformation;
     /**
+     * A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+
+     ###### Note: saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, and saleDiscountSeatPriceOverride are reserved for DoucSign use only.
+     *
      * @var ReferralInformation
      */
     protected $referralInformation;
     /**
+     * Users' social account logins.
+     *
      * @var UserSocialAccountLogins
      */
     protected $socialAccountInformation;
 
     /**
+     * The account name for the new account.
+     *
      * @return string
      */
-    public function getAccountName()
+    public function getAccountName(): ?string
     {
         return $this->accountName;
     }
 
     /**
+     * The account name for the new account.
+     *
      * @param string $accountName
      *
      * @return self
      */
-    public function setAccountName($accountName = null)
+    public function setAccountName(?string $accountName): self
     {
         $this->accountName = $accountName;
 
@@ -74,19 +106,39 @@ class NewAccountDefinition
     }
 
     /**
+     * The list of.
+     [account settings][accountsettings]
+     that determine
+     the features available for the account.
+     Note that some features are determined
+     by the plan used to create the account and cannot be overridden.
+
+     [accountsettings]: /esign/restapi/Accounts/Accounts/create/#account-settings
+
+     *
      * @return NameValue[]
      */
-    public function getAccountSettings()
+    public function getAccountSettings(): ?array
     {
         return $this->accountSettings;
     }
 
     /**
+     * The list of.
+     [account settings][accountsettings]
+     that determine
+     the features available for the account.
+     Note that some features are determined
+     by the plan used to create the account and cannot be overridden.
+
+     [accountsettings]: /esign/restapi/Accounts/Accounts/create/#account-settings
+
+     *
      * @param NameValue[] $accountSettings
      *
      * @return self
      */
-    public function setAccountSettings(array $accountSettings = null)
+    public function setAccountSettings(?array $accountSettings): self
     {
         $this->accountSettings = $accountSettings;
 
@@ -94,19 +146,23 @@ class NewAccountDefinition
     }
 
     /**
+     * Contains information about an account address.
+     *
      * @return AccountAddress
      */
-    public function getAddressInformation()
+    public function getAddressInformation(): ?AccountAddress
     {
         return $this->addressInformation;
     }
 
     /**
+     * Contains information about an account address.
+     *
      * @param AccountAddress $addressInformation
      *
      * @return self
      */
-    public function setAddressInformation(AccountAddress $addressInformation = null)
+    public function setAddressInformation(?AccountAddress $addressInformation): self
     {
         $this->addressInformation = $addressInformation;
 
@@ -116,7 +172,7 @@ class NewAccountDefinition
     /**
      * @return CreditCardInformation
      */
-    public function getCreditCardInformation()
+    public function getCreditCardInformation(): ?CreditCardInformation
     {
         return $this->creditCardInformation;
     }
@@ -126,7 +182,7 @@ class NewAccountDefinition
      *
      * @return self
      */
-    public function setCreditCardInformation(CreditCardInformation $creditCardInformation = null)
+    public function setCreditCardInformation(?CreditCardInformation $creditCardInformation): self
     {
         $this->creditCardInformation = $creditCardInformation;
 
@@ -134,19 +190,23 @@ class NewAccountDefinition
     }
 
     /**
+     * The code that identifies the billing plan groups and plans for the new account.
+     *
      * @return string
      */
-    public function getDistributorCode()
+    public function getDistributorCode(): ?string
     {
         return $this->distributorCode;
     }
 
     /**
+     * The code that identifies the billing plan groups and plans for the new account.
+     *
      * @param string $distributorCode
      *
      * @return self
      */
-    public function setDistributorCode($distributorCode = null)
+    public function setDistributorCode(?string $distributorCode): self
     {
         $this->distributorCode = $distributorCode;
 
@@ -154,19 +214,23 @@ class NewAccountDefinition
     }
 
     /**
+     * The password for the distributorCode.
+     *
      * @return string
      */
-    public function getDistributorPassword()
+    public function getDistributorPassword(): ?string
     {
         return $this->distributorPassword;
     }
 
     /**
+     * The password for the distributorCode.
+     *
      * @param string $distributorPassword
      *
      * @return self
      */
-    public function setDistributorPassword($distributorPassword = null)
+    public function setDistributorPassword(?string $distributorPassword): self
     {
         $this->distributorPassword = $distributorPassword;
 
@@ -174,19 +238,23 @@ class NewAccountDefinition
     }
 
     /**
+     * User management.
+     *
      * @return Users
      */
-    public function getInitialUser()
+    public function getInitialUser(): ?Users
     {
         return $this->initialUser;
     }
 
     /**
+     * User management.
+     *
      * @param Users $initialUser
      *
      * @return self
      */
-    public function setInitialUser(Users $initialUser = null)
+    public function setInitialUser(?Users $initialUser): self
     {
         $this->initialUser = $initialUser;
 
@@ -196,7 +264,7 @@ class NewAccountDefinition
     /**
      * @return PaymentProcessorInformation
      */
-    public function getPaymentProcessorInformation()
+    public function getPaymentProcessorInformation(): ?PaymentProcessorInformation
     {
         return $this->paymentProcessorInformation;
     }
@@ -206,7 +274,7 @@ class NewAccountDefinition
      *
      * @return self
      */
-    public function setPaymentProcessorInformation(PaymentProcessorInformation $paymentProcessorInformation = null)
+    public function setPaymentProcessorInformation(?PaymentProcessorInformation $paymentProcessorInformation): self
     {
         $this->paymentProcessorInformation = $paymentProcessorInformation;
 
@@ -214,19 +282,23 @@ class NewAccountDefinition
     }
 
     /**
+     * An object used to identify the features and attributes of the account being created.
+     *
      * @return PlanInformation
      */
-    public function getPlanInformation()
+    public function getPlanInformation(): ?PlanInformation
     {
         return $this->planInformation;
     }
 
     /**
+     * An object used to identify the features and attributes of the account being created.
+     *
      * @param PlanInformation $planInformation
      *
      * @return self
      */
-    public function setPlanInformation(PlanInformation $planInformation = null)
+    public function setPlanInformation(?PlanInformation $planInformation): self
     {
         $this->planInformation = $planInformation;
 
@@ -234,19 +306,27 @@ class NewAccountDefinition
     }
 
     /**
+     * A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+
+     ###### Note: saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, and saleDiscountSeatPriceOverride are reserved for DoucSign use only.
+     *
      * @return ReferralInformation
      */
-    public function getReferralInformation()
+    public function getReferralInformation(): ?ReferralInformation
     {
         return $this->referralInformation;
     }
 
     /**
+     * A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+
+     ###### Note: saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, and saleDiscountSeatPriceOverride are reserved for DoucSign use only.
+     *
      * @param ReferralInformation $referralInformation
      *
      * @return self
      */
-    public function setReferralInformation(ReferralInformation $referralInformation = null)
+    public function setReferralInformation(?ReferralInformation $referralInformation): self
     {
         $this->referralInformation = $referralInformation;
 
@@ -254,19 +334,23 @@ class NewAccountDefinition
     }
 
     /**
+     * Users' social account logins.
+     *
      * @return UserSocialAccountLogins
      */
-    public function getSocialAccountInformation()
+    public function getSocialAccountInformation(): ?UserSocialAccountLogins
     {
         return $this->socialAccountInformation;
     }
 
     /**
+     * Users' social account logins.
+     *
      * @param UserSocialAccountLogins $socialAccountInformation
      *
      * @return self
      */
-    public function setSocialAccountInformation(UserSocialAccountLogins $socialAccountInformation = null)
+    public function setSocialAccountInformation(?UserSocialAccountLogins $socialAccountInformation): self
     {
         $this->socialAccountInformation = $socialAccountInformation;
 

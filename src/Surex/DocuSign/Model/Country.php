@@ -28,7 +28,7 @@ class Country
     /**
      * @return string
      */
-    public function getIsoCode()
+    public function getIsoCode(): ?string
     {
         return $this->isoCode;
     }
@@ -38,7 +38,7 @@ class Country
      *
      * @return self
      */
-    public function setIsoCode($isoCode = null)
+    public function setIsoCode(?string $isoCode): self
     {
         $this->isoCode = $isoCode;
 
@@ -48,7 +48,7 @@ class Country
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -58,7 +58,7 @@ class Country
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -68,7 +68,7 @@ class Country
     /**
      * @return Province[]
      */
-    public function getProvinces()
+    public function getProvinces(): ?array
     {
         return $this->provinces;
     }
@@ -78,7 +78,7 @@ class Country
      *
      * @return self
      */
-    public function setProvinces(array $provinces = null)
+    public function setProvinces(?array $provinces): self
     {
         $this->provinces = $provinces;
 
@@ -88,7 +88,7 @@ class Country
     /**
      * @return string
      */
-    public function getProvinceValidated()
+    public function getProvinceValidated(): ?string
     {
         return $this->provinceValidated;
     }
@@ -98,7 +98,7 @@ class Country
      *
      * @return self
      */
-    public function setProvinceValidated($provinceValidated = null)
+    public function setProvinceValidated(?string $provinceValidated): self
     {
         $this->provinceValidated = $provinceValidated;
 

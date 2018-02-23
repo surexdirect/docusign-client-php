@@ -9,38 +9,67 @@ namespace Surex\DocuSign\Model;
 class View
 {
     /**
+     * Reserved for DocuSign.
+     <!--
+     When set to **true**, the anchor string does not consider case when matching strings in the document. The default value is **true**.
+     -->
+     *
      * @var string
      */
     protected $anchorCaseSensitive;
     /**
+     * Reserved for DocuSign.
+     <!--
+     Specifies the alignment of anchor tabs with anchor strings. Possible values are **left** or **right**. The default value is **left**.
+     -->
+
+     *
      * @var string
      */
     protected $anchorHorizontalAlignment;
     /**
+     * When set to **true**, this tab is ignored if anchorString is not found in the document.
+     *
      * @var string
      */
     protected $anchorIgnoreIfNotPresent;
     /**
+     * Reserved for DocuSign.
+     <!--
+     When set to **true**, the anchor string in this tab matches whole words only (strings embedded in other strings are ignored.) The default value is **true**.
+     -->
+
+     *
      * @var string
      */
     protected $anchorMatchWholeWord;
     /**
+     * Anchor text information for a radio button.
+     *
      * @var string
      */
     protected $anchorString;
     /**
+     * Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+     *
      * @var string
      */
     protected $anchorUnits;
     /**
+     * Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+     *
      * @var string
      */
     protected $anchorXOffset;
     /**
+     * Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+     *
      * @var string
      */
     protected $anchorYOffset;
     /**
+     * When set to **true**, the information in the tab is bold.
+     *
      * @var string
      */
     protected $bold;
@@ -49,58 +78,97 @@ class View
      */
     protected $buttonText;
     /**
+     * For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+     *
      * @var string
      */
     protected $conditionalParentLabel;
     /**
+     * For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+
+     If the parent tab is a Checkbox, Radio button, Optional Signature, or Optional Initial use "on" as the value to show that the parent tab is active.
+
+     *
      * @var string
      */
     protected $conditionalParentValue;
     /**
+     * The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+     *
      * @var string
      */
     protected $customTabId;
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @var string
      */
     protected $documentId;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
     /**
+     * The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+     *
      * @var string
      */
     protected $font;
     /**
+     * The font color used for the information in the tab.
+
+     Possible values are: Black, BrightBlue, BrightRed, DarkGreen, DarkRed, Gold, Green, NavyBlue, Purple, or White.
+     *
      * @var string
      */
     protected $fontColor;
     /**
+     * The font size used for the information in the tab.
+
+     Possible values are: Size7, Size8, Size9, Size10, Size11, Size12, Size14, Size16, Size18, Size20, Size22, Size24, Size26, Size28, Size36, Size48, or Size72.
+     *
      * @var string
      */
     protected $fontSize;
     /**
+     * Height of the tab in pixels.
+     *
      * @var int
      */
     protected $height;
     /**
+     * When set to **true**, the information in the tab is italic.
+     *
      * @var string
      */
     protected $italic;
     /**
+     * Contains information for transfering values between Salesforce data fields and DocuSign Tabs.
+     *
      * @var MergeField
      */
     protected $mergeField;
     /**
+     * Specifies the page number on which the tab is located.
+     Must be 1 for [supplemental documents][supdocs].
+
+     [supdocs]: /esign/guide/appendix/glossary.html#supplemental-documents
+
+     *
      * @var string
      */
     protected $pageNumber;
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @var string
      */
     protected $recipientId;
     /**
+     * When set to **true**, the signer is required to fill out this tab.
+     *
      * @var string
      */
     protected $required;
@@ -109,14 +177,28 @@ class View
      */
     protected $requiredRead;
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @var string
      */
     protected $status;
     /**
+     * The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].
+     *
      * @var string
      */
     protected $tabId;
     /**
+     * The label string associated with the tab.
+     The string may be the empty string.
+     If no value is provided, the tab type is used as the value.
+
+     Maximum of 500 characters.
+
+     *
      * @var string
      */
     protected $tabLabel;
@@ -125,44 +207,69 @@ class View
      */
     protected $tabOrder;
     /**
+     * When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients.
+     *
      * @var string
      */
     protected $templateLocked;
     /**
+     * When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+     *
      * @var string
      */
     protected $templateRequired;
     /**
+     * When set to **true**, the information in the tab is underlined.
+     *
      * @var string
      */
     protected $underline;
     /**
+     * Width of the tab in pixels.
+     *
      * @var int
      */
     protected $width;
     /**
+     * This indicates the horizontal offset of the object on the page.
+     DocuSign uses 72 DPI when determining position.
+     Required. May be zero.
+
+     *
      * @var string
      */
     protected $xPosition;
     /**
+     * This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+     *
      * @var string
      */
     protected $yPosition;
 
     /**
+     * Reserved for DocuSign.
+     <!--
+     When set to **true**, the anchor string does not consider case when matching strings in the document. The default value is **true**.
+     -->
+     *
      * @return string
      */
-    public function getAnchorCaseSensitive()
+    public function getAnchorCaseSensitive(): ?string
     {
         return $this->anchorCaseSensitive;
     }
 
     /**
+     * Reserved for DocuSign.
+     <!--
+     When set to **true**, the anchor string does not consider case when matching strings in the document. The default value is **true**.
+     -->
+     *
      * @param string $anchorCaseSensitive
      *
      * @return self
      */
-    public function setAnchorCaseSensitive($anchorCaseSensitive = null)
+    public function setAnchorCaseSensitive(?string $anchorCaseSensitive): self
     {
         $this->anchorCaseSensitive = $anchorCaseSensitive;
 
@@ -170,19 +277,31 @@ class View
     }
 
     /**
+     * Reserved for DocuSign.
+     <!--
+     Specifies the alignment of anchor tabs with anchor strings. Possible values are **left** or **right**. The default value is **left**.
+     -->
+
+     *
      * @return string
      */
-    public function getAnchorHorizontalAlignment()
+    public function getAnchorHorizontalAlignment(): ?string
     {
         return $this->anchorHorizontalAlignment;
     }
 
     /**
+     * Reserved for DocuSign.
+     <!--
+     Specifies the alignment of anchor tabs with anchor strings. Possible values are **left** or **right**. The default value is **left**.
+     -->
+
+     *
      * @param string $anchorHorizontalAlignment
      *
      * @return self
      */
-    public function setAnchorHorizontalAlignment($anchorHorizontalAlignment = null)
+    public function setAnchorHorizontalAlignment(?string $anchorHorizontalAlignment): self
     {
         $this->anchorHorizontalAlignment = $anchorHorizontalAlignment;
 
@@ -190,19 +309,23 @@ class View
     }
 
     /**
+     * When set to **true**, this tab is ignored if anchorString is not found in the document.
+     *
      * @return string
      */
-    public function getAnchorIgnoreIfNotPresent()
+    public function getAnchorIgnoreIfNotPresent(): ?string
     {
         return $this->anchorIgnoreIfNotPresent;
     }
 
     /**
+     * When set to **true**, this tab is ignored if anchorString is not found in the document.
+     *
      * @param string $anchorIgnoreIfNotPresent
      *
      * @return self
      */
-    public function setAnchorIgnoreIfNotPresent($anchorIgnoreIfNotPresent = null)
+    public function setAnchorIgnoreIfNotPresent(?string $anchorIgnoreIfNotPresent): self
     {
         $this->anchorIgnoreIfNotPresent = $anchorIgnoreIfNotPresent;
 
@@ -210,19 +333,31 @@ class View
     }
 
     /**
+     * Reserved for DocuSign.
+     <!--
+     When set to **true**, the anchor string in this tab matches whole words only (strings embedded in other strings are ignored.) The default value is **true**.
+     -->
+
+     *
      * @return string
      */
-    public function getAnchorMatchWholeWord()
+    public function getAnchorMatchWholeWord(): ?string
     {
         return $this->anchorMatchWholeWord;
     }
 
     /**
+     * Reserved for DocuSign.
+     <!--
+     When set to **true**, the anchor string in this tab matches whole words only (strings embedded in other strings are ignored.) The default value is **true**.
+     -->
+
+     *
      * @param string $anchorMatchWholeWord
      *
      * @return self
      */
-    public function setAnchorMatchWholeWord($anchorMatchWholeWord = null)
+    public function setAnchorMatchWholeWord(?string $anchorMatchWholeWord): self
     {
         $this->anchorMatchWholeWord = $anchorMatchWholeWord;
 
@@ -230,19 +365,23 @@ class View
     }
 
     /**
+     * Anchor text information for a radio button.
+     *
      * @return string
      */
-    public function getAnchorString()
+    public function getAnchorString(): ?string
     {
         return $this->anchorString;
     }
 
     /**
+     * Anchor text information for a radio button.
+     *
      * @param string $anchorString
      *
      * @return self
      */
-    public function setAnchorString($anchorString = null)
+    public function setAnchorString(?string $anchorString): self
     {
         $this->anchorString = $anchorString;
 
@@ -250,19 +389,23 @@ class View
     }
 
     /**
+     * Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+     *
      * @return string
      */
-    public function getAnchorUnits()
+    public function getAnchorUnits(): ?string
     {
         return $this->anchorUnits;
     }
 
     /**
+     * Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches.
+     *
      * @param string $anchorUnits
      *
      * @return self
      */
-    public function setAnchorUnits($anchorUnits = null)
+    public function setAnchorUnits(?string $anchorUnits): self
     {
         $this->anchorUnits = $anchorUnits;
 
@@ -270,19 +413,23 @@ class View
     }
 
     /**
+     * Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+     *
      * @return string
      */
-    public function getAnchorXOffset()
+    public function getAnchorXOffset(): ?string
     {
         return $this->anchorXOffset;
     }
 
     /**
+     * Specifies the X axis location of the tab, in achorUnits, relative to the anchorString.
+     *
      * @param string $anchorXOffset
      *
      * @return self
      */
-    public function setAnchorXOffset($anchorXOffset = null)
+    public function setAnchorXOffset(?string $anchorXOffset): self
     {
         $this->anchorXOffset = $anchorXOffset;
 
@@ -290,19 +437,23 @@ class View
     }
 
     /**
+     * Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+     *
      * @return string
      */
-    public function getAnchorYOffset()
+    public function getAnchorYOffset(): ?string
     {
         return $this->anchorYOffset;
     }
 
     /**
+     * Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString.
+     *
      * @param string $anchorYOffset
      *
      * @return self
      */
-    public function setAnchorYOffset($anchorYOffset = null)
+    public function setAnchorYOffset(?string $anchorYOffset): self
     {
         $this->anchorYOffset = $anchorYOffset;
 
@@ -310,19 +461,23 @@ class View
     }
 
     /**
+     * When set to **true**, the information in the tab is bold.
+     *
      * @return string
      */
-    public function getBold()
+    public function getBold(): ?string
     {
         return $this->bold;
     }
 
     /**
+     * When set to **true**, the information in the tab is bold.
+     *
      * @param string $bold
      *
      * @return self
      */
-    public function setBold($bold = null)
+    public function setBold(?string $bold): self
     {
         $this->bold = $bold;
 
@@ -332,7 +487,7 @@ class View
     /**
      * @return string
      */
-    public function getButtonText()
+    public function getButtonText(): ?string
     {
         return $this->buttonText;
     }
@@ -342,7 +497,7 @@ class View
      *
      * @return self
      */
-    public function setButtonText($buttonText = null)
+    public function setButtonText(?string $buttonText): self
     {
         $this->buttonText = $buttonText;
 
@@ -350,19 +505,23 @@ class View
     }
 
     /**
+     * For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+     *
      * @return string
      */
-    public function getConditionalParentLabel()
+    public function getConditionalParentLabel(): ?string
     {
         return $this->conditionalParentLabel;
     }
 
     /**
+     * For conditional fields this is the TabLabel of the parent tab that controls this tab's visibility.
+     *
      * @param string $conditionalParentLabel
      *
      * @return self
      */
-    public function setConditionalParentLabel($conditionalParentLabel = null)
+    public function setConditionalParentLabel(?string $conditionalParentLabel): self
     {
         $this->conditionalParentLabel = $conditionalParentLabel;
 
@@ -370,19 +529,29 @@ class View
     }
 
     /**
+     * For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+
+     If the parent tab is a Checkbox, Radio button, Optional Signature, or Optional Initial use "on" as the value to show that the parent tab is active.
+
+     *
      * @return string
      */
-    public function getConditionalParentValue()
+    public function getConditionalParentValue(): ?string
     {
         return $this->conditionalParentValue;
     }
 
     /**
+     * For conditional fields, this is the value of the parent tab that controls the tab's visibility.
+
+     If the parent tab is a Checkbox, Radio button, Optional Signature, or Optional Initial use "on" as the value to show that the parent tab is active.
+
+     *
      * @param string $conditionalParentValue
      *
      * @return self
      */
-    public function setConditionalParentValue($conditionalParentValue = null)
+    public function setConditionalParentValue(?string $conditionalParentValue): self
     {
         $this->conditionalParentValue = $conditionalParentValue;
 
@@ -390,19 +559,23 @@ class View
     }
 
     /**
+     * The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+     *
      * @return string
      */
-    public function getCustomTabId()
+    public function getCustomTabId(): ?string
     {
         return $this->customTabId;
     }
 
     /**
+     * The DocuSign generated custom tab ID for the custom tab to be applied. This can only be used when adding new tabs for a recipient. When used, the new tab inherits all the custom tab properties.
+     *
      * @param string $customTabId
      *
      * @return self
      */
-    public function setCustomTabId($customTabId = null)
+    public function setCustomTabId(?string $customTabId): self
     {
         $this->customTabId = $customTabId;
 
@@ -410,19 +583,23 @@ class View
     }
 
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @return string
      */
-    public function getDocumentId()
+    public function getDocumentId(): ?string
     {
         return $this->documentId;
     }
 
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @param string $documentId
      *
      * @return self
      */
-    public function setDocumentId($documentId = null)
+    public function setDocumentId(?string $documentId): self
     {
         $this->documentId = $documentId;
 
@@ -430,19 +607,23 @@ class View
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -450,19 +631,23 @@ class View
     }
 
     /**
+     * The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+     *
      * @return string
      */
-    public function getFont()
+    public function getFont(): ?string
     {
         return $this->font;
     }
 
     /**
+     * The font to be used for the tab value. Supported Fonts: Arial, Arial, ArialNarrow, Calibri, CourierNew, Garamond, Georgia, Helvetica,   LucidaConsole, Tahoma, TimesNewRoman, Trebuchet, Verdana, MSGothic, MSMincho, Default.
+     *
      * @param string $font
      *
      * @return self
      */
-    public function setFont($font = null)
+    public function setFont(?string $font): self
     {
         $this->font = $font;
 
@@ -470,19 +655,27 @@ class View
     }
 
     /**
+     * The font color used for the information in the tab.
+
+     Possible values are: Black, BrightBlue, BrightRed, DarkGreen, DarkRed, Gold, Green, NavyBlue, Purple, or White.
+     *
      * @return string
      */
-    public function getFontColor()
+    public function getFontColor(): ?string
     {
         return $this->fontColor;
     }
 
     /**
+     * The font color used for the information in the tab.
+
+     Possible values are: Black, BrightBlue, BrightRed, DarkGreen, DarkRed, Gold, Green, NavyBlue, Purple, or White.
+     *
      * @param string $fontColor
      *
      * @return self
      */
-    public function setFontColor($fontColor = null)
+    public function setFontColor(?string $fontColor): self
     {
         $this->fontColor = $fontColor;
 
@@ -490,19 +683,27 @@ class View
     }
 
     /**
+     * The font size used for the information in the tab.
+
+     Possible values are: Size7, Size8, Size9, Size10, Size11, Size12, Size14, Size16, Size18, Size20, Size22, Size24, Size26, Size28, Size36, Size48, or Size72.
+     *
      * @return string
      */
-    public function getFontSize()
+    public function getFontSize(): ?string
     {
         return $this->fontSize;
     }
 
     /**
+     * The font size used for the information in the tab.
+
+     Possible values are: Size7, Size8, Size9, Size10, Size11, Size12, Size14, Size16, Size18, Size20, Size22, Size24, Size26, Size28, Size36, Size48, or Size72.
+     *
      * @param string $fontSize
      *
      * @return self
      */
-    public function setFontSize($fontSize = null)
+    public function setFontSize(?string $fontSize): self
     {
         $this->fontSize = $fontSize;
 
@@ -510,19 +711,23 @@ class View
     }
 
     /**
+     * Height of the tab in pixels.
+     *
      * @return int
      */
-    public function getHeight()
+    public function getHeight(): ?int
     {
         return $this->height;
     }
 
     /**
+     * Height of the tab in pixels.
+     *
      * @param int $height
      *
      * @return self
      */
-    public function setHeight($height = null)
+    public function setHeight(?int $height): self
     {
         $this->height = $height;
 
@@ -530,19 +735,23 @@ class View
     }
 
     /**
+     * When set to **true**, the information in the tab is italic.
+     *
      * @return string
      */
-    public function getItalic()
+    public function getItalic(): ?string
     {
         return $this->italic;
     }
 
     /**
+     * When set to **true**, the information in the tab is italic.
+     *
      * @param string $italic
      *
      * @return self
      */
-    public function setItalic($italic = null)
+    public function setItalic(?string $italic): self
     {
         $this->italic = $italic;
 
@@ -550,19 +759,23 @@ class View
     }
 
     /**
+     * Contains information for transfering values between Salesforce data fields and DocuSign Tabs.
+     *
      * @return MergeField
      */
-    public function getMergeField()
+    public function getMergeField(): ?MergeField
     {
         return $this->mergeField;
     }
 
     /**
+     * Contains information for transfering values between Salesforce data fields and DocuSign Tabs.
+     *
      * @param MergeField $mergeField
      *
      * @return self
      */
-    public function setMergeField(MergeField $mergeField = null)
+    public function setMergeField(?MergeField $mergeField): self
     {
         $this->mergeField = $mergeField;
 
@@ -570,19 +783,31 @@ class View
     }
 
     /**
+     * Specifies the page number on which the tab is located.
+     Must be 1 for [supplemental documents][supdocs].
+
+     [supdocs]: /esign/guide/appendix/glossary.html#supplemental-documents
+
+     *
      * @return string
      */
-    public function getPageNumber()
+    public function getPageNumber(): ?string
     {
         return $this->pageNumber;
     }
 
     /**
+     * Specifies the page number on which the tab is located.
+     Must be 1 for [supplemental documents][supdocs].
+
+     [supdocs]: /esign/guide/appendix/glossary.html#supplemental-documents
+
+     *
      * @param string $pageNumber
      *
      * @return self
      */
-    public function setPageNumber($pageNumber = null)
+    public function setPageNumber(?string $pageNumber): self
     {
         $this->pageNumber = $pageNumber;
 
@@ -590,19 +815,23 @@ class View
     }
 
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @return string
      */
-    public function getRecipientId()
+    public function getRecipientId(): ?string
     {
         return $this->recipientId;
     }
 
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @param string $recipientId
      *
      * @return self
      */
-    public function setRecipientId($recipientId = null)
+    public function setRecipientId(?string $recipientId): self
     {
         $this->recipientId = $recipientId;
 
@@ -610,19 +839,23 @@ class View
     }
 
     /**
+     * When set to **true**, the signer is required to fill out this tab.
+     *
      * @return string
      */
-    public function getRequired()
+    public function getRequired(): ?string
     {
         return $this->required;
     }
 
     /**
+     * When set to **true**, the signer is required to fill out this tab.
+     *
      * @param string $required
      *
      * @return self
      */
-    public function setRequired($required = null)
+    public function setRequired(?string $required): self
     {
         $this->required = $required;
 
@@ -632,7 +865,7 @@ class View
     /**
      * @return string
      */
-    public function getRequiredRead()
+    public function getRequiredRead(): ?string
     {
         return $this->requiredRead;
     }
@@ -642,7 +875,7 @@ class View
      *
      * @return self
      */
-    public function setRequiredRead($requiredRead = null)
+    public function setRequiredRead(?string $requiredRead): self
     {
         $this->requiredRead = $requiredRead;
 
@@ -650,19 +883,29 @@ class View
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @param string $status
      *
      * @return self
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 
@@ -670,19 +913,23 @@ class View
     }
 
     /**
+     * The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].
+     *
      * @return string
      */
-    public function getTabId()
+    public function getTabId(): ?string
     {
         return $this->tabId;
     }
 
     /**
+     * The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].
+     *
      * @param string $tabId
      *
      * @return self
      */
-    public function setTabId($tabId = null)
+    public function setTabId(?string $tabId): self
     {
         $this->tabId = $tabId;
 
@@ -690,19 +937,33 @@ class View
     }
 
     /**
+     * The label string associated with the tab.
+     The string may be the empty string.
+     If no value is provided, the tab type is used as the value.
+
+     Maximum of 500 characters.
+
+     *
      * @return string
      */
-    public function getTabLabel()
+    public function getTabLabel(): ?string
     {
         return $this->tabLabel;
     }
 
     /**
+     * The label string associated with the tab.
+     The string may be the empty string.
+     If no value is provided, the tab type is used as the value.
+
+     Maximum of 500 characters.
+
+     *
      * @param string $tabLabel
      *
      * @return self
      */
-    public function setTabLabel($tabLabel = null)
+    public function setTabLabel(?string $tabLabel): self
     {
         $this->tabLabel = $tabLabel;
 
@@ -712,7 +973,7 @@ class View
     /**
      * @return string
      */
-    public function getTabOrder()
+    public function getTabOrder(): ?string
     {
         return $this->tabOrder;
     }
@@ -722,7 +983,7 @@ class View
      *
      * @return self
      */
-    public function setTabOrder($tabOrder = null)
+    public function setTabOrder(?string $tabOrder): self
     {
         $this->tabOrder = $tabOrder;
 
@@ -730,19 +991,23 @@ class View
     }
 
     /**
+     * When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients.
+     *
      * @return string
      */
-    public function getTemplateLocked()
+    public function getTemplateLocked(): ?string
     {
         return $this->templateLocked;
     }
 
     /**
+     * When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients.
+     *
      * @param string $templateLocked
      *
      * @return self
      */
-    public function setTemplateLocked($templateLocked = null)
+    public function setTemplateLocked(?string $templateLocked): self
     {
         $this->templateLocked = $templateLocked;
 
@@ -750,19 +1015,23 @@ class View
     }
 
     /**
+     * When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+     *
      * @return string
      */
-    public function getTemplateRequired()
+    public function getTemplateRequired(): ?string
     {
         return $this->templateRequired;
     }
 
     /**
+     * When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+     *
      * @param string $templateRequired
      *
      * @return self
      */
-    public function setTemplateRequired($templateRequired = null)
+    public function setTemplateRequired(?string $templateRequired): self
     {
         $this->templateRequired = $templateRequired;
 
@@ -770,19 +1039,23 @@ class View
     }
 
     /**
+     * When set to **true**, the information in the tab is underlined.
+     *
      * @return string
      */
-    public function getUnderline()
+    public function getUnderline(): ?string
     {
         return $this->underline;
     }
 
     /**
+     * When set to **true**, the information in the tab is underlined.
+     *
      * @param string $underline
      *
      * @return self
      */
-    public function setUnderline($underline = null)
+    public function setUnderline(?string $underline): self
     {
         $this->underline = $underline;
 
@@ -790,19 +1063,23 @@ class View
     }
 
     /**
+     * Width of the tab in pixels.
+     *
      * @return int
      */
-    public function getWidth()
+    public function getWidth(): ?int
     {
         return $this->width;
     }
 
     /**
+     * Width of the tab in pixels.
+     *
      * @param int $width
      *
      * @return self
      */
-    public function setWidth($width = null)
+    public function setWidth(?int $width): self
     {
         $this->width = $width;
 
@@ -810,19 +1087,29 @@ class View
     }
 
     /**
+     * This indicates the horizontal offset of the object on the page.
+     DocuSign uses 72 DPI when determining position.
+     Required. May be zero.
+
+     *
      * @return string
      */
-    public function getXPosition()
+    public function getXPosition(): ?string
     {
         return $this->xPosition;
     }
 
     /**
+     * This indicates the horizontal offset of the object on the page.
+     DocuSign uses 72 DPI when determining position.
+     Required. May be zero.
+
+     *
      * @param string $xPosition
      *
      * @return self
      */
-    public function setXPosition($xPosition = null)
+    public function setXPosition(?string $xPosition): self
     {
         $this->xPosition = $xPosition;
 
@@ -830,19 +1117,23 @@ class View
     }
 
     /**
+     * This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+     *
      * @return string
      */
-    public function getYPosition()
+    public function getYPosition(): ?string
     {
         return $this->yPosition;
     }
 
     /**
+     * This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+     *
      * @param string $yPosition
      *
      * @return self
      */
-    public function setYPosition($yPosition = null)
+    public function setYPosition(?string $yPosition): self
     {
         $this->yPosition = $yPosition;
 

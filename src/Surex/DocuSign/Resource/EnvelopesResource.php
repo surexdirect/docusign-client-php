@@ -103,7 +103,7 @@ class EnvelopesResource extends Resource
      *     @var string $folder_types reserved for DocuSign
 
      *     @var string $from_date Specifies the date and time
-     *     @var string $from_to_status The status value checked for in the `from_date` to `to_date` time period.
+     *     @var string $from_to_status the status value checked for in the `from_date` to `to_date` time period
 
      *     @var string $include reserved for DocuSign
 
@@ -141,6 +141,7 @@ class EnvelopesResource extends Resource
 
      *     @var string $user_name Limit results to envelopes
      * }
+     *
      * @param string $fetch Fetch mode (object or response)
      *
      * @return \Psr\Http\Message\ResponseInterface|\Surex\DocuSign\Model\EnvelopesInformation|\Surex\DocuSign\Model\ErrorDetails
@@ -1511,6 +1512,7 @@ class EnvelopesResource extends Resource
 
      *     @var string $to_date Optional date/time setting
      * }
+     *
      * @param string $fetch Fetch mode (object or response)
      *
      * @return \Psr\Http\Message\ResponseInterface|\Surex\DocuSign\Model\EnvelopesInformation|\Surex\DocuSign\Model\ErrorDetails

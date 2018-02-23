@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class WorkspacesNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class WorkspacesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\Workspaces' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\Workspaces' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\Workspaces) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\Workspaces;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\Workspaces();
         if (property_exists($data, 'billableAccountId')) {
             $object->setBillableAccountId($data->{'billableAccountId'});
@@ -40,13 +42,13 @@ class WorkspacesNormalizer extends SerializerAwareNormalizer implements Denormal
             $object->setCreated($data->{'created'});
         }
         if (property_exists($data, 'createdByInformation')) {
-            $object->setCreatedByInformation($this->serializer->deserialize($data->{'createdByInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'raw', $context));
+            $object->setCreatedByInformation($this->denormalizer->denormalize($data->{'createdByInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'json', $context));
         }
         if (property_exists($data, 'lastModified')) {
             $object->setLastModified($data->{'lastModified'});
         }
         if (property_exists($data, 'lastModifiedByInformation')) {
-            $object->setLastModifiedByInformation($this->serializer->deserialize($data->{'lastModifiedByInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'raw', $context));
+            $object->setLastModifiedByInformation($this->denormalizer->denormalize($data->{'lastModifiedByInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'json', $context));
         }
         if (property_exists($data, 'status')) {
             $object->setStatus($data->{'status'});
@@ -80,13 +82,13 @@ class WorkspacesNormalizer extends SerializerAwareNormalizer implements Denormal
             $data->{'created'} = $object->getCreated();
         }
         if (null !== $object->getCreatedByInformation()) {
-            $data->{'createdByInformation'} = $this->serializer->serialize($object->getCreatedByInformation(), 'raw', $context);
+            $data->{'createdByInformation'} = $this->normalizer->normalize($object->getCreatedByInformation(), 'json', $context);
         }
         if (null !== $object->getLastModified()) {
             $data->{'lastModified'} = $object->getLastModified();
         }
         if (null !== $object->getLastModifiedByInformation()) {
-            $data->{'lastModifiedByInformation'} = $this->serializer->serialize($object->getLastModifiedByInformation(), 'raw', $context);
+            $data->{'lastModifiedByInformation'} = $this->normalizer->normalize($object->getLastModifiedByInformation(), 'json', $context);
         }
         if (null !== $object->getStatus()) {
             $data->{'status'} = $object->getStatus();

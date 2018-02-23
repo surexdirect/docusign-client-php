@@ -58,8 +58,8 @@ class EnvelopeRecipientsResource extends Resource
      * @param string $envelopeId The envelope's GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec
      * @param array  $parameters {
      *
-     *     @var string $include_anchor_tab_locations  When set to **true** and `include_tabs` is set to **true**, all tabs with anchor tab properties are included in the response.
-     *     @var string $include_extended  When set to **true**, the extended properties are included in the response.
+     *     @var string $include_anchor_tab_locations  when set to **true** and `include_tabs` is set to **true**, all tabs with anchor tab properties are included in the response
+     *     @var string $include_extended  when set to **true**, the extended properties are included in the response
      *     @var string $include_metadata reserved for DocuSign
 
      *     @var string $include_tabs When set to **true**, the tab information associated with the recipient is included in the response.

@@ -268,7 +268,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowAccountManagement()
+    public function getAllowAccountManagement(): ?string
     {
         return $this->allowAccountManagement;
     }
@@ -278,7 +278,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowAccountManagement($allowAccountManagement = null)
+    public function setAllowAccountManagement(?string $allowAccountManagement): self
     {
         $this->allowAccountManagement = $allowAccountManagement;
 
@@ -288,7 +288,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowAccountManagementMetadata()
+    public function getAllowAccountManagementMetadata(): ?SettingsMetadata
     {
         return $this->allowAccountManagementMetadata;
     }
@@ -298,7 +298,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowAccountManagementMetadata(SettingsMetadata $allowAccountManagementMetadata = null)
+    public function setAllowAccountManagementMetadata(?SettingsMetadata $allowAccountManagementMetadata): self
     {
         $this->allowAccountManagementMetadata = $allowAccountManagementMetadata;
 
@@ -308,7 +308,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowApiAccess()
+    public function getAllowApiAccess(): ?string
     {
         return $this->allowApiAccess;
     }
@@ -318,7 +318,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowApiAccess($allowApiAccess = null)
+    public function setAllowApiAccess(?string $allowApiAccess): self
     {
         $this->allowApiAccess = $allowApiAccess;
 
@@ -328,7 +328,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowApiAccessMetadata()
+    public function getAllowApiAccessMetadata(): ?SettingsMetadata
     {
         return $this->allowApiAccessMetadata;
     }
@@ -338,7 +338,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowApiAccessMetadata(SettingsMetadata $allowApiAccessMetadata = null)
+    public function setAllowApiAccessMetadata(?SettingsMetadata $allowApiAccessMetadata): self
     {
         $this->allowApiAccessMetadata = $allowApiAccessMetadata;
 
@@ -348,7 +348,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowApiAccessToAccount()
+    public function getAllowApiAccessToAccount(): ?string
     {
         return $this->allowApiAccessToAccount;
     }
@@ -358,7 +358,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowApiAccessToAccount($allowApiAccessToAccount = null)
+    public function setAllowApiAccessToAccount(?string $allowApiAccessToAccount): self
     {
         $this->allowApiAccessToAccount = $allowApiAccessToAccount;
 
@@ -368,7 +368,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowApiAccessToAccountMetadata()
+    public function getAllowApiAccessToAccountMetadata(): ?SettingsMetadata
     {
         return $this->allowApiAccessToAccountMetadata;
     }
@@ -378,7 +378,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowApiAccessToAccountMetadata(SettingsMetadata $allowApiAccessToAccountMetadata = null)
+    public function setAllowApiAccessToAccountMetadata(?SettingsMetadata $allowApiAccessToAccountMetadata): self
     {
         $this->allowApiAccessToAccountMetadata = $allowApiAccessToAccountMetadata;
 
@@ -388,7 +388,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowApiSendingOnBehalfOfOthers()
+    public function getAllowApiSendingOnBehalfOfOthers(): ?string
     {
         return $this->allowApiSendingOnBehalfOfOthers;
     }
@@ -398,7 +398,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowApiSendingOnBehalfOfOthers($allowApiSendingOnBehalfOfOthers = null)
+    public function setAllowApiSendingOnBehalfOfOthers(?string $allowApiSendingOnBehalfOfOthers): self
     {
         $this->allowApiSendingOnBehalfOfOthers = $allowApiSendingOnBehalfOfOthers;
 
@@ -408,7 +408,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowApiSendingOnBehalfOfOthersMetadata()
+    public function getAllowApiSendingOnBehalfOfOthersMetadata(): ?SettingsMetadata
     {
         return $this->allowApiSendingOnBehalfOfOthersMetadata;
     }
@@ -418,7 +418,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowApiSendingOnBehalfOfOthersMetadata(SettingsMetadata $allowApiSendingOnBehalfOfOthersMetadata = null)
+    public function setAllowApiSendingOnBehalfOfOthersMetadata(?SettingsMetadata $allowApiSendingOnBehalfOfOthersMetadata): self
     {
         $this->allowApiSendingOnBehalfOfOthersMetadata = $allowApiSendingOnBehalfOfOthersMetadata;
 
@@ -428,7 +428,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowApiSequentialSigning()
+    public function getAllowApiSequentialSigning(): ?string
     {
         return $this->allowApiSequentialSigning;
     }
@@ -438,7 +438,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowApiSequentialSigning($allowApiSequentialSigning = null)
+    public function setAllowApiSequentialSigning(?string $allowApiSequentialSigning): self
     {
         $this->allowApiSequentialSigning = $allowApiSequentialSigning;
 
@@ -448,7 +448,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowApiSequentialSigningMetadata()
+    public function getAllowApiSequentialSigningMetadata(): ?SettingsMetadata
     {
         return $this->allowApiSequentialSigningMetadata;
     }
@@ -458,7 +458,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowApiSequentialSigningMetadata(SettingsMetadata $allowApiSequentialSigningMetadata = null)
+    public function setAllowApiSequentialSigningMetadata(?SettingsMetadata $allowApiSequentialSigningMetadata): self
     {
         $this->allowApiSequentialSigningMetadata = $allowApiSequentialSigningMetadata;
 
@@ -468,7 +468,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowBulkSending()
+    public function getAllowBulkSending(): ?string
     {
         return $this->allowBulkSending;
     }
@@ -478,7 +478,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowBulkSending($allowBulkSending = null)
+    public function setAllowBulkSending(?string $allowBulkSending): self
     {
         $this->allowBulkSending = $allowBulkSending;
 
@@ -488,7 +488,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowBulkSendingMetadata()
+    public function getAllowBulkSendingMetadata(): ?SettingsMetadata
     {
         return $this->allowBulkSendingMetadata;
     }
@@ -498,7 +498,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowBulkSendingMetadata(SettingsMetadata $allowBulkSendingMetadata = null)
+    public function setAllowBulkSendingMetadata(?SettingsMetadata $allowBulkSendingMetadata): self
     {
         $this->allowBulkSendingMetadata = $allowBulkSendingMetadata;
 
@@ -508,7 +508,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowDocuSignDesktopClient()
+    public function getAllowDocuSignDesktopClient(): ?string
     {
         return $this->allowDocuSignDesktopClient;
     }
@@ -518,7 +518,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowDocuSignDesktopClient($allowDocuSignDesktopClient = null)
+    public function setAllowDocuSignDesktopClient(?string $allowDocuSignDesktopClient): self
     {
         $this->allowDocuSignDesktopClient = $allowDocuSignDesktopClient;
 
@@ -528,7 +528,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowDocuSignDesktopClientMetadata()
+    public function getAllowDocuSignDesktopClientMetadata(): ?SettingsMetadata
     {
         return $this->allowDocuSignDesktopClientMetadata;
     }
@@ -538,7 +538,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowDocuSignDesktopClientMetadata(SettingsMetadata $allowDocuSignDesktopClientMetadata = null)
+    public function setAllowDocuSignDesktopClientMetadata(?SettingsMetadata $allowDocuSignDesktopClientMetadata): self
     {
         $this->allowDocuSignDesktopClientMetadata = $allowDocuSignDesktopClientMetadata;
 
@@ -548,7 +548,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowedAddressBookAccess()
+    public function getAllowedAddressBookAccess(): ?string
     {
         return $this->allowedAddressBookAccess;
     }
@@ -558,7 +558,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowedAddressBookAccess($allowedAddressBookAccess = null)
+    public function setAllowedAddressBookAccess(?string $allowedAddressBookAccess): self
     {
         $this->allowedAddressBookAccess = $allowedAddressBookAccess;
 
@@ -568,7 +568,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowedAddressBookAccessMetadata()
+    public function getAllowedAddressBookAccessMetadata(): ?SettingsMetadata
     {
         return $this->allowedAddressBookAccessMetadata;
     }
@@ -578,7 +578,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowedAddressBookAccessMetadata(SettingsMetadata $allowedAddressBookAccessMetadata = null)
+    public function setAllowedAddressBookAccessMetadata(?SettingsMetadata $allowedAddressBookAccessMetadata): self
     {
         $this->allowedAddressBookAccessMetadata = $allowedAddressBookAccessMetadata;
 
@@ -588,7 +588,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowedTemplateAccess()
+    public function getAllowedTemplateAccess(): ?string
     {
         return $this->allowedTemplateAccess;
     }
@@ -598,7 +598,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowedTemplateAccess($allowedTemplateAccess = null)
+    public function setAllowedTemplateAccess(?string $allowedTemplateAccess): self
     {
         $this->allowedTemplateAccess = $allowedTemplateAccess;
 
@@ -608,7 +608,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowedTemplateAccessMetadata()
+    public function getAllowedTemplateAccessMetadata(): ?SettingsMetadata
     {
         return $this->allowedTemplateAccessMetadata;
     }
@@ -618,7 +618,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowedTemplateAccessMetadata(SettingsMetadata $allowedTemplateAccessMetadata = null)
+    public function setAllowedTemplateAccessMetadata(?SettingsMetadata $allowedTemplateAccessMetadata): self
     {
         $this->allowedTemplateAccessMetadata = $allowedTemplateAccessMetadata;
 
@@ -628,7 +628,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowedToBeEnvelopeTransferRecipient()
+    public function getAllowedToBeEnvelopeTransferRecipient(): ?string
     {
         return $this->allowedToBeEnvelopeTransferRecipient;
     }
@@ -638,7 +638,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowedToBeEnvelopeTransferRecipient($allowedToBeEnvelopeTransferRecipient = null)
+    public function setAllowedToBeEnvelopeTransferRecipient(?string $allowedToBeEnvelopeTransferRecipient): self
     {
         $this->allowedToBeEnvelopeTransferRecipient = $allowedToBeEnvelopeTransferRecipient;
 
@@ -648,7 +648,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowedToBeEnvelopeTransferRecipientMetadata()
+    public function getAllowedToBeEnvelopeTransferRecipientMetadata(): ?SettingsMetadata
     {
         return $this->allowedToBeEnvelopeTransferRecipientMetadata;
     }
@@ -658,7 +658,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowedToBeEnvelopeTransferRecipientMetadata(SettingsMetadata $allowedToBeEnvelopeTransferRecipientMetadata = null)
+    public function setAllowedToBeEnvelopeTransferRecipientMetadata(?SettingsMetadata $allowedToBeEnvelopeTransferRecipientMetadata): self
     {
         $this->allowedToBeEnvelopeTransferRecipientMetadata = $allowedToBeEnvelopeTransferRecipientMetadata;
 
@@ -668,7 +668,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowEnvelopeSending()
+    public function getAllowEnvelopeSending(): ?string
     {
         return $this->allowEnvelopeSending;
     }
@@ -678,7 +678,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowEnvelopeSending($allowEnvelopeSending = null)
+    public function setAllowEnvelopeSending(?string $allowEnvelopeSending): self
     {
         $this->allowEnvelopeSending = $allowEnvelopeSending;
 
@@ -688,7 +688,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowEnvelopeSendingMetadata()
+    public function getAllowEnvelopeSendingMetadata(): ?SettingsMetadata
     {
         return $this->allowEnvelopeSendingMetadata;
     }
@@ -698,7 +698,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowEnvelopeSendingMetadata(SettingsMetadata $allowEnvelopeSendingMetadata = null)
+    public function setAllowEnvelopeSendingMetadata(?SettingsMetadata $allowEnvelopeSendingMetadata): self
     {
         $this->allowEnvelopeSendingMetadata = $allowEnvelopeSendingMetadata;
 
@@ -708,7 +708,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowSendersToSetRecipientEmailLanguage()
+    public function getAllowSendersToSetRecipientEmailLanguage(): ?string
     {
         return $this->allowSendersToSetRecipientEmailLanguage;
     }
@@ -718,7 +718,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowSendersToSetRecipientEmailLanguage($allowSendersToSetRecipientEmailLanguage = null)
+    public function setAllowSendersToSetRecipientEmailLanguage(?string $allowSendersToSetRecipientEmailLanguage): self
     {
         $this->allowSendersToSetRecipientEmailLanguage = $allowSendersToSetRecipientEmailLanguage;
 
@@ -728,7 +728,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowSendersToSetRecipientEmailLanguageMetadata()
+    public function getAllowSendersToSetRecipientEmailLanguageMetadata(): ?SettingsMetadata
     {
         return $this->allowSendersToSetRecipientEmailLanguageMetadata;
     }
@@ -738,7 +738,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowSendersToSetRecipientEmailLanguageMetadata(SettingsMetadata $allowSendersToSetRecipientEmailLanguageMetadata = null)
+    public function setAllowSendersToSetRecipientEmailLanguageMetadata(?SettingsMetadata $allowSendersToSetRecipientEmailLanguageMetadata): self
     {
         $this->allowSendersToSetRecipientEmailLanguageMetadata = $allowSendersToSetRecipientEmailLanguageMetadata;
 
@@ -748,7 +748,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowSignerAttachments()
+    public function getAllowSignerAttachments(): ?string
     {
         return $this->allowSignerAttachments;
     }
@@ -758,7 +758,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowSignerAttachments($allowSignerAttachments = null)
+    public function setAllowSignerAttachments(?string $allowSignerAttachments): self
     {
         $this->allowSignerAttachments = $allowSignerAttachments;
 
@@ -768,7 +768,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowSignerAttachmentsMetadata()
+    public function getAllowSignerAttachmentsMetadata(): ?SettingsMetadata
     {
         return $this->allowSignerAttachmentsMetadata;
     }
@@ -778,7 +778,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowSignerAttachmentsMetadata(SettingsMetadata $allowSignerAttachmentsMetadata = null)
+    public function setAllowSignerAttachmentsMetadata(?SettingsMetadata $allowSignerAttachmentsMetadata): self
     {
         $this->allowSignerAttachmentsMetadata = $allowSignerAttachmentsMetadata;
 
@@ -788,7 +788,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowSupplementalDocuments()
+    public function getAllowSupplementalDocuments(): ?string
     {
         return $this->allowSupplementalDocuments;
     }
@@ -798,7 +798,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowSupplementalDocuments($allowSupplementalDocuments = null)
+    public function setAllowSupplementalDocuments(?string $allowSupplementalDocuments): self
     {
         $this->allowSupplementalDocuments = $allowSupplementalDocuments;
 
@@ -808,7 +808,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowSupplementalDocumentsMetadata()
+    public function getAllowSupplementalDocumentsMetadata(): ?SettingsMetadata
     {
         return $this->allowSupplementalDocumentsMetadata;
     }
@@ -818,7 +818,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowSupplementalDocumentsMetadata(SettingsMetadata $allowSupplementalDocumentsMetadata = null)
+    public function setAllowSupplementalDocumentsMetadata(?SettingsMetadata $allowSupplementalDocumentsMetadata): self
     {
         $this->allowSupplementalDocumentsMetadata = $allowSupplementalDocumentsMetadata;
 
@@ -828,7 +828,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowTaggingInSendAndCorrect()
+    public function getAllowTaggingInSendAndCorrect(): ?string
     {
         return $this->allowTaggingInSendAndCorrect;
     }
@@ -838,7 +838,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowTaggingInSendAndCorrect($allowTaggingInSendAndCorrect = null)
+    public function setAllowTaggingInSendAndCorrect(?string $allowTaggingInSendAndCorrect): self
     {
         $this->allowTaggingInSendAndCorrect = $allowTaggingInSendAndCorrect;
 
@@ -848,7 +848,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowTaggingInSendAndCorrectMetadata()
+    public function getAllowTaggingInSendAndCorrectMetadata(): ?SettingsMetadata
     {
         return $this->allowTaggingInSendAndCorrectMetadata;
     }
@@ -858,7 +858,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowTaggingInSendAndCorrectMetadata(SettingsMetadata $allowTaggingInSendAndCorrectMetadata = null)
+    public function setAllowTaggingInSendAndCorrectMetadata(?SettingsMetadata $allowTaggingInSendAndCorrectMetadata): self
     {
         $this->allowTaggingInSendAndCorrectMetadata = $allowTaggingInSendAndCorrectMetadata;
 
@@ -868,7 +868,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowVaulting()
+    public function getAllowVaulting(): ?string
     {
         return $this->allowVaulting;
     }
@@ -878,7 +878,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowVaulting($allowVaulting = null)
+    public function setAllowVaulting(?string $allowVaulting): self
     {
         $this->allowVaulting = $allowVaulting;
 
@@ -888,7 +888,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowVaultingMetadata()
+    public function getAllowVaultingMetadata(): ?SettingsMetadata
     {
         return $this->allowVaultingMetadata;
     }
@@ -898,7 +898,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowVaultingMetadata(SettingsMetadata $allowVaultingMetadata = null)
+    public function setAllowVaultingMetadata(?SettingsMetadata $allowVaultingMetadata): self
     {
         $this->allowVaultingMetadata = $allowVaultingMetadata;
 
@@ -908,7 +908,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getAllowWetSigningOverride()
+    public function getAllowWetSigningOverride(): ?string
     {
         return $this->allowWetSigningOverride;
     }
@@ -918,7 +918,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowWetSigningOverride($allowWetSigningOverride = null)
+    public function setAllowWetSigningOverride(?string $allowWetSigningOverride): self
     {
         $this->allowWetSigningOverride = $allowWetSigningOverride;
 
@@ -928,7 +928,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowWetSigningOverrideMetadata()
+    public function getAllowWetSigningOverrideMetadata(): ?SettingsMetadata
     {
         return $this->allowWetSigningOverrideMetadata;
     }
@@ -938,7 +938,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setAllowWetSigningOverrideMetadata(SettingsMetadata $allowWetSigningOverrideMetadata = null)
+    public function setAllowWetSigningOverrideMetadata(?SettingsMetadata $allowWetSigningOverrideMetadata): self
     {
         $this->allowWetSigningOverrideMetadata = $allowWetSigningOverrideMetadata;
 
@@ -948,7 +948,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getCanCreateWorkspaces()
+    public function getCanCreateWorkspaces(): ?string
     {
         return $this->canCreateWorkspaces;
     }
@@ -958,7 +958,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setCanCreateWorkspaces($canCreateWorkspaces = null)
+    public function setCanCreateWorkspaces(?string $canCreateWorkspaces): self
     {
         $this->canCreateWorkspaces = $canCreateWorkspaces;
 
@@ -968,7 +968,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getCanCreateWorkspacesMetadata()
+    public function getCanCreateWorkspacesMetadata(): ?SettingsMetadata
     {
         return $this->canCreateWorkspacesMetadata;
     }
@@ -978,7 +978,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setCanCreateWorkspacesMetadata(SettingsMetadata $canCreateWorkspacesMetadata = null)
+    public function setCanCreateWorkspacesMetadata(?SettingsMetadata $canCreateWorkspacesMetadata): self
     {
         $this->canCreateWorkspacesMetadata = $canCreateWorkspacesMetadata;
 
@@ -988,7 +988,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getDisableDocumentUpload()
+    public function getDisableDocumentUpload(): ?string
     {
         return $this->disableDocumentUpload;
     }
@@ -998,7 +998,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setDisableDocumentUpload($disableDocumentUpload = null)
+    public function setDisableDocumentUpload(?string $disableDocumentUpload): self
     {
         $this->disableDocumentUpload = $disableDocumentUpload;
 
@@ -1008,7 +1008,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getDisableDocumentUploadMetadata()
+    public function getDisableDocumentUploadMetadata(): ?SettingsMetadata
     {
         return $this->disableDocumentUploadMetadata;
     }
@@ -1018,7 +1018,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setDisableDocumentUploadMetadata(SettingsMetadata $disableDocumentUploadMetadata = null)
+    public function setDisableDocumentUploadMetadata(?SettingsMetadata $disableDocumentUploadMetadata): self
     {
         $this->disableDocumentUploadMetadata = $disableDocumentUploadMetadata;
 
@@ -1028,7 +1028,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getDisableOtherActions()
+    public function getDisableOtherActions(): ?string
     {
         return $this->disableOtherActions;
     }
@@ -1038,7 +1038,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setDisableOtherActions($disableOtherActions = null)
+    public function setDisableOtherActions(?string $disableOtherActions): self
     {
         $this->disableOtherActions = $disableOtherActions;
 
@@ -1048,7 +1048,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getDisableOtherActionsMetadata()
+    public function getDisableOtherActionsMetadata(): ?SettingsMetadata
     {
         return $this->disableOtherActionsMetadata;
     }
@@ -1058,7 +1058,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setDisableOtherActionsMetadata(SettingsMetadata $disableOtherActionsMetadata = null)
+    public function setDisableOtherActionsMetadata(?SettingsMetadata $disableOtherActionsMetadata): self
     {
         $this->disableOtherActionsMetadata = $disableOtherActionsMetadata;
 
@@ -1068,7 +1068,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getEnableApiRequestLogging()
+    public function getEnableApiRequestLogging(): ?string
     {
         return $this->enableApiRequestLogging;
     }
@@ -1078,7 +1078,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setEnableApiRequestLogging($enableApiRequestLogging = null)
+    public function setEnableApiRequestLogging(?string $enableApiRequestLogging): self
     {
         $this->enableApiRequestLogging = $enableApiRequestLogging;
 
@@ -1088,7 +1088,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getEnableApiRequestLoggingMetadata()
+    public function getEnableApiRequestLoggingMetadata(): ?SettingsMetadata
     {
         return $this->enableApiRequestLoggingMetadata;
     }
@@ -1098,7 +1098,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setEnableApiRequestLoggingMetadata(SettingsMetadata $enableApiRequestLoggingMetadata = null)
+    public function setEnableApiRequestLoggingMetadata(?SettingsMetadata $enableApiRequestLoggingMetadata): self
     {
         $this->enableApiRequestLoggingMetadata = $enableApiRequestLoggingMetadata;
 
@@ -1108,7 +1108,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getEnableRecipientViewingNotifications()
+    public function getEnableRecipientViewingNotifications(): ?string
     {
         return $this->enableRecipientViewingNotifications;
     }
@@ -1118,7 +1118,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setEnableRecipientViewingNotifications($enableRecipientViewingNotifications = null)
+    public function setEnableRecipientViewingNotifications(?string $enableRecipientViewingNotifications): self
     {
         $this->enableRecipientViewingNotifications = $enableRecipientViewingNotifications;
 
@@ -1128,7 +1128,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getEnableRecipientViewingNotificationsMetadata()
+    public function getEnableRecipientViewingNotificationsMetadata(): ?SettingsMetadata
     {
         return $this->enableRecipientViewingNotificationsMetadata;
     }
@@ -1138,7 +1138,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setEnableRecipientViewingNotificationsMetadata(SettingsMetadata $enableRecipientViewingNotificationsMetadata = null)
+    public function setEnableRecipientViewingNotificationsMetadata(?SettingsMetadata $enableRecipientViewingNotificationsMetadata): self
     {
         $this->enableRecipientViewingNotificationsMetadata = $enableRecipientViewingNotificationsMetadata;
 
@@ -1148,7 +1148,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getEnableSequentialSigningInterface()
+    public function getEnableSequentialSigningInterface(): ?string
     {
         return $this->enableSequentialSigningInterface;
     }
@@ -1158,7 +1158,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setEnableSequentialSigningInterface($enableSequentialSigningInterface = null)
+    public function setEnableSequentialSigningInterface(?string $enableSequentialSigningInterface): self
     {
         $this->enableSequentialSigningInterface = $enableSequentialSigningInterface;
 
@@ -1168,7 +1168,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getEnableSequentialSigningInterfaceMetadata()
+    public function getEnableSequentialSigningInterfaceMetadata(): ?SettingsMetadata
     {
         return $this->enableSequentialSigningInterfaceMetadata;
     }
@@ -1178,7 +1178,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setEnableSequentialSigningInterfaceMetadata(SettingsMetadata $enableSequentialSigningInterfaceMetadata = null)
+    public function setEnableSequentialSigningInterfaceMetadata(?SettingsMetadata $enableSequentialSigningInterfaceMetadata): self
     {
         $this->enableSequentialSigningInterfaceMetadata = $enableSequentialSigningInterfaceMetadata;
 
@@ -1188,7 +1188,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getEnableTransactionPointIntegration()
+    public function getEnableTransactionPointIntegration(): ?string
     {
         return $this->enableTransactionPointIntegration;
     }
@@ -1198,7 +1198,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setEnableTransactionPointIntegration($enableTransactionPointIntegration = null)
+    public function setEnableTransactionPointIntegration(?string $enableTransactionPointIntegration): self
     {
         $this->enableTransactionPointIntegration = $enableTransactionPointIntegration;
 
@@ -1208,7 +1208,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getEnableTransactionPointIntegrationMetadata()
+    public function getEnableTransactionPointIntegrationMetadata(): ?SettingsMetadata
     {
         return $this->enableTransactionPointIntegrationMetadata;
     }
@@ -1218,7 +1218,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setEnableTransactionPointIntegrationMetadata(SettingsMetadata $enableTransactionPointIntegrationMetadata = null)
+    public function setEnableTransactionPointIntegrationMetadata(?SettingsMetadata $enableTransactionPointIntegrationMetadata): self
     {
         $this->enableTransactionPointIntegrationMetadata = $enableTransactionPointIntegrationMetadata;
 
@@ -1228,7 +1228,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getPowerFormRole()
+    public function getPowerFormRole(): ?string
     {
         return $this->powerFormRole;
     }
@@ -1238,7 +1238,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setPowerFormRole($powerFormRole = null)
+    public function setPowerFormRole(?string $powerFormRole): self
     {
         $this->powerFormRole = $powerFormRole;
 
@@ -1248,7 +1248,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getPowerFormRoleMetadata()
+    public function getPowerFormRoleMetadata(): ?SettingsMetadata
     {
         return $this->powerFormRoleMetadata;
     }
@@ -1258,7 +1258,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setPowerFormRoleMetadata(SettingsMetadata $powerFormRoleMetadata = null)
+    public function setPowerFormRoleMetadata(?SettingsMetadata $powerFormRoleMetadata): self
     {
         $this->powerFormRoleMetadata = $powerFormRoleMetadata;
 
@@ -1268,7 +1268,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getReceiveCompletedSelfSignedDocumentsAsEmailLinks()
+    public function getReceiveCompletedSelfSignedDocumentsAsEmailLinks(): ?string
     {
         return $this->receiveCompletedSelfSignedDocumentsAsEmailLinks;
     }
@@ -1278,7 +1278,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setReceiveCompletedSelfSignedDocumentsAsEmailLinks($receiveCompletedSelfSignedDocumentsAsEmailLinks = null)
+    public function setReceiveCompletedSelfSignedDocumentsAsEmailLinks(?string $receiveCompletedSelfSignedDocumentsAsEmailLinks): self
     {
         $this->receiveCompletedSelfSignedDocumentsAsEmailLinks = $receiveCompletedSelfSignedDocumentsAsEmailLinks;
 
@@ -1288,7 +1288,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getReceiveCompletedSelfSignedDocumentsAsEmailLinksMetadata()
+    public function getReceiveCompletedSelfSignedDocumentsAsEmailLinksMetadata(): ?SettingsMetadata
     {
         return $this->receiveCompletedSelfSignedDocumentsAsEmailLinksMetadata;
     }
@@ -1298,7 +1298,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setReceiveCompletedSelfSignedDocumentsAsEmailLinksMetadata(SettingsMetadata $receiveCompletedSelfSignedDocumentsAsEmailLinksMetadata = null)
+    public function setReceiveCompletedSelfSignedDocumentsAsEmailLinksMetadata(?SettingsMetadata $receiveCompletedSelfSignedDocumentsAsEmailLinksMetadata): self
     {
         $this->receiveCompletedSelfSignedDocumentsAsEmailLinksMetadata = $receiveCompletedSelfSignedDocumentsAsEmailLinksMetadata;
 
@@ -1308,7 +1308,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getSupplementalDocumentsMustAccept()
+    public function getSupplementalDocumentsMustAccept(): ?string
     {
         return $this->supplementalDocumentsMustAccept;
     }
@@ -1318,7 +1318,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setSupplementalDocumentsMustAccept($supplementalDocumentsMustAccept = null)
+    public function setSupplementalDocumentsMustAccept(?string $supplementalDocumentsMustAccept): self
     {
         $this->supplementalDocumentsMustAccept = $supplementalDocumentsMustAccept;
 
@@ -1328,7 +1328,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getSupplementalDocumentsMustAcceptMetadata()
+    public function getSupplementalDocumentsMustAcceptMetadata(): ?SettingsMetadata
     {
         return $this->supplementalDocumentsMustAcceptMetadata;
     }
@@ -1338,7 +1338,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setSupplementalDocumentsMustAcceptMetadata(SettingsMetadata $supplementalDocumentsMustAcceptMetadata = null)
+    public function setSupplementalDocumentsMustAcceptMetadata(?SettingsMetadata $supplementalDocumentsMustAcceptMetadata): self
     {
         $this->supplementalDocumentsMustAcceptMetadata = $supplementalDocumentsMustAcceptMetadata;
 
@@ -1348,7 +1348,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getSupplementalDocumentsMustRead()
+    public function getSupplementalDocumentsMustRead(): ?string
     {
         return $this->supplementalDocumentsMustRead;
     }
@@ -1358,7 +1358,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setSupplementalDocumentsMustRead($supplementalDocumentsMustRead = null)
+    public function setSupplementalDocumentsMustRead(?string $supplementalDocumentsMustRead): self
     {
         $this->supplementalDocumentsMustRead = $supplementalDocumentsMustRead;
 
@@ -1368,7 +1368,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getSupplementalDocumentsMustReadMetadata()
+    public function getSupplementalDocumentsMustReadMetadata(): ?SettingsMetadata
     {
         return $this->supplementalDocumentsMustReadMetadata;
     }
@@ -1378,7 +1378,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setSupplementalDocumentsMustReadMetadata(SettingsMetadata $supplementalDocumentsMustReadMetadata = null)
+    public function setSupplementalDocumentsMustReadMetadata(?SettingsMetadata $supplementalDocumentsMustReadMetadata): self
     {
         $this->supplementalDocumentsMustReadMetadata = $supplementalDocumentsMustReadMetadata;
 
@@ -1388,7 +1388,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getSupplementalDocumentsMustView()
+    public function getSupplementalDocumentsMustView(): ?string
     {
         return $this->supplementalDocumentsMustView;
     }
@@ -1398,7 +1398,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setSupplementalDocumentsMustView($supplementalDocumentsMustView = null)
+    public function setSupplementalDocumentsMustView(?string $supplementalDocumentsMustView): self
     {
         $this->supplementalDocumentsMustView = $supplementalDocumentsMustView;
 
@@ -1408,7 +1408,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getSupplementalDocumentsMustViewMetadata()
+    public function getSupplementalDocumentsMustViewMetadata(): ?SettingsMetadata
     {
         return $this->supplementalDocumentsMustViewMetadata;
     }
@@ -1418,7 +1418,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setSupplementalDocumentsMustViewMetadata(SettingsMetadata $supplementalDocumentsMustViewMetadata = null)
+    public function setSupplementalDocumentsMustViewMetadata(?SettingsMetadata $supplementalDocumentsMustViewMetadata): self
     {
         $this->supplementalDocumentsMustViewMetadata = $supplementalDocumentsMustViewMetadata;
 
@@ -1428,7 +1428,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getUseNewDocuSignExperienceInterface()
+    public function getUseNewDocuSignExperienceInterface(): ?string
     {
         return $this->useNewDocuSignExperienceInterface;
     }
@@ -1438,7 +1438,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setUseNewDocuSignExperienceInterface($useNewDocuSignExperienceInterface = null)
+    public function setUseNewDocuSignExperienceInterface(?string $useNewDocuSignExperienceInterface): self
     {
         $this->useNewDocuSignExperienceInterface = $useNewDocuSignExperienceInterface;
 
@@ -1448,7 +1448,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getUseNewDocuSignExperienceInterfaceMetadata()
+    public function getUseNewDocuSignExperienceInterfaceMetadata(): ?SettingsMetadata
     {
         return $this->useNewDocuSignExperienceInterfaceMetadata;
     }
@@ -1458,7 +1458,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setUseNewDocuSignExperienceInterfaceMetadata(SettingsMetadata $useNewDocuSignExperienceInterfaceMetadata = null)
+    public function setUseNewDocuSignExperienceInterfaceMetadata(?SettingsMetadata $useNewDocuSignExperienceInterfaceMetadata): self
     {
         $this->useNewDocuSignExperienceInterfaceMetadata = $useNewDocuSignExperienceInterfaceMetadata;
 
@@ -1468,7 +1468,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getUseNewSendingInterface()
+    public function getUseNewSendingInterface(): ?string
     {
         return $this->useNewSendingInterface;
     }
@@ -1478,7 +1478,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setUseNewSendingInterface($useNewSendingInterface = null)
+    public function setUseNewSendingInterface(?string $useNewSendingInterface): self
     {
         $this->useNewSendingInterface = $useNewSendingInterface;
 
@@ -1488,7 +1488,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getUseNewSendingInterfaceMetadata()
+    public function getUseNewSendingInterfaceMetadata(): ?SettingsMetadata
     {
         return $this->useNewSendingInterfaceMetadata;
     }
@@ -1498,7 +1498,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setUseNewSendingInterfaceMetadata(SettingsMetadata $useNewSendingInterfaceMetadata = null)
+    public function setUseNewSendingInterfaceMetadata(?SettingsMetadata $useNewSendingInterfaceMetadata): self
     {
         $this->useNewSendingInterfaceMetadata = $useNewSendingInterfaceMetadata;
 
@@ -1508,7 +1508,7 @@ class AccountRoleSettings
     /**
      * @return string
      */
-    public function getVaultingMode()
+    public function getVaultingMode(): ?string
     {
         return $this->vaultingMode;
     }
@@ -1518,7 +1518,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setVaultingMode($vaultingMode = null)
+    public function setVaultingMode(?string $vaultingMode): self
     {
         $this->vaultingMode = $vaultingMode;
 
@@ -1528,7 +1528,7 @@ class AccountRoleSettings
     /**
      * @return SettingsMetadata
      */
-    public function getVaultingModeMetadata()
+    public function getVaultingModeMetadata(): ?SettingsMetadata
     {
         return $this->vaultingModeMetadata;
     }
@@ -1538,7 +1538,7 @@ class AccountRoleSettings
      *
      * @return self
      */
-    public function setVaultingModeMetadata(SettingsMetadata $vaultingModeMetadata = null)
+    public function setVaultingModeMetadata(?SettingsMetadata $vaultingModeMetadata): self
     {
         $this->vaultingModeMetadata = $vaultingModeMetadata;
 

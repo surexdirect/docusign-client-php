@@ -17,10 +17,14 @@ class ProvisioningInformation
      */
     protected $defaultPlanId;
     /**
+     * The code that identifies the billing plan groups and plans for the new account.
+     *
      * @var string
      */
     protected $distributorCode;
     /**
+     * The password for the distributorCode.
+     *
      * @var string
      */
     protected $distributorPassword;
@@ -40,7 +44,7 @@ class ProvisioningInformation
     /**
      * @return string
      */
-    public function getDefaultConnectionId()
+    public function getDefaultConnectionId(): ?string
     {
         return $this->defaultConnectionId;
     }
@@ -50,7 +54,7 @@ class ProvisioningInformation
      *
      * @return self
      */
-    public function setDefaultConnectionId($defaultConnectionId = null)
+    public function setDefaultConnectionId(?string $defaultConnectionId): self
     {
         $this->defaultConnectionId = $defaultConnectionId;
 
@@ -60,7 +64,7 @@ class ProvisioningInformation
     /**
      * @return string
      */
-    public function getDefaultPlanId()
+    public function getDefaultPlanId(): ?string
     {
         return $this->defaultPlanId;
     }
@@ -70,7 +74,7 @@ class ProvisioningInformation
      *
      * @return self
      */
-    public function setDefaultPlanId($defaultPlanId = null)
+    public function setDefaultPlanId(?string $defaultPlanId): self
     {
         $this->defaultPlanId = $defaultPlanId;
 
@@ -78,19 +82,23 @@ class ProvisioningInformation
     }
 
     /**
+     * The code that identifies the billing plan groups and plans for the new account.
+     *
      * @return string
      */
-    public function getDistributorCode()
+    public function getDistributorCode(): ?string
     {
         return $this->distributorCode;
     }
 
     /**
+     * The code that identifies the billing plan groups and plans for the new account.
+     *
      * @param string $distributorCode
      *
      * @return self
      */
-    public function setDistributorCode($distributorCode = null)
+    public function setDistributorCode(?string $distributorCode): self
     {
         $this->distributorCode = $distributorCode;
 
@@ -98,19 +106,23 @@ class ProvisioningInformation
     }
 
     /**
+     * The password for the distributorCode.
+     *
      * @return string
      */
-    public function getDistributorPassword()
+    public function getDistributorPassword(): ?string
     {
         return $this->distributorPassword;
     }
 
     /**
+     * The password for the distributorCode.
+     *
      * @param string $distributorPassword
      *
      * @return self
      */
-    public function setDistributorPassword($distributorPassword = null)
+    public function setDistributorPassword(?string $distributorPassword): self
     {
         $this->distributorPassword = $distributorPassword;
 
@@ -120,7 +132,7 @@ class ProvisioningInformation
     /**
      * @return string
      */
-    public function getPasswordRuleText()
+    public function getPasswordRuleText(): ?string
     {
         return $this->passwordRuleText;
     }
@@ -130,7 +142,7 @@ class ProvisioningInformation
      *
      * @return self
      */
-    public function setPasswordRuleText($passwordRuleText = null)
+    public function setPasswordRuleText(?string $passwordRuleText): self
     {
         $this->passwordRuleText = $passwordRuleText;
 
@@ -140,7 +152,7 @@ class ProvisioningInformation
     /**
      * @return string
      */
-    public function getPlanPromotionText()
+    public function getPlanPromotionText(): ?string
     {
         return $this->planPromotionText;
     }
@@ -150,7 +162,7 @@ class ProvisioningInformation
      *
      * @return self
      */
-    public function setPlanPromotionText($planPromotionText = null)
+    public function setPlanPromotionText(?string $planPromotionText): self
     {
         $this->planPromotionText = $planPromotionText;
 
@@ -160,7 +172,7 @@ class ProvisioningInformation
     /**
      * @return string
      */
-    public function getPurchaseOrderOrPromAllowed()
+    public function getPurchaseOrderOrPromAllowed(): ?string
     {
         return $this->purchaseOrderOrPromAllowed;
     }
@@ -170,7 +182,7 @@ class ProvisioningInformation
      *
      * @return self
      */
-    public function setPurchaseOrderOrPromAllowed($purchaseOrderOrPromAllowed = null)
+    public function setPurchaseOrderOrPromAllowed(?string $purchaseOrderOrPromAllowed): self
     {
         $this->purchaseOrderOrPromAllowed = $purchaseOrderOrPromAllowed;
 

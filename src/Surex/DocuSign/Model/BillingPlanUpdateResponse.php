@@ -13,14 +13,20 @@ class BillingPlanUpdateResponse
      */
     protected $accountPaymentMethod;
     /**
+     * Contains information about a preview billing plan.
+     *
      * @var BillingPlanPreview
      */
     protected $billingPlanPreview;
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @var string
      */
     protected $currencyCode;
     /**
+     * The number of seats (users) included.
+     *
      * @var string
      */
     protected $includedSeats;
@@ -33,6 +39,8 @@ class BillingPlanUpdateResponse
      */
     protected $paymentMethod;
     /**
+     * The DocuSign Plan ID for the account.
+     *
      * @var string
      */
     protected $planId;
@@ -44,7 +52,7 @@ class BillingPlanUpdateResponse
     /**
      * @return string
      */
-    public function getAccountPaymentMethod()
+    public function getAccountPaymentMethod(): ?string
     {
         return $this->accountPaymentMethod;
     }
@@ -54,7 +62,7 @@ class BillingPlanUpdateResponse
      *
      * @return self
      */
-    public function setAccountPaymentMethod($accountPaymentMethod = null)
+    public function setAccountPaymentMethod(?string $accountPaymentMethod): self
     {
         $this->accountPaymentMethod = $accountPaymentMethod;
 
@@ -62,19 +70,23 @@ class BillingPlanUpdateResponse
     }
 
     /**
+     * Contains information about a preview billing plan.
+     *
      * @return BillingPlanPreview
      */
-    public function getBillingPlanPreview()
+    public function getBillingPlanPreview(): ?BillingPlanPreview
     {
         return $this->billingPlanPreview;
     }
 
     /**
+     * Contains information about a preview billing plan.
+     *
      * @param BillingPlanPreview $billingPlanPreview
      *
      * @return self
      */
-    public function setBillingPlanPreview(BillingPlanPreview $billingPlanPreview = null)
+    public function setBillingPlanPreview(?BillingPlanPreview $billingPlanPreview): self
     {
         $this->billingPlanPreview = $billingPlanPreview;
 
@@ -82,19 +94,23 @@ class BillingPlanUpdateResponse
     }
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @param string $currencyCode
      *
      * @return self
      */
-    public function setCurrencyCode($currencyCode = null)
+    public function setCurrencyCode(?string $currencyCode): self
     {
         $this->currencyCode = $currencyCode;
 
@@ -102,19 +118,23 @@ class BillingPlanUpdateResponse
     }
 
     /**
+     * The number of seats (users) included.
+     *
      * @return string
      */
-    public function getIncludedSeats()
+    public function getIncludedSeats(): ?string
     {
         return $this->includedSeats;
     }
 
     /**
+     * The number of seats (users) included.
+     *
      * @param string $includedSeats
      *
      * @return self
      */
-    public function setIncludedSeats($includedSeats = null)
+    public function setIncludedSeats(?string $includedSeats): self
     {
         $this->includedSeats = $includedSeats;
 
@@ -124,7 +144,7 @@ class BillingPlanUpdateResponse
     /**
      * @return string
      */
-    public function getPaymentCycle()
+    public function getPaymentCycle(): ?string
     {
         return $this->paymentCycle;
     }
@@ -134,7 +154,7 @@ class BillingPlanUpdateResponse
      *
      * @return self
      */
-    public function setPaymentCycle($paymentCycle = null)
+    public function setPaymentCycle(?string $paymentCycle): self
     {
         $this->paymentCycle = $paymentCycle;
 
@@ -144,7 +164,7 @@ class BillingPlanUpdateResponse
     /**
      * @return string
      */
-    public function getPaymentMethod()
+    public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
     }
@@ -154,7 +174,7 @@ class BillingPlanUpdateResponse
      *
      * @return self
      */
-    public function setPaymentMethod($paymentMethod = null)
+    public function setPaymentMethod(?string $paymentMethod): self
     {
         $this->paymentMethod = $paymentMethod;
 
@@ -162,19 +182,23 @@ class BillingPlanUpdateResponse
     }
 
     /**
+     * The DocuSign Plan ID for the account.
+     *
      * @return string
      */
-    public function getPlanId()
+    public function getPlanId(): ?string
     {
         return $this->planId;
     }
 
     /**
+     * The DocuSign Plan ID for the account.
+     *
      * @param string $planId
      *
      * @return self
      */
-    public function setPlanId($planId = null)
+    public function setPlanId(?string $planId): self
     {
         $this->planId = $planId;
 
@@ -184,7 +208,7 @@ class BillingPlanUpdateResponse
     /**
      * @return string
      */
-    public function getPlanName()
+    public function getPlanName(): ?string
     {
         return $this->planName;
     }
@@ -194,7 +218,7 @@ class BillingPlanUpdateResponse
      *
      * @return self
      */
-    public function setPlanName($planName = null)
+    public function setPlanName(?string $planName): self
     {
         $this->planName = $planName;
 

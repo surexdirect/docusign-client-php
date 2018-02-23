@@ -13,6 +13,8 @@ class AppStoreProduct
      */
     protected $marketPlace;
     /**
+     * The Product ID from the AppStore.
+     *
      * @var string
      */
     protected $productId;
@@ -20,7 +22,7 @@ class AppStoreProduct
     /**
      * @return string
      */
-    public function getMarketPlace()
+    public function getMarketPlace(): ?string
     {
         return $this->marketPlace;
     }
@@ -30,7 +32,7 @@ class AppStoreProduct
      *
      * @return self
      */
-    public function setMarketPlace($marketPlace = null)
+    public function setMarketPlace(?string $marketPlace): self
     {
         $this->marketPlace = $marketPlace;
 
@@ -38,19 +40,23 @@ class AppStoreProduct
     }
 
     /**
+     * The Product ID from the AppStore.
+     *
      * @return string
      */
-    public function getProductId()
+    public function getProductId(): ?string
     {
         return $this->productId;
     }
 
     /**
+     * The Product ID from the AppStore.
+     *
      * @param string $productId
      *
      * @return self
      */
-    public function setProductId($productId = null)
+    public function setProductId(?string $productId): self
     {
         $this->productId = $productId;
 

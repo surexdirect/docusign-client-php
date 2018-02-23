@@ -9,30 +9,44 @@ namespace Surex\DocuSign\Model;
 class Invoices
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $amount;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $balance;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $dueDate;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $invoiceId;
     /**
+     * Reserved: TBD.
+     *
      * @var BillingInvoiceItem[]
      */
     protected $invoiceItems;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $invoiceNumber;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve invoice information.
+     *
      * @var string
      */
     protected $invoiceUri;
@@ -50,19 +64,23 @@ class Invoices
     protected $taxableAmount;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getAmount()
+    public function getAmount(): ?string
     {
         return $this->amount;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $amount
      *
      * @return self
      */
-    public function setAmount($amount = null)
+    public function setAmount(?string $amount): self
     {
         $this->amount = $amount;
 
@@ -70,19 +88,23 @@ class Invoices
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBalance()
+    public function getBalance(): ?string
     {
         return $this->balance;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $balance
      *
      * @return self
      */
-    public function setBalance($balance = null)
+    public function setBalance(?string $balance): self
     {
         $this->balance = $balance;
 
@@ -90,19 +112,23 @@ class Invoices
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getDueDate()
+    public function getDueDate(): ?string
     {
         return $this->dueDate;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $dueDate
      *
      * @return self
      */
-    public function setDueDate($dueDate = null)
+    public function setDueDate(?string $dueDate): self
     {
         $this->dueDate = $dueDate;
 
@@ -110,19 +136,23 @@ class Invoices
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getInvoiceId()
+    public function getInvoiceId(): ?string
     {
         return $this->invoiceId;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $invoiceId
      *
      * @return self
      */
-    public function setInvoiceId($invoiceId = null)
+    public function setInvoiceId(?string $invoiceId): self
     {
         $this->invoiceId = $invoiceId;
 
@@ -130,19 +160,23 @@ class Invoices
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return BillingInvoiceItem[]
      */
-    public function getInvoiceItems()
+    public function getInvoiceItems(): ?array
     {
         return $this->invoiceItems;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param BillingInvoiceItem[] $invoiceItems
      *
      * @return self
      */
-    public function setInvoiceItems(array $invoiceItems = null)
+    public function setInvoiceItems(?array $invoiceItems): self
     {
         $this->invoiceItems = $invoiceItems;
 
@@ -150,19 +184,23 @@ class Invoices
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getInvoiceNumber()
+    public function getInvoiceNumber(): ?string
     {
         return $this->invoiceNumber;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $invoiceNumber
      *
      * @return self
      */
-    public function setInvoiceNumber($invoiceNumber = null)
+    public function setInvoiceNumber(?string $invoiceNumber): self
     {
         $this->invoiceNumber = $invoiceNumber;
 
@@ -170,19 +208,23 @@ class Invoices
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve invoice information.
+     *
      * @return string
      */
-    public function getInvoiceUri()
+    public function getInvoiceUri(): ?string
     {
         return $this->invoiceUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve invoice information.
+     *
      * @param string $invoiceUri
      *
      * @return self
      */
-    public function setInvoiceUri($invoiceUri = null)
+    public function setInvoiceUri(?string $invoiceUri): self
     {
         $this->invoiceUri = $invoiceUri;
 
@@ -192,7 +234,7 @@ class Invoices
     /**
      * @return string
      */
-    public function getNonTaxableAmount()
+    public function getNonTaxableAmount(): ?string
     {
         return $this->nonTaxableAmount;
     }
@@ -202,7 +244,7 @@ class Invoices
      *
      * @return self
      */
-    public function setNonTaxableAmount($nonTaxableAmount = null)
+    public function setNonTaxableAmount(?string $nonTaxableAmount): self
     {
         $this->nonTaxableAmount = $nonTaxableAmount;
 
@@ -212,7 +254,7 @@ class Invoices
     /**
      * @return string
      */
-    public function getPdfAvailable()
+    public function getPdfAvailable(): ?string
     {
         return $this->pdfAvailable;
     }
@@ -222,7 +264,7 @@ class Invoices
      *
      * @return self
      */
-    public function setPdfAvailable($pdfAvailable = null)
+    public function setPdfAvailable(?string $pdfAvailable): self
     {
         $this->pdfAvailable = $pdfAvailable;
 
@@ -232,7 +274,7 @@ class Invoices
     /**
      * @return string
      */
-    public function getTaxableAmount()
+    public function getTaxableAmount(): ?string
     {
         return $this->taxableAmount;
     }
@@ -242,7 +284,7 @@ class Invoices
      *
      * @return self
      */
-    public function setTaxableAmount($taxableAmount = null)
+    public function setTaxableAmount(?string $taxableAmount): self
     {
         $this->taxableAmount = $taxableAmount;
 

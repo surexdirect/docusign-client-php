@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class TemplateRoleNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class TemplateRoleNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\TemplateRole' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\TemplateRole' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\TemplateRole) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\TemplateRole;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\TemplateRole();
         if (property_exists($data, 'accessCode')) {
             $object->setAccessCode($data->{'accessCode'});
@@ -46,7 +48,7 @@ class TemplateRoleNormalizer extends SerializerAwareNormalizer implements Denorm
             $object->setEmail($data->{'email'});
         }
         if (property_exists($data, 'emailNotification')) {
-            $object->setEmailNotification($this->serializer->deserialize($data->{'emailNotification'}, 'Surex\\DocuSign\\Model\\RecipientEmailNotification', 'raw', $context));
+            $object->setEmailNotification($this->denormalizer->denormalize($data->{'emailNotification'}, 'Surex\\DocuSign\\Model\\RecipientEmailNotification', 'json', $context));
         }
         if (property_exists($data, 'embeddedRecipientStartURL')) {
             $object->setEmbeddedRecipientStartURL($data->{'embeddedRecipientStartURL'});
@@ -60,7 +62,7 @@ class TemplateRoleNormalizer extends SerializerAwareNormalizer implements Denorm
         if (property_exists($data, 'recipientSignatureProviders')) {
             $values = [];
             foreach ($data->{'recipientSignatureProviders'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\RecipientSignatureProvider', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\RecipientSignatureProvider', 'json', $context);
             }
             $object->setRecipientSignatureProviders($values);
         }
@@ -74,7 +76,7 @@ class TemplateRoleNormalizer extends SerializerAwareNormalizer implements Denorm
             $object->setSigningGroupId($data->{'signingGroupId'});
         }
         if (property_exists($data, 'tabs')) {
-            $object->setTabs($this->serializer->deserialize($data->{'tabs'}, 'Surex\\DocuSign\\Model\\EnvelopeRecipientTabs', 'raw', $context));
+            $object->setTabs($this->denormalizer->denormalize($data->{'tabs'}, 'Surex\\DocuSign\\Model\\EnvelopeRecipientTabs', 'json', $context));
         }
 
         return $object;
@@ -96,7 +98,7 @@ class TemplateRoleNormalizer extends SerializerAwareNormalizer implements Denorm
             $data->{'email'} = $object->getEmail();
         }
         if (null !== $object->getEmailNotification()) {
-            $data->{'emailNotification'} = $this->serializer->serialize($object->getEmailNotification(), 'raw', $context);
+            $data->{'emailNotification'} = $this->normalizer->normalize($object->getEmailNotification(), 'json', $context);
         }
         if (null !== $object->getEmbeddedRecipientStartURL()) {
             $data->{'embeddedRecipientStartURL'} = $object->getEmbeddedRecipientStartURL();
@@ -110,7 +112,7 @@ class TemplateRoleNormalizer extends SerializerAwareNormalizer implements Denorm
         if (null !== $object->getRecipientSignatureProviders()) {
             $values = [];
             foreach ($object->getRecipientSignatureProviders() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'recipientSignatureProviders'} = $values;
         }
@@ -124,7 +126,7 @@ class TemplateRoleNormalizer extends SerializerAwareNormalizer implements Denorm
             $data->{'signingGroupId'} = $object->getSigningGroupId();
         }
         if (null !== $object->getTabs()) {
-            $data->{'tabs'} = $this->serializer->serialize($object->getTabs(), 'raw', $context);
+            $data->{'tabs'} = $this->normalizer->normalize($object->getTabs(), 'json', $context);
         }
 
         return $data;

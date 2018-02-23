@@ -9,14 +9,20 @@ namespace Surex\DocuSign\Model;
 class BillingPlans
 {
     /**
+     * Contains information about an account address.
+     *
      * @var AccountAddress
      */
     protected $billingAddress;
     /**
+     * When set to **true**, the credit card address information is the same as that returned as the billing address. If false, then the billing address is considered a billing contact address, and the credit card address can be different.
+     *
      * @var string
      */
     protected $billingAddressIsCreditCardAddress;
     /**
+     * Contains information about an account billing plan.
+     *
      * @var AccountBillingPlan
      */
     protected $billingPlan;
@@ -29,6 +35,10 @@ class BillingPlans
      */
     protected $paymentProcessorInformation;
     /**
+     * A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+
+     ###### Note: saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, and saleDiscountSeatPriceOverride are reserved for DoucSign use only.
+     *
      * @var ReferralInformation
      */
     protected $referralInformation;
@@ -38,19 +48,23 @@ class BillingPlans
     protected $successorPlans;
 
     /**
+     * Contains information about an account address.
+     *
      * @return AccountAddress
      */
-    public function getBillingAddress()
+    public function getBillingAddress(): ?AccountAddress
     {
         return $this->billingAddress;
     }
 
     /**
+     * Contains information about an account address.
+     *
      * @param AccountAddress $billingAddress
      *
      * @return self
      */
-    public function setBillingAddress(AccountAddress $billingAddress = null)
+    public function setBillingAddress(?AccountAddress $billingAddress): self
     {
         $this->billingAddress = $billingAddress;
 
@@ -58,19 +72,23 @@ class BillingPlans
     }
 
     /**
+     * When set to **true**, the credit card address information is the same as that returned as the billing address. If false, then the billing address is considered a billing contact address, and the credit card address can be different.
+     *
      * @return string
      */
-    public function getBillingAddressIsCreditCardAddress()
+    public function getBillingAddressIsCreditCardAddress(): ?string
     {
         return $this->billingAddressIsCreditCardAddress;
     }
 
     /**
+     * When set to **true**, the credit card address information is the same as that returned as the billing address. If false, then the billing address is considered a billing contact address, and the credit card address can be different.
+     *
      * @param string $billingAddressIsCreditCardAddress
      *
      * @return self
      */
-    public function setBillingAddressIsCreditCardAddress($billingAddressIsCreditCardAddress = null)
+    public function setBillingAddressIsCreditCardAddress(?string $billingAddressIsCreditCardAddress): self
     {
         $this->billingAddressIsCreditCardAddress = $billingAddressIsCreditCardAddress;
 
@@ -78,19 +96,23 @@ class BillingPlans
     }
 
     /**
+     * Contains information about an account billing plan.
+     *
      * @return AccountBillingPlan
      */
-    public function getBillingPlan()
+    public function getBillingPlan(): ?AccountBillingPlan
     {
         return $this->billingPlan;
     }
 
     /**
+     * Contains information about an account billing plan.
+     *
      * @param AccountBillingPlan $billingPlan
      *
      * @return self
      */
-    public function setBillingPlan(AccountBillingPlan $billingPlan = null)
+    public function setBillingPlan(?AccountBillingPlan $billingPlan): self
     {
         $this->billingPlan = $billingPlan;
 
@@ -100,7 +122,7 @@ class BillingPlans
     /**
      * @return CreditCardInformation
      */
-    public function getCreditCardInformation()
+    public function getCreditCardInformation(): ?CreditCardInformation
     {
         return $this->creditCardInformation;
     }
@@ -110,7 +132,7 @@ class BillingPlans
      *
      * @return self
      */
-    public function setCreditCardInformation(CreditCardInformation $creditCardInformation = null)
+    public function setCreditCardInformation(?CreditCardInformation $creditCardInformation): self
     {
         $this->creditCardInformation = $creditCardInformation;
 
@@ -120,7 +142,7 @@ class BillingPlans
     /**
      * @return PaymentProcessorInformation
      */
-    public function getPaymentProcessorInformation()
+    public function getPaymentProcessorInformation(): ?PaymentProcessorInformation
     {
         return $this->paymentProcessorInformation;
     }
@@ -130,7 +152,7 @@ class BillingPlans
      *
      * @return self
      */
-    public function setPaymentProcessorInformation(PaymentProcessorInformation $paymentProcessorInformation = null)
+    public function setPaymentProcessorInformation(?PaymentProcessorInformation $paymentProcessorInformation): self
     {
         $this->paymentProcessorInformation = $paymentProcessorInformation;
 
@@ -138,19 +160,27 @@ class BillingPlans
     }
 
     /**
+     * A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+
+     ###### Note: saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, and saleDiscountSeatPriceOverride are reserved for DoucSign use only.
+     *
      * @return ReferralInformation
      */
-    public function getReferralInformation()
+    public function getReferralInformation(): ?ReferralInformation
     {
         return $this->referralInformation;
     }
 
     /**
+     * A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+
+     ###### Note: saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, and saleDiscountSeatPriceOverride are reserved for DoucSign use only.
+     *
      * @param ReferralInformation $referralInformation
      *
      * @return self
      */
-    public function setReferralInformation(ReferralInformation $referralInformation = null)
+    public function setReferralInformation(?ReferralInformation $referralInformation): self
     {
         $this->referralInformation = $referralInformation;
 
@@ -160,7 +190,7 @@ class BillingPlans
     /**
      * @return BillingPlan[]
      */
-    public function getSuccessorPlans()
+    public function getSuccessorPlans(): ?array
     {
         return $this->successorPlans;
     }
@@ -170,7 +200,7 @@ class BillingPlans
      *
      * @return self
      */
-    public function setSuccessorPlans(array $successorPlans = null)
+    public function setSuccessorPlans(?array $successorPlans): self
     {
         $this->successorPlans = $successorPlans;
 

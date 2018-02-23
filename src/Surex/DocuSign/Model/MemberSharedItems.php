@@ -13,6 +13,8 @@ class MemberSharedItems
      */
     protected $envelopes;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -28,7 +30,7 @@ class MemberSharedItems
     /**
      * @return SharedItem[]
      */
-    public function getEnvelopes()
+    public function getEnvelopes(): ?array
     {
         return $this->envelopes;
     }
@@ -38,7 +40,7 @@ class MemberSharedItems
      *
      * @return self
      */
-    public function setEnvelopes(array $envelopes = null)
+    public function setEnvelopes(?array $envelopes): self
     {
         $this->envelopes = $envelopes;
 
@@ -46,19 +48,23 @@ class MemberSharedItems
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -68,7 +74,7 @@ class MemberSharedItems
     /**
      * @return TemplateSharedItem[]
      */
-    public function getTemplates()
+    public function getTemplates(): ?array
     {
         return $this->templates;
     }
@@ -78,7 +84,7 @@ class MemberSharedItems
      *
      * @return self
      */
-    public function setTemplates(array $templates = null)
+    public function setTemplates(?array $templates): self
     {
         $this->templates = $templates;
 
@@ -88,7 +94,7 @@ class MemberSharedItems
     /**
      * @return UserInfo
      */
-    public function getUser()
+    public function getUser(): ?UserInfo
     {
         return $this->user;
     }
@@ -98,7 +104,7 @@ class MemberSharedItems
      *
      * @return self
      */
-    public function setUser(UserInfo $user = null)
+    public function setUser(?UserInfo $user): self
     {
         $this->user = $user;
 

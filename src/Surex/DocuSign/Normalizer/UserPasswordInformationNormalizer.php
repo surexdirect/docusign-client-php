@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class UserPasswordInformationNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class UserPasswordInformationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\UserPasswordInformation' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\UserPasswordInformation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\UserPasswordInformation) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\UserPasswordInformation;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\UserPasswordInformation();
         if (property_exists($data, 'currentPassword')) {
             $object->setCurrentPassword($data->{'currentPassword'});
@@ -40,7 +42,7 @@ class UserPasswordInformationNormalizer extends SerializerAwareNormalizer implem
             $object->setEmail($data->{'email'});
         }
         if (property_exists($data, 'forgottenPasswordInfo')) {
-            $object->setForgottenPasswordInfo($this->serializer->deserialize($data->{'forgottenPasswordInfo'}, 'Surex\\DocuSign\\Model\\ForgottenPasswordInformation', 'raw', $context));
+            $object->setForgottenPasswordInfo($this->denormalizer->denormalize($data->{'forgottenPasswordInfo'}, 'Surex\\DocuSign\\Model\\ForgottenPasswordInformation', 'json', $context));
         }
         if (property_exists($data, 'newPassword')) {
             $object->setNewPassword($data->{'newPassword'});
@@ -59,7 +61,7 @@ class UserPasswordInformationNormalizer extends SerializerAwareNormalizer implem
             $data->{'email'} = $object->getEmail();
         }
         if (null !== $object->getForgottenPasswordInfo()) {
-            $data->{'forgottenPasswordInfo'} = $this->serializer->serialize($object->getForgottenPasswordInfo(), 'raw', $context);
+            $data->{'forgottenPasswordInfo'} = $this->normalizer->normalize($object->getForgottenPasswordInfo(), 'json', $context);
         }
         if (null !== $object->getNewPassword()) {
             $data->{'newPassword'} = $object->getNewPassword();

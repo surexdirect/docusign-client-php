@@ -6,35 +6,37 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class WorkspaceItemsNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class WorkspaceItemsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\WorkspaceItems' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\WorkspaceItems' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\WorkspaceItems) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\WorkspaceItems;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\WorkspaceItems();
         if (property_exists($data, 'callerAuthorization')) {
-            $object->setCallerAuthorization($this->serializer->deserialize($data->{'callerAuthorization'}, 'Surex\\DocuSign\\Model\\WorkspaceUserAuthorization', 'raw', $context));
+            $object->setCallerAuthorization($this->denormalizer->denormalize($data->{'callerAuthorization'}, 'Surex\\DocuSign\\Model\\WorkspaceUserAuthorization', 'json', $context));
         }
         if (property_exists($data, 'contentType')) {
             $object->setContentType($data->{'contentType'});
@@ -46,7 +48,7 @@ class WorkspaceItemsNormalizer extends SerializerAwareNormalizer implements Deno
             $object->setCreatedById($data->{'createdById'});
         }
         if (property_exists($data, 'createdByInformation')) {
-            $object->setCreatedByInformation($this->serializer->deserialize($data->{'createdByInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'raw', $context));
+            $object->setCreatedByInformation($this->denormalizer->denormalize($data->{'createdByInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'json', $context));
         }
         if (property_exists($data, 'extension')) {
             $object->setExtension($data->{'extension'});
@@ -70,7 +72,7 @@ class WorkspaceItemsNormalizer extends SerializerAwareNormalizer implements Deno
             $object->setLastModifiedById($data->{'lastModifiedById'});
         }
         if (property_exists($data, 'lastModifiedByInformation')) {
-            $object->setLastModifiedByInformation($this->serializer->deserialize($data->{'lastModifiedByInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'raw', $context));
+            $object->setLastModifiedByInformation($this->denormalizer->denormalize($data->{'lastModifiedByInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'json', $context));
         }
         if (property_exists($data, 'name')) {
             $object->setName($data->{'name'});
@@ -98,7 +100,7 @@ class WorkspaceItemsNormalizer extends SerializerAwareNormalizer implements Deno
     {
         $data = new \stdClass();
         if (null !== $object->getCallerAuthorization()) {
-            $data->{'callerAuthorization'} = $this->serializer->serialize($object->getCallerAuthorization(), 'raw', $context);
+            $data->{'callerAuthorization'} = $this->normalizer->normalize($object->getCallerAuthorization(), 'json', $context);
         }
         if (null !== $object->getContentType()) {
             $data->{'contentType'} = $object->getContentType();
@@ -110,7 +112,7 @@ class WorkspaceItemsNormalizer extends SerializerAwareNormalizer implements Deno
             $data->{'createdById'} = $object->getCreatedById();
         }
         if (null !== $object->getCreatedByInformation()) {
-            $data->{'createdByInformation'} = $this->serializer->serialize($object->getCreatedByInformation(), 'raw', $context);
+            $data->{'createdByInformation'} = $this->normalizer->normalize($object->getCreatedByInformation(), 'json', $context);
         }
         if (null !== $object->getExtension()) {
             $data->{'extension'} = $object->getExtension();
@@ -134,7 +136,7 @@ class WorkspaceItemsNormalizer extends SerializerAwareNormalizer implements Deno
             $data->{'lastModifiedById'} = $object->getLastModifiedById();
         }
         if (null !== $object->getLastModifiedByInformation()) {
-            $data->{'lastModifiedByInformation'} = $this->serializer->serialize($object->getLastModifiedByInformation(), 'raw', $context);
+            $data->{'lastModifiedByInformation'} = $this->normalizer->normalize($object->getLastModifiedByInformation(), 'json', $context);
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();

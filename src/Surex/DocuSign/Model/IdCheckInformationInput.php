@@ -9,10 +9,18 @@ namespace Surex\DocuSign\Model;
 class IdCheckInformationInput
 {
     /**
+     * Contains address input information.
+     *
      * @var AddressInformationInput
      */
     protected $addressInformationInput;
     /**
+     * Complex type containing:.
+
+     * dateOfBirth
+     * displayLevelCode
+     * receiveInResponse
+     *
      * @var DobInformationInput
      */
     protected $dobInformationInput;
@@ -26,19 +34,23 @@ class IdCheckInformationInput
     protected $ssn9InformationInput;
 
     /**
+     * Contains address input information.
+     *
      * @return AddressInformationInput
      */
-    public function getAddressInformationInput()
+    public function getAddressInformationInput(): ?AddressInformationInput
     {
         return $this->addressInformationInput;
     }
 
     /**
+     * Contains address input information.
+     *
      * @param AddressInformationInput $addressInformationInput
      *
      * @return self
      */
-    public function setAddressInformationInput(AddressInformationInput $addressInformationInput = null)
+    public function setAddressInformationInput(?AddressInformationInput $addressInformationInput): self
     {
         $this->addressInformationInput = $addressInformationInput;
 
@@ -46,19 +58,31 @@ class IdCheckInformationInput
     }
 
     /**
+     * Complex type containing:.
+
+     * dateOfBirth
+     * displayLevelCode
+     * receiveInResponse
+     *
      * @return DobInformationInput
      */
-    public function getDobInformationInput()
+    public function getDobInformationInput(): ?DobInformationInput
     {
         return $this->dobInformationInput;
     }
 
     /**
+     * Complex type containing:.
+
+     * dateOfBirth
+     * displayLevelCode
+     * receiveInResponse
+     *
      * @param DobInformationInput $dobInformationInput
      *
      * @return self
      */
-    public function setDobInformationInput(DobInformationInput $dobInformationInput = null)
+    public function setDobInformationInput(?DobInformationInput $dobInformationInput): self
     {
         $this->dobInformationInput = $dobInformationInput;
 
@@ -68,7 +92,7 @@ class IdCheckInformationInput
     /**
      * @return Ssn4InformationInput
      */
-    public function getSsn4InformationInput()
+    public function getSsn4InformationInput(): ?Ssn4InformationInput
     {
         return $this->ssn4InformationInput;
     }
@@ -78,7 +102,7 @@ class IdCheckInformationInput
      *
      * @return self
      */
-    public function setSsn4InformationInput(Ssn4InformationInput $ssn4InformationInput = null)
+    public function setSsn4InformationInput(?Ssn4InformationInput $ssn4InformationInput): self
     {
         $this->ssn4InformationInput = $ssn4InformationInput;
 
@@ -88,7 +112,7 @@ class IdCheckInformationInput
     /**
      * @return Ssn9InformationInput
      */
-    public function getSsn9InformationInput()
+    public function getSsn9InformationInput(): ?Ssn9InformationInput
     {
         return $this->ssn9InformationInput;
     }
@@ -98,7 +122,7 @@ class IdCheckInformationInput
      *
      * @return self
      */
-    public function setSsn9InformationInput(Ssn9InformationInput $ssn9InformationInput = null)
+    public function setSsn9InformationInput(?Ssn9InformationInput $ssn9InformationInput): self
     {
         $this->ssn9InformationInput = $ssn9InformationInput;
 

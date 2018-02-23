@@ -9,36 +9,48 @@ namespace Surex\DocuSign\Model;
 class UsageHistory
 {
     /**
+     * The date and time the user last sent an envelope.
+     *
      * @var string
      */
     protected $lastSentDateTime;
     /**
+     * The date and time the user last signed an envelope.
+     *
      * @var string
      */
     protected $lastSignedDateTime;
     /**
+     * The number of envelopes the user has sent.
+     *
      * @var int
      */
     protected $sentCount;
     /**
+     * The number of envelopes the user has signed.
+     *
      * @var int
      */
     protected $signedCount;
 
     /**
+     * The date and time the user last sent an envelope.
+     *
      * @return string
      */
-    public function getLastSentDateTime()
+    public function getLastSentDateTime(): ?string
     {
         return $this->lastSentDateTime;
     }
 
     /**
+     * The date and time the user last sent an envelope.
+     *
      * @param string $lastSentDateTime
      *
      * @return self
      */
-    public function setLastSentDateTime($lastSentDateTime = null)
+    public function setLastSentDateTime(?string $lastSentDateTime): self
     {
         $this->lastSentDateTime = $lastSentDateTime;
 
@@ -46,19 +58,23 @@ class UsageHistory
     }
 
     /**
+     * The date and time the user last signed an envelope.
+     *
      * @return string
      */
-    public function getLastSignedDateTime()
+    public function getLastSignedDateTime(): ?string
     {
         return $this->lastSignedDateTime;
     }
 
     /**
+     * The date and time the user last signed an envelope.
+     *
      * @param string $lastSignedDateTime
      *
      * @return self
      */
-    public function setLastSignedDateTime($lastSignedDateTime = null)
+    public function setLastSignedDateTime(?string $lastSignedDateTime): self
     {
         $this->lastSignedDateTime = $lastSignedDateTime;
 
@@ -66,19 +82,23 @@ class UsageHistory
     }
 
     /**
+     * The number of envelopes the user has sent.
+     *
      * @return int
      */
-    public function getSentCount()
+    public function getSentCount(): ?int
     {
         return $this->sentCount;
     }
 
     /**
+     * The number of envelopes the user has sent.
+     *
      * @param int $sentCount
      *
      * @return self
      */
-    public function setSentCount($sentCount = null)
+    public function setSentCount(?int $sentCount): self
     {
         $this->sentCount = $sentCount;
 
@@ -86,19 +106,23 @@ class UsageHistory
     }
 
     /**
+     * The number of envelopes the user has signed.
+     *
      * @return int
      */
-    public function getSignedCount()
+    public function getSignedCount(): ?int
     {
         return $this->signedCount;
     }
 
     /**
+     * The number of envelopes the user has signed.
+     *
      * @param int $signedCount
      *
      * @return self
      */
-    public function setSignedCount($signedCount = null)
+    public function setSignedCount(?int $signedCount): self
     {
         $this->signedCount = $signedCount;
 

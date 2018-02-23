@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class NewAccountDefinitionNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class NewAccountDefinitionNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\NewAccountDefinition' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\NewAccountDefinition' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\NewAccountDefinition) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\NewAccountDefinition;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\NewAccountDefinition();
         if (property_exists($data, 'accountName')) {
             $object->setAccountName($data->{'accountName'});
@@ -39,15 +41,15 @@ class NewAccountDefinitionNormalizer extends SerializerAwareNormalizer implement
         if (property_exists($data, 'accountSettings')) {
             $values = [];
             foreach ($data->{'accountSettings'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\NameValue', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\NameValue', 'json', $context);
             }
             $object->setAccountSettings($values);
         }
         if (property_exists($data, 'addressInformation')) {
-            $object->setAddressInformation($this->serializer->deserialize($data->{'addressInformation'}, 'Surex\\DocuSign\\Model\\AccountAddress', 'raw', $context));
+            $object->setAddressInformation($this->denormalizer->denormalize($data->{'addressInformation'}, 'Surex\\DocuSign\\Model\\AccountAddress', 'json', $context));
         }
         if (property_exists($data, 'creditCardInformation')) {
-            $object->setCreditCardInformation($this->serializer->deserialize($data->{'creditCardInformation'}, 'Surex\\DocuSign\\Model\\CreditCardInformation', 'raw', $context));
+            $object->setCreditCardInformation($this->denormalizer->denormalize($data->{'creditCardInformation'}, 'Surex\\DocuSign\\Model\\CreditCardInformation', 'json', $context));
         }
         if (property_exists($data, 'distributorCode')) {
             $object->setDistributorCode($data->{'distributorCode'});
@@ -56,19 +58,19 @@ class NewAccountDefinitionNormalizer extends SerializerAwareNormalizer implement
             $object->setDistributorPassword($data->{'distributorPassword'});
         }
         if (property_exists($data, 'initialUser')) {
-            $object->setInitialUser($this->serializer->deserialize($data->{'initialUser'}, 'Surex\\DocuSign\\Model\\Users', 'raw', $context));
+            $object->setInitialUser($this->denormalizer->denormalize($data->{'initialUser'}, 'Surex\\DocuSign\\Model\\Users', 'json', $context));
         }
         if (property_exists($data, 'PaymentProcessorInformation')) {
-            $object->setPaymentProcessorInformation($this->serializer->deserialize($data->{'PaymentProcessorInformation'}, 'Surex\\DocuSign\\Model\\PaymentProcessorInformation', 'raw', $context));
+            $object->setPaymentProcessorInformation($this->denormalizer->denormalize($data->{'PaymentProcessorInformation'}, 'Surex\\DocuSign\\Model\\PaymentProcessorInformation', 'json', $context));
         }
         if (property_exists($data, 'planInformation')) {
-            $object->setPlanInformation($this->serializer->deserialize($data->{'planInformation'}, 'Surex\\DocuSign\\Model\\PlanInformation', 'raw', $context));
+            $object->setPlanInformation($this->denormalizer->denormalize($data->{'planInformation'}, 'Surex\\DocuSign\\Model\\PlanInformation', 'json', $context));
         }
         if (property_exists($data, 'referralInformation')) {
-            $object->setReferralInformation($this->serializer->deserialize($data->{'referralInformation'}, 'Surex\\DocuSign\\Model\\ReferralInformation', 'raw', $context));
+            $object->setReferralInformation($this->denormalizer->denormalize($data->{'referralInformation'}, 'Surex\\DocuSign\\Model\\ReferralInformation', 'json', $context));
         }
         if (property_exists($data, 'socialAccountInformation')) {
-            $object->setSocialAccountInformation($this->serializer->deserialize($data->{'socialAccountInformation'}, 'Surex\\DocuSign\\Model\\UserSocialAccountLogins', 'raw', $context));
+            $object->setSocialAccountInformation($this->denormalizer->denormalize($data->{'socialAccountInformation'}, 'Surex\\DocuSign\\Model\\UserSocialAccountLogins', 'json', $context));
         }
 
         return $object;
@@ -83,15 +85,15 @@ class NewAccountDefinitionNormalizer extends SerializerAwareNormalizer implement
         if (null !== $object->getAccountSettings()) {
             $values = [];
             foreach ($object->getAccountSettings() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'accountSettings'} = $values;
         }
         if (null !== $object->getAddressInformation()) {
-            $data->{'addressInformation'} = $this->serializer->serialize($object->getAddressInformation(), 'raw', $context);
+            $data->{'addressInformation'} = $this->normalizer->normalize($object->getAddressInformation(), 'json', $context);
         }
         if (null !== $object->getCreditCardInformation()) {
-            $data->{'creditCardInformation'} = $this->serializer->serialize($object->getCreditCardInformation(), 'raw', $context);
+            $data->{'creditCardInformation'} = $this->normalizer->normalize($object->getCreditCardInformation(), 'json', $context);
         }
         if (null !== $object->getDistributorCode()) {
             $data->{'distributorCode'} = $object->getDistributorCode();
@@ -100,19 +102,19 @@ class NewAccountDefinitionNormalizer extends SerializerAwareNormalizer implement
             $data->{'distributorPassword'} = $object->getDistributorPassword();
         }
         if (null !== $object->getInitialUser()) {
-            $data->{'initialUser'} = $this->serializer->serialize($object->getInitialUser(), 'raw', $context);
+            $data->{'initialUser'} = $this->normalizer->normalize($object->getInitialUser(), 'json', $context);
         }
         if (null !== $object->getPaymentProcessorInformation()) {
-            $data->{'PaymentProcessorInformation'} = $this->serializer->serialize($object->getPaymentProcessorInformation(), 'raw', $context);
+            $data->{'PaymentProcessorInformation'} = $this->normalizer->normalize($object->getPaymentProcessorInformation(), 'json', $context);
         }
         if (null !== $object->getPlanInformation()) {
-            $data->{'planInformation'} = $this->serializer->serialize($object->getPlanInformation(), 'raw', $context);
+            $data->{'planInformation'} = $this->normalizer->normalize($object->getPlanInformation(), 'json', $context);
         }
         if (null !== $object->getReferralInformation()) {
-            $data->{'referralInformation'} = $this->serializer->serialize($object->getReferralInformation(), 'raw', $context);
+            $data->{'referralInformation'} = $this->normalizer->normalize($object->getReferralInformation(), 'json', $context);
         }
         if (null !== $object->getSocialAccountInformation()) {
-            $data->{'socialAccountInformation'} = $this->serializer->serialize($object->getSocialAccountInformation(), 'raw', $context);
+            $data->{'socialAccountInformation'} = $this->normalizer->normalize($object->getSocialAccountInformation(), 'json', $context);
         }
 
         return $data;

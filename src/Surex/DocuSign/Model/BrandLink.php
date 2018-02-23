@@ -28,7 +28,7 @@ class BrandLink
     /**
      * @return string
      */
-    public function getLinkText()
+    public function getLinkText(): ?string
     {
         return $this->linkText;
     }
@@ -38,7 +38,7 @@ class BrandLink
      *
      * @return self
      */
-    public function setLinkText($linkText = null)
+    public function setLinkText(?string $linkText): self
     {
         $this->linkText = $linkText;
 
@@ -48,7 +48,7 @@ class BrandLink
     /**
      * @return string
      */
-    public function getLinkType()
+    public function getLinkType(): ?string
     {
         return $this->linkType;
     }
@@ -58,7 +58,7 @@ class BrandLink
      *
      * @return self
      */
-    public function setLinkType($linkType = null)
+    public function setLinkType(?string $linkType): self
     {
         $this->linkType = $linkType;
 
@@ -68,7 +68,7 @@ class BrandLink
     /**
      * @return string
      */
-    public function getShowLink()
+    public function getShowLink(): ?string
     {
         return $this->showLink;
     }
@@ -78,7 +78,7 @@ class BrandLink
      *
      * @return self
      */
-    public function setShowLink($showLink = null)
+    public function setShowLink(?string $showLink): self
     {
         $this->showLink = $showLink;
 
@@ -88,7 +88,7 @@ class BrandLink
     /**
      * @return string
      */
-    public function getUrlOrMailTo()
+    public function getUrlOrMailTo(): ?string
     {
         return $this->urlOrMailTo;
     }
@@ -98,7 +98,7 @@ class BrandLink
      *
      * @return self
      */
-    public function setUrlOrMailTo($urlOrMailTo = null)
+    public function setUrlOrMailTo(?string $urlOrMailTo): self
     {
         $this->urlOrMailTo = $urlOrMailTo;
 

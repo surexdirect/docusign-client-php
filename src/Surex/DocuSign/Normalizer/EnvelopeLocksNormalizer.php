@@ -6,35 +6,37 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EnvelopeLocksNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EnvelopeLocksNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EnvelopeLocks' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EnvelopeLocks' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EnvelopeLocks) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EnvelopeLocks;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EnvelopeLocks();
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'lockDurationInSeconds')) {
             $object->setLockDurationInSeconds($data->{'lockDurationInSeconds'});
@@ -43,7 +45,7 @@ class EnvelopeLocksNormalizer extends SerializerAwareNormalizer implements Denor
             $object->setLockedByApp($data->{'lockedByApp'});
         }
         if (property_exists($data, 'lockedByUser')) {
-            $object->setLockedByUser($this->serializer->deserialize($data->{'lockedByUser'}, 'Surex\\DocuSign\\Model\\UserInfo', 'raw', $context));
+            $object->setLockedByUser($this->denormalizer->denormalize($data->{'lockedByUser'}, 'Surex\\DocuSign\\Model\\UserInfo', 'json', $context));
         }
         if (property_exists($data, 'lockedUntilDateTime')) {
             $object->setLockedUntilDateTime($data->{'lockedUntilDateTime'});
@@ -65,7 +67,7 @@ class EnvelopeLocksNormalizer extends SerializerAwareNormalizer implements Denor
     {
         $data = new \stdClass();
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getLockDurationInSeconds()) {
             $data->{'lockDurationInSeconds'} = $object->getLockDurationInSeconds();
@@ -74,7 +76,7 @@ class EnvelopeLocksNormalizer extends SerializerAwareNormalizer implements Denor
             $data->{'lockedByApp'} = $object->getLockedByApp();
         }
         if (null !== $object->getLockedByUser()) {
-            $data->{'lockedByUser'} = $this->serializer->serialize($object->getLockedByUser(), 'raw', $context);
+            $data->{'lockedByUser'} = $this->normalizer->normalize($object->getLockedByUser(), 'json', $context);
         }
         if (null !== $object->getLockedUntilDateTime()) {
             $data->{'lockedUntilDateTime'} = $object->getLockedUntilDateTime();

@@ -9,46 +9,68 @@ namespace Surex\DocuSign\Model;
 class Accounts
 {
     /**
+     * The GUID associated with the account ID.
+     *
      * @var string
      */
     protected $accountIdGuid;
     /**
+     * The name of the current account.
+     *
      * @var string
      */
     protected $accountName;
     /**
+     * When set to **true**, the transaction rooms feature exposed through the Workspaces API is enabled.
+     *
      * @var string
      */
     protected $allowTransactionRooms;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $billingPeriodDaysRemaining;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $billingPeriodEndDate;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $billingPeriodEnvelopesAllowed;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $billingPeriodEnvelopesSent;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $billingPeriodStartDate;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $billingProfile;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $canCancelRenewal;
     /**
+     * When set to **true**, specifies that you can upgrade the account through the API.
+     *
      * @var string
      */
     protected $canUpgrade;
@@ -61,14 +83,20 @@ class Accounts
      */
     protected $createdDate;
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @var string
      */
     protected $currencyCode;
     /**
+     * Identifies the plan that was used create this account.
+     *
      * @var string
      */
     protected $currentPlanId;
     /**
+     * The code that identifies the billing plan groups and plans for the new account.
+     *
      * @var string
      */
     protected $distributorCode;
@@ -85,6 +113,8 @@ class Accounts
      */
     protected $envelopeUnitPrice;
     /**
+     *  A complex element that contains up to four Question/Answer pairs for forgotten password information for a user.
+     *
      * @var string
      */
     protected $forgottenPasswordQuestionsCount;
@@ -97,18 +127,26 @@ class Accounts
      */
     protected $paymentMethod;
     /**
+     * Identifies the type of plan. Examples include Business, Corporate, Enterprise, Free.
+     *
      * @var string
      */
     protected $planClassification;
     /**
+     * The date that the current plan will end.
+     *
      * @var string
      */
     protected $planEndDate;
     /**
+     * The name of the Billing Plan.
+     *
      * @var string
      */
     protected $planName;
     /**
+     * The date that the Account started using the current plan.
+     *
      * @var string
      */
     protected $planStartDate;
@@ -134,19 +172,23 @@ class Accounts
     protected $suspensionStatus;
 
     /**
+     * The GUID associated with the account ID.
+     *
      * @return string
      */
-    public function getAccountIdGuid()
+    public function getAccountIdGuid(): ?string
     {
         return $this->accountIdGuid;
     }
 
     /**
+     * The GUID associated with the account ID.
+     *
      * @param string $accountIdGuid
      *
      * @return self
      */
-    public function setAccountIdGuid($accountIdGuid = null)
+    public function setAccountIdGuid(?string $accountIdGuid): self
     {
         $this->accountIdGuid = $accountIdGuid;
 
@@ -154,19 +196,23 @@ class Accounts
     }
 
     /**
+     * The name of the current account.
+     *
      * @return string
      */
-    public function getAccountName()
+    public function getAccountName(): ?string
     {
         return $this->accountName;
     }
 
     /**
+     * The name of the current account.
+     *
      * @param string $accountName
      *
      * @return self
      */
-    public function setAccountName($accountName = null)
+    public function setAccountName(?string $accountName): self
     {
         $this->accountName = $accountName;
 
@@ -174,19 +220,23 @@ class Accounts
     }
 
     /**
+     * When set to **true**, the transaction rooms feature exposed through the Workspaces API is enabled.
+     *
      * @return string
      */
-    public function getAllowTransactionRooms()
+    public function getAllowTransactionRooms(): ?string
     {
         return $this->allowTransactionRooms;
     }
 
     /**
+     * When set to **true**, the transaction rooms feature exposed through the Workspaces API is enabled.
+     *
      * @param string $allowTransactionRooms
      *
      * @return self
      */
-    public function setAllowTransactionRooms($allowTransactionRooms = null)
+    public function setAllowTransactionRooms(?string $allowTransactionRooms): self
     {
         $this->allowTransactionRooms = $allowTransactionRooms;
 
@@ -194,19 +244,23 @@ class Accounts
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBillingPeriodDaysRemaining()
+    public function getBillingPeriodDaysRemaining(): ?string
     {
         return $this->billingPeriodDaysRemaining;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $billingPeriodDaysRemaining
      *
      * @return self
      */
-    public function setBillingPeriodDaysRemaining($billingPeriodDaysRemaining = null)
+    public function setBillingPeriodDaysRemaining(?string $billingPeriodDaysRemaining): self
     {
         $this->billingPeriodDaysRemaining = $billingPeriodDaysRemaining;
 
@@ -214,19 +268,23 @@ class Accounts
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBillingPeriodEndDate()
+    public function getBillingPeriodEndDate(): ?string
     {
         return $this->billingPeriodEndDate;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $billingPeriodEndDate
      *
      * @return self
      */
-    public function setBillingPeriodEndDate($billingPeriodEndDate = null)
+    public function setBillingPeriodEndDate(?string $billingPeriodEndDate): self
     {
         $this->billingPeriodEndDate = $billingPeriodEndDate;
 
@@ -234,19 +292,23 @@ class Accounts
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBillingPeriodEnvelopesAllowed()
+    public function getBillingPeriodEnvelopesAllowed(): ?string
     {
         return $this->billingPeriodEnvelopesAllowed;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $billingPeriodEnvelopesAllowed
      *
      * @return self
      */
-    public function setBillingPeriodEnvelopesAllowed($billingPeriodEnvelopesAllowed = null)
+    public function setBillingPeriodEnvelopesAllowed(?string $billingPeriodEnvelopesAllowed): self
     {
         $this->billingPeriodEnvelopesAllowed = $billingPeriodEnvelopesAllowed;
 
@@ -254,19 +316,23 @@ class Accounts
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBillingPeriodEnvelopesSent()
+    public function getBillingPeriodEnvelopesSent(): ?string
     {
         return $this->billingPeriodEnvelopesSent;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $billingPeriodEnvelopesSent
      *
      * @return self
      */
-    public function setBillingPeriodEnvelopesSent($billingPeriodEnvelopesSent = null)
+    public function setBillingPeriodEnvelopesSent(?string $billingPeriodEnvelopesSent): self
     {
         $this->billingPeriodEnvelopesSent = $billingPeriodEnvelopesSent;
 
@@ -274,19 +340,23 @@ class Accounts
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBillingPeriodStartDate()
+    public function getBillingPeriodStartDate(): ?string
     {
         return $this->billingPeriodStartDate;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $billingPeriodStartDate
      *
      * @return self
      */
-    public function setBillingPeriodStartDate($billingPeriodStartDate = null)
+    public function setBillingPeriodStartDate(?string $billingPeriodStartDate): self
     {
         $this->billingPeriodStartDate = $billingPeriodStartDate;
 
@@ -294,19 +364,23 @@ class Accounts
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBillingProfile()
+    public function getBillingProfile(): ?string
     {
         return $this->billingProfile;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $billingProfile
      *
      * @return self
      */
-    public function setBillingProfile($billingProfile = null)
+    public function setBillingProfile(?string $billingProfile): self
     {
         $this->billingProfile = $billingProfile;
 
@@ -314,19 +388,23 @@ class Accounts
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getCanCancelRenewal()
+    public function getCanCancelRenewal(): ?string
     {
         return $this->canCancelRenewal;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $canCancelRenewal
      *
      * @return self
      */
-    public function setCanCancelRenewal($canCancelRenewal = null)
+    public function setCanCancelRenewal(?string $canCancelRenewal): self
     {
         $this->canCancelRenewal = $canCancelRenewal;
 
@@ -334,19 +412,23 @@ class Accounts
     }
 
     /**
+     * When set to **true**, specifies that you can upgrade the account through the API.
+     *
      * @return string
      */
-    public function getCanUpgrade()
+    public function getCanUpgrade(): ?string
     {
         return $this->canUpgrade;
     }
 
     /**
+     * When set to **true**, specifies that you can upgrade the account through the API.
+     *
      * @param string $canUpgrade
      *
      * @return self
      */
-    public function setCanUpgrade($canUpgrade = null)
+    public function setCanUpgrade(?string $canUpgrade): self
     {
         $this->canUpgrade = $canUpgrade;
 
@@ -356,7 +438,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getConnectPermission()
+    public function getConnectPermission(): ?string
     {
         return $this->connectPermission;
     }
@@ -366,7 +448,7 @@ class Accounts
      *
      * @return self
      */
-    public function setConnectPermission($connectPermission = null)
+    public function setConnectPermission(?string $connectPermission): self
     {
         $this->connectPermission = $connectPermission;
 
@@ -376,7 +458,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getCreatedDate()
+    public function getCreatedDate(): ?string
     {
         return $this->createdDate;
     }
@@ -386,7 +468,7 @@ class Accounts
      *
      * @return self
      */
-    public function setCreatedDate($createdDate = null)
+    public function setCreatedDate(?string $createdDate): self
     {
         $this->createdDate = $createdDate;
 
@@ -394,19 +476,23 @@ class Accounts
     }
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @param string $currencyCode
      *
      * @return self
      */
-    public function setCurrencyCode($currencyCode = null)
+    public function setCurrencyCode(?string $currencyCode): self
     {
         $this->currencyCode = $currencyCode;
 
@@ -414,19 +500,23 @@ class Accounts
     }
 
     /**
+     * Identifies the plan that was used create this account.
+     *
      * @return string
      */
-    public function getCurrentPlanId()
+    public function getCurrentPlanId(): ?string
     {
         return $this->currentPlanId;
     }
 
     /**
+     * Identifies the plan that was used create this account.
+     *
      * @param string $currentPlanId
      *
      * @return self
      */
-    public function setCurrentPlanId($currentPlanId = null)
+    public function setCurrentPlanId(?string $currentPlanId): self
     {
         $this->currentPlanId = $currentPlanId;
 
@@ -434,19 +524,23 @@ class Accounts
     }
 
     /**
+     * The code that identifies the billing plan groups and plans for the new account.
+     *
      * @return string
      */
-    public function getDistributorCode()
+    public function getDistributorCode(): ?string
     {
         return $this->distributorCode;
     }
 
     /**
+     * The code that identifies the billing plan groups and plans for the new account.
+     *
      * @param string $distributorCode
      *
      * @return self
      */
-    public function setDistributorCode($distributorCode = null)
+    public function setDistributorCode(?string $distributorCode): self
     {
         $this->distributorCode = $distributorCode;
 
@@ -456,7 +550,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getDocuSignLandingUrl()
+    public function getDocuSignLandingUrl(): ?string
     {
         return $this->docuSignLandingUrl;
     }
@@ -466,7 +560,7 @@ class Accounts
      *
      * @return self
      */
-    public function setDocuSignLandingUrl($docuSignLandingUrl = null)
+    public function setDocuSignLandingUrl(?string $docuSignLandingUrl): self
     {
         $this->docuSignLandingUrl = $docuSignLandingUrl;
 
@@ -476,7 +570,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getEnvelopeSendingBlocked()
+    public function getEnvelopeSendingBlocked(): ?string
     {
         return $this->envelopeSendingBlocked;
     }
@@ -486,7 +580,7 @@ class Accounts
      *
      * @return self
      */
-    public function setEnvelopeSendingBlocked($envelopeSendingBlocked = null)
+    public function setEnvelopeSendingBlocked(?string $envelopeSendingBlocked): self
     {
         $this->envelopeSendingBlocked = $envelopeSendingBlocked;
 
@@ -496,7 +590,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getEnvelopeUnitPrice()
+    public function getEnvelopeUnitPrice(): ?string
     {
         return $this->envelopeUnitPrice;
     }
@@ -506,7 +600,7 @@ class Accounts
      *
      * @return self
      */
-    public function setEnvelopeUnitPrice($envelopeUnitPrice = null)
+    public function setEnvelopeUnitPrice(?string $envelopeUnitPrice): self
     {
         $this->envelopeUnitPrice = $envelopeUnitPrice;
 
@@ -514,19 +608,23 @@ class Accounts
     }
 
     /**
+     *  A complex element that contains up to four Question/Answer pairs for forgotten password information for a user.
+     *
      * @return string
      */
-    public function getForgottenPasswordQuestionsCount()
+    public function getForgottenPasswordQuestionsCount(): ?string
     {
         return $this->forgottenPasswordQuestionsCount;
     }
 
     /**
+     *  A complex element that contains up to four Question/Answer pairs for forgotten password information for a user.
+     *
      * @param string $forgottenPasswordQuestionsCount
      *
      * @return self
      */
-    public function setForgottenPasswordQuestionsCount($forgottenPasswordQuestionsCount = null)
+    public function setForgottenPasswordQuestionsCount(?string $forgottenPasswordQuestionsCount): self
     {
         $this->forgottenPasswordQuestionsCount = $forgottenPasswordQuestionsCount;
 
@@ -536,7 +634,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getIsDowngrade()
+    public function getIsDowngrade(): ?string
     {
         return $this->isDowngrade;
     }
@@ -546,7 +644,7 @@ class Accounts
      *
      * @return self
      */
-    public function setIsDowngrade($isDowngrade = null)
+    public function setIsDowngrade(?string $isDowngrade): self
     {
         $this->isDowngrade = $isDowngrade;
 
@@ -556,7 +654,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getPaymentMethod()
+    public function getPaymentMethod(): ?string
     {
         return $this->paymentMethod;
     }
@@ -566,7 +664,7 @@ class Accounts
      *
      * @return self
      */
-    public function setPaymentMethod($paymentMethod = null)
+    public function setPaymentMethod(?string $paymentMethod): self
     {
         $this->paymentMethod = $paymentMethod;
 
@@ -574,19 +672,23 @@ class Accounts
     }
 
     /**
+     * Identifies the type of plan. Examples include Business, Corporate, Enterprise, Free.
+     *
      * @return string
      */
-    public function getPlanClassification()
+    public function getPlanClassification(): ?string
     {
         return $this->planClassification;
     }
 
     /**
+     * Identifies the type of plan. Examples include Business, Corporate, Enterprise, Free.
+     *
      * @param string $planClassification
      *
      * @return self
      */
-    public function setPlanClassification($planClassification = null)
+    public function setPlanClassification(?string $planClassification): self
     {
         $this->planClassification = $planClassification;
 
@@ -594,19 +696,23 @@ class Accounts
     }
 
     /**
+     * The date that the current plan will end.
+     *
      * @return string
      */
-    public function getPlanEndDate()
+    public function getPlanEndDate(): ?string
     {
         return $this->planEndDate;
     }
 
     /**
+     * The date that the current plan will end.
+     *
      * @param string $planEndDate
      *
      * @return self
      */
-    public function setPlanEndDate($planEndDate = null)
+    public function setPlanEndDate(?string $planEndDate): self
     {
         $this->planEndDate = $planEndDate;
 
@@ -614,19 +720,23 @@ class Accounts
     }
 
     /**
+     * The name of the Billing Plan.
+     *
      * @return string
      */
-    public function getPlanName()
+    public function getPlanName(): ?string
     {
         return $this->planName;
     }
 
     /**
+     * The name of the Billing Plan.
+     *
      * @param string $planName
      *
      * @return self
      */
-    public function setPlanName($planName = null)
+    public function setPlanName(?string $planName): self
     {
         $this->planName = $planName;
 
@@ -634,19 +744,23 @@ class Accounts
     }
 
     /**
+     * The date that the Account started using the current plan.
+     *
      * @return string
      */
-    public function getPlanStartDate()
+    public function getPlanStartDate(): ?string
     {
         return $this->planStartDate;
     }
 
     /**
+     * The date that the Account started using the current plan.
+     *
      * @param string $planStartDate
      *
      * @return self
      */
-    public function setPlanStartDate($planStartDate = null)
+    public function setPlanStartDate(?string $planStartDate): self
     {
         $this->planStartDate = $planStartDate;
 
@@ -656,7 +770,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getSeatsAllowed()
+    public function getSeatsAllowed(): ?string
     {
         return $this->seatsAllowed;
     }
@@ -666,7 +780,7 @@ class Accounts
      *
      * @return self
      */
-    public function setSeatsAllowed($seatsAllowed = null)
+    public function setSeatsAllowed(?string $seatsAllowed): self
     {
         $this->seatsAllowed = $seatsAllowed;
 
@@ -676,7 +790,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getSeatsInUse()
+    public function getSeatsInUse(): ?string
     {
         return $this->seatsInUse;
     }
@@ -686,7 +800,7 @@ class Accounts
      *
      * @return self
      */
-    public function setSeatsInUse($seatsInUse = null)
+    public function setSeatsInUse(?string $seatsInUse): self
     {
         $this->seatsInUse = $seatsInUse;
 
@@ -696,7 +810,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getStatus21CFRPart11()
+    public function getStatus21CFRPart11(): ?string
     {
         return $this->status21CFRPart11;
     }
@@ -706,7 +820,7 @@ class Accounts
      *
      * @return self
      */
-    public function setStatus21CFRPart11($status21CFRPart11 = null)
+    public function setStatus21CFRPart11(?string $status21CFRPart11): self
     {
         $this->status21CFRPart11 = $status21CFRPart11;
 
@@ -716,7 +830,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getSuspensionDate()
+    public function getSuspensionDate(): ?string
     {
         return $this->suspensionDate;
     }
@@ -726,7 +840,7 @@ class Accounts
      *
      * @return self
      */
-    public function setSuspensionDate($suspensionDate = null)
+    public function setSuspensionDate(?string $suspensionDate): self
     {
         $this->suspensionDate = $suspensionDate;
 
@@ -736,7 +850,7 @@ class Accounts
     /**
      * @return string
      */
-    public function getSuspensionStatus()
+    public function getSuspensionStatus(): ?string
     {
         return $this->suspensionStatus;
     }
@@ -746,7 +860,7 @@ class Accounts
      *
      * @return self
      */
-    public function setSuspensionStatus($suspensionStatus = null)
+    public function setSuspensionStatus(?string $suspensionStatus): self
     {
         $this->suspensionStatus = $suspensionStatus;
 

@@ -16,7 +16,7 @@ class UserInfoList
     /**
      * @return UserInfo[]
      */
-    public function getUsers()
+    public function getUsers(): ?array
     {
         return $this->users;
     }
@@ -26,7 +26,7 @@ class UserInfoList
      *
      * @return self
      */
-    public function setUsers(array $users = null)
+    public function setUsers(?array $users): self
     {
         $this->users = $users;
 

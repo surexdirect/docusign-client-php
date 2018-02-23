@@ -48,13 +48,13 @@ class PowerFormsResource extends Resource
      * @param array $parameters {
      *
      *     @var string $from_date Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created.
-     *     @var string $order An optional value that sets the direction order used to sort the item list.
+     *     @var string $order an optional value that sets the direction order used to sort the item list
 
      Valid values are:
 
      * asc = ascending sort order
      * desc = descending sort order
-     *     @var string $order_by An optional value that sets the file attribute used to sort the item list.
+     *     @var string $order_by an optional value that sets the file attribute used to sort the item list
 
      Valid values are:
 

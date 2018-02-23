@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class BillingChargeNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class BillingChargeNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\BillingCharge' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\BillingCharge' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\BillingCharge) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\BillingCharge;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\BillingCharge();
         if (property_exists($data, 'allowedQuantity')) {
             $object->setAllowedQuantity($data->{'allowedQuantity'});
@@ -51,7 +53,7 @@ class BillingChargeNormalizer extends SerializerAwareNormalizer implements Denor
         if (property_exists($data, 'discounts')) {
             $values = [];
             foreach ($data->{'discounts'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\BillingDiscount', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\BillingDiscount', 'json', $context);
             }
             $object->setDiscounts($values);
         }
@@ -70,7 +72,7 @@ class BillingChargeNormalizer extends SerializerAwareNormalizer implements Denor
         if (property_exists($data, 'prices')) {
             $values_1 = [];
             foreach ($data->{'prices'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\BillingPrice', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\BillingPrice', 'json', $context);
             }
             $object->setPrices($values_1);
         }
@@ -105,7 +107,7 @@ class BillingChargeNormalizer extends SerializerAwareNormalizer implements Denor
         if (null !== $object->getDiscounts()) {
             $values = [];
             foreach ($object->getDiscounts() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'discounts'} = $values;
         }
@@ -124,7 +126,7 @@ class BillingChargeNormalizer extends SerializerAwareNormalizer implements Denor
         if (null !== $object->getPrices()) {
             $values_1 = [];
             foreach ($object->getPrices() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'prices'} = $values_1;
         }

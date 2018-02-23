@@ -13,6 +13,8 @@ class DocumentTemplate
      */
     protected $documentEndPage;
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @var string
      */
     protected $documentId;
@@ -21,10 +23,14 @@ class DocumentTemplate
      */
     protected $documentStartPage;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @var string
      */
     protected $templateId;
@@ -32,7 +38,7 @@ class DocumentTemplate
     /**
      * @return string
      */
-    public function getDocumentEndPage()
+    public function getDocumentEndPage(): ?string
     {
         return $this->documentEndPage;
     }
@@ -42,7 +48,7 @@ class DocumentTemplate
      *
      * @return self
      */
-    public function setDocumentEndPage($documentEndPage = null)
+    public function setDocumentEndPage(?string $documentEndPage): self
     {
         $this->documentEndPage = $documentEndPage;
 
@@ -50,19 +56,23 @@ class DocumentTemplate
     }
 
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @return string
      */
-    public function getDocumentId()
+    public function getDocumentId(): ?string
     {
         return $this->documentId;
     }
 
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @param string $documentId
      *
      * @return self
      */
-    public function setDocumentId($documentId = null)
+    public function setDocumentId(?string $documentId): self
     {
         $this->documentId = $documentId;
 
@@ -72,7 +82,7 @@ class DocumentTemplate
     /**
      * @return string
      */
-    public function getDocumentStartPage()
+    public function getDocumentStartPage(): ?string
     {
         return $this->documentStartPage;
     }
@@ -82,7 +92,7 @@ class DocumentTemplate
      *
      * @return self
      */
-    public function setDocumentStartPage($documentStartPage = null)
+    public function setDocumentStartPage(?string $documentStartPage): self
     {
         $this->documentStartPage = $documentStartPage;
 
@@ -90,19 +100,23 @@ class DocumentTemplate
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -110,19 +124,23 @@ class DocumentTemplate
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @return string
      */
-    public function getTemplateId()
+    public function getTemplateId(): ?string
     {
         return $this->templateId;
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @param string $templateId
      *
      * @return self
      */
-    public function setTemplateId($templateId = null)
+    public function setTemplateId(?string $templateId): self
     {
         $this->templateId = $templateId;
 

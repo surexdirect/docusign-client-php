@@ -6,37 +6,39 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class BulkRecipientsSummaryResponseNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class BulkRecipientsSummaryResponseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\BulkRecipientsSummaryResponse' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\BulkRecipientsSummaryResponse' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\BulkRecipientsSummaryResponse) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\BulkRecipientsSummaryResponse;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\BulkRecipientsSummaryResponse();
         if (property_exists($data, 'bulkRecipients')) {
             $values = [];
             foreach ($data->{'bulkRecipients'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\BulkRecipient', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\BulkRecipient', 'json', $context);
             }
             $object->setBulkRecipients($values);
         }
@@ -49,7 +51,7 @@ class BulkRecipientsSummaryResponseNormalizer extends SerializerAwareNormalizer 
         if (property_exists($data, 'errorDetails')) {
             $values_1 = [];
             foreach ($data->{'errorDetails'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context);
             }
             $object->setErrorDetails($values_1);
         }
@@ -63,7 +65,7 @@ class BulkRecipientsSummaryResponseNormalizer extends SerializerAwareNormalizer 
         if (null !== $object->getBulkRecipients()) {
             $values = [];
             foreach ($object->getBulkRecipients() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'bulkRecipients'} = $values;
         }
@@ -76,7 +78,7 @@ class BulkRecipientsSummaryResponseNormalizer extends SerializerAwareNormalizer 
         if (null !== $object->getErrorDetails()) {
             $values_1 = [];
             foreach ($object->getErrorDetails() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'errorDetails'} = $values_1;
         }

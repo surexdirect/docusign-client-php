@@ -16,7 +16,7 @@ class SupportedLanguages
     /**
      * @return NameValue[]
      */
-    public function getLanguages()
+    public function getLanguages(): ?array
     {
         return $this->languages;
     }
@@ -26,7 +26,7 @@ class SupportedLanguages
      *
      * @return self
      */
-    public function setLanguages(array $languages = null)
+    public function setLanguages(?array $languages): self
     {
         $this->languages = $languages;
 

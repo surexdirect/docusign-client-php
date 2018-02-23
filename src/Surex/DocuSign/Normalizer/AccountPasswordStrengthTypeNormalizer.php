@@ -6,37 +6,39 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class AccountPasswordStrengthTypeNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class AccountPasswordStrengthTypeNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\AccountPasswordStrengthType' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\AccountPasswordStrengthType' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\AccountPasswordStrengthType) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\AccountPasswordStrengthType;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\AccountPasswordStrengthType();
         if (property_exists($data, 'options')) {
             $values = [];
             foreach ($data->{'options'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\AccountPasswordStrengthTypeOption', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\AccountPasswordStrengthTypeOption', 'json', $context);
             }
             $object->setOptions($values);
         }
@@ -50,7 +52,7 @@ class AccountPasswordStrengthTypeNormalizer extends SerializerAwareNormalizer im
         if (null !== $object->getOptions()) {
             $values = [];
             foreach ($object->getOptions() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'options'} = $values;
         }

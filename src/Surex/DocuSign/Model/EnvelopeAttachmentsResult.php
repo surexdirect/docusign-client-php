@@ -16,7 +16,7 @@ class EnvelopeAttachmentsResult
     /**
      * @return EnvelopeAttachments[]
      */
-    public function getAttachments()
+    public function getAttachments(): ?array
     {
         return $this->attachments;
     }
@@ -26,7 +26,7 @@ class EnvelopeAttachmentsResult
      *
      * @return self
      */
-    public function setAttachments(array $attachments = null)
+    public function setAttachments(?array $attachments): self
     {
         $this->attachments = $attachments;
 

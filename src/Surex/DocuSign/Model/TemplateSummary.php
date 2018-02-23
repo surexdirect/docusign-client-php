@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class TemplateSummary
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $applied;
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @var string
      */
     protected $documentId;
@@ -25,6 +29,8 @@ class TemplateSummary
      */
     protected $name;
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @var string
      */
     protected $templateId;
@@ -38,19 +44,23 @@ class TemplateSummary
     protected $uri;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getApplied()
+    public function getApplied(): ?string
     {
         return $this->applied;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $applied
      *
      * @return self
      */
-    public function setApplied($applied = null)
+    public function setApplied(?string $applied): self
     {
         $this->applied = $applied;
 
@@ -58,19 +68,23 @@ class TemplateSummary
     }
 
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @return string
      */
-    public function getDocumentId()
+    public function getDocumentId(): ?string
     {
         return $this->documentId;
     }
 
     /**
+     * Specifies the document ID number that the tab is placed on. This must refer to an existing Document's ID attribute.
+     *
      * @param string $documentId
      *
      * @return self
      */
-    public function setDocumentId($documentId = null)
+    public function setDocumentId(?string $documentId): self
     {
         $this->documentId = $documentId;
 
@@ -80,7 +94,7 @@ class TemplateSummary
     /**
      * @return string
      */
-    public function getDocumentName()
+    public function getDocumentName(): ?string
     {
         return $this->documentName;
     }
@@ -90,7 +104,7 @@ class TemplateSummary
      *
      * @return self
      */
-    public function setDocumentName($documentName = null)
+    public function setDocumentName(?string $documentName): self
     {
         $this->documentName = $documentName;
 
@@ -100,7 +114,7 @@ class TemplateSummary
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -110,7 +124,7 @@ class TemplateSummary
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -118,19 +132,23 @@ class TemplateSummary
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @return string
      */
-    public function getTemplateId()
+    public function getTemplateId(): ?string
     {
         return $this->templateId;
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @param string $templateId
      *
      * @return self
      */
-    public function setTemplateId($templateId = null)
+    public function setTemplateId(?string $templateId): self
     {
         $this->templateId = $templateId;
 
@@ -140,7 +158,7 @@ class TemplateSummary
     /**
      * @return TemplateMatch
      */
-    public function getTemplateMatch()
+    public function getTemplateMatch(): ?TemplateMatch
     {
         return $this->templateMatch;
     }
@@ -150,7 +168,7 @@ class TemplateSummary
      *
      * @return self
      */
-    public function setTemplateMatch(TemplateMatch $templateMatch = null)
+    public function setTemplateMatch(?TemplateMatch $templateMatch): self
     {
         $this->templateMatch = $templateMatch;
 
@@ -160,7 +178,7 @@ class TemplateSummary
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -170,7 +188,7 @@ class TemplateSummary
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 

@@ -9,22 +9,32 @@ namespace Surex\DocuSign\Model;
 class PlanInformation
 {
     /**
+     * Reserved:.
+     *
      * @var AddOn[]
      */
     protected $addOns;
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @var string
      */
     protected $currencyCode;
     /**
+     * Reserved for DocuSign use only.
+     *
      * @var string
      */
     protected $freeTrialDaysOverride;
     /**
+     * A complex type that sets the feature sets for the account.
+     *
      * @var FeatureSet[]
      */
     protected $planFeatureSets;
     /**
+     * The DocuSign Plan ID for the account.
+     *
      * @var string
      */
     protected $planId;
@@ -34,19 +44,23 @@ class PlanInformation
     protected $recipientDomains;
 
     /**
+     * Reserved:.
+     *
      * @return AddOn[]
      */
-    public function getAddOns()
+    public function getAddOns(): ?array
     {
         return $this->addOns;
     }
 
     /**
+     * Reserved:.
+     *
      * @param AddOn[] $addOns
      *
      * @return self
      */
-    public function setAddOns(array $addOns = null)
+    public function setAddOns(?array $addOns): self
     {
         $this->addOns = $addOns;
 
@@ -54,19 +68,23 @@ class PlanInformation
     }
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
 
     /**
+     * Specifies the ISO currency code for the account.
+     *
      * @param string $currencyCode
      *
      * @return self
      */
-    public function setCurrencyCode($currencyCode = null)
+    public function setCurrencyCode(?string $currencyCode): self
     {
         $this->currencyCode = $currencyCode;
 
@@ -74,19 +92,23 @@ class PlanInformation
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @return string
      */
-    public function getFreeTrialDaysOverride()
+    public function getFreeTrialDaysOverride(): ?string
     {
         return $this->freeTrialDaysOverride;
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @param string $freeTrialDaysOverride
      *
      * @return self
      */
-    public function setFreeTrialDaysOverride($freeTrialDaysOverride = null)
+    public function setFreeTrialDaysOverride(?string $freeTrialDaysOverride): self
     {
         $this->freeTrialDaysOverride = $freeTrialDaysOverride;
 
@@ -94,19 +116,23 @@ class PlanInformation
     }
 
     /**
+     * A complex type that sets the feature sets for the account.
+     *
      * @return FeatureSet[]
      */
-    public function getPlanFeatureSets()
+    public function getPlanFeatureSets(): ?array
     {
         return $this->planFeatureSets;
     }
 
     /**
+     * A complex type that sets the feature sets for the account.
+     *
      * @param FeatureSet[] $planFeatureSets
      *
      * @return self
      */
-    public function setPlanFeatureSets(array $planFeatureSets = null)
+    public function setPlanFeatureSets(?array $planFeatureSets): self
     {
         $this->planFeatureSets = $planFeatureSets;
 
@@ -114,19 +140,23 @@ class PlanInformation
     }
 
     /**
+     * The DocuSign Plan ID for the account.
+     *
      * @return string
      */
-    public function getPlanId()
+    public function getPlanId(): ?string
     {
         return $this->planId;
     }
 
     /**
+     * The DocuSign Plan ID for the account.
+     *
      * @param string $planId
      *
      * @return self
      */
-    public function setPlanId($planId = null)
+    public function setPlanId(?string $planId): self
     {
         $this->planId = $planId;
 
@@ -136,7 +166,7 @@ class PlanInformation
     /**
      * @return RecipientDomain[]
      */
-    public function getRecipientDomains()
+    public function getRecipientDomains(): ?array
     {
         return $this->recipientDomains;
     }
@@ -146,7 +176,7 @@ class PlanInformation
      *
      * @return self
      */
-    public function setRecipientDomains(array $recipientDomains = null)
+    public function setRecipientDomains(?array $recipientDomains): self
     {
         $this->recipientDomains = $recipientDomains;
 

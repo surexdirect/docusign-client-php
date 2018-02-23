@@ -17,6 +17,8 @@ class RecipientSignatureInformation
      */
     protected $signatureInitials;
     /**
+     * Specifies the user signature name.
+     *
      * @var string
      */
     protected $signatureName;
@@ -24,7 +26,7 @@ class RecipientSignatureInformation
     /**
      * @return string
      */
-    public function getFontStyle()
+    public function getFontStyle(): ?string
     {
         return $this->fontStyle;
     }
@@ -34,7 +36,7 @@ class RecipientSignatureInformation
      *
      * @return self
      */
-    public function setFontStyle($fontStyle = null)
+    public function setFontStyle(?string $fontStyle): self
     {
         $this->fontStyle = $fontStyle;
 
@@ -44,7 +46,7 @@ class RecipientSignatureInformation
     /**
      * @return string
      */
-    public function getSignatureInitials()
+    public function getSignatureInitials(): ?string
     {
         return $this->signatureInitials;
     }
@@ -54,7 +56,7 @@ class RecipientSignatureInformation
      *
      * @return self
      */
-    public function setSignatureInitials($signatureInitials = null)
+    public function setSignatureInitials(?string $signatureInitials): self
     {
         $this->signatureInitials = $signatureInitials;
 
@@ -62,19 +64,23 @@ class RecipientSignatureInformation
     }
 
     /**
+     * Specifies the user signature name.
+     *
      * @return string
      */
-    public function getSignatureName()
+    public function getSignatureName(): ?string
     {
         return $this->signatureName;
     }
 
     /**
+     * Specifies the user signature name.
+     *
      * @param string $signatureName
      *
      * @return self
      */
-    public function setSignatureName($signatureName = null)
+    public function setSignatureName(?string $signatureName): self
     {
         $this->signatureName = $signatureName;
 

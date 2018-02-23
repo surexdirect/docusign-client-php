@@ -9,56 +9,78 @@ namespace Surex\DocuSign\Model;
 class PurchasedEnvelopesInformation
 {
     /**
+     * The total amount of the purchase.
+     *
      * @var string
      */
     protected $amount;
     /**
+     * The AppName of the client application.
+     *
      * @var string
      */
     protected $appName;
     /**
+     * Specifies the ISO currency code of the purchase. This is based on the ISO 4217 currency code information.
+     *
      * @var string
      */
     protected $currencyCode;
     /**
+     * The Platform of the client application.
+     *
      * @var string
      */
     protected $platform;
     /**
+     * The Product ID from the AppStore.
+     *
      * @var string
      */
     protected $productId;
     /**
+     * The quantity of envelopes to add to the account.
+     *
      * @var string
      */
     protected $quantity;
     /**
+     * The encrypted Base64 encoded receipt data.
+     *
      * @var string
      */
     protected $receiptData;
     /**
+     * The name of the AppStore.
+     *
      * @var string
      */
     protected $storeName;
     /**
+     * Specifies the Transaction ID from the AppStore.
+     *
      * @var string
      */
     protected $transactionId;
 
     /**
+     * The total amount of the purchase.
+     *
      * @return string
      */
-    public function getAmount()
+    public function getAmount(): ?string
     {
         return $this->amount;
     }
 
     /**
+     * The total amount of the purchase.
+     *
      * @param string $amount
      *
      * @return self
      */
-    public function setAmount($amount = null)
+    public function setAmount(?string $amount): self
     {
         $this->amount = $amount;
 
@@ -66,19 +88,23 @@ class PurchasedEnvelopesInformation
     }
 
     /**
+     * The AppName of the client application.
+     *
      * @return string
      */
-    public function getAppName()
+    public function getAppName(): ?string
     {
         return $this->appName;
     }
 
     /**
+     * The AppName of the client application.
+     *
      * @param string $appName
      *
      * @return self
      */
-    public function setAppName($appName = null)
+    public function setAppName(?string $appName): self
     {
         $this->appName = $appName;
 
@@ -86,19 +112,23 @@ class PurchasedEnvelopesInformation
     }
 
     /**
+     * Specifies the ISO currency code of the purchase. This is based on the ISO 4217 currency code information.
+     *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
     }
 
     /**
+     * Specifies the ISO currency code of the purchase. This is based on the ISO 4217 currency code information.
+     *
      * @param string $currencyCode
      *
      * @return self
      */
-    public function setCurrencyCode($currencyCode = null)
+    public function setCurrencyCode(?string $currencyCode): self
     {
         $this->currencyCode = $currencyCode;
 
@@ -106,19 +136,23 @@ class PurchasedEnvelopesInformation
     }
 
     /**
+     * The Platform of the client application.
+     *
      * @return string
      */
-    public function getPlatform()
+    public function getPlatform(): ?string
     {
         return $this->platform;
     }
 
     /**
+     * The Platform of the client application.
+     *
      * @param string $platform
      *
      * @return self
      */
-    public function setPlatform($platform = null)
+    public function setPlatform(?string $platform): self
     {
         $this->platform = $platform;
 
@@ -126,19 +160,23 @@ class PurchasedEnvelopesInformation
     }
 
     /**
+     * The Product ID from the AppStore.
+     *
      * @return string
      */
-    public function getProductId()
+    public function getProductId(): ?string
     {
         return $this->productId;
     }
 
     /**
+     * The Product ID from the AppStore.
+     *
      * @param string $productId
      *
      * @return self
      */
-    public function setProductId($productId = null)
+    public function setProductId(?string $productId): self
     {
         $this->productId = $productId;
 
@@ -146,19 +184,23 @@ class PurchasedEnvelopesInformation
     }
 
     /**
+     * The quantity of envelopes to add to the account.
+     *
      * @return string
      */
-    public function getQuantity()
+    public function getQuantity(): ?string
     {
         return $this->quantity;
     }
 
     /**
+     * The quantity of envelopes to add to the account.
+     *
      * @param string $quantity
      *
      * @return self
      */
-    public function setQuantity($quantity = null)
+    public function setQuantity(?string $quantity): self
     {
         $this->quantity = $quantity;
 
@@ -166,19 +208,23 @@ class PurchasedEnvelopesInformation
     }
 
     /**
+     * The encrypted Base64 encoded receipt data.
+     *
      * @return string
      */
-    public function getReceiptData()
+    public function getReceiptData(): ?string
     {
         return $this->receiptData;
     }
 
     /**
+     * The encrypted Base64 encoded receipt data.
+     *
      * @param string $receiptData
      *
      * @return self
      */
-    public function setReceiptData($receiptData = null)
+    public function setReceiptData(?string $receiptData): self
     {
         $this->receiptData = $receiptData;
 
@@ -186,19 +232,23 @@ class PurchasedEnvelopesInformation
     }
 
     /**
+     * The name of the AppStore.
+     *
      * @return string
      */
-    public function getStoreName()
+    public function getStoreName(): ?string
     {
         return $this->storeName;
     }
 
     /**
+     * The name of the AppStore.
+     *
      * @param string $storeName
      *
      * @return self
      */
-    public function setStoreName($storeName = null)
+    public function setStoreName(?string $storeName): self
     {
         $this->storeName = $storeName;
 
@@ -206,19 +256,23 @@ class PurchasedEnvelopesInformation
     }
 
     /**
+     * Specifies the Transaction ID from the AppStore.
+     *
      * @return string
      */
-    public function getTransactionId()
+    public function getTransactionId(): ?string
     {
         return $this->transactionId;
     }
 
     /**
+     * Specifies the Transaction ID from the AppStore.
+     *
      * @param string $transactionId
      *
      * @return self
      */
-    public function setTransactionId($transactionId = null)
+    public function setTransactionId(?string $transactionId): self
     {
         $this->transactionId = $transactionId;
 

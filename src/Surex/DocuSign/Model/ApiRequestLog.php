@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class ApiRequestLog
 {
     /**
+     * Indicates the date and time the item was created.
+     *
      * @var string
      */
     protected $createdDateTime;
     /**
+     * A sender-defined description of the line item.
+     *
      * @var string
      */
     protected $description;
@@ -21,24 +25,33 @@ class ApiRequestLog
      */
     protected $requestLogId;
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @var string
      */
     protected $status;
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @return string
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): ?string
     {
         return $this->createdDateTime;
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @param string $createdDateTime
      *
      * @return self
      */
-    public function setCreatedDateTime($createdDateTime = null)
+    public function setCreatedDateTime(?string $createdDateTime): self
     {
         $this->createdDateTime = $createdDateTime;
 
@@ -46,19 +59,23 @@ class ApiRequestLog
     }
 
     /**
+     * A sender-defined description of the line item.
+     *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
+     * A sender-defined description of the line item.
+     *
      * @param string $description
      *
      * @return self
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -68,7 +85,7 @@ class ApiRequestLog
     /**
      * @return string
      */
-    public function getRequestLogId()
+    public function getRequestLogId(): ?string
     {
         return $this->requestLogId;
     }
@@ -78,7 +95,7 @@ class ApiRequestLog
      *
      * @return self
      */
-    public function setRequestLogId($requestLogId = null)
+    public function setRequestLogId(?string $requestLogId): self
     {
         $this->requestLogId = $requestLogId;
 
@@ -86,19 +103,29 @@ class ApiRequestLog
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @param string $status
      *
      * @return self
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 

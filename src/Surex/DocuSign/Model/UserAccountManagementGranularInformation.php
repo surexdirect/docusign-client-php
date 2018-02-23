@@ -44,7 +44,7 @@ class UserAccountManagementGranularInformation
     /**
      * @return string
      */
-    public function getCanManageAdmins()
+    public function getCanManageAdmins(): ?string
     {
         return $this->canManageAdmins;
     }
@@ -54,7 +54,7 @@ class UserAccountManagementGranularInformation
      *
      * @return self
      */
-    public function setCanManageAdmins($canManageAdmins = null)
+    public function setCanManageAdmins(?string $canManageAdmins): self
     {
         $this->canManageAdmins = $canManageAdmins;
 
@@ -64,7 +64,7 @@ class UserAccountManagementGranularInformation
     /**
      * @return SettingsMetadata
      */
-    public function getCanManageAdminsMetadata()
+    public function getCanManageAdminsMetadata(): ?SettingsMetadata
     {
         return $this->canManageAdminsMetadata;
     }
@@ -74,7 +74,7 @@ class UserAccountManagementGranularInformation
      *
      * @return self
      */
-    public function setCanManageAdminsMetadata(SettingsMetadata $canManageAdminsMetadata = null)
+    public function setCanManageAdminsMetadata(?SettingsMetadata $canManageAdminsMetadata): self
     {
         $this->canManageAdminsMetadata = $canManageAdminsMetadata;
 
@@ -84,7 +84,7 @@ class UserAccountManagementGranularInformation
     /**
      * @return string
      */
-    public function getCanManageGroups()
+    public function getCanManageGroups(): ?string
     {
         return $this->canManageGroups;
     }
@@ -94,7 +94,7 @@ class UserAccountManagementGranularInformation
      *
      * @return self
      */
-    public function setCanManageGroups($canManageGroups = null)
+    public function setCanManageGroups(?string $canManageGroups): self
     {
         $this->canManageGroups = $canManageGroups;
 
@@ -104,7 +104,7 @@ class UserAccountManagementGranularInformation
     /**
      * @return SettingsMetadata
      */
-    public function getCanManageGroupsMetadata()
+    public function getCanManageGroupsMetadata(): ?SettingsMetadata
     {
         return $this->canManageGroupsMetadata;
     }
@@ -114,7 +114,7 @@ class UserAccountManagementGranularInformation
      *
      * @return self
      */
-    public function setCanManageGroupsMetadata(SettingsMetadata $canManageGroupsMetadata = null)
+    public function setCanManageGroupsMetadata(?SettingsMetadata $canManageGroupsMetadata): self
     {
         $this->canManageGroupsMetadata = $canManageGroupsMetadata;
 
@@ -124,7 +124,7 @@ class UserAccountManagementGranularInformation
     /**
      * @return string
      */
-    public function getCanManageSharing()
+    public function getCanManageSharing(): ?string
     {
         return $this->canManageSharing;
     }
@@ -134,7 +134,7 @@ class UserAccountManagementGranularInformation
      *
      * @return self
      */
-    public function setCanManageSharing($canManageSharing = null)
+    public function setCanManageSharing(?string $canManageSharing): self
     {
         $this->canManageSharing = $canManageSharing;
 
@@ -144,7 +144,7 @@ class UserAccountManagementGranularInformation
     /**
      * @return SettingsMetadata
      */
-    public function getCanManageSharingMetadata()
+    public function getCanManageSharingMetadata(): ?SettingsMetadata
     {
         return $this->canManageSharingMetadata;
     }
@@ -154,7 +154,7 @@ class UserAccountManagementGranularInformation
      *
      * @return self
      */
-    public function setCanManageSharingMetadata(SettingsMetadata $canManageSharingMetadata = null)
+    public function setCanManageSharingMetadata(?SettingsMetadata $canManageSharingMetadata): self
     {
         $this->canManageSharingMetadata = $canManageSharingMetadata;
 
@@ -164,7 +164,7 @@ class UserAccountManagementGranularInformation
     /**
      * @return string
      */
-    public function getCanManageUsers()
+    public function getCanManageUsers(): ?string
     {
         return $this->canManageUsers;
     }
@@ -174,7 +174,7 @@ class UserAccountManagementGranularInformation
      *
      * @return self
      */
-    public function setCanManageUsers($canManageUsers = null)
+    public function setCanManageUsers(?string $canManageUsers): self
     {
         $this->canManageUsers = $canManageUsers;
 
@@ -184,7 +184,7 @@ class UserAccountManagementGranularInformation
     /**
      * @return SettingsMetadata
      */
-    public function getCanManageUsersMetadata()
+    public function getCanManageUsersMetadata(): ?SettingsMetadata
     {
         return $this->canManageUsersMetadata;
     }
@@ -194,7 +194,7 @@ class UserAccountManagementGranularInformation
      *
      * @return self
      */
-    public function setCanManageUsersMetadata(SettingsMetadata $canManageUsersMetadata = null)
+    public function setCanManageUsersMetadata(?SettingsMetadata $canManageUsersMetadata): self
     {
         $this->canManageUsersMetadata = $canManageUsersMetadata;
 

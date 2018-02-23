@@ -6,35 +6,37 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class AddressInformationInputNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class AddressInformationInputNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\AddressInformationInput' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\AddressInformationInput' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\AddressInformationInput) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\AddressInformationInput;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\AddressInformationInput();
         if (property_exists($data, 'addressInformation')) {
-            $object->setAddressInformation($this->serializer->deserialize($data->{'addressInformation'}, 'Surex\\DocuSign\\Model\\AddressInformation', 'raw', $context));
+            $object->setAddressInformation($this->denormalizer->denormalize($data->{'addressInformation'}, 'Surex\\DocuSign\\Model\\AddressInformation', 'json', $context));
         }
         if (property_exists($data, 'displayLevelCode')) {
             $object->setDisplayLevelCode($data->{'displayLevelCode'});
@@ -50,7 +52,7 @@ class AddressInformationInputNormalizer extends SerializerAwareNormalizer implem
     {
         $data = new \stdClass();
         if (null !== $object->getAddressInformation()) {
-            $data->{'addressInformation'} = $this->serializer->serialize($object->getAddressInformation(), 'raw', $context);
+            $data->{'addressInformation'} = $this->normalizer->normalize($object->getAddressInformation(), 'json', $context);
         }
         if (null !== $object->getDisplayLevelCode()) {
             $data->{'displayLevelCode'} = $object->getDisplayLevelCode();

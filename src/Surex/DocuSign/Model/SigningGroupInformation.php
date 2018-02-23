@@ -9,24 +9,30 @@ namespace Surex\DocuSign\Model;
 class SigningGroupInformation
 {
     /**
+     * A collection group objects containing information about the groups returned.
+     *
      * @var SigningGroups[]
      */
     protected $groups;
 
     /**
+     * A collection group objects containing information about the groups returned.
+     *
      * @return SigningGroups[]
      */
-    public function getGroups()
+    public function getGroups(): ?array
     {
         return $this->groups;
     }
 
     /**
+     * A collection group objects containing information about the groups returned.
+     *
      * @param SigningGroups[] $groups
      *
      * @return self
      */
-    public function setGroups(array $groups = null)
+    public function setGroups(?array $groups): self
     {
         $this->groups = $groups;
 

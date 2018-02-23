@@ -17,6 +17,8 @@ class UserInfo
      */
     protected $email;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -33,6 +35,8 @@ class UserInfo
      */
     protected $uri;
     /**
+     * The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+     *
      * @var string
      */
     protected $userId;
@@ -52,7 +56,7 @@ class UserInfo
     /**
      * @return string
      */
-    public function getActivationAccessCode()
+    public function getActivationAccessCode(): ?string
     {
         return $this->activationAccessCode;
     }
@@ -62,7 +66,7 @@ class UserInfo
      *
      * @return self
      */
-    public function setActivationAccessCode($activationAccessCode = null)
+    public function setActivationAccessCode(?string $activationAccessCode): self
     {
         $this->activationAccessCode = $activationAccessCode;
 
@@ -72,7 +76,7 @@ class UserInfo
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -82,7 +86,7 @@ class UserInfo
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -90,19 +94,23 @@ class UserInfo
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -112,7 +120,7 @@ class UserInfo
     /**
      * @return string
      */
-    public function getLoginStatus()
+    public function getLoginStatus(): ?string
     {
         return $this->loginStatus;
     }
@@ -122,7 +130,7 @@ class UserInfo
      *
      * @return self
      */
-    public function setLoginStatus($loginStatus = null)
+    public function setLoginStatus(?string $loginStatus): self
     {
         $this->loginStatus = $loginStatus;
 
@@ -132,7 +140,7 @@ class UserInfo
     /**
      * @return string
      */
-    public function getSendActivationEmail()
+    public function getSendActivationEmail(): ?string
     {
         return $this->sendActivationEmail;
     }
@@ -142,7 +150,7 @@ class UserInfo
      *
      * @return self
      */
-    public function setSendActivationEmail($sendActivationEmail = null)
+    public function setSendActivationEmail(?string $sendActivationEmail): self
     {
         $this->sendActivationEmail = $sendActivationEmail;
 
@@ -152,7 +160,7 @@ class UserInfo
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -162,7 +170,7 @@ class UserInfo
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 
@@ -170,19 +178,23 @@ class UserInfo
     }
 
     /**
+     * The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+     *
      * @return string
      */
-    public function getUserId()
+    public function getUserId(): ?string
     {
         return $this->userId;
     }
 
     /**
+     * The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+     *
      * @param string $userId
      *
      * @return self
      */
-    public function setUserId($userId = null)
+    public function setUserId(?string $userId): self
     {
         $this->userId = $userId;
 
@@ -192,7 +204,7 @@ class UserInfo
     /**
      * @return string
      */
-    public function getUserName()
+    public function getUserName(): ?string
     {
         return $this->userName;
     }
@@ -202,7 +214,7 @@ class UserInfo
      *
      * @return self
      */
-    public function setUserName($userName = null)
+    public function setUserName(?string $userName): self
     {
         $this->userName = $userName;
 
@@ -212,7 +224,7 @@ class UserInfo
     /**
      * @return string
      */
-    public function getUserStatus()
+    public function getUserStatus(): ?string
     {
         return $this->userStatus;
     }
@@ -222,7 +234,7 @@ class UserInfo
      *
      * @return self
      */
-    public function setUserStatus($userStatus = null)
+    public function setUserStatus(?string $userStatus): self
     {
         $this->userStatus = $userStatus;
 
@@ -232,7 +244,7 @@ class UserInfo
     /**
      * @return string
      */
-    public function getUserType()
+    public function getUserType(): ?string
     {
         return $this->userType;
     }
@@ -242,7 +254,7 @@ class UserInfo
      *
      * @return self
      */
-    public function setUserType($userType = null)
+    public function setUserType(?string $userType): self
     {
         $this->userType = $userType;
 

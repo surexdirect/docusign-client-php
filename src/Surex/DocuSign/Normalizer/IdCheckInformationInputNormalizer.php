@@ -6,44 +6,46 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class IdCheckInformationInputNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class IdCheckInformationInputNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\IdCheckInformationInput' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\IdCheckInformationInput' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\IdCheckInformationInput) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\IdCheckInformationInput;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\IdCheckInformationInput();
         if (property_exists($data, 'addressInformationInput')) {
-            $object->setAddressInformationInput($this->serializer->deserialize($data->{'addressInformationInput'}, 'Surex\\DocuSign\\Model\\AddressInformationInput', 'raw', $context));
+            $object->setAddressInformationInput($this->denormalizer->denormalize($data->{'addressInformationInput'}, 'Surex\\DocuSign\\Model\\AddressInformationInput', 'json', $context));
         }
         if (property_exists($data, 'dobInformationInput')) {
-            $object->setDobInformationInput($this->serializer->deserialize($data->{'dobInformationInput'}, 'Surex\\DocuSign\\Model\\DobInformationInput', 'raw', $context));
+            $object->setDobInformationInput($this->denormalizer->denormalize($data->{'dobInformationInput'}, 'Surex\\DocuSign\\Model\\DobInformationInput', 'json', $context));
         }
         if (property_exists($data, 'ssn4InformationInput')) {
-            $object->setSsn4InformationInput($this->serializer->deserialize($data->{'ssn4InformationInput'}, 'Surex\\DocuSign\\Model\\Ssn4InformationInput', 'raw', $context));
+            $object->setSsn4InformationInput($this->denormalizer->denormalize($data->{'ssn4InformationInput'}, 'Surex\\DocuSign\\Model\\Ssn4InformationInput', 'json', $context));
         }
         if (property_exists($data, 'ssn9InformationInput')) {
-            $object->setSsn9InformationInput($this->serializer->deserialize($data->{'ssn9InformationInput'}, 'Surex\\DocuSign\\Model\\Ssn9InformationInput', 'raw', $context));
+            $object->setSsn9InformationInput($this->denormalizer->denormalize($data->{'ssn9InformationInput'}, 'Surex\\DocuSign\\Model\\Ssn9InformationInput', 'json', $context));
         }
 
         return $object;
@@ -53,16 +55,16 @@ class IdCheckInformationInputNormalizer extends SerializerAwareNormalizer implem
     {
         $data = new \stdClass();
         if (null !== $object->getAddressInformationInput()) {
-            $data->{'addressInformationInput'} = $this->serializer->serialize($object->getAddressInformationInput(), 'raw', $context);
+            $data->{'addressInformationInput'} = $this->normalizer->normalize($object->getAddressInformationInput(), 'json', $context);
         }
         if (null !== $object->getDobInformationInput()) {
-            $data->{'dobInformationInput'} = $this->serializer->serialize($object->getDobInformationInput(), 'raw', $context);
+            $data->{'dobInformationInput'} = $this->normalizer->normalize($object->getDobInformationInput(), 'json', $context);
         }
         if (null !== $object->getSsn4InformationInput()) {
-            $data->{'ssn4InformationInput'} = $this->serializer->serialize($object->getSsn4InformationInput(), 'raw', $context);
+            $data->{'ssn4InformationInput'} = $this->normalizer->normalize($object->getSsn4InformationInput(), 'json', $context);
         }
         if (null !== $object->getSsn9InformationInput()) {
-            $data->{'ssn9InformationInput'} = $this->serializer->serialize($object->getSsn9InformationInput(), 'raw', $context);
+            $data->{'ssn9InformationInput'} = $this->normalizer->normalize($object->getSsn9InformationInput(), 'json', $context);
         }
 
         return $data;

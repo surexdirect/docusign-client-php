@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class WorkspaceUserAuthorizationNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class WorkspaceUserAuthorizationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\WorkspaceUserAuthorization' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\WorkspaceUserAuthorization' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\WorkspaceUserAuthorization) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\WorkspaceUserAuthorization;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\WorkspaceUserAuthorization();
         if (property_exists($data, 'canDelete')) {
             $object->setCanDelete($data->{'canDelete'});
@@ -52,7 +54,7 @@ class WorkspaceUserAuthorizationNormalizer extends SerializerAwareNormalizer imp
             $object->setCreatedById($data->{'createdById'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'modified')) {
             $object->setModified($data->{'modified'});
@@ -64,7 +66,7 @@ class WorkspaceUserAuthorizationNormalizer extends SerializerAwareNormalizer imp
             $object->setWorkspaceUserId($data->{'workspaceUserId'});
         }
         if (property_exists($data, 'workspaceUserInformation')) {
-            $object->setWorkspaceUserInformation($this->serializer->deserialize($data->{'workspaceUserInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'raw', $context));
+            $object->setWorkspaceUserInformation($this->denormalizer->denormalize($data->{'workspaceUserInformation'}, 'Surex\\DocuSign\\Model\\WorkspaceUser', 'json', $context));
         }
 
         return $object;
@@ -92,7 +94,7 @@ class WorkspaceUserAuthorizationNormalizer extends SerializerAwareNormalizer imp
             $data->{'createdById'} = $object->getCreatedById();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getModified()) {
             $data->{'modified'} = $object->getModified();
@@ -104,7 +106,7 @@ class WorkspaceUserAuthorizationNormalizer extends SerializerAwareNormalizer imp
             $data->{'workspaceUserId'} = $object->getWorkspaceUserId();
         }
         if (null !== $object->getWorkspaceUserInformation()) {
-            $data->{'workspaceUserInformation'} = $this->serializer->serialize($object->getWorkspaceUserInformation(), 'raw', $context);
+            $data->{'workspaceUserInformation'} = $this->normalizer->normalize($object->getWorkspaceUserInformation(), 'json', $context);
         }
 
         return $data;

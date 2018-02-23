@@ -24,7 +24,7 @@ class PaymentGatewayAccounts
     /**
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): ?string
     {
         return $this->displayName;
     }
@@ -34,7 +34,7 @@ class PaymentGatewayAccounts
      *
      * @return self
      */
-    public function setDisplayName($displayName = null)
+    public function setDisplayName(?string $displayName): self
     {
         $this->displayName = $displayName;
 
@@ -44,7 +44,7 @@ class PaymentGatewayAccounts
     /**
      * @return string
      */
-    public function getPaymentGateway()
+    public function getPaymentGateway(): ?string
     {
         return $this->paymentGateway;
     }
@@ -54,7 +54,7 @@ class PaymentGatewayAccounts
      *
      * @return self
      */
-    public function setPaymentGateway($paymentGateway = null)
+    public function setPaymentGateway(?string $paymentGateway): self
     {
         $this->paymentGateway = $paymentGateway;
 
@@ -64,7 +64,7 @@ class PaymentGatewayAccounts
     /**
      * @return string
      */
-    public function getPaymentGatewayAccountId()
+    public function getPaymentGatewayAccountId(): ?string
     {
         return $this->paymentGatewayAccountId;
     }
@@ -74,7 +74,7 @@ class PaymentGatewayAccounts
      *
      * @return self
      */
-    public function setPaymentGatewayAccountId($paymentGatewayAccountId = null)
+    public function setPaymentGatewayAccountId(?string $paymentGatewayAccountId): self
     {
         $this->paymentGatewayAccountId = $paymentGatewayAccountId;
 

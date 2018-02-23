@@ -20,7 +20,7 @@ class AccountMinimumPasswordLength
     /**
      * @return string
      */
-    public function getMaximumLength()
+    public function getMaximumLength(): ?string
     {
         return $this->maximumLength;
     }
@@ -30,7 +30,7 @@ class AccountMinimumPasswordLength
      *
      * @return self
      */
-    public function setMaximumLength($maximumLength = null)
+    public function setMaximumLength(?string $maximumLength): self
     {
         $this->maximumLength = $maximumLength;
 
@@ -40,7 +40,7 @@ class AccountMinimumPasswordLength
     /**
      * @return string
      */
-    public function getMinimumLength()
+    public function getMinimumLength(): ?string
     {
         return $this->minimumLength;
     }
@@ -50,7 +50,7 @@ class AccountMinimumPasswordLength
      *
      * @return self
      */
-    public function setMinimumLength($minimumLength = null)
+    public function setMinimumLength(?string $minimumLength): self
     {
         $this->minimumLength = $minimumLength;
 

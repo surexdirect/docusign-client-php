@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class ContactsNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class ContactsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\Contacts' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\Contacts' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\Contacts) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\Contacts;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\Contacts();
         if (property_exists($data, 'contactId')) {
             $object->setContactId($data->{'contactId'});
@@ -39,7 +41,7 @@ class ContactsNormalizer extends SerializerAwareNormalizer implements Denormaliz
         if (property_exists($data, 'contactPhoneNumbers')) {
             $values = [];
             foreach ($data->{'contactPhoneNumbers'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\ContactPhoneNumber', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\ContactPhoneNumber', 'json', $context);
             }
             $object->setContactPhoneNumbers($values);
         }
@@ -54,7 +56,7 @@ class ContactsNormalizer extends SerializerAwareNormalizer implements Denormaliz
             $object->setEmails($values_1);
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'name')) {
             $object->setName($data->{'name'});
@@ -84,7 +86,7 @@ class ContactsNormalizer extends SerializerAwareNormalizer implements Denormaliz
         if (null !== $object->getContactPhoneNumbers()) {
             $values = [];
             foreach ($object->getContactPhoneNumbers() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'contactPhoneNumbers'} = $values;
         }
@@ -99,7 +101,7 @@ class ContactsNormalizer extends SerializerAwareNormalizer implements Denormaliz
             $data->{'emails'} = $values_1;
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();

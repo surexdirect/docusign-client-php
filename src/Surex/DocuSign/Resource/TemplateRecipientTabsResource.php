@@ -57,7 +57,7 @@ class TemplateRecipientTabsResource extends Resource
      * @param string $templateId  the ID of the template being accessed
      * @param array  $parameters  {
      *
-     *     @var string $include_anchor_tab_locations When set to **true**, all tabs with anchor tab properties are included in the response.
+     *     @var string $include_anchor_tab_locations when set to **true**, all tabs with anchor tab properties are included in the response
      *     @var string $include_metadata Reserved for DocuSign.
      * }
      *

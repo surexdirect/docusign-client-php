@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EnvelopeDocumentNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EnvelopeDocumentNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EnvelopeDocument' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EnvelopeDocument' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EnvelopeDocument) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EnvelopeDocument;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EnvelopeDocument();
         if (property_exists($data, 'attachmentTabId')) {
             $object->setAttachmentTabId($data->{'attachmentTabId'});
@@ -39,7 +41,7 @@ class EnvelopeDocumentNormalizer extends SerializerAwareNormalizer implements De
         if (property_exists($data, 'availableDocumentTypes')) {
             $values = [];
             foreach ($data->{'availableDocumentTypes'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\SignatureType', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\SignatureType', 'json', $context);
             }
             $object->setAvailableDocumentTypes($values);
         }
@@ -52,7 +54,7 @@ class EnvelopeDocumentNormalizer extends SerializerAwareNormalizer implements De
         if (property_exists($data, 'documentFields')) {
             $values_1 = [];
             foreach ($data->{'documentFields'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\NameValue', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\NameValue', 'json', $context);
             }
             $object->setDocumentFields($values_1);
         }
@@ -63,7 +65,7 @@ class EnvelopeDocumentNormalizer extends SerializerAwareNormalizer implements De
             $object->setDocumentId($data->{'documentId'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'includeInDownload')) {
             $object->setIncludeInDownload($data->{'includeInDownload'});
@@ -99,7 +101,7 @@ class EnvelopeDocumentNormalizer extends SerializerAwareNormalizer implements De
         if (null !== $object->getAvailableDocumentTypes()) {
             $values = [];
             foreach ($object->getAvailableDocumentTypes() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'availableDocumentTypes'} = $values;
         }
@@ -112,7 +114,7 @@ class EnvelopeDocumentNormalizer extends SerializerAwareNormalizer implements De
         if (null !== $object->getDocumentFields()) {
             $values_1 = [];
             foreach ($object->getDocumentFields() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'documentFields'} = $values_1;
         }
@@ -123,7 +125,7 @@ class EnvelopeDocumentNormalizer extends SerializerAwareNormalizer implements De
             $data->{'documentId'} = $object->getDocumentId();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getIncludeInDownload()) {
             $data->{'includeInDownload'} = $object->getIncludeInDownload();

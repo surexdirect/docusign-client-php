@@ -9,18 +9,26 @@ namespace Surex\DocuSign\Model;
 class Services
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $buildBranch;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $buildBranchDeployedDateTime;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $buildSHA;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $buildVersion;
@@ -34,19 +42,23 @@ class Services
     protected $serviceVersions;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBuildBranch()
+    public function getBuildBranch(): ?string
     {
         return $this->buildBranch;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $buildBranch
      *
      * @return self
      */
-    public function setBuildBranch($buildBranch = null)
+    public function setBuildBranch(?string $buildBranch): self
     {
         $this->buildBranch = $buildBranch;
 
@@ -54,19 +66,23 @@ class Services
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBuildBranchDeployedDateTime()
+    public function getBuildBranchDeployedDateTime(): ?string
     {
         return $this->buildBranchDeployedDateTime;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $buildBranchDeployedDateTime
      *
      * @return self
      */
-    public function setBuildBranchDeployedDateTime($buildBranchDeployedDateTime = null)
+    public function setBuildBranchDeployedDateTime(?string $buildBranchDeployedDateTime): self
     {
         $this->buildBranchDeployedDateTime = $buildBranchDeployedDateTime;
 
@@ -74,19 +90,23 @@ class Services
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBuildSHA()
+    public function getBuildSHA(): ?string
     {
         return $this->buildSHA;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $buildSHA
      *
      * @return self
      */
-    public function setBuildSHA($buildSHA = null)
+    public function setBuildSHA(?string $buildSHA): self
     {
         $this->buildSHA = $buildSHA;
 
@@ -94,19 +114,23 @@ class Services
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBuildVersion()
+    public function getBuildVersion(): ?string
     {
         return $this->buildVersion;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $buildVersion
      *
      * @return self
      */
-    public function setBuildVersion($buildVersion = null)
+    public function setBuildVersion(?string $buildVersion): self
     {
         $this->buildVersion = $buildVersion;
 
@@ -116,7 +140,7 @@ class Services
     /**
      * @return string[]
      */
-    public function getLinkedSites()
+    public function getLinkedSites(): ?array
     {
         return $this->linkedSites;
     }
@@ -126,7 +150,7 @@ class Services
      *
      * @return self
      */
-    public function setLinkedSites(array $linkedSites = null)
+    public function setLinkedSites(?array $linkedSites): self
     {
         $this->linkedSites = $linkedSites;
 
@@ -136,7 +160,7 @@ class Services
     /**
      * @return ServiceVersion[]
      */
-    public function getServiceVersions()
+    public function getServiceVersions(): ?array
     {
         return $this->serviceVersions;
     }
@@ -146,7 +170,7 @@ class Services
      *
      * @return self
      */
-    public function setServiceVersions(array $serviceVersions = null)
+    public function setServiceVersions(?array $serviceVersions): self
     {
         $this->serviceVersions = $serviceVersions;
 

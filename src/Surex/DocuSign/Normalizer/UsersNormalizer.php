@@ -6,35 +6,37 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class UsersNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\Users' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\Users' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\Users) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\Users;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\Users();
         if (property_exists($data, 'accountManagementGranular')) {
-            $object->setAccountManagementGranular($this->serializer->deserialize($data->{'accountManagementGranular'}, 'Surex\\DocuSign\\Model\\UserAccountManagementGranularInformation', 'raw', $context));
+            $object->setAccountManagementGranular($this->denormalizer->denormalize($data->{'accountManagementGranular'}, 'Surex\\DocuSign\\Model\\UserAccountManagementGranularInformation', 'json', $context));
         }
         if (property_exists($data, 'activationAccessCode')) {
             $object->setActivationAccessCode($data->{'activationAccessCode'});
@@ -45,7 +47,7 @@ class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerI
         if (property_exists($data, 'customSettings')) {
             $values = [];
             foreach ($data->{'customSettings'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\NameValue', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\NameValue', 'json', $context);
             }
             $object->setCustomSettings($values);
         }
@@ -56,23 +58,23 @@ class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerI
             $object->setEnableConnectForUser($data->{'enableConnectForUser'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'firstName')) {
             $object->setFirstName($data->{'firstName'});
         }
         if (property_exists($data, 'forgottenPasswordInfo')) {
-            $object->setForgottenPasswordInfo($this->serializer->deserialize($data->{'forgottenPasswordInfo'}, 'Surex\\DocuSign\\Model\\ForgottenPasswordInformation', 'raw', $context));
+            $object->setForgottenPasswordInfo($this->denormalizer->denormalize($data->{'forgottenPasswordInfo'}, 'Surex\\DocuSign\\Model\\ForgottenPasswordInformation', 'json', $context));
         }
         if (property_exists($data, 'groupList')) {
             $values_1 = [];
             foreach ($data->{'groupList'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\Group', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\Group', 'json', $context);
             }
             $object->setGroupList($values_1);
         }
         if (property_exists($data, 'homeAddress')) {
-            $object->setHomeAddress($this->serializer->deserialize($data->{'homeAddress'}, 'Surex\\DocuSign\\Model\\AddressInformationV2', 'raw', $context));
+            $object->setHomeAddress($this->denormalizer->denormalize($data->{'homeAddress'}, 'Surex\\DocuSign\\Model\\AddressInformationV2', 'json', $context));
         }
         if (property_exists($data, 'initialsImageUri')) {
             $object->setInitialsImageUri($data->{'initialsImageUri'});
@@ -134,7 +136,7 @@ class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerI
         if (property_exists($data, 'userSettings')) {
             $values_2 = [];
             foreach ($data->{'userSettings'} as $value_2) {
-                $values_2[] = $this->serializer->deserialize($value_2, 'Surex\\DocuSign\\Model\\NameValue', 'raw', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Surex\\DocuSign\\Model\\NameValue', 'json', $context);
             }
             $object->setUserSettings($values_2);
         }
@@ -145,7 +147,7 @@ class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerI
             $object->setUserType($data->{'userType'});
         }
         if (property_exists($data, 'workAddress')) {
-            $object->setWorkAddress($this->serializer->deserialize($data->{'workAddress'}, 'Surex\\DocuSign\\Model\\AddressInformationV2', 'raw', $context));
+            $object->setWorkAddress($this->denormalizer->denormalize($data->{'workAddress'}, 'Surex\\DocuSign\\Model\\AddressInformationV2', 'json', $context));
         }
 
         return $object;
@@ -155,7 +157,7 @@ class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerI
     {
         $data = new \stdClass();
         if (null !== $object->getAccountManagementGranular()) {
-            $data->{'accountManagementGranular'} = $this->serializer->serialize($object->getAccountManagementGranular(), 'raw', $context);
+            $data->{'accountManagementGranular'} = $this->normalizer->normalize($object->getAccountManagementGranular(), 'json', $context);
         }
         if (null !== $object->getActivationAccessCode()) {
             $data->{'activationAccessCode'} = $object->getActivationAccessCode();
@@ -166,7 +168,7 @@ class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerI
         if (null !== $object->getCustomSettings()) {
             $values = [];
             foreach ($object->getCustomSettings() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'customSettings'} = $values;
         }
@@ -177,23 +179,23 @@ class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerI
             $data->{'enableConnectForUser'} = $object->getEnableConnectForUser();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getFirstName()) {
             $data->{'firstName'} = $object->getFirstName();
         }
         if (null !== $object->getForgottenPasswordInfo()) {
-            $data->{'forgottenPasswordInfo'} = $this->serializer->serialize($object->getForgottenPasswordInfo(), 'raw', $context);
+            $data->{'forgottenPasswordInfo'} = $this->normalizer->normalize($object->getForgottenPasswordInfo(), 'json', $context);
         }
         if (null !== $object->getGroupList()) {
             $values_1 = [];
             foreach ($object->getGroupList() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'groupList'} = $values_1;
         }
         if (null !== $object->getHomeAddress()) {
-            $data->{'homeAddress'} = $this->serializer->serialize($object->getHomeAddress(), 'raw', $context);
+            $data->{'homeAddress'} = $this->normalizer->normalize($object->getHomeAddress(), 'json', $context);
         }
         if (null !== $object->getInitialsImageUri()) {
             $data->{'initialsImageUri'} = $object->getInitialsImageUri();
@@ -255,7 +257,7 @@ class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerI
         if (null !== $object->getUserSettings()) {
             $values_2 = [];
             foreach ($object->getUserSettings() as $value_2) {
-                $values_2[] = $this->serializer->serialize($value_2, 'raw', $context);
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data->{'userSettings'} = $values_2;
         }
@@ -266,7 +268,7 @@ class UsersNormalizer extends SerializerAwareNormalizer implements DenormalizerI
             $data->{'userType'} = $object->getUserType();
         }
         if (null !== $object->getWorkAddress()) {
-            $data->{'workAddress'} = $this->serializer->serialize($object->getWorkAddress(), 'raw', $context);
+            $data->{'workAddress'} = $this->normalizer->normalize($object->getWorkAddress(), 'json', $context);
         }
 
         return $data;

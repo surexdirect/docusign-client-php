@@ -16,7 +16,7 @@ class PaymentGatewayAccountsInfo
     /**
      * @return PaymentGatewayAccounts[]
      */
-    public function getPaymentGatewayAccounts()
+    public function getPaymentGatewayAccounts(): ?array
     {
         return $this->paymentGatewayAccounts;
     }
@@ -26,7 +26,7 @@ class PaymentGatewayAccountsInfo
      *
      * @return self
      */
-    public function setPaymentGatewayAccounts(array $paymentGatewayAccounts = null)
+    public function setPaymentGatewayAccounts(?array $paymentGatewayAccounts): self
     {
         $this->paymentGatewayAccounts = $paymentGatewayAccounts;
 

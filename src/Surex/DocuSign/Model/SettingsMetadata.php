@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class SettingsMetadata
 {
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @var string
      */
     protected $is21CFRPart11;
@@ -34,19 +36,23 @@ class SettingsMetadata
     protected $uiType;
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @return string
      */
-    public function getIs21CFRPart11()
+    public function getIs21CFRPart11(): ?string
     {
         return $this->is21CFRPart11;
     }
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @param string $is21CFRPart11
      *
      * @return self
      */
-    public function setIs21CFRPart11($is21CFRPart11 = null)
+    public function setIs21CFRPart11(?string $is21CFRPart11): self
     {
         $this->is21CFRPart11 = $is21CFRPart11;
 
@@ -56,7 +62,7 @@ class SettingsMetadata
     /**
      * @return string[]
      */
-    public function getOptions()
+    public function getOptions(): ?array
     {
         return $this->options;
     }
@@ -66,7 +72,7 @@ class SettingsMetadata
      *
      * @return self
      */
-    public function setOptions(array $options = null)
+    public function setOptions(?array $options): self
     {
         $this->options = $options;
 
@@ -76,7 +82,7 @@ class SettingsMetadata
     /**
      * @return string
      */
-    public function getRights()
+    public function getRights(): ?string
     {
         return $this->rights;
     }
@@ -86,7 +92,7 @@ class SettingsMetadata
      *
      * @return self
      */
-    public function setRights($rights = null)
+    public function setRights(?string $rights): self
     {
         $this->rights = $rights;
 
@@ -96,7 +102,7 @@ class SettingsMetadata
     /**
      * @return string
      */
-    public function getUiHint()
+    public function getUiHint(): ?string
     {
         return $this->uiHint;
     }
@@ -106,7 +112,7 @@ class SettingsMetadata
      *
      * @return self
      */
-    public function setUiHint($uiHint = null)
+    public function setUiHint(?string $uiHint): self
     {
         $this->uiHint = $uiHint;
 
@@ -116,7 +122,7 @@ class SettingsMetadata
     /**
      * @return string
      */
-    public function getUiOrder()
+    public function getUiOrder(): ?string
     {
         return $this->uiOrder;
     }
@@ -126,7 +132,7 @@ class SettingsMetadata
      *
      * @return self
      */
-    public function setUiOrder($uiOrder = null)
+    public function setUiOrder(?string $uiOrder): self
     {
         $this->uiOrder = $uiOrder;
 
@@ -136,7 +142,7 @@ class SettingsMetadata
     /**
      * @return string
      */
-    public function getUiType()
+    public function getUiType(): ?string
     {
         return $this->uiType;
     }
@@ -146,7 +152,7 @@ class SettingsMetadata
      *
      * @return self
      */
-    public function setUiType($uiType = null)
+    public function setUiType(?string $uiType): self
     {
         $this->uiType = $uiType;
 

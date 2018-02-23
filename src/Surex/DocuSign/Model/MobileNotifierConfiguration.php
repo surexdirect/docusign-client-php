@@ -13,10 +13,14 @@ class MobileNotifierConfiguration
      */
     protected $deviceId;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
     /**
+     * The Platform of the client application.
+     *
      * @var string
      */
     protected $platform;
@@ -24,7 +28,7 @@ class MobileNotifierConfiguration
     /**
      * @return string
      */
-    public function getDeviceId()
+    public function getDeviceId(): ?string
     {
         return $this->deviceId;
     }
@@ -34,7 +38,7 @@ class MobileNotifierConfiguration
      *
      * @return self
      */
-    public function setDeviceId($deviceId = null)
+    public function setDeviceId(?string $deviceId): self
     {
         $this->deviceId = $deviceId;
 
@@ -42,19 +46,23 @@ class MobileNotifierConfiguration
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -62,19 +70,23 @@ class MobileNotifierConfiguration
     }
 
     /**
+     * The Platform of the client application.
+     *
      * @return string
      */
-    public function getPlatform()
+    public function getPlatform(): ?string
     {
         return $this->platform;
     }
 
     /**
+     * The Platform of the client application.
+     *
      * @param string $platform
      *
      * @return self
      */
-    public function setPlatform($platform = null)
+    public function setPlatform(?string $platform): self
     {
         $this->platform = $platform;
 

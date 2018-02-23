@@ -32,7 +32,7 @@ class ENoteConfigurations
     /**
      * @return string
      */
-    public function getConnectConfigured()
+    public function getConnectConfigured(): ?string
     {
         return $this->connectConfigured;
     }
@@ -42,7 +42,7 @@ class ENoteConfigurations
      *
      * @return self
      */
-    public function setConnectConfigured($connectConfigured = null)
+    public function setConnectConfigured(?string $connectConfigured): self
     {
         $this->connectConfigured = $connectConfigured;
 
@@ -52,7 +52,7 @@ class ENoteConfigurations
     /**
      * @return string
      */
-    public function getENoteConfigured()
+    public function getENoteConfigured(): ?string
     {
         return $this->eNoteConfigured;
     }
@@ -62,7 +62,7 @@ class ENoteConfigurations
      *
      * @return self
      */
-    public function setENoteConfigured($eNoteConfigured = null)
+    public function setENoteConfigured(?string $eNoteConfigured): self
     {
         $this->eNoteConfigured = $eNoteConfigured;
 
@@ -72,7 +72,7 @@ class ENoteConfigurations
     /**
      * @return string
      */
-    public function getOrganization()
+    public function getOrganization(): ?string
     {
         return $this->organization;
     }
@@ -82,7 +82,7 @@ class ENoteConfigurations
      *
      * @return self
      */
-    public function setOrganization($organization = null)
+    public function setOrganization(?string $organization): self
     {
         $this->organization = $organization;
 
@@ -92,7 +92,7 @@ class ENoteConfigurations
     /**
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -102,7 +102,7 @@ class ENoteConfigurations
      *
      * @return self
      */
-    public function setPassword($password = null)
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
 
@@ -112,7 +112,7 @@ class ENoteConfigurations
     /**
      * @return string
      */
-    public function getUserName()
+    public function getUserName(): ?string
     {
         return $this->userName;
     }
@@ -122,7 +122,7 @@ class ENoteConfigurations
      *
      * @return self
      */
-    public function setUserName($userName = null)
+    public function setUserName(?string $userName): self
     {
         $this->userName = $userName;
 

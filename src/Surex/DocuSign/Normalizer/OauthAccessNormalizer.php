@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class OauthAccessNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class OauthAccessNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\OauthAccess' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\OauthAccess' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\OauthAccess) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\OauthAccess;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\OauthAccess();
         if (property_exists($data, 'access_token')) {
             $object->setAccessToken($data->{'access_token'});
@@ -39,7 +41,7 @@ class OauthAccessNormalizer extends SerializerAwareNormalizer implements Denorma
         if (property_exists($data, 'data')) {
             $values = [];
             foreach ($data->{'data'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\NameValue', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\NameValue', 'json', $context);
             }
             $object->setData($values);
         }
@@ -68,7 +70,7 @@ class OauthAccessNormalizer extends SerializerAwareNormalizer implements Denorma
         if (null !== $object->getData()) {
             $values = [];
             foreach ($object->getData() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'data'} = $values;
         }

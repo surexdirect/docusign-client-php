@@ -24,7 +24,7 @@ class AccountSignatureProviderOption
     /**
      * @return string
      */
-    public function getSignatureProviderOptionDisplayName()
+    public function getSignatureProviderOptionDisplayName(): ?string
     {
         return $this->signatureProviderOptionDisplayName;
     }
@@ -34,7 +34,7 @@ class AccountSignatureProviderOption
      *
      * @return self
      */
-    public function setSignatureProviderOptionDisplayName($signatureProviderOptionDisplayName = null)
+    public function setSignatureProviderOptionDisplayName(?string $signatureProviderOptionDisplayName): self
     {
         $this->signatureProviderOptionDisplayName = $signatureProviderOptionDisplayName;
 
@@ -44,7 +44,7 @@ class AccountSignatureProviderOption
     /**
      * @return string
      */
-    public function getSignatureProviderOptionId()
+    public function getSignatureProviderOptionId(): ?string
     {
         return $this->signatureProviderOptionId;
     }
@@ -54,7 +54,7 @@ class AccountSignatureProviderOption
      *
      * @return self
      */
-    public function setSignatureProviderOptionId($signatureProviderOptionId = null)
+    public function setSignatureProviderOptionId(?string $signatureProviderOptionId): self
     {
         $this->signatureProviderOptionId = $signatureProviderOptionId;
 
@@ -64,7 +64,7 @@ class AccountSignatureProviderOption
     /**
      * @return string
      */
-    public function getSignatureProviderOptionName()
+    public function getSignatureProviderOptionName(): ?string
     {
         return $this->signatureProviderOptionName;
     }
@@ -74,7 +74,7 @@ class AccountSignatureProviderOption
      *
      * @return self
      */
-    public function setSignatureProviderOptionName($signatureProviderOptionName = null)
+    public function setSignatureProviderOptionName(?string $signatureProviderOptionName): self
     {
         $this->signatureProviderOptionName = $signatureProviderOptionName;
 

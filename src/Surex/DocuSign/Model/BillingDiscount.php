@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class BillingDiscount
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $beginQuantity;
@@ -22,19 +24,23 @@ class BillingDiscount
     protected $endQuantity;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBeginQuantity()
+    public function getBeginQuantity(): ?string
     {
         return $this->beginQuantity;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $beginQuantity
      *
      * @return self
      */
-    public function setBeginQuantity($beginQuantity = null)
+    public function setBeginQuantity(?string $beginQuantity): self
     {
         $this->beginQuantity = $beginQuantity;
 
@@ -44,7 +50,7 @@ class BillingDiscount
     /**
      * @return string
      */
-    public function getDiscount()
+    public function getDiscount(): ?string
     {
         return $this->discount;
     }
@@ -54,7 +60,7 @@ class BillingDiscount
      *
      * @return self
      */
-    public function setDiscount($discount = null)
+    public function setDiscount(?string $discount): self
     {
         $this->discount = $discount;
 
@@ -64,7 +70,7 @@ class BillingDiscount
     /**
      * @return string
      */
-    public function getEndQuantity()
+    public function getEndQuantity(): ?string
     {
         return $this->endQuantity;
     }
@@ -74,7 +80,7 @@ class BillingDiscount
      *
      * @return self
      */
-    public function setEndQuantity($endQuantity = null)
+    public function setEndQuantity(?string $endQuantity): self
     {
         $this->endQuantity = $endQuantity;
 

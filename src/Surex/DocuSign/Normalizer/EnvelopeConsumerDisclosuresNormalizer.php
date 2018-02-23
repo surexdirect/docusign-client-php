@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EnvelopeConsumerDisclosuresNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EnvelopeConsumerDisclosuresNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EnvelopeConsumerDisclosures' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EnvelopeConsumerDisclosures' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EnvelopeConsumerDisclosures) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EnvelopeConsumerDisclosures;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EnvelopeConsumerDisclosures();
         if (property_exists($data, 'accountEsignId')) {
             $object->setAccountEsignId($data->{'accountEsignId'});
@@ -40,7 +42,7 @@ class EnvelopeConsumerDisclosuresNormalizer extends SerializerAwareNormalizer im
             $object->setAllowCDWithdraw($data->{'allowCDWithdraw'});
         }
         if (property_exists($data, 'allowCDWithdrawMetadata')) {
-            $object->setAllowCDWithdrawMetadata($this->serializer->deserialize($data->{'allowCDWithdrawMetadata'}, 'Surex\\DocuSign\\Model\\SettingsMetadata', 'raw', $context));
+            $object->setAllowCDWithdrawMetadata($this->denormalizer->denormalize($data->{'allowCDWithdrawMetadata'}, 'Surex\\DocuSign\\Model\\SettingsMetadata', 'json', $context));
         }
         if (property_exists($data, 'changeEmail')) {
             $object->setChangeEmail($data->{'changeEmail'});
@@ -91,7 +93,7 @@ class EnvelopeConsumerDisclosuresNormalizer extends SerializerAwareNormalizer im
             $object->setUseConsumerDisclosureWithinAccount($data->{'useConsumerDisclosureWithinAccount'});
         }
         if (property_exists($data, 'useConsumerDisclosureWithinAccountMetadata')) {
-            $object->setUseConsumerDisclosureWithinAccountMetadata($this->serializer->deserialize($data->{'useConsumerDisclosureWithinAccountMetadata'}, 'Surex\\DocuSign\\Model\\SettingsMetadata', 'raw', $context));
+            $object->setUseConsumerDisclosureWithinAccountMetadata($this->denormalizer->denormalize($data->{'useConsumerDisclosureWithinAccountMetadata'}, 'Surex\\DocuSign\\Model\\SettingsMetadata', 'json', $context));
         }
         if (property_exists($data, 'withdrawAddressLine1')) {
             $object->setWithdrawAddressLine1($data->{'withdrawAddressLine1'});
@@ -143,7 +145,7 @@ class EnvelopeConsumerDisclosuresNormalizer extends SerializerAwareNormalizer im
             $data->{'allowCDWithdraw'} = $object->getAllowCDWithdraw();
         }
         if (null !== $object->getAllowCDWithdrawMetadata()) {
-            $data->{'allowCDWithdrawMetadata'} = $this->serializer->serialize($object->getAllowCDWithdrawMetadata(), 'raw', $context);
+            $data->{'allowCDWithdrawMetadata'} = $this->normalizer->normalize($object->getAllowCDWithdrawMetadata(), 'json', $context);
         }
         if (null !== $object->getChangeEmail()) {
             $data->{'changeEmail'} = $object->getChangeEmail();
@@ -194,7 +196,7 @@ class EnvelopeConsumerDisclosuresNormalizer extends SerializerAwareNormalizer im
             $data->{'useConsumerDisclosureWithinAccount'} = $object->getUseConsumerDisclosureWithinAccount();
         }
         if (null !== $object->getUseConsumerDisclosureWithinAccountMetadata()) {
-            $data->{'useConsumerDisclosureWithinAccountMetadata'} = $this->serializer->serialize($object->getUseConsumerDisclosureWithinAccountMetadata(), 'raw', $context);
+            $data->{'useConsumerDisclosureWithinAccountMetadata'} = $this->normalizer->normalize($object->getUseConsumerDisclosureWithinAccountMetadata(), 'json', $context);
         }
         if (null !== $object->getWithdrawAddressLine1()) {
             $data->{'withdrawAddressLine1'} = $object->getWithdrawAddressLine1();

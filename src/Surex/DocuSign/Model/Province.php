@@ -20,7 +20,7 @@ class Province
     /**
      * @return string
      */
-    public function getIsoCode()
+    public function getIsoCode(): ?string
     {
         return $this->isoCode;
     }
@@ -30,7 +30,7 @@ class Province
      *
      * @return self
      */
-    public function setIsoCode($isoCode = null)
+    public function setIsoCode(?string $isoCode): self
     {
         $this->isoCode = $isoCode;
 
@@ -40,7 +40,7 @@ class Province
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -50,7 +50,7 @@ class Province
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 

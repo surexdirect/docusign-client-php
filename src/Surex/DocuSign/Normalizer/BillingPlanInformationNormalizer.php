@@ -6,41 +6,43 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class BillingPlanInformationNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class BillingPlanInformationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\BillingPlanInformation' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\BillingPlanInformation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\BillingPlanInformation) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\BillingPlanInformation;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\BillingPlanInformation();
         if (property_exists($data, 'appStoreReceipt')) {
-            $object->setAppStoreReceipt($this->serializer->deserialize($data->{'appStoreReceipt'}, 'Surex\\DocuSign\\Model\\AppStoreReceipt', 'raw', $context));
+            $object->setAppStoreReceipt($this->denormalizer->denormalize($data->{'appStoreReceipt'}, 'Surex\\DocuSign\\Model\\AppStoreReceipt', 'json', $context));
         }
         if (property_exists($data, 'billingAddress')) {
-            $object->setBillingAddress($this->serializer->deserialize($data->{'billingAddress'}, 'Surex\\DocuSign\\Model\\AccountAddress', 'raw', $context));
+            $object->setBillingAddress($this->denormalizer->denormalize($data->{'billingAddress'}, 'Surex\\DocuSign\\Model\\AccountAddress', 'json', $context));
         }
         if (property_exists($data, 'creditCardInformation')) {
-            $object->setCreditCardInformation($this->serializer->deserialize($data->{'creditCardInformation'}, 'Surex\\DocuSign\\Model\\CreditCardInformation', 'raw', $context));
+            $object->setCreditCardInformation($this->denormalizer->denormalize($data->{'creditCardInformation'}, 'Surex\\DocuSign\\Model\\CreditCardInformation', 'json', $context));
         }
         if (property_exists($data, 'downgradeReason')) {
             $object->setDowngradeReason($data->{'downgradeReason'});
@@ -55,13 +57,13 @@ class BillingPlanInformationNormalizer extends SerializerAwareNormalizer impleme
             $object->setIncrementalSeats($data->{'incrementalSeats'});
         }
         if (property_exists($data, 'paymentProcessorInformation')) {
-            $object->setPaymentProcessorInformation($this->serializer->deserialize($data->{'paymentProcessorInformation'}, 'Surex\\DocuSign\\Model\\PaymentProcessorInformation', 'raw', $context));
+            $object->setPaymentProcessorInformation($this->denormalizer->denormalize($data->{'paymentProcessorInformation'}, 'Surex\\DocuSign\\Model\\PaymentProcessorInformation', 'json', $context));
         }
         if (property_exists($data, 'planInformation')) {
-            $object->setPlanInformation($this->serializer->deserialize($data->{'planInformation'}, 'Surex\\DocuSign\\Model\\PlanInformation', 'raw', $context));
+            $object->setPlanInformation($this->denormalizer->denormalize($data->{'planInformation'}, 'Surex\\DocuSign\\Model\\PlanInformation', 'json', $context));
         }
         if (property_exists($data, 'referralInformation')) {
-            $object->setReferralInformation($this->serializer->deserialize($data->{'referralInformation'}, 'Surex\\DocuSign\\Model\\ReferralInformation', 'raw', $context));
+            $object->setReferralInformation($this->denormalizer->denormalize($data->{'referralInformation'}, 'Surex\\DocuSign\\Model\\ReferralInformation', 'json', $context));
         }
         if (property_exists($data, 'renewalStatus')) {
             $object->setRenewalStatus($data->{'renewalStatus'});
@@ -89,13 +91,13 @@ class BillingPlanInformationNormalizer extends SerializerAwareNormalizer impleme
     {
         $data = new \stdClass();
         if (null !== $object->getAppStoreReceipt()) {
-            $data->{'appStoreReceipt'} = $this->serializer->serialize($object->getAppStoreReceipt(), 'raw', $context);
+            $data->{'appStoreReceipt'} = $this->normalizer->normalize($object->getAppStoreReceipt(), 'json', $context);
         }
         if (null !== $object->getBillingAddress()) {
-            $data->{'billingAddress'} = $this->serializer->serialize($object->getBillingAddress(), 'raw', $context);
+            $data->{'billingAddress'} = $this->normalizer->normalize($object->getBillingAddress(), 'json', $context);
         }
         if (null !== $object->getCreditCardInformation()) {
-            $data->{'creditCardInformation'} = $this->serializer->serialize($object->getCreditCardInformation(), 'raw', $context);
+            $data->{'creditCardInformation'} = $this->normalizer->normalize($object->getCreditCardInformation(), 'json', $context);
         }
         if (null !== $object->getDowngradeReason()) {
             $data->{'downgradeReason'} = $object->getDowngradeReason();
@@ -110,13 +112,13 @@ class BillingPlanInformationNormalizer extends SerializerAwareNormalizer impleme
             $data->{'incrementalSeats'} = $object->getIncrementalSeats();
         }
         if (null !== $object->getPaymentProcessorInformation()) {
-            $data->{'paymentProcessorInformation'} = $this->serializer->serialize($object->getPaymentProcessorInformation(), 'raw', $context);
+            $data->{'paymentProcessorInformation'} = $this->normalizer->normalize($object->getPaymentProcessorInformation(), 'json', $context);
         }
         if (null !== $object->getPlanInformation()) {
-            $data->{'planInformation'} = $this->serializer->serialize($object->getPlanInformation(), 'raw', $context);
+            $data->{'planInformation'} = $this->normalizer->normalize($object->getPlanInformation(), 'json', $context);
         }
         if (null !== $object->getReferralInformation()) {
-            $data->{'referralInformation'} = $this->serializer->serialize($object->getReferralInformation(), 'raw', $context);
+            $data->{'referralInformation'} = $this->normalizer->normalize($object->getReferralInformation(), 'json', $context);
         }
         if (null !== $object->getRenewalStatus()) {
             $data->{'renewalStatus'} = $object->getRenewalStatus();

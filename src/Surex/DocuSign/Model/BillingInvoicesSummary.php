@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class BillingInvoicesSummary
 {
     /**
+     * Reserved: TBD.
+     *
      * @var Invoices[]
      */
     protected $billingInvoices;
@@ -22,19 +24,23 @@ class BillingInvoicesSummary
     protected $paymentAllowed;
 
     /**
+     * Reserved: TBD.
+     *
      * @return Invoices[]
      */
-    public function getBillingInvoices()
+    public function getBillingInvoices(): ?array
     {
         return $this->billingInvoices;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param Invoices[] $billingInvoices
      *
      * @return self
      */
-    public function setBillingInvoices(array $billingInvoices = null)
+    public function setBillingInvoices(?array $billingInvoices): self
     {
         $this->billingInvoices = $billingInvoices;
 
@@ -44,7 +50,7 @@ class BillingInvoicesSummary
     /**
      * @return string
      */
-    public function getPastDueBalance()
+    public function getPastDueBalance(): ?string
     {
         return $this->pastDueBalance;
     }
@@ -54,7 +60,7 @@ class BillingInvoicesSummary
      *
      * @return self
      */
-    public function setPastDueBalance($pastDueBalance = null)
+    public function setPastDueBalance(?string $pastDueBalance): self
     {
         $this->pastDueBalance = $pastDueBalance;
 
@@ -64,7 +70,7 @@ class BillingInvoicesSummary
     /**
      * @return string
      */
-    public function getPaymentAllowed()
+    public function getPaymentAllowed(): ?string
     {
         return $this->paymentAllowed;
     }
@@ -74,7 +80,7 @@ class BillingInvoicesSummary
      *
      * @return self
      */
-    public function setPaymentAllowed($paymentAllowed = null)
+    public function setPaymentAllowed(?string $paymentAllowed): self
     {
         $this->paymentAllowed = $paymentAllowed;
 

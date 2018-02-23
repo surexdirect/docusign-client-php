@@ -9,10 +9,17 @@ namespace Surex\DocuSign\Model;
 class ReferralInformation
 {
     /**
+     * A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+
+     ###### Note: saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, and saleDiscountSeatPriceOverride are reserved for DoucSign use only.
+
+     *
      * @var string
      */
     protected $advertisementId;
     /**
+     * When set to **true**, then customer support is provided as part of the account plan.
+     *
      * @var string
      */
     protected $enableSupport;
@@ -29,6 +36,8 @@ class ReferralInformation
      */
     protected $idType;
     /**
+     * The number of seats (users) included.
+     *
      * @var string
      */
     protected $includedSeats;
@@ -57,22 +66,32 @@ class ReferralInformation
      */
     protected $referrerName;
     /**
+     * Reserved for DocuSign use only.
+     *
      * @var string
      */
     protected $saleDiscountAmount;
     /**
+     * Reserved for DocuSign use only.
+     *
      * @var string
      */
     protected $saleDiscountFixedAmount;
     /**
+     * Reserved for DocuSign use only.
+     *
      * @var string
      */
     protected $saleDiscountPercent;
     /**
+     * Reserved for DocuSign use only.
+     *
      * @var string
      */
     protected $saleDiscountPeriods;
     /**
+     * Reserved for DocuSign use only.
+     *
      * @var string
      */
     protected $saleDiscountSeatPriceOverride;
@@ -82,19 +101,29 @@ class ReferralInformation
     protected $shopperId;
 
     /**
+     * A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+
+     ###### Note: saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, and saleDiscountSeatPriceOverride are reserved for DoucSign use only.
+
+     *
      * @return string
      */
-    public function getAdvertisementId()
+    public function getAdvertisementId(): ?string
     {
         return $this->advertisementId;
     }
 
     /**
+     * A complex type that contains the following information for entering referral and discount information. The following items are included in the referral information (all string content): enableSupport, includedSeats, saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, saleDiscountSeatPriceOverride, planStartMonth, referralCode, referrerName, advertisementId, publisherId, shopperId, promoCode, groupMemberId, idType, and industry.
+
+     ###### Note: saleDiscountPercent, saleDiscountAmount, saleDiscountFixedAmount, saleDiscountPeriods, and saleDiscountSeatPriceOverride are reserved for DoucSign use only.
+
+     *
      * @param string $advertisementId
      *
      * @return self
      */
-    public function setAdvertisementId($advertisementId = null)
+    public function setAdvertisementId(?string $advertisementId): self
     {
         $this->advertisementId = $advertisementId;
 
@@ -102,19 +131,23 @@ class ReferralInformation
     }
 
     /**
+     * When set to **true**, then customer support is provided as part of the account plan.
+     *
      * @return string
      */
-    public function getEnableSupport()
+    public function getEnableSupport(): ?string
     {
         return $this->enableSupport;
     }
 
     /**
+     * When set to **true**, then customer support is provided as part of the account plan.
+     *
      * @param string $enableSupport
      *
      * @return self
      */
-    public function setEnableSupport($enableSupport = null)
+    public function setEnableSupport(?string $enableSupport): self
     {
         $this->enableSupport = $enableSupport;
 
@@ -124,7 +157,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getExternalOrgId()
+    public function getExternalOrgId(): ?string
     {
         return $this->externalOrgId;
     }
@@ -134,7 +167,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setExternalOrgId($externalOrgId = null)
+    public function setExternalOrgId(?string $externalOrgId): self
     {
         $this->externalOrgId = $externalOrgId;
 
@@ -144,7 +177,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getGroupMemberId()
+    public function getGroupMemberId(): ?string
     {
         return $this->groupMemberId;
     }
@@ -154,7 +187,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setGroupMemberId($groupMemberId = null)
+    public function setGroupMemberId(?string $groupMemberId): self
     {
         $this->groupMemberId = $groupMemberId;
 
@@ -164,7 +197,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getIdType()
+    public function getIdType(): ?string
     {
         return $this->idType;
     }
@@ -174,7 +207,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setIdType($idType = null)
+    public function setIdType(?string $idType): self
     {
         $this->idType = $idType;
 
@@ -182,19 +215,23 @@ class ReferralInformation
     }
 
     /**
+     * The number of seats (users) included.
+     *
      * @return string
      */
-    public function getIncludedSeats()
+    public function getIncludedSeats(): ?string
     {
         return $this->includedSeats;
     }
 
     /**
+     * The number of seats (users) included.
+     *
      * @param string $includedSeats
      *
      * @return self
      */
-    public function setIncludedSeats($includedSeats = null)
+    public function setIncludedSeats(?string $includedSeats): self
     {
         $this->includedSeats = $includedSeats;
 
@@ -204,7 +241,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getIndustry()
+    public function getIndustry(): ?string
     {
         return $this->industry;
     }
@@ -214,7 +251,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setIndustry($industry = null)
+    public function setIndustry(?string $industry): self
     {
         $this->industry = $industry;
 
@@ -224,7 +261,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getPlanStartMonth()
+    public function getPlanStartMonth(): ?string
     {
         return $this->planStartMonth;
     }
@@ -234,7 +271,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setPlanStartMonth($planStartMonth = null)
+    public function setPlanStartMonth(?string $planStartMonth): self
     {
         $this->planStartMonth = $planStartMonth;
 
@@ -244,7 +281,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getPromoCode()
+    public function getPromoCode(): ?string
     {
         return $this->promoCode;
     }
@@ -254,7 +291,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setPromoCode($promoCode = null)
+    public function setPromoCode(?string $promoCode): self
     {
         $this->promoCode = $promoCode;
 
@@ -264,7 +301,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getPublisherId()
+    public function getPublisherId(): ?string
     {
         return $this->publisherId;
     }
@@ -274,7 +311,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setPublisherId($publisherId = null)
+    public function setPublisherId(?string $publisherId): self
     {
         $this->publisherId = $publisherId;
 
@@ -284,7 +321,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getReferralCode()
+    public function getReferralCode(): ?string
     {
         return $this->referralCode;
     }
@@ -294,7 +331,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setReferralCode($referralCode = null)
+    public function setReferralCode(?string $referralCode): self
     {
         $this->referralCode = $referralCode;
 
@@ -304,7 +341,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getReferrerName()
+    public function getReferrerName(): ?string
     {
         return $this->referrerName;
     }
@@ -314,7 +351,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setReferrerName($referrerName = null)
+    public function setReferrerName(?string $referrerName): self
     {
         $this->referrerName = $referrerName;
 
@@ -322,19 +359,23 @@ class ReferralInformation
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @return string
      */
-    public function getSaleDiscountAmount()
+    public function getSaleDiscountAmount(): ?string
     {
         return $this->saleDiscountAmount;
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @param string $saleDiscountAmount
      *
      * @return self
      */
-    public function setSaleDiscountAmount($saleDiscountAmount = null)
+    public function setSaleDiscountAmount(?string $saleDiscountAmount): self
     {
         $this->saleDiscountAmount = $saleDiscountAmount;
 
@@ -342,19 +383,23 @@ class ReferralInformation
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @return string
      */
-    public function getSaleDiscountFixedAmount()
+    public function getSaleDiscountFixedAmount(): ?string
     {
         return $this->saleDiscountFixedAmount;
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @param string $saleDiscountFixedAmount
      *
      * @return self
      */
-    public function setSaleDiscountFixedAmount($saleDiscountFixedAmount = null)
+    public function setSaleDiscountFixedAmount(?string $saleDiscountFixedAmount): self
     {
         $this->saleDiscountFixedAmount = $saleDiscountFixedAmount;
 
@@ -362,19 +407,23 @@ class ReferralInformation
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @return string
      */
-    public function getSaleDiscountPercent()
+    public function getSaleDiscountPercent(): ?string
     {
         return $this->saleDiscountPercent;
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @param string $saleDiscountPercent
      *
      * @return self
      */
-    public function setSaleDiscountPercent($saleDiscountPercent = null)
+    public function setSaleDiscountPercent(?string $saleDiscountPercent): self
     {
         $this->saleDiscountPercent = $saleDiscountPercent;
 
@@ -382,19 +431,23 @@ class ReferralInformation
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @return string
      */
-    public function getSaleDiscountPeriods()
+    public function getSaleDiscountPeriods(): ?string
     {
         return $this->saleDiscountPeriods;
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @param string $saleDiscountPeriods
      *
      * @return self
      */
-    public function setSaleDiscountPeriods($saleDiscountPeriods = null)
+    public function setSaleDiscountPeriods(?string $saleDiscountPeriods): self
     {
         $this->saleDiscountPeriods = $saleDiscountPeriods;
 
@@ -402,19 +455,23 @@ class ReferralInformation
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @return string
      */
-    public function getSaleDiscountSeatPriceOverride()
+    public function getSaleDiscountSeatPriceOverride(): ?string
     {
         return $this->saleDiscountSeatPriceOverride;
     }
 
     /**
+     * Reserved for DocuSign use only.
+     *
      * @param string $saleDiscountSeatPriceOverride
      *
      * @return self
      */
-    public function setSaleDiscountSeatPriceOverride($saleDiscountSeatPriceOverride = null)
+    public function setSaleDiscountSeatPriceOverride(?string $saleDiscountSeatPriceOverride): self
     {
         $this->saleDiscountSeatPriceOverride = $saleDiscountSeatPriceOverride;
 
@@ -424,7 +481,7 @@ class ReferralInformation
     /**
      * @return string
      */
-    public function getShopperId()
+    public function getShopperId(): ?string
     {
         return $this->shopperId;
     }
@@ -434,7 +491,7 @@ class ReferralInformation
      *
      * @return self
      */
-    public function setShopperId($shopperId = null)
+    public function setShopperId(?string $shopperId): self
     {
         $this->shopperId = $shopperId;
 

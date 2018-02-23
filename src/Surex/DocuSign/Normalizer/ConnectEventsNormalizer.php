@@ -6,44 +6,46 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class ConnectEventsNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class ConnectEventsNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\ConnectEvents' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\ConnectEvents' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\ConnectEvents) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\ConnectEvents;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\ConnectEvents();
         if (property_exists($data, 'failures')) {
             $values = [];
             foreach ($data->{'failures'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\ConnectLog', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\ConnectLog', 'json', $context);
             }
             $object->setFailures($values);
         }
         if (property_exists($data, 'logs')) {
             $values_1 = [];
             foreach ($data->{'logs'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\ConnectLog', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\ConnectLog', 'json', $context);
             }
             $object->setLogs($values_1);
         }
@@ -63,14 +65,14 @@ class ConnectEventsNormalizer extends SerializerAwareNormalizer implements Denor
         if (null !== $object->getFailures()) {
             $values = [];
             foreach ($object->getFailures() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'failures'} = $values;
         }
         if (null !== $object->getLogs()) {
             $values_1 = [];
             foreach ($object->getLogs() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'logs'} = $values_1;
         }

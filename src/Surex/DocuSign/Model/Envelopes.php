@@ -9,14 +9,20 @@ namespace Surex\DocuSign\Model;
 class Envelopes
 {
     /**
+     * When set to **true**, Document Markup is enabled for envelope. Account must have Document Markup enabled to use this.
+     *
      * @var string
      */
     protected $allowMarkup;
     /**
+     * When set to **true**, the recipient can redirect an envelope to a more appropriate recipient.
+     *
      * @var string
      */
     protected $allowReassign;
     /**
+     * When set to **true**, the envelope is queued for processing and the value of the `status` property is set to 'Processing'. Additionally, get status calls return 'Processing' until completed.
+     *
      * @var string
      */
     protected $asynchronous;
@@ -25,14 +31,20 @@ class Envelopes
      */
     protected $attachmentsUri;
     /**
+     * Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled.
+     *
      * @var string
      */
     protected $authoritativeCopy;
     /**
+     * Specifies whether auto navigation is set for the recipient.
+     *
      * @var string
      */
     protected $autoNavigation;
     /**
+     * The unique identifier of a brand.
+     *
      * @var string
      */
     protected $brandId;
@@ -41,34 +53,50 @@ class Envelopes
      */
     protected $brandLock;
     /**
+     * Retrieves a URI for an endpoint that allows you to easily retrieve certificate information.
+     *
      * @var string
      */
     protected $certificateUri;
     /**
+     * Specifies the date and time this item was completed.
+     *
      * @var string
      */
     protected $completedDateTime;
     /**
+     * Indicates the date and time the item was created.
+     *
      * @var string
      */
     protected $createdDateTime;
     /**
+     * Custom Fields.
+     *
      * @var AccountCustomFields
      */
     protected $customFields;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the custom fields.
+     *
      * @var string
      */
     protected $customFieldsUri;
     /**
+     * The date and time the recipient declined the document.
+     *
      * @var string
      */
     protected $declinedDateTime;
     /**
+     * Specifies the data and time the item was deleted.
+     *
      * @var string
      */
     protected $deletedDateTime;
     /**
+     * Reserved: For DocuSign use only.
+     *
      * @var string
      */
     protected $deliveredDateTime;
@@ -77,38 +105,60 @@ class Envelopes
      */
     protected $documentsCombinedUri;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the documents.
+     *
      * @var string
      */
     protected $documentsUri;
     /**
+     * This is the same as the email body. If specified it is included in email body for all envelope recipients.
+     *
      * @var string
      */
     protected $emailBlurb;
     /**
+     * Envelope email settings.
+     *
      * @var EnvelopeEmailSettings
      */
     protected $emailSettings;
     /**
+     * Specifies the subject of the email that is sent to all recipients.
+
+     See [ML:Template Email Subject Merge Fields] for information about adding merge field information to the email subject.
+     *
      * @var string
      */
     protected $emailSubject;
     /**
+     * When set to **true**, the signer is allowed to print the document and sign it on paper.
+     *
      * @var string
      */
     protected $enableWetSign;
     /**
+     * When set to **true**, documents with tabs can only be viewed by signers that have a tab on that document. Recipients that have an administrative role (Agent, Editor, or Intermediaries) or informational role (Certified Deliveries or Carbon Copies) can always see all the documents in an envelope, unless they are specifically excluded using this setting when an envelope is sent. Documents that do not have tabs are always visible to all recipients, unless they are specifically excluded using this setting when an envelope is sent.
+
+     Your account must have Document Visibility enabled to use this.
+     *
      * @var string
      */
     protected $enforceSignerVisibility;
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @var string
      */
     protected $envelopeId;
     /**
+     * When set to **true**, Envelope ID Stamping is enabled.
+     *
      * @var string
      */
     protected $envelopeIdStamping;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @var string
      */
     protected $envelopeUri;
@@ -117,6 +167,8 @@ class Envelopes
      */
     protected $initialSentDateTime;
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @var string
      */
     protected $is21CFRPart11;
@@ -125,22 +177,49 @@ class Envelopes
      */
     protected $isSignatureProviderEnvelope;
     /**
+     * The date and time the item was last modified.
+     *
      * @var string
      */
     protected $lastModifiedDateTime;
     /**
+     * Envelope locks.
+     *
      * @var EnvelopeLocks
      */
     protected $lockInformation;
     /**
+     * When set to **true**, prevents senders from changing the contents of `emailBlurb` and `emailSubject` properties for the envelope.
+
+     Additionally, this prevents users from making changes to the contents of `emailBlurb` and `emailSubject` properties when correcting envelopes.
+
+     However, if the `messageLock` node is set to true**** and the `emailSubject` property is empty, senders and correctors are able to add a subject to the envelope.
+     *
      * @var string
      */
     protected $messageLock;
     /**
+     * A complex element that specifies the notification options for the envelope. It consists of:.
+
+     * useAccountDefaults - When set to **true**, the account default notification settings are used for the envelope.
+     * reminders - A complex element that specifies reminder settings for the envelope. It consists of:
+
+     * reminderEnabled - When set to **true**, a reminder message is sent to the recipient.
+     * reminderDelay - An interger that sets the number of days after the recipient receives the envelope that reminder emails are sent to the recipient.
+     * reminderFrequency - An interger that sets the interval, in days, between reminder emails.
+
+     * expirations - A complex element that specifies the expiration settings for the envelope. It consists of:
+
+     * expireEnabled - When set to **true**, the envelope expires (is no longer available for signing) in the set number of days. If false, the account default setting is used. If the account does not have an expiration setting, the DocuSign default value of 120 days is used.
+     * expireAfter - An integer that sets the number of days the envelope is active.
+     * expireWarn - An integer that sets the number of days before envelope expiration that an expiration warning email is sent to the recipient. If set to 0 (zero), no warning email is sent.
+     *
      * @var Notification
      */
     protected $notification;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the notifications.
+     *
      * @var string
      */
     protected $notificationUri;
@@ -149,68 +228,102 @@ class Envelopes
      */
     protected $purgeState;
     /**
+     * Envelope recipients.
+     *
      * @var EnvelopeRecipients
      */
     protected $recipients;
     /**
+     * When set to **true**, prevents senders from changing, correcting, or deleting the recipient information for the envelope.
+     *
      * @var string
      */
     protected $recipientsLock;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the recipients.
+     *
      * @var string
      */
     protected $recipientsUri;
     /**
+     * The date and time the envelope was sent.
+     *
      * @var string
      */
     protected $sentDateTime;
     /**
+     * Specifies the physical location where the signing takes place. It can have two enumeration values; InPerson and Online. The default value is Online.
+     *
      * @var string
      */
     protected $signingLocation;
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * created - The envelope is created as a draft. It can be modified and sent later.
+     * sent - The envelope is sent to the recipients.
+
+     *
      * @var string
      */
     protected $status;
     /**
+     * The data and time the status changed.
+     *
      * @var string
      */
     protected $statusChangedDateTime;
     /**
+     * Contains a URI for an endpoint which you can use to retrieve the templates.
+     *
      * @var string
      */
     protected $templatesUri;
     /**
+     *  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+     *
      * @var string
      */
     protected $transactionId;
     /**
+     * When set to **true**, the disclosure is shown to recipients in accordance with the account's Electronic Record and Signature Disclosure frequency setting. When set to **false**, the Electronic Record and Signature Disclosure is not shown to any envelope recipients.
+
+     If the `useDisclosure` property is not set, then the account's normal disclosure setting is used and the value of the `useDisclosure` property is not returned in responses when getting envelope information.
+     *
      * @var string
      */
     protected $useDisclosure;
     /**
+     * The date and time the envelope or template was voided.
+     *
      * @var string
      */
     protected $voidedDateTime;
     /**
+     * The reason the envelope or template was voided.
+     *
      * @var string
      */
     protected $voidedReason;
 
     /**
+     * When set to **true**, Document Markup is enabled for envelope. Account must have Document Markup enabled to use this.
+     *
      * @return string
      */
-    public function getAllowMarkup()
+    public function getAllowMarkup(): ?string
     {
         return $this->allowMarkup;
     }
 
     /**
+     * When set to **true**, Document Markup is enabled for envelope. Account must have Document Markup enabled to use this.
+     *
      * @param string $allowMarkup
      *
      * @return self
      */
-    public function setAllowMarkup($allowMarkup = null)
+    public function setAllowMarkup(?string $allowMarkup): self
     {
         $this->allowMarkup = $allowMarkup;
 
@@ -218,19 +331,23 @@ class Envelopes
     }
 
     /**
+     * When set to **true**, the recipient can redirect an envelope to a more appropriate recipient.
+     *
      * @return string
      */
-    public function getAllowReassign()
+    public function getAllowReassign(): ?string
     {
         return $this->allowReassign;
     }
 
     /**
+     * When set to **true**, the recipient can redirect an envelope to a more appropriate recipient.
+     *
      * @param string $allowReassign
      *
      * @return self
      */
-    public function setAllowReassign($allowReassign = null)
+    public function setAllowReassign(?string $allowReassign): self
     {
         $this->allowReassign = $allowReassign;
 
@@ -238,19 +355,23 @@ class Envelopes
     }
 
     /**
+     * When set to **true**, the envelope is queued for processing and the value of the `status` property is set to 'Processing'. Additionally, get status calls return 'Processing' until completed.
+     *
      * @return string
      */
-    public function getAsynchronous()
+    public function getAsynchronous(): ?string
     {
         return $this->asynchronous;
     }
 
     /**
+     * When set to **true**, the envelope is queued for processing and the value of the `status` property is set to 'Processing'. Additionally, get status calls return 'Processing' until completed.
+     *
      * @param string $asynchronous
      *
      * @return self
      */
-    public function setAsynchronous($asynchronous = null)
+    public function setAsynchronous(?string $asynchronous): self
     {
         $this->asynchronous = $asynchronous;
 
@@ -260,7 +381,7 @@ class Envelopes
     /**
      * @return string
      */
-    public function getAttachmentsUri()
+    public function getAttachmentsUri(): ?string
     {
         return $this->attachmentsUri;
     }
@@ -270,7 +391,7 @@ class Envelopes
      *
      * @return self
      */
-    public function setAttachmentsUri($attachmentsUri = null)
+    public function setAttachmentsUri(?string $attachmentsUri): self
     {
         $this->attachmentsUri = $attachmentsUri;
 
@@ -278,19 +399,23 @@ class Envelopes
     }
 
     /**
+     * Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled.
+     *
      * @return string
      */
-    public function getAuthoritativeCopy()
+    public function getAuthoritativeCopy(): ?string
     {
         return $this->authoritativeCopy;
     }
 
     /**
+     * Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled.
+     *
      * @param string $authoritativeCopy
      *
      * @return self
      */
-    public function setAuthoritativeCopy($authoritativeCopy = null)
+    public function setAuthoritativeCopy(?string $authoritativeCopy): self
     {
         $this->authoritativeCopy = $authoritativeCopy;
 
@@ -298,19 +423,23 @@ class Envelopes
     }
 
     /**
+     * Specifies whether auto navigation is set for the recipient.
+     *
      * @return string
      */
-    public function getAutoNavigation()
+    public function getAutoNavigation(): ?string
     {
         return $this->autoNavigation;
     }
 
     /**
+     * Specifies whether auto navigation is set for the recipient.
+     *
      * @param string $autoNavigation
      *
      * @return self
      */
-    public function setAutoNavigation($autoNavigation = null)
+    public function setAutoNavigation(?string $autoNavigation): self
     {
         $this->autoNavigation = $autoNavigation;
 
@@ -318,19 +447,23 @@ class Envelopes
     }
 
     /**
+     * The unique identifier of a brand.
+     *
      * @return string
      */
-    public function getBrandId()
+    public function getBrandId(): ?string
     {
         return $this->brandId;
     }
 
     /**
+     * The unique identifier of a brand.
+     *
      * @param string $brandId
      *
      * @return self
      */
-    public function setBrandId($brandId = null)
+    public function setBrandId(?string $brandId): self
     {
         $this->brandId = $brandId;
 
@@ -340,7 +473,7 @@ class Envelopes
     /**
      * @return string
      */
-    public function getBrandLock()
+    public function getBrandLock(): ?string
     {
         return $this->brandLock;
     }
@@ -350,7 +483,7 @@ class Envelopes
      *
      * @return self
      */
-    public function setBrandLock($brandLock = null)
+    public function setBrandLock(?string $brandLock): self
     {
         $this->brandLock = $brandLock;
 
@@ -358,19 +491,23 @@ class Envelopes
     }
 
     /**
+     * Retrieves a URI for an endpoint that allows you to easily retrieve certificate information.
+     *
      * @return string
      */
-    public function getCertificateUri()
+    public function getCertificateUri(): ?string
     {
         return $this->certificateUri;
     }
 
     /**
+     * Retrieves a URI for an endpoint that allows you to easily retrieve certificate information.
+     *
      * @param string $certificateUri
      *
      * @return self
      */
-    public function setCertificateUri($certificateUri = null)
+    public function setCertificateUri(?string $certificateUri): self
     {
         $this->certificateUri = $certificateUri;
 
@@ -378,19 +515,23 @@ class Envelopes
     }
 
     /**
+     * Specifies the date and time this item was completed.
+     *
      * @return string
      */
-    public function getCompletedDateTime()
+    public function getCompletedDateTime(): ?string
     {
         return $this->completedDateTime;
     }
 
     /**
+     * Specifies the date and time this item was completed.
+     *
      * @param string $completedDateTime
      *
      * @return self
      */
-    public function setCompletedDateTime($completedDateTime = null)
+    public function setCompletedDateTime(?string $completedDateTime): self
     {
         $this->completedDateTime = $completedDateTime;
 
@@ -398,19 +539,23 @@ class Envelopes
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @return string
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): ?string
     {
         return $this->createdDateTime;
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @param string $createdDateTime
      *
      * @return self
      */
-    public function setCreatedDateTime($createdDateTime = null)
+    public function setCreatedDateTime(?string $createdDateTime): self
     {
         $this->createdDateTime = $createdDateTime;
 
@@ -418,19 +563,23 @@ class Envelopes
     }
 
     /**
+     * Custom Fields.
+     *
      * @return AccountCustomFields
      */
-    public function getCustomFields()
+    public function getCustomFields(): ?AccountCustomFields
     {
         return $this->customFields;
     }
 
     /**
+     * Custom Fields.
+     *
      * @param AccountCustomFields $customFields
      *
      * @return self
      */
-    public function setCustomFields(AccountCustomFields $customFields = null)
+    public function setCustomFields(?AccountCustomFields $customFields): self
     {
         $this->customFields = $customFields;
 
@@ -438,19 +587,23 @@ class Envelopes
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the custom fields.
+     *
      * @return string
      */
-    public function getCustomFieldsUri()
+    public function getCustomFieldsUri(): ?string
     {
         return $this->customFieldsUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the custom fields.
+     *
      * @param string $customFieldsUri
      *
      * @return self
      */
-    public function setCustomFieldsUri($customFieldsUri = null)
+    public function setCustomFieldsUri(?string $customFieldsUri): self
     {
         $this->customFieldsUri = $customFieldsUri;
 
@@ -458,19 +611,23 @@ class Envelopes
     }
 
     /**
+     * The date and time the recipient declined the document.
+     *
      * @return string
      */
-    public function getDeclinedDateTime()
+    public function getDeclinedDateTime(): ?string
     {
         return $this->declinedDateTime;
     }
 
     /**
+     * The date and time the recipient declined the document.
+     *
      * @param string $declinedDateTime
      *
      * @return self
      */
-    public function setDeclinedDateTime($declinedDateTime = null)
+    public function setDeclinedDateTime(?string $declinedDateTime): self
     {
         $this->declinedDateTime = $declinedDateTime;
 
@@ -478,19 +635,23 @@ class Envelopes
     }
 
     /**
+     * Specifies the data and time the item was deleted.
+     *
      * @return string
      */
-    public function getDeletedDateTime()
+    public function getDeletedDateTime(): ?string
     {
         return $this->deletedDateTime;
     }
 
     /**
+     * Specifies the data and time the item was deleted.
+     *
      * @param string $deletedDateTime
      *
      * @return self
      */
-    public function setDeletedDateTime($deletedDateTime = null)
+    public function setDeletedDateTime(?string $deletedDateTime): self
     {
         $this->deletedDateTime = $deletedDateTime;
 
@@ -498,19 +659,23 @@ class Envelopes
     }
 
     /**
+     * Reserved: For DocuSign use only.
+     *
      * @return string
      */
-    public function getDeliveredDateTime()
+    public function getDeliveredDateTime(): ?string
     {
         return $this->deliveredDateTime;
     }
 
     /**
+     * Reserved: For DocuSign use only.
+     *
      * @param string $deliveredDateTime
      *
      * @return self
      */
-    public function setDeliveredDateTime($deliveredDateTime = null)
+    public function setDeliveredDateTime(?string $deliveredDateTime): self
     {
         $this->deliveredDateTime = $deliveredDateTime;
 
@@ -520,7 +685,7 @@ class Envelopes
     /**
      * @return string
      */
-    public function getDocumentsCombinedUri()
+    public function getDocumentsCombinedUri(): ?string
     {
         return $this->documentsCombinedUri;
     }
@@ -530,7 +695,7 @@ class Envelopes
      *
      * @return self
      */
-    public function setDocumentsCombinedUri($documentsCombinedUri = null)
+    public function setDocumentsCombinedUri(?string $documentsCombinedUri): self
     {
         $this->documentsCombinedUri = $documentsCombinedUri;
 
@@ -538,19 +703,23 @@ class Envelopes
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the documents.
+     *
      * @return string
      */
-    public function getDocumentsUri()
+    public function getDocumentsUri(): ?string
     {
         return $this->documentsUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the documents.
+     *
      * @param string $documentsUri
      *
      * @return self
      */
-    public function setDocumentsUri($documentsUri = null)
+    public function setDocumentsUri(?string $documentsUri): self
     {
         $this->documentsUri = $documentsUri;
 
@@ -558,19 +727,23 @@ class Envelopes
     }
 
     /**
+     * This is the same as the email body. If specified it is included in email body for all envelope recipients.
+     *
      * @return string
      */
-    public function getEmailBlurb()
+    public function getEmailBlurb(): ?string
     {
         return $this->emailBlurb;
     }
 
     /**
+     * This is the same as the email body. If specified it is included in email body for all envelope recipients.
+     *
      * @param string $emailBlurb
      *
      * @return self
      */
-    public function setEmailBlurb($emailBlurb = null)
+    public function setEmailBlurb(?string $emailBlurb): self
     {
         $this->emailBlurb = $emailBlurb;
 
@@ -578,19 +751,23 @@ class Envelopes
     }
 
     /**
+     * Envelope email settings.
+     *
      * @return EnvelopeEmailSettings
      */
-    public function getEmailSettings()
+    public function getEmailSettings(): ?EnvelopeEmailSettings
     {
         return $this->emailSettings;
     }
 
     /**
+     * Envelope email settings.
+     *
      * @param EnvelopeEmailSettings $emailSettings
      *
      * @return self
      */
-    public function setEmailSettings(EnvelopeEmailSettings $emailSettings = null)
+    public function setEmailSettings(?EnvelopeEmailSettings $emailSettings): self
     {
         $this->emailSettings = $emailSettings;
 
@@ -598,19 +775,27 @@ class Envelopes
     }
 
     /**
+     * Specifies the subject of the email that is sent to all recipients.
+
+     See [ML:Template Email Subject Merge Fields] for information about adding merge field information to the email subject.
+     *
      * @return string
      */
-    public function getEmailSubject()
+    public function getEmailSubject(): ?string
     {
         return $this->emailSubject;
     }
 
     /**
+     * Specifies the subject of the email that is sent to all recipients.
+
+     See [ML:Template Email Subject Merge Fields] for information about adding merge field information to the email subject.
+     *
      * @param string $emailSubject
      *
      * @return self
      */
-    public function setEmailSubject($emailSubject = null)
+    public function setEmailSubject(?string $emailSubject): self
     {
         $this->emailSubject = $emailSubject;
 
@@ -618,19 +803,23 @@ class Envelopes
     }
 
     /**
+     * When set to **true**, the signer is allowed to print the document and sign it on paper.
+     *
      * @return string
      */
-    public function getEnableWetSign()
+    public function getEnableWetSign(): ?string
     {
         return $this->enableWetSign;
     }
 
     /**
+     * When set to **true**, the signer is allowed to print the document and sign it on paper.
+     *
      * @param string $enableWetSign
      *
      * @return self
      */
-    public function setEnableWetSign($enableWetSign = null)
+    public function setEnableWetSign(?string $enableWetSign): self
     {
         $this->enableWetSign = $enableWetSign;
 
@@ -638,19 +827,27 @@ class Envelopes
     }
 
     /**
+     * When set to **true**, documents with tabs can only be viewed by signers that have a tab on that document. Recipients that have an administrative role (Agent, Editor, or Intermediaries) or informational role (Certified Deliveries or Carbon Copies) can always see all the documents in an envelope, unless they are specifically excluded using this setting when an envelope is sent. Documents that do not have tabs are always visible to all recipients, unless they are specifically excluded using this setting when an envelope is sent.
+
+     Your account must have Document Visibility enabled to use this.
+     *
      * @return string
      */
-    public function getEnforceSignerVisibility()
+    public function getEnforceSignerVisibility(): ?string
     {
         return $this->enforceSignerVisibility;
     }
 
     /**
+     * When set to **true**, documents with tabs can only be viewed by signers that have a tab on that document. Recipients that have an administrative role (Agent, Editor, or Intermediaries) or informational role (Certified Deliveries or Carbon Copies) can always see all the documents in an envelope, unless they are specifically excluded using this setting when an envelope is sent. Documents that do not have tabs are always visible to all recipients, unless they are specifically excluded using this setting when an envelope is sent.
+
+     Your account must have Document Visibility enabled to use this.
+     *
      * @param string $enforceSignerVisibility
      *
      * @return self
      */
-    public function setEnforceSignerVisibility($enforceSignerVisibility = null)
+    public function setEnforceSignerVisibility(?string $enforceSignerVisibility): self
     {
         $this->enforceSignerVisibility = $enforceSignerVisibility;
 
@@ -658,19 +855,23 @@ class Envelopes
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @return string
      */
-    public function getEnvelopeId()
+    public function getEnvelopeId(): ?string
     {
         return $this->envelopeId;
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @param string $envelopeId
      *
      * @return self
      */
-    public function setEnvelopeId($envelopeId = null)
+    public function setEnvelopeId(?string $envelopeId): self
     {
         $this->envelopeId = $envelopeId;
 
@@ -678,19 +879,23 @@ class Envelopes
     }
 
     /**
+     * When set to **true**, Envelope ID Stamping is enabled.
+     *
      * @return string
      */
-    public function getEnvelopeIdStamping()
+    public function getEnvelopeIdStamping(): ?string
     {
         return $this->envelopeIdStamping;
     }
 
     /**
+     * When set to **true**, Envelope ID Stamping is enabled.
+     *
      * @param string $envelopeIdStamping
      *
      * @return self
      */
-    public function setEnvelopeIdStamping($envelopeIdStamping = null)
+    public function setEnvelopeIdStamping(?string $envelopeIdStamping): self
     {
         $this->envelopeIdStamping = $envelopeIdStamping;
 
@@ -698,19 +903,23 @@ class Envelopes
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @return string
      */
-    public function getEnvelopeUri()
+    public function getEnvelopeUri(): ?string
     {
         return $this->envelopeUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @param string $envelopeUri
      *
      * @return self
      */
-    public function setEnvelopeUri($envelopeUri = null)
+    public function setEnvelopeUri(?string $envelopeUri): self
     {
         $this->envelopeUri = $envelopeUri;
 
@@ -720,7 +929,7 @@ class Envelopes
     /**
      * @return string
      */
-    public function getInitialSentDateTime()
+    public function getInitialSentDateTime(): ?string
     {
         return $this->initialSentDateTime;
     }
@@ -730,7 +939,7 @@ class Envelopes
      *
      * @return self
      */
-    public function setInitialSentDateTime($initialSentDateTime = null)
+    public function setInitialSentDateTime(?string $initialSentDateTime): self
     {
         $this->initialSentDateTime = $initialSentDateTime;
 
@@ -738,19 +947,23 @@ class Envelopes
     }
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @return string
      */
-    public function getIs21CFRPart11()
+    public function getIs21CFRPart11(): ?string
     {
         return $this->is21CFRPart11;
     }
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @param string $is21CFRPart11
      *
      * @return self
      */
-    public function setIs21CFRPart11($is21CFRPart11 = null)
+    public function setIs21CFRPart11(?string $is21CFRPart11): self
     {
         $this->is21CFRPart11 = $is21CFRPart11;
 
@@ -760,7 +973,7 @@ class Envelopes
     /**
      * @return string
      */
-    public function getIsSignatureProviderEnvelope()
+    public function getIsSignatureProviderEnvelope(): ?string
     {
         return $this->isSignatureProviderEnvelope;
     }
@@ -770,7 +983,7 @@ class Envelopes
      *
      * @return self
      */
-    public function setIsSignatureProviderEnvelope($isSignatureProviderEnvelope = null)
+    public function setIsSignatureProviderEnvelope(?string $isSignatureProviderEnvelope): self
     {
         $this->isSignatureProviderEnvelope = $isSignatureProviderEnvelope;
 
@@ -778,19 +991,23 @@ class Envelopes
     }
 
     /**
+     * The date and time the item was last modified.
+     *
      * @return string
      */
-    public function getLastModifiedDateTime()
+    public function getLastModifiedDateTime(): ?string
     {
         return $this->lastModifiedDateTime;
     }
 
     /**
+     * The date and time the item was last modified.
+     *
      * @param string $lastModifiedDateTime
      *
      * @return self
      */
-    public function setLastModifiedDateTime($lastModifiedDateTime = null)
+    public function setLastModifiedDateTime(?string $lastModifiedDateTime): self
     {
         $this->lastModifiedDateTime = $lastModifiedDateTime;
 
@@ -798,19 +1015,23 @@ class Envelopes
     }
 
     /**
+     * Envelope locks.
+     *
      * @return EnvelopeLocks
      */
-    public function getLockInformation()
+    public function getLockInformation(): ?EnvelopeLocks
     {
         return $this->lockInformation;
     }
 
     /**
+     * Envelope locks.
+     *
      * @param EnvelopeLocks $lockInformation
      *
      * @return self
      */
-    public function setLockInformation(EnvelopeLocks $lockInformation = null)
+    public function setLockInformation(?EnvelopeLocks $lockInformation): self
     {
         $this->lockInformation = $lockInformation;
 
@@ -818,19 +1039,31 @@ class Envelopes
     }
 
     /**
+     * When set to **true**, prevents senders from changing the contents of `emailBlurb` and `emailSubject` properties for the envelope.
+
+     Additionally, this prevents users from making changes to the contents of `emailBlurb` and `emailSubject` properties when correcting envelopes.
+
+     However, if the `messageLock` node is set to true**** and the `emailSubject` property is empty, senders and correctors are able to add a subject to the envelope.
+     *
      * @return string
      */
-    public function getMessageLock()
+    public function getMessageLock(): ?string
     {
         return $this->messageLock;
     }
 
     /**
+     * When set to **true**, prevents senders from changing the contents of `emailBlurb` and `emailSubject` properties for the envelope.
+
+     Additionally, this prevents users from making changes to the contents of `emailBlurb` and `emailSubject` properties when correcting envelopes.
+
+     However, if the `messageLock` node is set to true**** and the `emailSubject` property is empty, senders and correctors are able to add a subject to the envelope.
+     *
      * @param string $messageLock
      *
      * @return self
      */
-    public function setMessageLock($messageLock = null)
+    public function setMessageLock(?string $messageLock): self
     {
         $this->messageLock = $messageLock;
 
@@ -838,19 +1071,49 @@ class Envelopes
     }
 
     /**
+     * A complex element that specifies the notification options for the envelope. It consists of:.
+
+     * useAccountDefaults - When set to **true**, the account default notification settings are used for the envelope.
+     * reminders - A complex element that specifies reminder settings for the envelope. It consists of:
+
+     * reminderEnabled - When set to **true**, a reminder message is sent to the recipient.
+     * reminderDelay - An interger that sets the number of days after the recipient receives the envelope that reminder emails are sent to the recipient.
+     * reminderFrequency - An interger that sets the interval, in days, between reminder emails.
+
+     * expirations - A complex element that specifies the expiration settings for the envelope. It consists of:
+
+     * expireEnabled - When set to **true**, the envelope expires (is no longer available for signing) in the set number of days. If false, the account default setting is used. If the account does not have an expiration setting, the DocuSign default value of 120 days is used.
+     * expireAfter - An integer that sets the number of days the envelope is active.
+     * expireWarn - An integer that sets the number of days before envelope expiration that an expiration warning email is sent to the recipient. If set to 0 (zero), no warning email is sent.
+     *
      * @return Notification
      */
-    public function getNotification()
+    public function getNotification(): ?Notification
     {
         return $this->notification;
     }
 
     /**
+     * A complex element that specifies the notification options for the envelope. It consists of:.
+
+     * useAccountDefaults - When set to **true**, the account default notification settings are used for the envelope.
+     * reminders - A complex element that specifies reminder settings for the envelope. It consists of:
+
+     * reminderEnabled - When set to **true**, a reminder message is sent to the recipient.
+     * reminderDelay - An interger that sets the number of days after the recipient receives the envelope that reminder emails are sent to the recipient.
+     * reminderFrequency - An interger that sets the interval, in days, between reminder emails.
+
+     * expirations - A complex element that specifies the expiration settings for the envelope. It consists of:
+
+     * expireEnabled - When set to **true**, the envelope expires (is no longer available for signing) in the set number of days. If false, the account default setting is used. If the account does not have an expiration setting, the DocuSign default value of 120 days is used.
+     * expireAfter - An integer that sets the number of days the envelope is active.
+     * expireWarn - An integer that sets the number of days before envelope expiration that an expiration warning email is sent to the recipient. If set to 0 (zero), no warning email is sent.
+     *
      * @param Notification $notification
      *
      * @return self
      */
-    public function setNotification(Notification $notification = null)
+    public function setNotification(?Notification $notification): self
     {
         $this->notification = $notification;
 
@@ -858,19 +1121,23 @@ class Envelopes
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the notifications.
+     *
      * @return string
      */
-    public function getNotificationUri()
+    public function getNotificationUri(): ?string
     {
         return $this->notificationUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the notifications.
+     *
      * @param string $notificationUri
      *
      * @return self
      */
-    public function setNotificationUri($notificationUri = null)
+    public function setNotificationUri(?string $notificationUri): self
     {
         $this->notificationUri = $notificationUri;
 
@@ -880,7 +1147,7 @@ class Envelopes
     /**
      * @return string
      */
-    public function getPurgeState()
+    public function getPurgeState(): ?string
     {
         return $this->purgeState;
     }
@@ -890,7 +1157,7 @@ class Envelopes
      *
      * @return self
      */
-    public function setPurgeState($purgeState = null)
+    public function setPurgeState(?string $purgeState): self
     {
         $this->purgeState = $purgeState;
 
@@ -898,19 +1165,23 @@ class Envelopes
     }
 
     /**
+     * Envelope recipients.
+     *
      * @return EnvelopeRecipients
      */
-    public function getRecipients()
+    public function getRecipients(): ?EnvelopeRecipients
     {
         return $this->recipients;
     }
 
     /**
+     * Envelope recipients.
+     *
      * @param EnvelopeRecipients $recipients
      *
      * @return self
      */
-    public function setRecipients(EnvelopeRecipients $recipients = null)
+    public function setRecipients(?EnvelopeRecipients $recipients): self
     {
         $this->recipients = $recipients;
 
@@ -918,19 +1189,23 @@ class Envelopes
     }
 
     /**
+     * When set to **true**, prevents senders from changing, correcting, or deleting the recipient information for the envelope.
+     *
      * @return string
      */
-    public function getRecipientsLock()
+    public function getRecipientsLock(): ?string
     {
         return $this->recipientsLock;
     }
 
     /**
+     * When set to **true**, prevents senders from changing, correcting, or deleting the recipient information for the envelope.
+     *
      * @param string $recipientsLock
      *
      * @return self
      */
-    public function setRecipientsLock($recipientsLock = null)
+    public function setRecipientsLock(?string $recipientsLock): self
     {
         $this->recipientsLock = $recipientsLock;
 
@@ -938,19 +1213,23 @@ class Envelopes
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the recipients.
+     *
      * @return string
      */
-    public function getRecipientsUri()
+    public function getRecipientsUri(): ?string
     {
         return $this->recipientsUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the recipients.
+     *
      * @param string $recipientsUri
      *
      * @return self
      */
-    public function setRecipientsUri($recipientsUri = null)
+    public function setRecipientsUri(?string $recipientsUri): self
     {
         $this->recipientsUri = $recipientsUri;
 
@@ -958,19 +1237,23 @@ class Envelopes
     }
 
     /**
+     * The date and time the envelope was sent.
+     *
      * @return string
      */
-    public function getSentDateTime()
+    public function getSentDateTime(): ?string
     {
         return $this->sentDateTime;
     }
 
     /**
+     * The date and time the envelope was sent.
+     *
      * @param string $sentDateTime
      *
      * @return self
      */
-    public function setSentDateTime($sentDateTime = null)
+    public function setSentDateTime(?string $sentDateTime): self
     {
         $this->sentDateTime = $sentDateTime;
 
@@ -978,19 +1261,23 @@ class Envelopes
     }
 
     /**
+     * Specifies the physical location where the signing takes place. It can have two enumeration values; InPerson and Online. The default value is Online.
+     *
      * @return string
      */
-    public function getSigningLocation()
+    public function getSigningLocation(): ?string
     {
         return $this->signingLocation;
     }
 
     /**
+     * Specifies the physical location where the signing takes place. It can have two enumeration values; InPerson and Online. The default value is Online.
+     *
      * @param string $signingLocation
      *
      * @return self
      */
-    public function setSigningLocation($signingLocation = null)
+    public function setSigningLocation(?string $signingLocation): self
     {
         $this->signingLocation = $signingLocation;
 
@@ -998,19 +1285,31 @@ class Envelopes
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * created - The envelope is created as a draft. It can be modified and sent later.
+     * sent - The envelope is sent to the recipients.
+
+     *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * created - The envelope is created as a draft. It can be modified and sent later.
+     * sent - The envelope is sent to the recipients.
+
+     *
      * @param string $status
      *
      * @return self
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 
@@ -1018,19 +1317,23 @@ class Envelopes
     }
 
     /**
+     * The data and time the status changed.
+     *
      * @return string
      */
-    public function getStatusChangedDateTime()
+    public function getStatusChangedDateTime(): ?string
     {
         return $this->statusChangedDateTime;
     }
 
     /**
+     * The data and time the status changed.
+     *
      * @param string $statusChangedDateTime
      *
      * @return self
      */
-    public function setStatusChangedDateTime($statusChangedDateTime = null)
+    public function setStatusChangedDateTime(?string $statusChangedDateTime): self
     {
         $this->statusChangedDateTime = $statusChangedDateTime;
 
@@ -1038,19 +1341,23 @@ class Envelopes
     }
 
     /**
+     * Contains a URI for an endpoint which you can use to retrieve the templates.
+     *
      * @return string
      */
-    public function getTemplatesUri()
+    public function getTemplatesUri(): ?string
     {
         return $this->templatesUri;
     }
 
     /**
+     * Contains a URI for an endpoint which you can use to retrieve the templates.
+     *
      * @param string $templatesUri
      *
      * @return self
      */
-    public function setTemplatesUri($templatesUri = null)
+    public function setTemplatesUri(?string $templatesUri): self
     {
         $this->templatesUri = $templatesUri;
 
@@ -1058,19 +1365,23 @@ class Envelopes
     }
 
     /**
+     *  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+     *
      * @return string
      */
-    public function getTransactionId()
+    public function getTransactionId(): ?string
     {
         return $this->transactionId;
     }
 
     /**
+     *  Used to identify an envelope. The id is a sender-generated value and is valid in the DocuSign system for 7 days. It is recommended that a transaction ID is used for offline signing to ensure that an envelope is not sent multiple times. The `transactionId` property can be used determine an envelope's status (i.e. was it created or not) in cases where the internet connection was lost before the envelope status was returned.
+     *
      * @param string $transactionId
      *
      * @return self
      */
-    public function setTransactionId($transactionId = null)
+    public function setTransactionId(?string $transactionId): self
     {
         $this->transactionId = $transactionId;
 
@@ -1078,19 +1389,27 @@ class Envelopes
     }
 
     /**
+     * When set to **true**, the disclosure is shown to recipients in accordance with the account's Electronic Record and Signature Disclosure frequency setting. When set to **false**, the Electronic Record and Signature Disclosure is not shown to any envelope recipients.
+
+     If the `useDisclosure` property is not set, then the account's normal disclosure setting is used and the value of the `useDisclosure` property is not returned in responses when getting envelope information.
+     *
      * @return string
      */
-    public function getUseDisclosure()
+    public function getUseDisclosure(): ?string
     {
         return $this->useDisclosure;
     }
 
     /**
+     * When set to **true**, the disclosure is shown to recipients in accordance with the account's Electronic Record and Signature Disclosure frequency setting. When set to **false**, the Electronic Record and Signature Disclosure is not shown to any envelope recipients.
+
+     If the `useDisclosure` property is not set, then the account's normal disclosure setting is used and the value of the `useDisclosure` property is not returned in responses when getting envelope information.
+     *
      * @param string $useDisclosure
      *
      * @return self
      */
-    public function setUseDisclosure($useDisclosure = null)
+    public function setUseDisclosure(?string $useDisclosure): self
     {
         $this->useDisclosure = $useDisclosure;
 
@@ -1098,19 +1417,23 @@ class Envelopes
     }
 
     /**
+     * The date and time the envelope or template was voided.
+     *
      * @return string
      */
-    public function getVoidedDateTime()
+    public function getVoidedDateTime(): ?string
     {
         return $this->voidedDateTime;
     }
 
     /**
+     * The date and time the envelope or template was voided.
+     *
      * @param string $voidedDateTime
      *
      * @return self
      */
-    public function setVoidedDateTime($voidedDateTime = null)
+    public function setVoidedDateTime(?string $voidedDateTime): self
     {
         $this->voidedDateTime = $voidedDateTime;
 
@@ -1118,19 +1441,23 @@ class Envelopes
     }
 
     /**
+     * The reason the envelope or template was voided.
+     *
      * @return string
      */
-    public function getVoidedReason()
+    public function getVoidedReason(): ?string
     {
         return $this->voidedReason;
     }
 
     /**
+     * The reason the envelope or template was voided.
+     *
      * @param string $voidedReason
      *
      * @return self
      */
-    public function setVoidedReason($voidedReason = null)
+    public function setVoidedReason(?string $voidedReason): self
     {
         $this->voidedReason = $voidedReason;
 

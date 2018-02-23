@@ -16,7 +16,7 @@ class AccountPasswordLockoutDurationType
     /**
      * @return string[]
      */
-    public function getOptions()
+    public function getOptions(): ?array
     {
         return $this->options;
     }
@@ -26,7 +26,7 @@ class AccountPasswordLockoutDurationType
      *
      * @return self
      */
-    public function setOptions(array $options = null)
+    public function setOptions(?array $options): self
     {
         $this->options = $options;
 

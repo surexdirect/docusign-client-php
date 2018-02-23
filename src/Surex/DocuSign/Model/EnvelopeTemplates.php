@@ -16,7 +16,7 @@ class EnvelopeTemplates
     /**
      * @return TemplateSummary[]
      */
-    public function getTemplates()
+    public function getTemplates(): ?array
     {
         return $this->templates;
     }
@@ -26,7 +26,7 @@ class EnvelopeTemplates
      *
      * @return self
      */
-    public function setTemplates(array $templates = null)
+    public function setTemplates(?array $templates): self
     {
         $this->templates = $templates;
 

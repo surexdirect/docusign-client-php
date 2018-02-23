@@ -40,7 +40,7 @@ class AccountPasswordStrengthTypeOption
     /**
      * @return string
      */
-    public function getMinimumLength()
+    public function getMinimumLength(): ?string
     {
         return $this->minimumLength;
     }
@@ -50,7 +50,7 @@ class AccountPasswordStrengthTypeOption
      *
      * @return self
      */
-    public function setMinimumLength($minimumLength = null)
+    public function setMinimumLength(?string $minimumLength): self
     {
         $this->minimumLength = $minimumLength;
 
@@ -60,7 +60,7 @@ class AccountPasswordStrengthTypeOption
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -70,7 +70,7 @@ class AccountPasswordStrengthTypeOption
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -80,7 +80,7 @@ class AccountPasswordStrengthTypeOption
     /**
      * @return string
      */
-    public function getPasswordIncludeDigit()
+    public function getPasswordIncludeDigit(): ?string
     {
         return $this->passwordIncludeDigit;
     }
@@ -90,7 +90,7 @@ class AccountPasswordStrengthTypeOption
      *
      * @return self
      */
-    public function setPasswordIncludeDigit($passwordIncludeDigit = null)
+    public function setPasswordIncludeDigit(?string $passwordIncludeDigit): self
     {
         $this->passwordIncludeDigit = $passwordIncludeDigit;
 
@@ -100,7 +100,7 @@ class AccountPasswordStrengthTypeOption
     /**
      * @return string
      */
-    public function getPasswordIncludeDigitOrSpecialCharacter()
+    public function getPasswordIncludeDigitOrSpecialCharacter(): ?string
     {
         return $this->passwordIncludeDigitOrSpecialCharacter;
     }
@@ -110,7 +110,7 @@ class AccountPasswordStrengthTypeOption
      *
      * @return self
      */
-    public function setPasswordIncludeDigitOrSpecialCharacter($passwordIncludeDigitOrSpecialCharacter = null)
+    public function setPasswordIncludeDigitOrSpecialCharacter(?string $passwordIncludeDigitOrSpecialCharacter): self
     {
         $this->passwordIncludeDigitOrSpecialCharacter = $passwordIncludeDigitOrSpecialCharacter;
 
@@ -120,7 +120,7 @@ class AccountPasswordStrengthTypeOption
     /**
      * @return string
      */
-    public function getPasswordIncludeLowerCase()
+    public function getPasswordIncludeLowerCase(): ?string
     {
         return $this->passwordIncludeLowerCase;
     }
@@ -130,7 +130,7 @@ class AccountPasswordStrengthTypeOption
      *
      * @return self
      */
-    public function setPasswordIncludeLowerCase($passwordIncludeLowerCase = null)
+    public function setPasswordIncludeLowerCase(?string $passwordIncludeLowerCase): self
     {
         $this->passwordIncludeLowerCase = $passwordIncludeLowerCase;
 
@@ -140,7 +140,7 @@ class AccountPasswordStrengthTypeOption
     /**
      * @return string
      */
-    public function getPasswordIncludeSpecialCharacter()
+    public function getPasswordIncludeSpecialCharacter(): ?string
     {
         return $this->passwordIncludeSpecialCharacter;
     }
@@ -150,7 +150,7 @@ class AccountPasswordStrengthTypeOption
      *
      * @return self
      */
-    public function setPasswordIncludeSpecialCharacter($passwordIncludeSpecialCharacter = null)
+    public function setPasswordIncludeSpecialCharacter(?string $passwordIncludeSpecialCharacter): self
     {
         $this->passwordIncludeSpecialCharacter = $passwordIncludeSpecialCharacter;
 
@@ -160,7 +160,7 @@ class AccountPasswordStrengthTypeOption
     /**
      * @return string
      */
-    public function getPasswordIncludeUpperCase()
+    public function getPasswordIncludeUpperCase(): ?string
     {
         return $this->passwordIncludeUpperCase;
     }
@@ -170,7 +170,7 @@ class AccountPasswordStrengthTypeOption
      *
      * @return self
      */
-    public function setPasswordIncludeUpperCase($passwordIncludeUpperCase = null)
+    public function setPasswordIncludeUpperCase(?string $passwordIncludeUpperCase): self
     {
         $this->passwordIncludeUpperCase = $passwordIncludeUpperCase;
 

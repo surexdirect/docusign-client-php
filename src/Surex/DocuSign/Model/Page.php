@@ -9,14 +9,20 @@ namespace Surex\DocuSign\Model;
 class Page
 {
     /**
+     * The number of dots per inch used for the page image.
+     *
      * @var string
      */
     protected $dpi;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
     /**
+     * Height of the tab in pixels.
+     *
      * @var string
      */
     protected $height;
@@ -37,24 +43,30 @@ class Page
      */
     protected $sequence;
     /**
+     * Width of the tab in pixels.
+     *
      * @var string
      */
     protected $width;
 
     /**
+     * The number of dots per inch used for the page image.
+     *
      * @return string
      */
-    public function getDpi()
+    public function getDpi(): ?string
     {
         return $this->dpi;
     }
 
     /**
+     * The number of dots per inch used for the page image.
+     *
      * @param string $dpi
      *
      * @return self
      */
-    public function setDpi($dpi = null)
+    public function setDpi(?string $dpi): self
     {
         $this->dpi = $dpi;
 
@@ -62,19 +74,23 @@ class Page
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -82,19 +98,23 @@ class Page
     }
 
     /**
+     * Height of the tab in pixels.
+     *
      * @return string
      */
-    public function getHeight()
+    public function getHeight(): ?string
     {
         return $this->height;
     }
 
     /**
+     * Height of the tab in pixels.
+     *
      * @param string $height
      *
      * @return self
      */
-    public function setHeight($height = null)
+    public function setHeight(?string $height): self
     {
         $this->height = $height;
 
@@ -104,7 +124,7 @@ class Page
     /**
      * @return string
      */
-    public function getImageBytes()
+    public function getImageBytes(): ?string
     {
         return $this->imageBytes;
     }
@@ -114,7 +134,7 @@ class Page
      *
      * @return self
      */
-    public function setImageBytes($imageBytes = null)
+    public function setImageBytes(?string $imageBytes): self
     {
         $this->imageBytes = $imageBytes;
 
@@ -124,7 +144,7 @@ class Page
     /**
      * @return string
      */
-    public function getMimeType()
+    public function getMimeType(): ?string
     {
         return $this->mimeType;
     }
@@ -134,7 +154,7 @@ class Page
      *
      * @return self
      */
-    public function setMimeType($mimeType = null)
+    public function setMimeType(?string $mimeType): self
     {
         $this->mimeType = $mimeType;
 
@@ -144,7 +164,7 @@ class Page
     /**
      * @return string
      */
-    public function getPageId()
+    public function getPageId(): ?string
     {
         return $this->pageId;
     }
@@ -154,7 +174,7 @@ class Page
      *
      * @return self
      */
-    public function setPageId($pageId = null)
+    public function setPageId(?string $pageId): self
     {
         $this->pageId = $pageId;
 
@@ -164,7 +184,7 @@ class Page
     /**
      * @return string
      */
-    public function getSequence()
+    public function getSequence(): ?string
     {
         return $this->sequence;
     }
@@ -174,7 +194,7 @@ class Page
      *
      * @return self
      */
-    public function setSequence($sequence = null)
+    public function setSequence(?string $sequence): self
     {
         $this->sequence = $sequence;
 
@@ -182,19 +202,23 @@ class Page
     }
 
     /**
+     * Width of the tab in pixels.
+     *
      * @return string
      */
-    public function getWidth()
+    public function getWidth(): ?string
     {
         return $this->width;
     }
 
     /**
+     * Width of the tab in pixels.
+     *
      * @param string $width
      *
      * @return self
      */
-    public function setWidth($width = null)
+    public function setWidth(?string $width): self
     {
         $this->width = $width;
 

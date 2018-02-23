@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class NewUser
 {
     /**
+     * Contains a token that can be used for authentication in API calls instead of using the user name and password.
+     *
      * @var string
      */
     protected $apiPassword;
     /**
+     * Indicates the date and time the item was created.
+     *
      * @var string
      */
     protected $createdDateTime;
@@ -21,6 +25,8 @@ class NewUser
      */
     protected $email;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -37,6 +43,8 @@ class NewUser
      */
     protected $uri;
     /**
+     * Specifies the user ID for the new user.
+     *
      * @var string
      */
     protected $userId;
@@ -50,19 +58,23 @@ class NewUser
     protected $userStatus;
 
     /**
+     * Contains a token that can be used for authentication in API calls instead of using the user name and password.
+     *
      * @return string
      */
-    public function getApiPassword()
+    public function getApiPassword(): ?string
     {
         return $this->apiPassword;
     }
 
     /**
+     * Contains a token that can be used for authentication in API calls instead of using the user name and password.
+     *
      * @param string $apiPassword
      *
      * @return self
      */
-    public function setApiPassword($apiPassword = null)
+    public function setApiPassword(?string $apiPassword): self
     {
         $this->apiPassword = $apiPassword;
 
@@ -70,19 +82,23 @@ class NewUser
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @return string
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): ?string
     {
         return $this->createdDateTime;
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @param string $createdDateTime
      *
      * @return self
      */
-    public function setCreatedDateTime($createdDateTime = null)
+    public function setCreatedDateTime(?string $createdDateTime): self
     {
         $this->createdDateTime = $createdDateTime;
 
@@ -92,7 +108,7 @@ class NewUser
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -102,7 +118,7 @@ class NewUser
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -110,19 +126,23 @@ class NewUser
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -132,7 +152,7 @@ class NewUser
     /**
      * @return string
      */
-    public function getPermissionProfileId()
+    public function getPermissionProfileId(): ?string
     {
         return $this->permissionProfileId;
     }
@@ -142,7 +162,7 @@ class NewUser
      *
      * @return self
      */
-    public function setPermissionProfileId($permissionProfileId = null)
+    public function setPermissionProfileId(?string $permissionProfileId): self
     {
         $this->permissionProfileId = $permissionProfileId;
 
@@ -152,7 +172,7 @@ class NewUser
     /**
      * @return string
      */
-    public function getPermissionProfileName()
+    public function getPermissionProfileName(): ?string
     {
         return $this->permissionProfileName;
     }
@@ -162,7 +182,7 @@ class NewUser
      *
      * @return self
      */
-    public function setPermissionProfileName($permissionProfileName = null)
+    public function setPermissionProfileName(?string $permissionProfileName): self
     {
         $this->permissionProfileName = $permissionProfileName;
 
@@ -172,7 +192,7 @@ class NewUser
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -182,7 +202,7 @@ class NewUser
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 
@@ -190,19 +210,23 @@ class NewUser
     }
 
     /**
+     * Specifies the user ID for the new user.
+     *
      * @return string
      */
-    public function getUserId()
+    public function getUserId(): ?string
     {
         return $this->userId;
     }
 
     /**
+     * Specifies the user ID for the new user.
+     *
      * @param string $userId
      *
      * @return self
      */
-    public function setUserId($userId = null)
+    public function setUserId(?string $userId): self
     {
         $this->userId = $userId;
 
@@ -212,7 +236,7 @@ class NewUser
     /**
      * @return string
      */
-    public function getUserName()
+    public function getUserName(): ?string
     {
         return $this->userName;
     }
@@ -222,7 +246,7 @@ class NewUser
      *
      * @return self
      */
-    public function setUserName($userName = null)
+    public function setUserName(?string $userName): self
     {
         $this->userName = $userName;
 
@@ -232,7 +256,7 @@ class NewUser
     /**
      * @return string
      */
-    public function getUserStatus()
+    public function getUserStatus(): ?string
     {
         return $this->userStatus;
     }
@@ -242,7 +266,7 @@ class NewUser
      *
      * @return self
      */
-    public function setUserStatus($userStatus = null)
+    public function setUserStatus(?string $userStatus): self
     {
         $this->userStatus = $userStatus;
 

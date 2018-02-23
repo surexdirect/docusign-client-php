@@ -13,6 +13,8 @@ class BulkRecipientSignatureProvider
      */
     protected $name;
     /**
+     * Specifies the value of the tab.
+     *
      * @var string
      */
     protected $value;
@@ -20,7 +22,7 @@ class BulkRecipientSignatureProvider
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -30,7 +32,7 @@ class BulkRecipientSignatureProvider
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -38,19 +40,23 @@ class BulkRecipientSignatureProvider
     }
 
     /**
+     * Specifies the value of the tab.
+     *
      * @return string
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         return $this->value;
     }
 
     /**
+     * Specifies the value of the tab.
+     *
      * @param string $value
      *
      * @return self
      */
-    public function setValue($value = null)
+    public function setValue(?string $value): self
     {
         $this->value = $value;
 

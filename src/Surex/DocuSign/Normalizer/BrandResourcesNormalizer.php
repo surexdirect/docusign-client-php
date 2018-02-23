@@ -6,41 +6,43 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class BrandResourcesNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class BrandResourcesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\BrandResources' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\BrandResources' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\BrandResources) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\BrandResources;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\BrandResources();
         if (property_exists($data, 'createdByUserInfo')) {
-            $object->setCreatedByUserInfo($this->serializer->deserialize($data->{'createdByUserInfo'}, 'Surex\\DocuSign\\Model\\UserInfo', 'raw', $context));
+            $object->setCreatedByUserInfo($this->denormalizer->denormalize($data->{'createdByUserInfo'}, 'Surex\\DocuSign\\Model\\UserInfo', 'json', $context));
         }
         if (property_exists($data, 'createdDate')) {
             $object->setCreatedDate($data->{'createdDate'});
         }
         if (property_exists($data, 'modifiedByUserInfo')) {
-            $object->setModifiedByUserInfo($this->serializer->deserialize($data->{'modifiedByUserInfo'}, 'Surex\\DocuSign\\Model\\UserInfo', 'raw', $context));
+            $object->setModifiedByUserInfo($this->denormalizer->denormalize($data->{'modifiedByUserInfo'}, 'Surex\\DocuSign\\Model\\UserInfo', 'json', $context));
         }
         if (property_exists($data, 'modifiedDate')) {
             $object->setModifiedDate($data->{'modifiedDate'});
@@ -66,13 +68,13 @@ class BrandResourcesNormalizer extends SerializerAwareNormalizer implements Deno
     {
         $data = new \stdClass();
         if (null !== $object->getCreatedByUserInfo()) {
-            $data->{'createdByUserInfo'} = $this->serializer->serialize($object->getCreatedByUserInfo(), 'raw', $context);
+            $data->{'createdByUserInfo'} = $this->normalizer->normalize($object->getCreatedByUserInfo(), 'json', $context);
         }
         if (null !== $object->getCreatedDate()) {
             $data->{'createdDate'} = $object->getCreatedDate();
         }
         if (null !== $object->getModifiedByUserInfo()) {
-            $data->{'modifiedByUserInfo'} = $this->serializer->serialize($object->getModifiedByUserInfo(), 'raw', $context);
+            $data->{'modifiedByUserInfo'} = $this->normalizer->normalize($object->getModifiedByUserInfo(), 'json', $context);
         }
         if (null !== $object->getModifiedDate()) {
             $data->{'modifiedDate'} = $object->getModifiedDate();

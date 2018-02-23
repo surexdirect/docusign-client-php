@@ -40,7 +40,7 @@ class AccountPermissionProfiles
     /**
      * @return string
      */
-    public function getModifiedByUsername()
+    public function getModifiedByUsername(): ?string
     {
         return $this->modifiedByUsername;
     }
@@ -50,7 +50,7 @@ class AccountPermissionProfiles
      *
      * @return self
      */
-    public function setModifiedByUsername($modifiedByUsername = null)
+    public function setModifiedByUsername(?string $modifiedByUsername): self
     {
         $this->modifiedByUsername = $modifiedByUsername;
 
@@ -60,7 +60,7 @@ class AccountPermissionProfiles
     /**
      * @return string
      */
-    public function getModifiedDateTime()
+    public function getModifiedDateTime(): ?string
     {
         return $this->modifiedDateTime;
     }
@@ -70,7 +70,7 @@ class AccountPermissionProfiles
      *
      * @return self
      */
-    public function setModifiedDateTime($modifiedDateTime = null)
+    public function setModifiedDateTime(?string $modifiedDateTime): self
     {
         $this->modifiedDateTime = $modifiedDateTime;
 
@@ -80,7 +80,7 @@ class AccountPermissionProfiles
     /**
      * @return string
      */
-    public function getPermissionProfileId()
+    public function getPermissionProfileId(): ?string
     {
         return $this->permissionProfileId;
     }
@@ -90,7 +90,7 @@ class AccountPermissionProfiles
      *
      * @return self
      */
-    public function setPermissionProfileId($permissionProfileId = null)
+    public function setPermissionProfileId(?string $permissionProfileId): self
     {
         $this->permissionProfileId = $permissionProfileId;
 
@@ -100,7 +100,7 @@ class AccountPermissionProfiles
     /**
      * @return string
      */
-    public function getPermissionProfileName()
+    public function getPermissionProfileName(): ?string
     {
         return $this->permissionProfileName;
     }
@@ -110,7 +110,7 @@ class AccountPermissionProfiles
      *
      * @return self
      */
-    public function setPermissionProfileName($permissionProfileName = null)
+    public function setPermissionProfileName(?string $permissionProfileName): self
     {
         $this->permissionProfileName = $permissionProfileName;
 
@@ -120,7 +120,7 @@ class AccountPermissionProfiles
     /**
      * @return AccountRoleSettings
      */
-    public function getSettings()
+    public function getSettings(): ?AccountRoleSettings
     {
         return $this->settings;
     }
@@ -130,7 +130,7 @@ class AccountPermissionProfiles
      *
      * @return self
      */
-    public function setSettings(AccountRoleSettings $settings = null)
+    public function setSettings(?AccountRoleSettings $settings): self
     {
         $this->settings = $settings;
 
@@ -140,7 +140,7 @@ class AccountPermissionProfiles
     /**
      * @return string
      */
-    public function getUserCount()
+    public function getUserCount(): ?string
     {
         return $this->userCount;
     }
@@ -150,7 +150,7 @@ class AccountPermissionProfiles
      *
      * @return self
      */
-    public function setUserCount($userCount = null)
+    public function setUserCount(?string $userCount): self
     {
         $this->userCount = $userCount;
 
@@ -160,7 +160,7 @@ class AccountPermissionProfiles
     /**
      * @return Users[]
      */
-    public function getUsers()
+    public function getUsers(): ?array
     {
         return $this->users;
     }
@@ -170,7 +170,7 @@ class AccountPermissionProfiles
      *
      * @return self
      */
-    public function setUsers(array $users = null)
+    public function setUsers(?array $users): self
     {
         $this->users = $users;
 

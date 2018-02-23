@@ -9,32 +9,42 @@ namespace Surex\DocuSign\Model;
 class BillingPaymentsResponse
 {
     /**
+     * Reserved: TBD.
+     *
      * @var Payments[]
      */
     protected $billingPayments;
     /**
+     * The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search.
+     *
      * @var string
      */
     protected $nextUri;
     /**
+     * The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search.
+     *
      * @var string
      */
     protected $previousUri;
 
     /**
+     * Reserved: TBD.
+     *
      * @return Payments[]
      */
-    public function getBillingPayments()
+    public function getBillingPayments(): ?array
     {
         return $this->billingPayments;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param Payments[] $billingPayments
      *
      * @return self
      */
-    public function setBillingPayments(array $billingPayments = null)
+    public function setBillingPayments(?array $billingPayments): self
     {
         $this->billingPayments = $billingPayments;
 
@@ -42,19 +52,23 @@ class BillingPaymentsResponse
     }
 
     /**
+     * The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search.
+     *
      * @return string
      */
-    public function getNextUri()
+    public function getNextUri(): ?string
     {
         return $this->nextUri;
     }
 
     /**
+     * The URI for the next chunk of records based on the search request. It is `null` if this is the last set of results for the search.
+     *
      * @param string $nextUri
      *
      * @return self
      */
-    public function setNextUri($nextUri = null)
+    public function setNextUri(?string $nextUri): self
     {
         $this->nextUri = $nextUri;
 
@@ -62,19 +76,23 @@ class BillingPaymentsResponse
     }
 
     /**
+     * The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search.
+     *
      * @return string
      */
-    public function getPreviousUri()
+    public function getPreviousUri(): ?string
     {
         return $this->previousUri;
     }
 
     /**
+     * The URI for the prior chunk of records based on the search request. It is `null` if this is the first set of results for the search.
+     *
      * @param string $previousUri
      *
      * @return self
      */
-    public function setPreviousUri($previousUri = null)
+    public function setPreviousUri(?string $previousUri): self
     {
         $this->previousUri = $previousUri;
 

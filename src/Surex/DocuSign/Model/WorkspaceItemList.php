@@ -16,7 +16,7 @@ class WorkspaceItemList
     /**
      * @return WorkspaceItems[]
      */
-    public function getItems()
+    public function getItems(): ?array
     {
         return $this->items;
     }
@@ -26,7 +26,7 @@ class WorkspaceItemList
      *
      * @return self
      */
-    public function setItems(array $items = null)
+    public function setItems(?array $items): self
     {
         $this->items = $items;
 

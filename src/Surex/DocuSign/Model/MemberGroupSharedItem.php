@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class MemberGroupSharedItem
 {
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -17,24 +19,30 @@ class MemberGroupSharedItem
      */
     protected $group;
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @var string
      */
     protected $shared;
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -44,7 +52,7 @@ class MemberGroupSharedItem
     /**
      * @return Group
      */
-    public function getGroup()
+    public function getGroup(): ?Group
     {
         return $this->group;
     }
@@ -54,7 +62,7 @@ class MemberGroupSharedItem
      *
      * @return self
      */
-    public function setGroup(Group $group = null)
+    public function setGroup(?Group $group): self
     {
         $this->group = $group;
 
@@ -62,19 +70,23 @@ class MemberGroupSharedItem
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @return string
      */
-    public function getShared()
+    public function getShared(): ?string
     {
         return $this->shared;
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @param string $shared
      *
      * @return self
      */
-    public function setShared($shared = null)
+    public function setShared(?string $shared): self
     {
         $this->shared = $shared;
 

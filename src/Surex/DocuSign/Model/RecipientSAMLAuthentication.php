@@ -16,7 +16,7 @@ class RecipientSAMLAuthentication
     /**
      * @return SamlAssertionAttribute[]
      */
-    public function getSamlAssertionAttributes()
+    public function getSamlAssertionAttributes(): ?array
     {
         return $this->samlAssertionAttributes;
     }
@@ -26,7 +26,7 @@ class RecipientSAMLAuthentication
      *
      * @return self
      */
-    public function setSamlAssertionAttributes(array $samlAssertionAttributes = null)
+    public function setSamlAssertionAttributes(?array $samlAssertionAttributes): self
     {
         $this->samlAssertionAttributes = $samlAssertionAttributes;
 

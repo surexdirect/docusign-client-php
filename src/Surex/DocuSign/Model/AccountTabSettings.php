@@ -164,7 +164,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getAllowTabOrder()
+    public function getAllowTabOrder(): ?string
     {
         return $this->allowTabOrder;
     }
@@ -174,7 +174,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setAllowTabOrder($allowTabOrder = null)
+    public function setAllowTabOrder(?string $allowTabOrder): self
     {
         $this->allowTabOrder = $allowTabOrder;
 
@@ -184,7 +184,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getAllowTabOrderMetadata()
+    public function getAllowTabOrderMetadata(): ?SettingsMetadata
     {
         return $this->allowTabOrderMetadata;
     }
@@ -194,7 +194,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setAllowTabOrderMetadata(SettingsMetadata $allowTabOrderMetadata = null)
+    public function setAllowTabOrderMetadata(?SettingsMetadata $allowTabOrderMetadata): self
     {
         $this->allowTabOrderMetadata = $allowTabOrderMetadata;
 
@@ -204,7 +204,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getApproveDeclineTabsEnabled()
+    public function getApproveDeclineTabsEnabled(): ?string
     {
         return $this->approveDeclineTabsEnabled;
     }
@@ -214,7 +214,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setApproveDeclineTabsEnabled($approveDeclineTabsEnabled = null)
+    public function setApproveDeclineTabsEnabled(?string $approveDeclineTabsEnabled): self
     {
         $this->approveDeclineTabsEnabled = $approveDeclineTabsEnabled;
 
@@ -224,7 +224,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getApproveDeclineTabsMetadata()
+    public function getApproveDeclineTabsMetadata(): ?SettingsMetadata
     {
         return $this->approveDeclineTabsMetadata;
     }
@@ -234,7 +234,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setApproveDeclineTabsMetadata(SettingsMetadata $approveDeclineTabsMetadata = null)
+    public function setApproveDeclineTabsMetadata(?SettingsMetadata $approveDeclineTabsMetadata): self
     {
         $this->approveDeclineTabsMetadata = $approveDeclineTabsMetadata;
 
@@ -244,7 +244,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getCalculatedFieldsEnabled()
+    public function getCalculatedFieldsEnabled(): ?string
     {
         return $this->calculatedFieldsEnabled;
     }
@@ -254,7 +254,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setCalculatedFieldsEnabled($calculatedFieldsEnabled = null)
+    public function setCalculatedFieldsEnabled(?string $calculatedFieldsEnabled): self
     {
         $this->calculatedFieldsEnabled = $calculatedFieldsEnabled;
 
@@ -264,7 +264,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getCalculatedFieldsMetadata()
+    public function getCalculatedFieldsMetadata(): ?SettingsMetadata
     {
         return $this->calculatedFieldsMetadata;
     }
@@ -274,7 +274,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setCalculatedFieldsMetadata(SettingsMetadata $calculatedFieldsMetadata = null)
+    public function setCalculatedFieldsMetadata(?SettingsMetadata $calculatedFieldsMetadata): self
     {
         $this->calculatedFieldsMetadata = $calculatedFieldsMetadata;
 
@@ -284,7 +284,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getCheckboxTabsEnabled()
+    public function getCheckboxTabsEnabled(): ?string
     {
         return $this->checkboxTabsEnabled;
     }
@@ -294,7 +294,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setCheckboxTabsEnabled($checkboxTabsEnabled = null)
+    public function setCheckboxTabsEnabled(?string $checkboxTabsEnabled): self
     {
         $this->checkboxTabsEnabled = $checkboxTabsEnabled;
 
@@ -304,7 +304,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getCheckboxTabsMetadata()
+    public function getCheckboxTabsMetadata(): ?SettingsMetadata
     {
         return $this->checkboxTabsMetadata;
     }
@@ -314,7 +314,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setCheckboxTabsMetadata(SettingsMetadata $checkboxTabsMetadata = null)
+    public function setCheckboxTabsMetadata(?SettingsMetadata $checkboxTabsMetadata): self
     {
         $this->checkboxTabsMetadata = $checkboxTabsMetadata;
 
@@ -324,7 +324,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getDataFieldRegexEnabled()
+    public function getDataFieldRegexEnabled(): ?string
     {
         return $this->dataFieldRegexEnabled;
     }
@@ -334,7 +334,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setDataFieldRegexEnabled($dataFieldRegexEnabled = null)
+    public function setDataFieldRegexEnabled(?string $dataFieldRegexEnabled): self
     {
         $this->dataFieldRegexEnabled = $dataFieldRegexEnabled;
 
@@ -344,7 +344,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getDataFieldRegexMetadata()
+    public function getDataFieldRegexMetadata(): ?SettingsMetadata
     {
         return $this->dataFieldRegexMetadata;
     }
@@ -354,7 +354,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setDataFieldRegexMetadata(SettingsMetadata $dataFieldRegexMetadata = null)
+    public function setDataFieldRegexMetadata(?SettingsMetadata $dataFieldRegexMetadata): self
     {
         $this->dataFieldRegexMetadata = $dataFieldRegexMetadata;
 
@@ -364,7 +364,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getDataFieldSizeEnabled()
+    public function getDataFieldSizeEnabled(): ?string
     {
         return $this->dataFieldSizeEnabled;
     }
@@ -374,7 +374,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setDataFieldSizeEnabled($dataFieldSizeEnabled = null)
+    public function setDataFieldSizeEnabled(?string $dataFieldSizeEnabled): self
     {
         $this->dataFieldSizeEnabled = $dataFieldSizeEnabled;
 
@@ -384,7 +384,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getDataFieldSizeMetadata()
+    public function getDataFieldSizeMetadata(): ?SettingsMetadata
     {
         return $this->dataFieldSizeMetadata;
     }
@@ -394,7 +394,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setDataFieldSizeMetadata(SettingsMetadata $dataFieldSizeMetadata = null)
+    public function setDataFieldSizeMetadata(?SettingsMetadata $dataFieldSizeMetadata): self
     {
         $this->dataFieldSizeMetadata = $dataFieldSizeMetadata;
 
@@ -404,7 +404,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getFirstLastEmailTabsEnabled()
+    public function getFirstLastEmailTabsEnabled(): ?string
     {
         return $this->firstLastEmailTabsEnabled;
     }
@@ -414,7 +414,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setFirstLastEmailTabsEnabled($firstLastEmailTabsEnabled = null)
+    public function setFirstLastEmailTabsEnabled(?string $firstLastEmailTabsEnabled): self
     {
         $this->firstLastEmailTabsEnabled = $firstLastEmailTabsEnabled;
 
@@ -424,7 +424,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getFirstLastEmailTabsMetadata()
+    public function getFirstLastEmailTabsMetadata(): ?SettingsMetadata
     {
         return $this->firstLastEmailTabsMetadata;
     }
@@ -434,7 +434,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setFirstLastEmailTabsMetadata(SettingsMetadata $firstLastEmailTabsMetadata = null)
+    public function setFirstLastEmailTabsMetadata(?SettingsMetadata $firstLastEmailTabsMetadata): self
     {
         $this->firstLastEmailTabsMetadata = $firstLastEmailTabsMetadata;
 
@@ -444,7 +444,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getListTabsEnabled()
+    public function getListTabsEnabled(): ?string
     {
         return $this->listTabsEnabled;
     }
@@ -454,7 +454,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setListTabsEnabled($listTabsEnabled = null)
+    public function setListTabsEnabled(?string $listTabsEnabled): self
     {
         $this->listTabsEnabled = $listTabsEnabled;
 
@@ -464,7 +464,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getListTabsMetadata()
+    public function getListTabsMetadata(): ?SettingsMetadata
     {
         return $this->listTabsMetadata;
     }
@@ -474,7 +474,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setListTabsMetadata(SettingsMetadata $listTabsMetadata = null)
+    public function setListTabsMetadata(?SettingsMetadata $listTabsMetadata): self
     {
         $this->listTabsMetadata = $listTabsMetadata;
 
@@ -484,7 +484,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getNoteTabsEnabled()
+    public function getNoteTabsEnabled(): ?string
     {
         return $this->noteTabsEnabled;
     }
@@ -494,7 +494,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setNoteTabsEnabled($noteTabsEnabled = null)
+    public function setNoteTabsEnabled(?string $noteTabsEnabled): self
     {
         $this->noteTabsEnabled = $noteTabsEnabled;
 
@@ -504,7 +504,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getNoteTabsMetadata()
+    public function getNoteTabsMetadata(): ?SettingsMetadata
     {
         return $this->noteTabsMetadata;
     }
@@ -514,7 +514,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setNoteTabsMetadata(SettingsMetadata $noteTabsMetadata = null)
+    public function setNoteTabsMetadata(?SettingsMetadata $noteTabsMetadata): self
     {
         $this->noteTabsMetadata = $noteTabsMetadata;
 
@@ -524,7 +524,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getRadioTabsEnabled()
+    public function getRadioTabsEnabled(): ?string
     {
         return $this->radioTabsEnabled;
     }
@@ -534,7 +534,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setRadioTabsEnabled($radioTabsEnabled = null)
+    public function setRadioTabsEnabled(?string $radioTabsEnabled): self
     {
         $this->radioTabsEnabled = $radioTabsEnabled;
 
@@ -544,7 +544,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getRadioTabsMetadata()
+    public function getRadioTabsMetadata(): ?SettingsMetadata
     {
         return $this->radioTabsMetadata;
     }
@@ -554,7 +554,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setRadioTabsMetadata(SettingsMetadata $radioTabsMetadata = null)
+    public function setRadioTabsMetadata(?SettingsMetadata $radioTabsMetadata): self
     {
         $this->radioTabsMetadata = $radioTabsMetadata;
 
@@ -564,7 +564,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getSavingCustomTabsEnabled()
+    public function getSavingCustomTabsEnabled(): ?string
     {
         return $this->savingCustomTabsEnabled;
     }
@@ -574,7 +574,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setSavingCustomTabsEnabled($savingCustomTabsEnabled = null)
+    public function setSavingCustomTabsEnabled(?string $savingCustomTabsEnabled): self
     {
         $this->savingCustomTabsEnabled = $savingCustomTabsEnabled;
 
@@ -584,7 +584,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getSavingCustomTabsMetadata()
+    public function getSavingCustomTabsMetadata(): ?SettingsMetadata
     {
         return $this->savingCustomTabsMetadata;
     }
@@ -594,7 +594,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setSavingCustomTabsMetadata(SettingsMetadata $savingCustomTabsMetadata = null)
+    public function setSavingCustomTabsMetadata(?SettingsMetadata $savingCustomTabsMetadata): self
     {
         $this->savingCustomTabsMetadata = $savingCustomTabsMetadata;
 
@@ -604,7 +604,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getSenderToChangeTabAssignmentsEnabled()
+    public function getSenderToChangeTabAssignmentsEnabled(): ?string
     {
         return $this->senderToChangeTabAssignmentsEnabled;
     }
@@ -614,7 +614,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setSenderToChangeTabAssignmentsEnabled($senderToChangeTabAssignmentsEnabled = null)
+    public function setSenderToChangeTabAssignmentsEnabled(?string $senderToChangeTabAssignmentsEnabled): self
     {
         $this->senderToChangeTabAssignmentsEnabled = $senderToChangeTabAssignmentsEnabled;
 
@@ -624,7 +624,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getSenderToChangeTabAssignmentsMetadata()
+    public function getSenderToChangeTabAssignmentsMetadata(): ?SettingsMetadata
     {
         return $this->senderToChangeTabAssignmentsMetadata;
     }
@@ -634,7 +634,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setSenderToChangeTabAssignmentsMetadata(SettingsMetadata $senderToChangeTabAssignmentsMetadata = null)
+    public function setSenderToChangeTabAssignmentsMetadata(?SettingsMetadata $senderToChangeTabAssignmentsMetadata): self
     {
         $this->senderToChangeTabAssignmentsMetadata = $senderToChangeTabAssignmentsMetadata;
 
@@ -644,7 +644,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getSharedCustomTabsEnabled()
+    public function getSharedCustomTabsEnabled(): ?string
     {
         return $this->sharedCustomTabsEnabled;
     }
@@ -654,7 +654,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setSharedCustomTabsEnabled($sharedCustomTabsEnabled = null)
+    public function setSharedCustomTabsEnabled(?string $sharedCustomTabsEnabled): self
     {
         $this->sharedCustomTabsEnabled = $sharedCustomTabsEnabled;
 
@@ -664,7 +664,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getSharedCustomTabsMetadata()
+    public function getSharedCustomTabsMetadata(): ?SettingsMetadata
     {
         return $this->sharedCustomTabsMetadata;
     }
@@ -674,7 +674,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setSharedCustomTabsMetadata(SettingsMetadata $sharedCustomTabsMetadata = null)
+    public function setSharedCustomTabsMetadata(?SettingsMetadata $sharedCustomTabsMetadata): self
     {
         $this->sharedCustomTabsMetadata = $sharedCustomTabsMetadata;
 
@@ -684,7 +684,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getTabDataLabelEnabled()
+    public function getTabDataLabelEnabled(): ?string
     {
         return $this->tabDataLabelEnabled;
     }
@@ -694,7 +694,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabDataLabelEnabled($tabDataLabelEnabled = null)
+    public function setTabDataLabelEnabled(?string $tabDataLabelEnabled): self
     {
         $this->tabDataLabelEnabled = $tabDataLabelEnabled;
 
@@ -704,7 +704,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getTabDataLabelMetadata()
+    public function getTabDataLabelMetadata(): ?SettingsMetadata
     {
         return $this->tabDataLabelMetadata;
     }
@@ -714,7 +714,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabDataLabelMetadata(SettingsMetadata $tabDataLabelMetadata = null)
+    public function setTabDataLabelMetadata(?SettingsMetadata $tabDataLabelMetadata): self
     {
         $this->tabDataLabelMetadata = $tabDataLabelMetadata;
 
@@ -724,7 +724,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getTabLocationEnabled()
+    public function getTabLocationEnabled(): ?string
     {
         return $this->tabLocationEnabled;
     }
@@ -734,7 +734,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabLocationEnabled($tabLocationEnabled = null)
+    public function setTabLocationEnabled(?string $tabLocationEnabled): self
     {
         $this->tabLocationEnabled = $tabLocationEnabled;
 
@@ -744,7 +744,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getTabLocationMetadata()
+    public function getTabLocationMetadata(): ?SettingsMetadata
     {
         return $this->tabLocationMetadata;
     }
@@ -754,7 +754,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabLocationMetadata(SettingsMetadata $tabLocationMetadata = null)
+    public function setTabLocationMetadata(?SettingsMetadata $tabLocationMetadata): self
     {
         $this->tabLocationMetadata = $tabLocationMetadata;
 
@@ -764,7 +764,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getTabLockingEnabled()
+    public function getTabLockingEnabled(): ?string
     {
         return $this->tabLockingEnabled;
     }
@@ -774,7 +774,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabLockingEnabled($tabLockingEnabled = null)
+    public function setTabLockingEnabled(?string $tabLockingEnabled): self
     {
         $this->tabLockingEnabled = $tabLockingEnabled;
 
@@ -784,7 +784,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getTabLockingMetadata()
+    public function getTabLockingMetadata(): ?SettingsMetadata
     {
         return $this->tabLockingMetadata;
     }
@@ -794,7 +794,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabLockingMetadata(SettingsMetadata $tabLockingMetadata = null)
+    public function setTabLockingMetadata(?SettingsMetadata $tabLockingMetadata): self
     {
         $this->tabLockingMetadata = $tabLockingMetadata;
 
@@ -804,7 +804,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getTabScaleEnabled()
+    public function getTabScaleEnabled(): ?string
     {
         return $this->tabScaleEnabled;
     }
@@ -814,7 +814,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabScaleEnabled($tabScaleEnabled = null)
+    public function setTabScaleEnabled(?string $tabScaleEnabled): self
     {
         $this->tabScaleEnabled = $tabScaleEnabled;
 
@@ -824,7 +824,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getTabScaleMetadata()
+    public function getTabScaleMetadata(): ?SettingsMetadata
     {
         return $this->tabScaleMetadata;
     }
@@ -834,7 +834,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabScaleMetadata(SettingsMetadata $tabScaleMetadata = null)
+    public function setTabScaleMetadata(?SettingsMetadata $tabScaleMetadata): self
     {
         $this->tabScaleMetadata = $tabScaleMetadata;
 
@@ -844,7 +844,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getTabTextFormattingEnabled()
+    public function getTabTextFormattingEnabled(): ?string
     {
         return $this->tabTextFormattingEnabled;
     }
@@ -854,7 +854,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabTextFormattingEnabled($tabTextFormattingEnabled = null)
+    public function setTabTextFormattingEnabled(?string $tabTextFormattingEnabled): self
     {
         $this->tabTextFormattingEnabled = $tabTextFormattingEnabled;
 
@@ -864,7 +864,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getTabTextFormattingMetadata()
+    public function getTabTextFormattingMetadata(): ?SettingsMetadata
     {
         return $this->tabTextFormattingMetadata;
     }
@@ -874,7 +874,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTabTextFormattingMetadata(SettingsMetadata $tabTextFormattingMetadata = null)
+    public function setTabTextFormattingMetadata(?SettingsMetadata $tabTextFormattingMetadata): self
     {
         $this->tabTextFormattingMetadata = $tabTextFormattingMetadata;
 
@@ -884,7 +884,7 @@ class AccountTabSettings
     /**
      * @return string
      */
-    public function getTextTabsEnabled()
+    public function getTextTabsEnabled(): ?string
     {
         return $this->textTabsEnabled;
     }
@@ -894,7 +894,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTextTabsEnabled($textTabsEnabled = null)
+    public function setTextTabsEnabled(?string $textTabsEnabled): self
     {
         $this->textTabsEnabled = $textTabsEnabled;
 
@@ -904,7 +904,7 @@ class AccountTabSettings
     /**
      * @return SettingsMetadata
      */
-    public function getTextTabsMetadata()
+    public function getTextTabsMetadata(): ?SettingsMetadata
     {
         return $this->textTabsMetadata;
     }
@@ -914,7 +914,7 @@ class AccountTabSettings
      *
      * @return self
      */
-    public function setTextTabsMetadata(SettingsMetadata $textTabsMetadata = null)
+    public function setTextTabsMetadata(?SettingsMetadata $textTabsMetadata): self
     {
         $this->textTabsMetadata = $textTabsMetadata;
 

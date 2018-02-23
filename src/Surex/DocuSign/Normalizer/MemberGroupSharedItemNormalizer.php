@@ -6,38 +6,40 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class MemberGroupSharedItemNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class MemberGroupSharedItemNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\MemberGroupSharedItem' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\MemberGroupSharedItem' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\MemberGroupSharedItem) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\MemberGroupSharedItem;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\MemberGroupSharedItem();
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'group')) {
-            $object->setGroup($this->serializer->deserialize($data->{'group'}, 'Surex\\DocuSign\\Model\\Group', 'raw', $context));
+            $object->setGroup($this->denormalizer->denormalize($data->{'group'}, 'Surex\\DocuSign\\Model\\Group', 'json', $context));
         }
         if (property_exists($data, 'shared')) {
             $object->setShared($data->{'shared'});
@@ -50,10 +52,10 @@ class MemberGroupSharedItemNormalizer extends SerializerAwareNormalizer implemen
     {
         $data = new \stdClass();
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getGroup()) {
-            $data->{'group'} = $this->serializer->serialize($object->getGroup(), 'raw', $context);
+            $data->{'group'} = $this->normalizer->normalize($object->getGroup(), 'json', $context);
         }
         if (null !== $object->getShared()) {
             $data->{'shared'} = $object->getShared();

@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class FolderItemV2Normalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class FolderItemV2Normalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\FolderItemV2' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\FolderItemV2' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\FolderItemV2) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\FolderItemV2;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\FolderItemV2();
         if (property_exists($data, 'completedDateTime')) {
             $object->setCompletedDateTime($data->{'completedDateTime'});
@@ -67,7 +69,7 @@ class FolderItemV2Normalizer extends SerializerAwareNormalizer implements Denorm
             $object->setOwnerName($data->{'ownerName'});
         }
         if (property_exists($data, 'recipients')) {
-            $object->setRecipients($this->serializer->deserialize($data->{'recipients'}, 'Surex\\DocuSign\\Model\\EnvelopeRecipients', 'raw', $context));
+            $object->setRecipients($this->denormalizer->denormalize($data->{'recipients'}, 'Surex\\DocuSign\\Model\\EnvelopeRecipients', 'json', $context));
         }
         if (property_exists($data, 'recipientsUri')) {
             $object->setRecipientsUri($data->{'recipientsUri'});
@@ -134,7 +136,7 @@ class FolderItemV2Normalizer extends SerializerAwareNormalizer implements Denorm
             $data->{'ownerName'} = $object->getOwnerName();
         }
         if (null !== $object->getRecipients()) {
-            $data->{'recipients'} = $this->serializer->serialize($object->getRecipients(), 'raw', $context);
+            $data->{'recipients'} = $this->normalizer->normalize($object->getRecipients(), 'json', $context);
         }
         if (null !== $object->getRecipientsUri()) {
             $data->{'recipientsUri'} = $object->getRecipientsUri();

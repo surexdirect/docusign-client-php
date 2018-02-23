@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EnvelopeDefinitionNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EnvelopeDefinition' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EnvelopeDefinition' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EnvelopeDefinition) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EnvelopeDefinition;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EnvelopeDefinition();
         if (property_exists($data, 'accessibility')) {
             $object->setAccessibility($data->{'accessibility'});
@@ -51,7 +53,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
         if (property_exists($data, 'attachments')) {
             $values = [];
             foreach ($data->{'attachments'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\Attachment', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\Attachment', 'json', $context);
             }
             $object->setAttachments($values);
         }
@@ -79,7 +81,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
         if (property_exists($data, 'compositeTemplates')) {
             $values_1 = [];
             foreach ($data->{'compositeTemplates'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\CompositeTemplate', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\CompositeTemplate', 'json', $context);
             }
             $object->setCompositeTemplates($values_1);
         }
@@ -87,7 +89,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $object->setCreatedDateTime($data->{'createdDateTime'});
         }
         if (property_exists($data, 'customFields')) {
-            $object->setCustomFields($this->serializer->deserialize($data->{'customFields'}, 'Surex\\DocuSign\\Model\\AccountCustomFields', 'raw', $context));
+            $object->setCustomFields($this->denormalizer->denormalize($data->{'customFields'}, 'Surex\\DocuSign\\Model\\AccountCustomFields', 'json', $context));
         }
         if (property_exists($data, 'customFieldsUri')) {
             $object->setCustomFieldsUri($data->{'customFieldsUri'});
@@ -104,7 +106,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
         if (property_exists($data, 'documents')) {
             $values_2 = [];
             foreach ($data->{'documents'} as $value_2) {
-                $values_2[] = $this->serializer->deserialize($value_2, 'Surex\\DocuSign\\Model\\Document', 'raw', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Surex\\DocuSign\\Model\\Document', 'json', $context);
             }
             $object->setDocuments($values_2);
         }
@@ -118,7 +120,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $object->setEmailBlurb($data->{'emailBlurb'});
         }
         if (property_exists($data, 'emailSettings')) {
-            $object->setEmailSettings($this->serializer->deserialize($data->{'emailSettings'}, 'Surex\\DocuSign\\Model\\EnvelopeEmailSettings', 'raw', $context));
+            $object->setEmailSettings($this->denormalizer->denormalize($data->{'emailSettings'}, 'Surex\\DocuSign\\Model\\EnvelopeEmailSettings', 'json', $context));
         }
         if (property_exists($data, 'emailSubject')) {
             $object->setEmailSubject($data->{'emailSubject'});
@@ -139,7 +141,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $object->setEnvelopeUri($data->{'envelopeUri'});
         }
         if (property_exists($data, 'eventNotification')) {
-            $object->setEventNotification($this->serializer->deserialize($data->{'eventNotification'}, 'Surex\\DocuSign\\Model\\EventNotification', 'raw', $context));
+            $object->setEventNotification($this->denormalizer->denormalize($data->{'eventNotification'}, 'Surex\\DocuSign\\Model\\EventNotification', 'json', $context));
         }
         if (property_exists($data, 'initialSentDateTime')) {
             $object->setInitialSentDateTime($data->{'initialSentDateTime'});
@@ -154,13 +156,13 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $object->setLastModifiedDateTime($data->{'lastModifiedDateTime'});
         }
         if (property_exists($data, 'lockInformation')) {
-            $object->setLockInformation($this->serializer->deserialize($data->{'lockInformation'}, 'Surex\\DocuSign\\Model\\EnvelopeLocks', 'raw', $context));
+            $object->setLockInformation($this->denormalizer->denormalize($data->{'lockInformation'}, 'Surex\\DocuSign\\Model\\EnvelopeLocks', 'json', $context));
         }
         if (property_exists($data, 'messageLock')) {
             $object->setMessageLock($data->{'messageLock'});
         }
         if (property_exists($data, 'notification')) {
-            $object->setNotification($this->serializer->deserialize($data->{'notification'}, 'Surex\\DocuSign\\Model\\Notification', 'raw', $context));
+            $object->setNotification($this->denormalizer->denormalize($data->{'notification'}, 'Surex\\DocuSign\\Model\\Notification', 'json', $context));
         }
         if (property_exists($data, 'notificationUri')) {
             $object->setNotificationUri($data->{'notificationUri'});
@@ -172,7 +174,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $object->setPurgeState($data->{'purgeState'});
         }
         if (property_exists($data, 'recipients')) {
-            $object->setRecipients($this->serializer->deserialize($data->{'recipients'}, 'Surex\\DocuSign\\Model\\EnvelopeRecipients', 'raw', $context));
+            $object->setRecipients($this->denormalizer->denormalize($data->{'recipients'}, 'Surex\\DocuSign\\Model\\EnvelopeRecipients', 'json', $context));
         }
         if (property_exists($data, 'recipientsLock')) {
             $object->setRecipientsLock($data->{'recipientsLock'});
@@ -198,7 +200,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
         if (property_exists($data, 'templateRoles')) {
             $values_3 = [];
             foreach ($data->{'templateRoles'} as $value_3) {
-                $values_3[] = $this->serializer->deserialize($value_3, 'Surex\\DocuSign\\Model\\TemplateRole', 'raw', $context);
+                $values_3[] = $this->denormalizer->denormalize($value_3, 'Surex\\DocuSign\\Model\\TemplateRole', 'json', $context);
             }
             $object->setTemplateRoles($values_3);
         }
@@ -242,7 +244,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
         if (null !== $object->getAttachments()) {
             $values = [];
             foreach ($object->getAttachments() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'attachments'} = $values;
         }
@@ -270,7 +272,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
         if (null !== $object->getCompositeTemplates()) {
             $values_1 = [];
             foreach ($object->getCompositeTemplates() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'compositeTemplates'} = $values_1;
         }
@@ -278,7 +280,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $data->{'createdDateTime'} = $object->getCreatedDateTime();
         }
         if (null !== $object->getCustomFields()) {
-            $data->{'customFields'} = $this->serializer->serialize($object->getCustomFields(), 'raw', $context);
+            $data->{'customFields'} = $this->normalizer->normalize($object->getCustomFields(), 'json', $context);
         }
         if (null !== $object->getCustomFieldsUri()) {
             $data->{'customFieldsUri'} = $object->getCustomFieldsUri();
@@ -295,7 +297,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
         if (null !== $object->getDocuments()) {
             $values_2 = [];
             foreach ($object->getDocuments() as $value_2) {
-                $values_2[] = $this->serializer->serialize($value_2, 'raw', $context);
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data->{'documents'} = $values_2;
         }
@@ -309,7 +311,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $data->{'emailBlurb'} = $object->getEmailBlurb();
         }
         if (null !== $object->getEmailSettings()) {
-            $data->{'emailSettings'} = $this->serializer->serialize($object->getEmailSettings(), 'raw', $context);
+            $data->{'emailSettings'} = $this->normalizer->normalize($object->getEmailSettings(), 'json', $context);
         }
         if (null !== $object->getEmailSubject()) {
             $data->{'emailSubject'} = $object->getEmailSubject();
@@ -330,7 +332,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $data->{'envelopeUri'} = $object->getEnvelopeUri();
         }
         if (null !== $object->getEventNotification()) {
-            $data->{'eventNotification'} = $this->serializer->serialize($object->getEventNotification(), 'raw', $context);
+            $data->{'eventNotification'} = $this->normalizer->normalize($object->getEventNotification(), 'json', $context);
         }
         if (null !== $object->getInitialSentDateTime()) {
             $data->{'initialSentDateTime'} = $object->getInitialSentDateTime();
@@ -345,13 +347,13 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $data->{'lastModifiedDateTime'} = $object->getLastModifiedDateTime();
         }
         if (null !== $object->getLockInformation()) {
-            $data->{'lockInformation'} = $this->serializer->serialize($object->getLockInformation(), 'raw', $context);
+            $data->{'lockInformation'} = $this->normalizer->normalize($object->getLockInformation(), 'json', $context);
         }
         if (null !== $object->getMessageLock()) {
             $data->{'messageLock'} = $object->getMessageLock();
         }
         if (null !== $object->getNotification()) {
-            $data->{'notification'} = $this->serializer->serialize($object->getNotification(), 'raw', $context);
+            $data->{'notification'} = $this->normalizer->normalize($object->getNotification(), 'json', $context);
         }
         if (null !== $object->getNotificationUri()) {
             $data->{'notificationUri'} = $object->getNotificationUri();
@@ -363,7 +365,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
             $data->{'purgeState'} = $object->getPurgeState();
         }
         if (null !== $object->getRecipients()) {
-            $data->{'recipients'} = $this->serializer->serialize($object->getRecipients(), 'raw', $context);
+            $data->{'recipients'} = $this->normalizer->normalize($object->getRecipients(), 'json', $context);
         }
         if (null !== $object->getRecipientsLock()) {
             $data->{'recipientsLock'} = $object->getRecipientsLock();
@@ -389,7 +391,7 @@ class EnvelopeDefinitionNormalizer extends SerializerAwareNormalizer implements 
         if (null !== $object->getTemplateRoles()) {
             $values_3 = [];
             foreach ($object->getTemplateRoles() as $value_3) {
-                $values_3[] = $this->serializer->serialize($value_3, 'raw', $context);
+                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data->{'templateRoles'} = $values_3;
         }

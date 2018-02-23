@@ -20,7 +20,7 @@ class AccountPasswordMinimumPasswordAgeDays
     /**
      * @return string
      */
-    public function getMaximumAge()
+    public function getMaximumAge(): ?string
     {
         return $this->maximumAge;
     }
@@ -30,7 +30,7 @@ class AccountPasswordMinimumPasswordAgeDays
      *
      * @return self
      */
-    public function setMaximumAge($maximumAge = null)
+    public function setMaximumAge(?string $maximumAge): self
     {
         $this->maximumAge = $maximumAge;
 
@@ -40,7 +40,7 @@ class AccountPasswordMinimumPasswordAgeDays
     /**
      * @return string
      */
-    public function getMinimumAge()
+    public function getMinimumAge(): ?string
     {
         return $this->minimumAge;
     }
@@ -50,7 +50,7 @@ class AccountPasswordMinimumPasswordAgeDays
      *
      * @return self
      */
-    public function setMinimumAge($minimumAge = null)
+    public function setMinimumAge(?string $minimumAge): self
     {
         $this->minimumAge = $minimumAge;
 

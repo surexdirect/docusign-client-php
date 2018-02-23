@@ -6,37 +6,39 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EventNotificationNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EventNotificationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EventNotification' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EventNotification' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EventNotification) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EventNotification;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EventNotification();
         if (property_exists($data, 'envelopeEvents')) {
             $values = [];
             foreach ($data->{'envelopeEvents'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\EnvelopeEvent', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\EnvelopeEvent', 'json', $context);
             }
             $object->setEnvelopeEvents($values);
         }
@@ -67,7 +69,7 @@ class EventNotificationNormalizer extends SerializerAwareNormalizer implements D
         if (property_exists($data, 'recipientEvents')) {
             $values_1 = [];
             foreach ($data->{'recipientEvents'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\RecipientEvent', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\RecipientEvent', 'json', $context);
             }
             $object->setRecipientEvents($values_1);
         }
@@ -96,7 +98,7 @@ class EventNotificationNormalizer extends SerializerAwareNormalizer implements D
         if (null !== $object->getEnvelopeEvents()) {
             $values = [];
             foreach ($object->getEnvelopeEvents() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'envelopeEvents'} = $values;
         }
@@ -127,7 +129,7 @@ class EventNotificationNormalizer extends SerializerAwareNormalizer implements D
         if (null !== $object->getRecipientEvents()) {
             $values_1 = [];
             foreach ($object->getRecipientEvents() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'recipientEvents'} = $values_1;
         }

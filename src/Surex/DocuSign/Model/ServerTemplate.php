@@ -13,6 +13,8 @@ class ServerTemplate
      */
     protected $sequence;
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @var string
      */
     protected $templateId;
@@ -20,7 +22,7 @@ class ServerTemplate
     /**
      * @return string
      */
-    public function getSequence()
+    public function getSequence(): ?string
     {
         return $this->sequence;
     }
@@ -30,7 +32,7 @@ class ServerTemplate
      *
      * @return self
      */
-    public function setSequence($sequence = null)
+    public function setSequence(?string $sequence): self
     {
         $this->sequence = $sequence;
 
@@ -38,19 +40,23 @@ class ServerTemplate
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @return string
      */
-    public function getTemplateId()
+    public function getTemplateId(): ?string
     {
         return $this->templateId;
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @param string $templateId
      *
      * @return self
      */
-    public function setTemplateId($templateId = null)
+    public function setTemplateId(?string $templateId): self
     {
         $this->templateId = $templateId;
 

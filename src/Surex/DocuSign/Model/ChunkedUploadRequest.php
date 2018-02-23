@@ -20,7 +20,7 @@ class ChunkedUploadRequest
     /**
      * @return string
      */
-    public function getChunkedUploadId()
+    public function getChunkedUploadId(): ?string
     {
         return $this->chunkedUploadId;
     }
@@ -30,7 +30,7 @@ class ChunkedUploadRequest
      *
      * @return self
      */
-    public function setChunkedUploadId($chunkedUploadId = null)
+    public function setChunkedUploadId(?string $chunkedUploadId): self
     {
         $this->chunkedUploadId = $chunkedUploadId;
 
@@ -40,7 +40,7 @@ class ChunkedUploadRequest
     /**
      * @return string
      */
-    public function getData()
+    public function getData(): ?string
     {
         return $this->data;
     }
@@ -50,7 +50,7 @@ class ChunkedUploadRequest
      *
      * @return self
      */
-    public function setData($data = null)
+    public function setData(?string $data): self
     {
         $this->data = $data;
 

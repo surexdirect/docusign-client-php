@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class AccountPermissionProfilesNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class AccountPermissionProfilesNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\AccountPermissionProfiles' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\AccountPermissionProfiles' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\AccountPermissionProfiles) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\AccountPermissionProfiles;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\AccountPermissionProfiles();
         if (property_exists($data, 'modifiedByUsername')) {
             $object->setModifiedByUsername($data->{'modifiedByUsername'});
@@ -46,7 +48,7 @@ class AccountPermissionProfilesNormalizer extends SerializerAwareNormalizer impl
             $object->setPermissionProfileName($data->{'permissionProfileName'});
         }
         if (property_exists($data, 'settings')) {
-            $object->setSettings($this->serializer->deserialize($data->{'settings'}, 'Surex\\DocuSign\\Model\\AccountRoleSettings', 'raw', $context));
+            $object->setSettings($this->denormalizer->denormalize($data->{'settings'}, 'Surex\\DocuSign\\Model\\AccountRoleSettings', 'json', $context));
         }
         if (property_exists($data, 'userCount')) {
             $object->setUserCount($data->{'userCount'});
@@ -54,7 +56,7 @@ class AccountPermissionProfilesNormalizer extends SerializerAwareNormalizer impl
         if (property_exists($data, 'users')) {
             $values = [];
             foreach ($data->{'users'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\Users', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\Users', 'json', $context);
             }
             $object->setUsers($values);
         }
@@ -78,7 +80,7 @@ class AccountPermissionProfilesNormalizer extends SerializerAwareNormalizer impl
             $data->{'permissionProfileName'} = $object->getPermissionProfileName();
         }
         if (null !== $object->getSettings()) {
-            $data->{'settings'} = $this->serializer->serialize($object->getSettings(), 'raw', $context);
+            $data->{'settings'} = $this->normalizer->normalize($object->getSettings(), 'json', $context);
         }
         if (null !== $object->getUserCount()) {
             $data->{'userCount'} = $object->getUserCount();
@@ -86,7 +88,7 @@ class AccountPermissionProfilesNormalizer extends SerializerAwareNormalizer impl
         if (null !== $object->getUsers()) {
             $values = [];
             foreach ($object->getUsers() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'users'} = $values;
         }

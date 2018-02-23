@@ -28,7 +28,7 @@ class BrandResourceUrls
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -38,7 +38,7 @@ class BrandResourceUrls
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -48,7 +48,7 @@ class BrandResourceUrls
     /**
      * @return string
      */
-    public function getSending()
+    public function getSending(): ?string
     {
         return $this->sending;
     }
@@ -58,7 +58,7 @@ class BrandResourceUrls
      *
      * @return self
      */
-    public function setSending($sending = null)
+    public function setSending(?string $sending): self
     {
         $this->sending = $sending;
 
@@ -68,7 +68,7 @@ class BrandResourceUrls
     /**
      * @return string
      */
-    public function getSigning()
+    public function getSigning(): ?string
     {
         return $this->signing;
     }
@@ -78,7 +78,7 @@ class BrandResourceUrls
      *
      * @return self
      */
-    public function setSigning($signing = null)
+    public function setSigning(?string $signing): self
     {
         $this->signing = $signing;
 
@@ -88,7 +88,7 @@ class BrandResourceUrls
     /**
      * @return string
      */
-    public function getSigningCaptive()
+    public function getSigningCaptive(): ?string
     {
         return $this->signingCaptive;
     }
@@ -98,7 +98,7 @@ class BrandResourceUrls
      *
      * @return self
      */
-    public function setSigningCaptive($signingCaptive = null)
+    public function setSigningCaptive(?string $signingCaptive): self
     {
         $this->signingCaptive = $signingCaptive;
 

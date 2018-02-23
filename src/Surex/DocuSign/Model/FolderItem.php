@@ -9,30 +9,44 @@ namespace Surex\DocuSign\Model;
 class FolderItem
 {
     /**
+     * Specifies the date and time this item was completed.
+     *
      * @var string
      */
     protected $completedDateTime;
     /**
+     * Indicates the date and time the item was created.
+     *
      * @var string
      */
     protected $createdDateTime;
     /**
+     * An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+     *
      * @var CustomFieldV2[]
      */
     protected $customFields;
     /**
+     * A sender-defined description of the line item.
+     *
      * @var string
      */
     protected $description;
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @var string
      */
     protected $envelopeId;
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @var string
      */
     protected $envelopeUri;
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @var string
      */
     protected $is21CFRPart11;
@@ -41,6 +55,8 @@ class FolderItem
      */
     protected $isSignatureProviderEnvelope;
     /**
+     * Utc date and time the comment was last updated (can only be done by creator.).
+     *
      * @var string
      */
     protected $lastModified;
@@ -49,6 +65,8 @@ class FolderItem
      */
     protected $name;
     /**
+     * Name of the envelope owner.
+     *
      * @var string
      */
     protected $ownerName;
@@ -65,18 +83,29 @@ class FolderItem
      */
     protected $senderEmail;
     /**
+     * Name of the envelope sender.
+     *
      * @var string
      */
     protected $senderName;
     /**
+     * The date and time the envelope was sent.
+     *
      * @var string
      */
     protected $sentDateTime;
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @var string
      */
     protected $shared;
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @var string
      */
     protected $status;
@@ -85,6 +114,8 @@ class FolderItem
      */
     protected $subject;
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @var string
      */
     protected $templateId;
@@ -94,19 +125,23 @@ class FolderItem
     protected $uri;
 
     /**
+     * Specifies the date and time this item was completed.
+     *
      * @return string
      */
-    public function getCompletedDateTime()
+    public function getCompletedDateTime(): ?string
     {
         return $this->completedDateTime;
     }
 
     /**
+     * Specifies the date and time this item was completed.
+     *
      * @param string $completedDateTime
      *
      * @return self
      */
-    public function setCompletedDateTime($completedDateTime = null)
+    public function setCompletedDateTime(?string $completedDateTime): self
     {
         $this->completedDateTime = $completedDateTime;
 
@@ -114,19 +149,23 @@ class FolderItem
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @return string
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): ?string
     {
         return $this->createdDateTime;
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @param string $createdDateTime
      *
      * @return self
      */
-    public function setCreatedDateTime($createdDateTime = null)
+    public function setCreatedDateTime(?string $createdDateTime): self
     {
         $this->createdDateTime = $createdDateTime;
 
@@ -134,19 +173,23 @@ class FolderItem
     }
 
     /**
+     * An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+     *
      * @return CustomFieldV2[]
      */
-    public function getCustomFields()
+    public function getCustomFields(): ?array
     {
         return $this->customFields;
     }
 
     /**
+     * An optional array of strings that allows the sender to provide custom data about the recipient. This information is returned in the envelope status but otherwise not used by DocuSign. Each customField string can be a maximum of 100 characters.
+     *
      * @param CustomFieldV2[] $customFields
      *
      * @return self
      */
-    public function setCustomFields(array $customFields = null)
+    public function setCustomFields(?array $customFields): self
     {
         $this->customFields = $customFields;
 
@@ -154,19 +197,23 @@ class FolderItem
     }
 
     /**
+     * A sender-defined description of the line item.
+     *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
     /**
+     * A sender-defined description of the line item.
+     *
      * @param string $description
      *
      * @return self
      */
-    public function setDescription($description = null)
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -174,19 +221,23 @@ class FolderItem
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @return string
      */
-    public function getEnvelopeId()
+    public function getEnvelopeId(): ?string
     {
         return $this->envelopeId;
     }
 
     /**
+     * The envelope ID of the envelope status that failed to post.
+     *
      * @param string $envelopeId
      *
      * @return self
      */
-    public function setEnvelopeId($envelopeId = null)
+    public function setEnvelopeId(?string $envelopeId): self
     {
         $this->envelopeId = $envelopeId;
 
@@ -194,19 +245,23 @@ class FolderItem
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @return string
      */
-    public function getEnvelopeUri()
+    public function getEnvelopeUri(): ?string
     {
         return $this->envelopeUri;
     }
 
     /**
+     * Contains a URI for an endpoint that you can use to retrieve the envelope or envelopes.
+     *
      * @param string $envelopeUri
      *
      * @return self
      */
-    public function setEnvelopeUri($envelopeUri = null)
+    public function setEnvelopeUri(?string $envelopeUri): self
     {
         $this->envelopeUri = $envelopeUri;
 
@@ -214,19 +269,23 @@ class FolderItem
     }
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @return string
      */
-    public function getIs21CFRPart11()
+    public function getIs21CFRPart11(): ?string
     {
         return $this->is21CFRPart11;
     }
 
     /**
+     * When set to **true**, indicates that this module is enabled on the account.
+     *
      * @param string $is21CFRPart11
      *
      * @return self
      */
-    public function setIs21CFRPart11($is21CFRPart11 = null)
+    public function setIs21CFRPart11(?string $is21CFRPart11): self
     {
         $this->is21CFRPart11 = $is21CFRPart11;
 
@@ -236,7 +295,7 @@ class FolderItem
     /**
      * @return string
      */
-    public function getIsSignatureProviderEnvelope()
+    public function getIsSignatureProviderEnvelope(): ?string
     {
         return $this->isSignatureProviderEnvelope;
     }
@@ -246,7 +305,7 @@ class FolderItem
      *
      * @return self
      */
-    public function setIsSignatureProviderEnvelope($isSignatureProviderEnvelope = null)
+    public function setIsSignatureProviderEnvelope(?string $isSignatureProviderEnvelope): self
     {
         $this->isSignatureProviderEnvelope = $isSignatureProviderEnvelope;
 
@@ -254,19 +313,23 @@ class FolderItem
     }
 
     /**
+     * Utc date and time the comment was last updated (can only be done by creator.).
+     *
      * @return string
      */
-    public function getLastModified()
+    public function getLastModified(): ?string
     {
         return $this->lastModified;
     }
 
     /**
+     * Utc date and time the comment was last updated (can only be done by creator.).
+     *
      * @param string $lastModified
      *
      * @return self
      */
-    public function setLastModified($lastModified = null)
+    public function setLastModified(?string $lastModified): self
     {
         $this->lastModified = $lastModified;
 
@@ -276,7 +339,7 @@ class FolderItem
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -286,7 +349,7 @@ class FolderItem
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -294,19 +357,23 @@ class FolderItem
     }
 
     /**
+     * Name of the envelope owner.
+     *
      * @return string
      */
-    public function getOwnerName()
+    public function getOwnerName(): ?string
     {
         return $this->ownerName;
     }
 
     /**
+     * Name of the envelope owner.
+     *
      * @param string $ownerName
      *
      * @return self
      */
-    public function setOwnerName($ownerName = null)
+    public function setOwnerName(?string $ownerName): self
     {
         $this->ownerName = $ownerName;
 
@@ -316,7 +383,7 @@ class FolderItem
     /**
      * @return int
      */
-    public function getPageCount()
+    public function getPageCount(): ?int
     {
         return $this->pageCount;
     }
@@ -326,7 +393,7 @@ class FolderItem
      *
      * @return self
      */
-    public function setPageCount($pageCount = null)
+    public function setPageCount(?int $pageCount): self
     {
         $this->pageCount = $pageCount;
 
@@ -336,7 +403,7 @@ class FolderItem
     /**
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -346,7 +413,7 @@ class FolderItem
      *
      * @return self
      */
-    public function setPassword($password = null)
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
 
@@ -356,7 +423,7 @@ class FolderItem
     /**
      * @return string
      */
-    public function getSenderEmail()
+    public function getSenderEmail(): ?string
     {
         return $this->senderEmail;
     }
@@ -366,7 +433,7 @@ class FolderItem
      *
      * @return self
      */
-    public function setSenderEmail($senderEmail = null)
+    public function setSenderEmail(?string $senderEmail): self
     {
         $this->senderEmail = $senderEmail;
 
@@ -374,19 +441,23 @@ class FolderItem
     }
 
     /**
+     * Name of the envelope sender.
+     *
      * @return string
      */
-    public function getSenderName()
+    public function getSenderName(): ?string
     {
         return $this->senderName;
     }
 
     /**
+     * Name of the envelope sender.
+     *
      * @param string $senderName
      *
      * @return self
      */
-    public function setSenderName($senderName = null)
+    public function setSenderName(?string $senderName): self
     {
         $this->senderName = $senderName;
 
@@ -394,19 +465,23 @@ class FolderItem
     }
 
     /**
+     * The date and time the envelope was sent.
+     *
      * @return string
      */
-    public function getSentDateTime()
+    public function getSentDateTime(): ?string
     {
         return $this->sentDateTime;
     }
 
     /**
+     * The date and time the envelope was sent.
+     *
      * @param string $sentDateTime
      *
      * @return self
      */
-    public function setSentDateTime($sentDateTime = null)
+    public function setSentDateTime(?string $sentDateTime): self
     {
         $this->sentDateTime = $sentDateTime;
 
@@ -414,19 +489,23 @@ class FolderItem
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @return string
      */
-    public function getShared()
+    public function getShared(): ?string
     {
         return $this->shared;
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @param string $shared
      *
      * @return self
      */
-    public function setShared($shared = null)
+    public function setShared(?string $shared): self
     {
         $this->shared = $shared;
 
@@ -434,19 +513,29 @@ class FolderItem
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
     /**
+     * Indicates the envelope status. Valid values are:.
+
+     * sent - The envelope is sent to the recipients.
+     * created - The envelope is saved as a draft and can be modified and sent later.
+     *
      * @param string $status
      *
      * @return self
      */
-    public function setStatus($status = null)
+    public function setStatus(?string $status): self
     {
         $this->status = $status;
 
@@ -456,7 +545,7 @@ class FolderItem
     /**
      * @return string
      */
-    public function getSubject()
+    public function getSubject(): ?string
     {
         return $this->subject;
     }
@@ -466,7 +555,7 @@ class FolderItem
      *
      * @return self
      */
-    public function setSubject($subject = null)
+    public function setSubject(?string $subject): self
     {
         $this->subject = $subject;
 
@@ -474,19 +563,23 @@ class FolderItem
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @return string
      */
-    public function getTemplateId()
+    public function getTemplateId(): ?string
     {
         return $this->templateId;
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @param string $templateId
      *
      * @return self
      */
-    public function setTemplateId($templateId = null)
+    public function setTemplateId(?string $templateId): self
     {
         $this->templateId = $templateId;
 
@@ -496,7 +589,7 @@ class FolderItem
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -506,7 +599,7 @@ class FolderItem
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 

@@ -13,6 +13,8 @@ class SignatureType
      */
     protected $isDefault;
     /**
+     * Type of the user. Valid values: type_owner, type_participant.
+     *
      * @var string
      */
     protected $type;
@@ -20,7 +22,7 @@ class SignatureType
     /**
      * @return string
      */
-    public function getIsDefault()
+    public function getIsDefault(): ?string
     {
         return $this->isDefault;
     }
@@ -30,7 +32,7 @@ class SignatureType
      *
      * @return self
      */
-    public function setIsDefault($isDefault = null)
+    public function setIsDefault(?string $isDefault): self
     {
         $this->isDefault = $isDefault;
 
@@ -38,19 +40,23 @@ class SignatureType
     }
 
     /**
+     * Type of the user. Valid values: type_owner, type_participant.
+     *
      * @return string
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
+     * Type of the user. Valid values: type_owner, type_participant.
+     *
      * @param string $type
      *
      * @return self
      */
-    public function setType($type = null)
+    public function setType(?string $type): self
     {
         $this->type = $type;
 

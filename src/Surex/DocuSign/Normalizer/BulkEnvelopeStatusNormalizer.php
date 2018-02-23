@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class BulkEnvelopeStatusNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class BulkEnvelopeStatusNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\BulkEnvelopeStatus' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\BulkEnvelopeStatus' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\BulkEnvelopeStatus) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\BulkEnvelopeStatus;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\BulkEnvelopeStatus();
         if (property_exists($data, 'batchId')) {
             $object->setBatchId($data->{'batchId'});
@@ -42,7 +44,7 @@ class BulkEnvelopeStatusNormalizer extends SerializerAwareNormalizer implements 
         if (property_exists($data, 'bulkEnvelopes')) {
             $values = [];
             foreach ($data->{'bulkEnvelopes'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\BulkEnvelope', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\BulkEnvelope', 'json', $context);
             }
             $object->setBulkEnvelopes($values);
         }
@@ -95,7 +97,7 @@ class BulkEnvelopeStatusNormalizer extends SerializerAwareNormalizer implements 
         if (null !== $object->getBulkEnvelopes()) {
             $values = [];
             foreach ($object->getBulkEnvelopes() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'bulkEnvelopes'} = $values;
         }

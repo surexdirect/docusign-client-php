@@ -72,8 +72,8 @@ class FoldersResource extends Resource
      *
      *     @var string $from_date  Only return items on or after this date. If no value is provided, the default search is the previous 30 days.
      *     @var string $include_items
-     *     @var string $owner_email  The email of the folder owner.
-     *     @var string $owner_name  The name of the folder owner.
+     *     @var string $owner_email  the email of the folder owner
+     *     @var string $owner_name  the name of the folder owner
      *     @var string $search_text  The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject.
      *     @var string $start_position The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0.
      *     @var string $status The current status of the envelope. If no value is provided, the default search is all/any status.

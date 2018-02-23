@@ -16,7 +16,7 @@ class ContactUpdateResponse
     /**
      * @return Contacts[]
      */
-    public function getContacts()
+    public function getContacts(): ?array
     {
         return $this->contacts;
     }
@@ -26,7 +26,7 @@ class ContactUpdateResponse
      *
      * @return self
      */
-    public function setContacts(array $contacts = null)
+    public function setContacts(?array $contacts): self
     {
         $this->contacts = $contacts;
 

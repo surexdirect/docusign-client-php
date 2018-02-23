@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class DocumentNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class DocumentNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\Document' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\Document' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\Document) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\Document;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\Document();
         if (property_exists($data, 'applyAnchorTabs')) {
             $object->setApplyAnchorTabs($data->{'applyAnchorTabs'});
@@ -45,7 +47,7 @@ class DocumentNormalizer extends SerializerAwareNormalizer implements Denormaliz
         if (property_exists($data, 'documentFields')) {
             $values = [];
             foreach ($data->{'documentFields'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\NameValue', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\NameValue', 'json', $context);
             }
             $object->setDocumentFields($values);
         }
@@ -70,7 +72,7 @@ class DocumentNormalizer extends SerializerAwareNormalizer implements Denormaliz
         if (property_exists($data, 'matchBoxes')) {
             $values_1 = [];
             foreach ($data->{'matchBoxes'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\MatchBox', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\MatchBox', 'json', $context);
             }
             $object->setMatchBoxes($values_1);
         }
@@ -123,7 +125,7 @@ class DocumentNormalizer extends SerializerAwareNormalizer implements Denormaliz
         if (null !== $object->getDocumentFields()) {
             $values = [];
             foreach ($object->getDocumentFields() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'documentFields'} = $values;
         }
@@ -148,7 +150,7 @@ class DocumentNormalizer extends SerializerAwareNormalizer implements Denormaliz
         if (null !== $object->getMatchBoxes()) {
             $values_1 = [];
             foreach ($object->getMatchBoxes() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'matchBoxes'} = $values_1;
         }

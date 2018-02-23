@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class AddOn
 {
     /**
+     * Reserved:.
+     *
      * @var string
      */
     protected $active;
     /**
+     * Reserved:.
+     *
      * @var string
      */
     protected $addOnId;
@@ -21,24 +25,30 @@ class AddOn
      */
     protected $id;
     /**
+     * Reserved:.
+     *
      * @var string
      */
     protected $name;
 
     /**
+     * Reserved:.
+     *
      * @return string
      */
-    public function getActive()
+    public function getActive(): ?string
     {
         return $this->active;
     }
 
     /**
+     * Reserved:.
+     *
      * @param string $active
      *
      * @return self
      */
-    public function setActive($active = null)
+    public function setActive(?string $active): self
     {
         $this->active = $active;
 
@@ -46,19 +56,23 @@ class AddOn
     }
 
     /**
+     * Reserved:.
+     *
      * @return string
      */
-    public function getAddOnId()
+    public function getAddOnId(): ?string
     {
         return $this->addOnId;
     }
 
     /**
+     * Reserved:.
+     *
      * @param string $addOnId
      *
      * @return self
      */
-    public function setAddOnId($addOnId = null)
+    public function setAddOnId(?string $addOnId): self
     {
         $this->addOnId = $addOnId;
 
@@ -68,7 +82,7 @@ class AddOn
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -78,7 +92,7 @@ class AddOn
      *
      * @return self
      */
-    public function setId($id = null)
+    public function setId(?string $id): self
     {
         $this->id = $id;
 
@@ -86,19 +100,23 @@ class AddOn
     }
 
     /**
+     * Reserved:.
+     *
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
+     * Reserved:.
+     *
      * @param string $name
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 

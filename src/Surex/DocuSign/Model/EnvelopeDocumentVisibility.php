@@ -16,7 +16,7 @@ class EnvelopeDocumentVisibility
     /**
      * @return DocumentVisibility[]
      */
-    public function getDocumentVisibility()
+    public function getDocumentVisibility(): ?array
     {
         return $this->documentVisibility;
     }
@@ -26,7 +26,7 @@ class EnvelopeDocumentVisibility
      *
      * @return self
      */
-    public function setDocumentVisibility(array $documentVisibility = null)
+    public function setDocumentVisibility(?array $documentVisibility): self
     {
         $this->documentVisibility = $documentVisibility;
 

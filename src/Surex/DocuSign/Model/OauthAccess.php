@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class OauthAccess
 {
     /**
+     * Access token information.
+     *
      * @var string
      */
     protected $accessToken;
@@ -25,6 +27,8 @@ class OauthAccess
      */
     protected $refreshToken;
     /**
+     * Must be set to "api".
+     *
      * @var string
      */
     protected $scope;
@@ -34,19 +38,23 @@ class OauthAccess
     protected $tokenType;
 
     /**
+     * Access token information.
+     *
      * @return string
      */
-    public function getAccessToken()
+    public function getAccessToken(): ?string
     {
         return $this->accessToken;
     }
 
     /**
+     * Access token information.
+     *
      * @param string $accessToken
      *
      * @return self
      */
-    public function setAccessToken($accessToken = null)
+    public function setAccessToken(?string $accessToken): self
     {
         $this->accessToken = $accessToken;
 
@@ -56,7 +64,7 @@ class OauthAccess
     /**
      * @return NameValue[]
      */
-    public function getData()
+    public function getData(): ?array
     {
         return $this->data;
     }
@@ -66,7 +74,7 @@ class OauthAccess
      *
      * @return self
      */
-    public function setData(array $data = null)
+    public function setData(?array $data): self
     {
         $this->data = $data;
 
@@ -76,7 +84,7 @@ class OauthAccess
     /**
      * @return string
      */
-    public function getExpiresIn()
+    public function getExpiresIn(): ?string
     {
         return $this->expiresIn;
     }
@@ -86,7 +94,7 @@ class OauthAccess
      *
      * @return self
      */
-    public function setExpiresIn($expiresIn = null)
+    public function setExpiresIn(?string $expiresIn): self
     {
         $this->expiresIn = $expiresIn;
 
@@ -96,7 +104,7 @@ class OauthAccess
     /**
      * @return string
      */
-    public function getRefreshToken()
+    public function getRefreshToken(): ?string
     {
         return $this->refreshToken;
     }
@@ -106,7 +114,7 @@ class OauthAccess
      *
      * @return self
      */
-    public function setRefreshToken($refreshToken = null)
+    public function setRefreshToken(?string $refreshToken): self
     {
         $this->refreshToken = $refreshToken;
 
@@ -114,19 +122,23 @@ class OauthAccess
     }
 
     /**
+     * Must be set to "api".
+     *
      * @return string
      */
-    public function getScope()
+    public function getScope(): ?string
     {
         return $this->scope;
     }
 
     /**
+     * Must be set to "api".
+     *
      * @param string $scope
      *
      * @return self
      */
-    public function setScope($scope = null)
+    public function setScope(?string $scope): self
     {
         $this->scope = $scope;
 
@@ -136,7 +148,7 @@ class OauthAccess
     /**
      * @return string
      */
-    public function getTokenType()
+    public function getTokenType(): ?string
     {
         return $this->tokenType;
     }
@@ -146,7 +158,7 @@ class OauthAccess
      *
      * @return self
      */
-    public function setTokenType($tokenType = null)
+    public function setTokenType(?string $tokenType): self
     {
         $this->tokenType = $tokenType;
 

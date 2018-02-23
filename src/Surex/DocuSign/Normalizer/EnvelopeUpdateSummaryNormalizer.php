@@ -6,66 +6,68 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class EnvelopeUpdateSummaryNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class EnvelopeUpdateSummaryNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\EnvelopeUpdateSummary' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\EnvelopeUpdateSummary' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\EnvelopeUpdateSummary) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\EnvelopeUpdateSummary;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\EnvelopeUpdateSummary();
         if (property_exists($data, 'bulkEnvelopeStatus')) {
-            $object->setBulkEnvelopeStatus($this->serializer->deserialize($data->{'bulkEnvelopeStatus'}, 'Surex\\DocuSign\\Model\\BulkEnvelopeStatus', 'raw', $context));
+            $object->setBulkEnvelopeStatus($this->denormalizer->denormalize($data->{'bulkEnvelopeStatus'}, 'Surex\\DocuSign\\Model\\BulkEnvelopeStatus', 'json', $context));
         }
         if (property_exists($data, 'envelopeId')) {
             $object->setEnvelopeId($data->{'envelopeId'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'listCustomFieldUpdateResults')) {
             $values = [];
             foreach ($data->{'listCustomFieldUpdateResults'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\ListCustomField', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\ListCustomField', 'json', $context);
             }
             $object->setListCustomFieldUpdateResults($values);
         }
         if (property_exists($data, 'lockInformation')) {
-            $object->setLockInformation($this->serializer->deserialize($data->{'lockInformation'}, 'Surex\\DocuSign\\Model\\EnvelopeLocks', 'raw', $context));
+            $object->setLockInformation($this->denormalizer->denormalize($data->{'lockInformation'}, 'Surex\\DocuSign\\Model\\EnvelopeLocks', 'json', $context));
         }
         if (property_exists($data, 'recipientUpdateResults')) {
             $values_1 = [];
             foreach ($data->{'recipientUpdateResults'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\RecipientUpdateResponse', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\RecipientUpdateResponse', 'json', $context);
             }
             $object->setRecipientUpdateResults($values_1);
         }
         if (property_exists($data, 'tabUpdateResults')) {
-            $object->setTabUpdateResults($this->serializer->deserialize($data->{'tabUpdateResults'}, 'Surex\\DocuSign\\Model\\EnvelopeRecipientTabs', 'raw', $context));
+            $object->setTabUpdateResults($this->denormalizer->denormalize($data->{'tabUpdateResults'}, 'Surex\\DocuSign\\Model\\EnvelopeRecipientTabs', 'json', $context));
         }
         if (property_exists($data, 'textCustomFieldUpdateResults')) {
             $values_2 = [];
             foreach ($data->{'textCustomFieldUpdateResults'} as $value_2) {
-                $values_2[] = $this->serializer->deserialize($value_2, 'Surex\\DocuSign\\Model\\TextCustomField', 'raw', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Surex\\DocuSign\\Model\\TextCustomField', 'json', $context);
             }
             $object->setTextCustomFieldUpdateResults($values_2);
         }
@@ -77,38 +79,38 @@ class EnvelopeUpdateSummaryNormalizer extends SerializerAwareNormalizer implemen
     {
         $data = new \stdClass();
         if (null !== $object->getBulkEnvelopeStatus()) {
-            $data->{'bulkEnvelopeStatus'} = $this->serializer->serialize($object->getBulkEnvelopeStatus(), 'raw', $context);
+            $data->{'bulkEnvelopeStatus'} = $this->normalizer->normalize($object->getBulkEnvelopeStatus(), 'json', $context);
         }
         if (null !== $object->getEnvelopeId()) {
             $data->{'envelopeId'} = $object->getEnvelopeId();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getListCustomFieldUpdateResults()) {
             $values = [];
             foreach ($object->getListCustomFieldUpdateResults() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'listCustomFieldUpdateResults'} = $values;
         }
         if (null !== $object->getLockInformation()) {
-            $data->{'lockInformation'} = $this->serializer->serialize($object->getLockInformation(), 'raw', $context);
+            $data->{'lockInformation'} = $this->normalizer->normalize($object->getLockInformation(), 'json', $context);
         }
         if (null !== $object->getRecipientUpdateResults()) {
             $values_1 = [];
             foreach ($object->getRecipientUpdateResults() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'recipientUpdateResults'} = $values_1;
         }
         if (null !== $object->getTabUpdateResults()) {
-            $data->{'tabUpdateResults'} = $this->serializer->serialize($object->getTabUpdateResults(), 'raw', $context);
+            $data->{'tabUpdateResults'} = $this->normalizer->normalize($object->getTabUpdateResults(), 'json', $context);
         }
         if (null !== $object->getTextCustomFieldUpdateResults()) {
             $values_2 = [];
             foreach ($object->getTextCustomFieldUpdateResults() as $value_2) {
-                $values_2[] = $this->serializer->serialize($value_2, 'raw', $context);
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data->{'textCustomFieldUpdateResults'} = $values_2;
         }

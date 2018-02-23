@@ -93,6 +93,7 @@ class TemplateDocumentsResource extends Resource
      *
      *     @var string $apply_document_fields When **true**, document fields
      * }
+     *
      * @param string $fetch Fetch mode (object or response)
      *
      * @return \Psr\Http\Message\ResponseInterface|\Surex\DocuSign\Model\TemplateDocuments|\Surex\DocuSign\Model\ErrorDetails

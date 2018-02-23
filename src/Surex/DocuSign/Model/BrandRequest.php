@@ -9,24 +9,30 @@ namespace Surex\DocuSign\Model;
 class BrandRequest
 {
     /**
+     * The ID of the brand used in API calls.
+     *
      * @var string
      */
     protected $brandId;
 
     /**
+     * The ID of the brand used in API calls.
+     *
      * @return string
      */
-    public function getBrandId()
+    public function getBrandId(): ?string
     {
         return $this->brandId;
     }
 
     /**
+     * The ID of the brand used in API calls.
+     *
      * @param string $brandId
      *
      * @return self
      */
-    public function setBrandId($brandId = null)
+    public function setBrandId(?string $brandId): self
     {
         $this->brandId = $brandId;
 

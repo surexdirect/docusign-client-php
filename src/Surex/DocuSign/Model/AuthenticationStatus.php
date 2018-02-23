@@ -84,7 +84,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getAccessCodeResult()
+    public function getAccessCodeResult(): ?EventResult
     {
         return $this->accessCodeResult;
     }
@@ -94,7 +94,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setAccessCodeResult(EventResult $accessCodeResult = null)
+    public function setAccessCodeResult(?EventResult $accessCodeResult): self
     {
         $this->accessCodeResult = $accessCodeResult;
 
@@ -104,7 +104,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getAgeVerifyResult()
+    public function getAgeVerifyResult(): ?EventResult
     {
         return $this->ageVerifyResult;
     }
@@ -114,7 +114,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setAgeVerifyResult(EventResult $ageVerifyResult = null)
+    public function setAgeVerifyResult(?EventResult $ageVerifyResult): self
     {
         $this->ageVerifyResult = $ageVerifyResult;
 
@@ -124,7 +124,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getAnySocialIDResult()
+    public function getAnySocialIDResult(): ?EventResult
     {
         return $this->anySocialIDResult;
     }
@@ -134,7 +134,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setAnySocialIDResult(EventResult $anySocialIDResult = null)
+    public function setAnySocialIDResult(?EventResult $anySocialIDResult): self
     {
         $this->anySocialIDResult = $anySocialIDResult;
 
@@ -144,7 +144,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getFacebookResult()
+    public function getFacebookResult(): ?EventResult
     {
         return $this->facebookResult;
     }
@@ -154,7 +154,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setFacebookResult(EventResult $facebookResult = null)
+    public function setFacebookResult(?EventResult $facebookResult): self
     {
         $this->facebookResult = $facebookResult;
 
@@ -164,7 +164,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getGoogleResult()
+    public function getGoogleResult(): ?EventResult
     {
         return $this->googleResult;
     }
@@ -174,7 +174,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setGoogleResult(EventResult $googleResult = null)
+    public function setGoogleResult(?EventResult $googleResult): self
     {
         $this->googleResult = $googleResult;
 
@@ -184,7 +184,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getIdLookupResult()
+    public function getIdLookupResult(): ?EventResult
     {
         return $this->idLookupResult;
     }
@@ -194,7 +194,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setIdLookupResult(EventResult $idLookupResult = null)
+    public function setIdLookupResult(?EventResult $idLookupResult): self
     {
         $this->idLookupResult = $idLookupResult;
 
@@ -204,7 +204,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getIdQuestionsResult()
+    public function getIdQuestionsResult(): ?EventResult
     {
         return $this->idQuestionsResult;
     }
@@ -214,7 +214,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setIdQuestionsResult(EventResult $idQuestionsResult = null)
+    public function setIdQuestionsResult(?EventResult $idQuestionsResult): self
     {
         $this->idQuestionsResult = $idQuestionsResult;
 
@@ -224,7 +224,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getLinkedinResult()
+    public function getLinkedinResult(): ?EventResult
     {
         return $this->linkedinResult;
     }
@@ -234,7 +234,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setLinkedinResult(EventResult $linkedinResult = null)
+    public function setLinkedinResult(?EventResult $linkedinResult): self
     {
         $this->linkedinResult = $linkedinResult;
 
@@ -244,7 +244,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getLiveIDResult()
+    public function getLiveIDResult(): ?EventResult
     {
         return $this->liveIDResult;
     }
@@ -254,7 +254,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setLiveIDResult(EventResult $liveIDResult = null)
+    public function setLiveIDResult(?EventResult $liveIDResult): self
     {
         $this->liveIDResult = $liveIDResult;
 
@@ -264,7 +264,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getOfacResult()
+    public function getOfacResult(): ?EventResult
     {
         return $this->ofacResult;
     }
@@ -274,7 +274,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setOfacResult(EventResult $ofacResult = null)
+    public function setOfacResult(?EventResult $ofacResult): self
     {
         $this->ofacResult = $ofacResult;
 
@@ -284,7 +284,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getOpenIDResult()
+    public function getOpenIDResult(): ?EventResult
     {
         return $this->openIDResult;
     }
@@ -294,7 +294,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setOpenIDResult(EventResult $openIDResult = null)
+    public function setOpenIDResult(?EventResult $openIDResult): self
     {
         $this->openIDResult = $openIDResult;
 
@@ -304,7 +304,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getPhoneAuthResult()
+    public function getPhoneAuthResult(): ?EventResult
     {
         return $this->phoneAuthResult;
     }
@@ -314,7 +314,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setPhoneAuthResult(EventResult $phoneAuthResult = null)
+    public function setPhoneAuthResult(?EventResult $phoneAuthResult): self
     {
         $this->phoneAuthResult = $phoneAuthResult;
 
@@ -324,7 +324,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getSalesforceResult()
+    public function getSalesforceResult(): ?EventResult
     {
         return $this->salesforceResult;
     }
@@ -334,7 +334,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setSalesforceResult(EventResult $salesforceResult = null)
+    public function setSalesforceResult(?EventResult $salesforceResult): self
     {
         $this->salesforceResult = $salesforceResult;
 
@@ -344,7 +344,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getSignatureProviderResult()
+    public function getSignatureProviderResult(): ?EventResult
     {
         return $this->signatureProviderResult;
     }
@@ -354,7 +354,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setSignatureProviderResult(EventResult $signatureProviderResult = null)
+    public function setSignatureProviderResult(?EventResult $signatureProviderResult): self
     {
         $this->signatureProviderResult = $signatureProviderResult;
 
@@ -364,7 +364,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getSmsAuthResult()
+    public function getSmsAuthResult(): ?EventResult
     {
         return $this->smsAuthResult;
     }
@@ -374,7 +374,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setSmsAuthResult(EventResult $smsAuthResult = null)
+    public function setSmsAuthResult(?EventResult $smsAuthResult): self
     {
         $this->smsAuthResult = $smsAuthResult;
 
@@ -384,7 +384,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getSTANPinResult()
+    public function getSTANPinResult(): ?EventResult
     {
         return $this->sTANPinResult;
     }
@@ -394,7 +394,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setSTANPinResult(EventResult $sTANPinResult = null)
+    public function setSTANPinResult(?EventResult $sTANPinResult): self
     {
         $this->sTANPinResult = $sTANPinResult;
 
@@ -404,7 +404,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getTwitterResult()
+    public function getTwitterResult(): ?EventResult
     {
         return $this->twitterResult;
     }
@@ -414,7 +414,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setTwitterResult(EventResult $twitterResult = null)
+    public function setTwitterResult(?EventResult $twitterResult): self
     {
         $this->twitterResult = $twitterResult;
 
@@ -424,7 +424,7 @@ class AuthenticationStatus
     /**
      * @return EventResult
      */
-    public function getYahooResult()
+    public function getYahooResult(): ?EventResult
     {
         return $this->yahooResult;
     }
@@ -434,7 +434,7 @@ class AuthenticationStatus
      *
      * @return self
      */
-    public function setYahooResult(EventResult $yahooResult = null)
+    public function setYahooResult(?EventResult $yahooResult): self
     {
         $this->yahooResult = $yahooResult;
 

@@ -9,14 +9,20 @@ namespace Surex\DocuSign\Model;
 class Brand
 {
     /**
+     * The name of the company associated with this brand.
+     *
      * @var string
      */
     protected $brandCompany;
     /**
+     * The ID used to identify a specific brand in API calls.
+     *
      * @var string
      */
     protected $brandId;
     /**
+     * The name of the brand.
+     *
      * @var string
      */
     protected $brandName;
@@ -29,6 +35,8 @@ class Brand
      */
     protected $emailContent;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -62,19 +70,23 @@ class Brand
     protected $resources;
 
     /**
+     * The name of the company associated with this brand.
+     *
      * @return string
      */
-    public function getBrandCompany()
+    public function getBrandCompany(): ?string
     {
         return $this->brandCompany;
     }
 
     /**
+     * The name of the company associated with this brand.
+     *
      * @param string $brandCompany
      *
      * @return self
      */
-    public function setBrandCompany($brandCompany = null)
+    public function setBrandCompany(?string $brandCompany): self
     {
         $this->brandCompany = $brandCompany;
 
@@ -82,19 +94,23 @@ class Brand
     }
 
     /**
+     * The ID used to identify a specific brand in API calls.
+     *
      * @return string
      */
-    public function getBrandId()
+    public function getBrandId(): ?string
     {
         return $this->brandId;
     }
 
     /**
+     * The ID used to identify a specific brand in API calls.
+     *
      * @param string $brandId
      *
      * @return self
      */
-    public function setBrandId($brandId = null)
+    public function setBrandId(?string $brandId): self
     {
         $this->brandId = $brandId;
 
@@ -102,19 +118,23 @@ class Brand
     }
 
     /**
+     * The name of the brand.
+     *
      * @return string
      */
-    public function getBrandName()
+    public function getBrandName(): ?string
     {
         return $this->brandName;
     }
 
     /**
+     * The name of the brand.
+     *
      * @param string $brandName
      *
      * @return self
      */
-    public function setBrandName($brandName = null)
+    public function setBrandName(?string $brandName): self
     {
         $this->brandName = $brandName;
 
@@ -124,7 +144,7 @@ class Brand
     /**
      * @return NameValue[]
      */
-    public function getColors()
+    public function getColors(): ?array
     {
         return $this->colors;
     }
@@ -134,7 +154,7 @@ class Brand
      *
      * @return self
      */
-    public function setColors(array $colors = null)
+    public function setColors(?array $colors): self
     {
         $this->colors = $colors;
 
@@ -144,7 +164,7 @@ class Brand
     /**
      * @return BrandEmailContent[]
      */
-    public function getEmailContent()
+    public function getEmailContent(): ?array
     {
         return $this->emailContent;
     }
@@ -154,7 +174,7 @@ class Brand
      *
      * @return self
      */
-    public function setEmailContent(array $emailContent = null)
+    public function setEmailContent(?array $emailContent): self
     {
         $this->emailContent = $emailContent;
 
@@ -162,19 +182,23 @@ class Brand
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -184,7 +208,7 @@ class Brand
     /**
      * @return string
      */
-    public function getIsOverridingCompanyName()
+    public function getIsOverridingCompanyName(): ?string
     {
         return $this->isOverridingCompanyName;
     }
@@ -194,7 +218,7 @@ class Brand
      *
      * @return self
      */
-    public function setIsOverridingCompanyName($isOverridingCompanyName = null)
+    public function setIsOverridingCompanyName(?string $isOverridingCompanyName): self
     {
         $this->isOverridingCompanyName = $isOverridingCompanyName;
 
@@ -204,7 +228,7 @@ class Brand
     /**
      * @return string
      */
-    public function getIsSendingDefault()
+    public function getIsSendingDefault(): ?string
     {
         return $this->isSendingDefault;
     }
@@ -214,7 +238,7 @@ class Brand
      *
      * @return self
      */
-    public function setIsSendingDefault($isSendingDefault = null)
+    public function setIsSendingDefault(?string $isSendingDefault): self
     {
         $this->isSendingDefault = $isSendingDefault;
 
@@ -224,7 +248,7 @@ class Brand
     /**
      * @return string
      */
-    public function getIsSigningDefault()
+    public function getIsSigningDefault(): ?string
     {
         return $this->isSigningDefault;
     }
@@ -234,7 +258,7 @@ class Brand
      *
      * @return self
      */
-    public function setIsSigningDefault($isSigningDefault = null)
+    public function setIsSigningDefault(?string $isSigningDefault): self
     {
         $this->isSigningDefault = $isSigningDefault;
 
@@ -244,7 +268,7 @@ class Brand
     /**
      * @return NameValue[]
      */
-    public function getLandingPages()
+    public function getLandingPages(): ?array
     {
         return $this->landingPages;
     }
@@ -254,7 +278,7 @@ class Brand
      *
      * @return self
      */
-    public function setLandingPages(array $landingPages = null)
+    public function setLandingPages(?array $landingPages): self
     {
         $this->landingPages = $landingPages;
 
@@ -264,7 +288,7 @@ class Brand
     /**
      * @return BrandLink[]
      */
-    public function getLinks()
+    public function getLinks(): ?array
     {
         return $this->links;
     }
@@ -274,7 +298,7 @@ class Brand
      *
      * @return self
      */
-    public function setLinks(array $links = null)
+    public function setLinks(?array $links): self
     {
         $this->links = $links;
 
@@ -284,7 +308,7 @@ class Brand
     /**
      * @return BrandLogos
      */
-    public function getLogos()
+    public function getLogos(): ?BrandLogos
     {
         return $this->logos;
     }
@@ -294,7 +318,7 @@ class Brand
      *
      * @return self
      */
-    public function setLogos(BrandLogos $logos = null)
+    public function setLogos(?BrandLogos $logos): self
     {
         $this->logos = $logos;
 
@@ -304,7 +328,7 @@ class Brand
     /**
      * @return BrandResourceUrls
      */
-    public function getResources()
+    public function getResources(): ?BrandResourceUrls
     {
         return $this->resources;
     }
@@ -314,7 +338,7 @@ class Brand
      *
      * @return self
      */
-    public function setResources(BrandResourceUrls $resources = null)
+    public function setResources(?BrandResourceUrls $resources): self
     {
         $this->resources = $resources;
 

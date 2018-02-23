@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class WorkspaceListNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class WorkspaceListNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\WorkspaceList' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\WorkspaceList' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\WorkspaceList) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\WorkspaceList;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\WorkspaceList();
         if (property_exists($data, 'endPosition')) {
             $object->setEndPosition($data->{'endPosition'});
@@ -48,7 +50,7 @@ class WorkspaceListNormalizer extends SerializerAwareNormalizer implements Denor
         if (property_exists($data, 'workspaces')) {
             $values = [];
             foreach ($data->{'workspaces'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\Workspaces', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\Workspaces', 'json', $context);
             }
             $object->setWorkspaces($values);
         }
@@ -74,7 +76,7 @@ class WorkspaceListNormalizer extends SerializerAwareNormalizer implements Denor
         if (null !== $object->getWorkspaces()) {
             $values = [];
             foreach ($object->getWorkspaces() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'workspaces'} = $values;
         }

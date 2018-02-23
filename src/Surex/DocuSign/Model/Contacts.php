@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class Contacts
 {
     /**
+     * The unique identifier of a person in the contacts address book.
+     *
      * @var string
      */
     protected $contactId;
@@ -25,6 +27,8 @@ class Contacts
      */
     protected $emails;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -37,6 +41,8 @@ class Contacts
      */
     protected $organization;
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @var string
      */
     protected $shared;
@@ -45,24 +51,32 @@ class Contacts
      */
     protected $signingGroup;
     /**
+     * The display name for the signing group.
+
+     Maximum Length: 100 characters.
+     *
      * @var string
      */
     protected $signingGroupName;
 
     /**
+     * The unique identifier of a person in the contacts address book.
+     *
      * @return string
      */
-    public function getContactId()
+    public function getContactId(): ?string
     {
         return $this->contactId;
     }
 
     /**
+     * The unique identifier of a person in the contacts address book.
+     *
      * @param string $contactId
      *
      * @return self
      */
-    public function setContactId($contactId = null)
+    public function setContactId(?string $contactId): self
     {
         $this->contactId = $contactId;
 
@@ -72,7 +86,7 @@ class Contacts
     /**
      * @return ContactPhoneNumber[]
      */
-    public function getContactPhoneNumbers()
+    public function getContactPhoneNumbers(): ?array
     {
         return $this->contactPhoneNumbers;
     }
@@ -82,7 +96,7 @@ class Contacts
      *
      * @return self
      */
-    public function setContactPhoneNumbers(array $contactPhoneNumbers = null)
+    public function setContactPhoneNumbers(?array $contactPhoneNumbers): self
     {
         $this->contactPhoneNumbers = $contactPhoneNumbers;
 
@@ -92,7 +106,7 @@ class Contacts
     /**
      * @return string
      */
-    public function getContactUri()
+    public function getContactUri(): ?string
     {
         return $this->contactUri;
     }
@@ -102,7 +116,7 @@ class Contacts
      *
      * @return self
      */
-    public function setContactUri($contactUri = null)
+    public function setContactUri(?string $contactUri): self
     {
         $this->contactUri = $contactUri;
 
@@ -112,7 +126,7 @@ class Contacts
     /**
      * @return string[]
      */
-    public function getEmails()
+    public function getEmails(): ?array
     {
         return $this->emails;
     }
@@ -122,7 +136,7 @@ class Contacts
      *
      * @return self
      */
-    public function setEmails(array $emails = null)
+    public function setEmails(?array $emails): self
     {
         $this->emails = $emails;
 
@@ -130,19 +144,23 @@ class Contacts
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -152,7 +170,7 @@ class Contacts
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -162,7 +180,7 @@ class Contacts
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -172,7 +190,7 @@ class Contacts
     /**
      * @return string
      */
-    public function getOrganization()
+    public function getOrganization(): ?string
     {
         return $this->organization;
     }
@@ -182,7 +200,7 @@ class Contacts
      *
      * @return self
      */
-    public function setOrganization($organization = null)
+    public function setOrganization(?string $organization): self
     {
         $this->organization = $organization;
 
@@ -190,19 +208,23 @@ class Contacts
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @return string
      */
-    public function getShared()
+    public function getShared(): ?string
     {
         return $this->shared;
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @param string $shared
      *
      * @return self
      */
-    public function setShared($shared = null)
+    public function setShared(?string $shared): self
     {
         $this->shared = $shared;
 
@@ -212,7 +234,7 @@ class Contacts
     /**
      * @return string
      */
-    public function getSigningGroup()
+    public function getSigningGroup(): ?string
     {
         return $this->signingGroup;
     }
@@ -222,7 +244,7 @@ class Contacts
      *
      * @return self
      */
-    public function setSigningGroup($signingGroup = null)
+    public function setSigningGroup(?string $signingGroup): self
     {
         $this->signingGroup = $signingGroup;
 
@@ -230,19 +252,27 @@ class Contacts
     }
 
     /**
+     * The display name for the signing group.
+
+     Maximum Length: 100 characters.
+     *
      * @return string
      */
-    public function getSigningGroupName()
+    public function getSigningGroupName(): ?string
     {
         return $this->signingGroupName;
     }
 
     /**
+     * The display name for the signing group.
+
+     Maximum Length: 100 characters.
+     *
      * @param string $signingGroupName
      *
      * @return self
      */
-    public function setSigningGroupName($signingGroupName = null)
+    public function setSigningGroupName(?string $signingGroupName): self
     {
         $this->signingGroupName = $signingGroupName;
 

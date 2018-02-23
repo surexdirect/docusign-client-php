@@ -16,7 +16,7 @@ class BrandResourcesList
     /**
      * @return BrandResources[]
      */
-    public function getResourcesContentTypes()
+    public function getResourcesContentTypes(): ?array
     {
         return $this->resourcesContentTypes;
     }
@@ -26,7 +26,7 @@ class BrandResourcesList
      *
      * @return self
      */
-    public function setResourcesContentTypes(array $resourcesContentTypes = null)
+    public function setResourcesContentTypes(?array $resourcesContentTypes): self
     {
         $this->resourcesContentTypes = $resourcesContentTypes;
 

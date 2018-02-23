@@ -16,7 +16,7 @@ class RecipientsUpdateSummary
     /**
      * @return RecipientUpdateResponse[]
      */
-    public function getRecipientUpdateResults()
+    public function getRecipientUpdateResults(): ?array
     {
         return $this->recipientUpdateResults;
     }
@@ -26,7 +26,7 @@ class RecipientsUpdateSummary
      *
      * @return self
      */
-    public function setRecipientUpdateResults(array $recipientUpdateResults = null)
+    public function setRecipientUpdateResults(?array $recipientUpdateResults): self
     {
         $this->recipientUpdateResults = $recipientUpdateResults;
 

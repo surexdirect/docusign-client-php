@@ -16,7 +16,7 @@ class PowerFormsRequest
     /**
      * @return PowerForms[]
      */
-    public function getPowerForms()
+    public function getPowerForms(): ?array
     {
         return $this->powerForms;
     }
@@ -26,7 +26,7 @@ class PowerFormsRequest
      *
      * @return self
      */
-    public function setPowerForms(array $powerForms = null)
+    public function setPowerForms(?array $powerForms): self
     {
         $this->powerForms = $powerForms;
 

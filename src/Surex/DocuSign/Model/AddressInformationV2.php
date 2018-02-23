@@ -9,10 +9,16 @@ namespace Surex\DocuSign\Model;
 class AddressInformationV2
 {
     /**
+     * First Line of the address.
+     Maximum length: 100 characters.
+     *
      * @var string
      */
     protected $address1;
     /**
+     * Second Line of the address.
+     Maximum length: 100 characters.
+     *
      * @var string
      */
     protected $address2;
@@ -21,6 +27,8 @@ class AddressInformationV2
      */
     protected $city;
     /**
+     * Specifies the country associated with the address.
+     *
      * @var string
      */
     protected $country;
@@ -37,24 +45,32 @@ class AddressInformationV2
      */
     protected $postalCode;
     /**
+     * The state or province associated with the address.
+     *
      * @var string
      */
     protected $stateOrProvince;
 
     /**
+     * First Line of the address.
+     Maximum length: 100 characters.
+     *
      * @return string
      */
-    public function getAddress1()
+    public function getAddress1(): ?string
     {
         return $this->address1;
     }
 
     /**
+     * First Line of the address.
+     Maximum length: 100 characters.
+     *
      * @param string $address1
      *
      * @return self
      */
-    public function setAddress1($address1 = null)
+    public function setAddress1(?string $address1): self
     {
         $this->address1 = $address1;
 
@@ -62,19 +78,25 @@ class AddressInformationV2
     }
 
     /**
+     * Second Line of the address.
+     Maximum length: 100 characters.
+     *
      * @return string
      */
-    public function getAddress2()
+    public function getAddress2(): ?string
     {
         return $this->address2;
     }
 
     /**
+     * Second Line of the address.
+     Maximum length: 100 characters.
+     *
      * @param string $address2
      *
      * @return self
      */
-    public function setAddress2($address2 = null)
+    public function setAddress2(?string $address2): self
     {
         $this->address2 = $address2;
 
@@ -84,7 +106,7 @@ class AddressInformationV2
     /**
      * @return string
      */
-    public function getCity()
+    public function getCity(): ?string
     {
         return $this->city;
     }
@@ -94,7 +116,7 @@ class AddressInformationV2
      *
      * @return self
      */
-    public function setCity($city = null)
+    public function setCity(?string $city): self
     {
         $this->city = $city;
 
@@ -102,19 +124,23 @@ class AddressInformationV2
     }
 
     /**
+     * Specifies the country associated with the address.
+     *
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): ?string
     {
         return $this->country;
     }
 
     /**
+     * Specifies the country associated with the address.
+     *
      * @param string $country
      *
      * @return self
      */
-    public function setCountry($country = null)
+    public function setCountry(?string $country): self
     {
         $this->country = $country;
 
@@ -124,7 +150,7 @@ class AddressInformationV2
     /**
      * @return string
      */
-    public function getFax()
+    public function getFax(): ?string
     {
         return $this->fax;
     }
@@ -134,7 +160,7 @@ class AddressInformationV2
      *
      * @return self
      */
-    public function setFax($fax = null)
+    public function setFax(?string $fax): self
     {
         $this->fax = $fax;
 
@@ -144,7 +170,7 @@ class AddressInformationV2
     /**
      * @return string
      */
-    public function getPhone()
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
@@ -154,7 +180,7 @@ class AddressInformationV2
      *
      * @return self
      */
-    public function setPhone($phone = null)
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 
@@ -164,7 +190,7 @@ class AddressInformationV2
     /**
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): ?string
     {
         return $this->postalCode;
     }
@@ -174,7 +200,7 @@ class AddressInformationV2
      *
      * @return self
      */
-    public function setPostalCode($postalCode = null)
+    public function setPostalCode(?string $postalCode): self
     {
         $this->postalCode = $postalCode;
 
@@ -182,19 +208,23 @@ class AddressInformationV2
     }
 
     /**
+     * The state or province associated with the address.
+     *
      * @return string
      */
-    public function getStateOrProvince()
+    public function getStateOrProvince(): ?string
     {
         return $this->stateOrProvince;
     }
 
     /**
+     * The state or province associated with the address.
+     *
      * @param string $stateOrProvince
      *
      * @return self
      */
-    public function setStateOrProvince($stateOrProvince = null)
+    public function setStateOrProvince(?string $stateOrProvince): self
     {
         $this->stateOrProvince = $stateOrProvince;
 

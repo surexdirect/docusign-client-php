@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class AccountConsumerDisclosures
 {
     /**
+     * A GUID identifying the account associated with the consumer disclosure.
+     *
      * @var string
      */
     protected $accountEsignId;
     /**
+     * Indicates whether the customer can withdraw their acceptance of the consumer disclosure.
+     *
      * @var string
      */
     protected $allowCDWithdraw;
@@ -29,10 +33,14 @@ class AccountConsumerDisclosures
      */
     protected $changeEmailOther;
     /**
+     * The name of the company associated with the consumer disclosure.
+     *
      * @var string
      */
     protected $companyName;
     /**
+     * The phone number of the company associated with the consumer disclosure.
+     *
      * @var string
      */
     protected $companyPhone;
@@ -41,6 +49,10 @@ class AccountConsumerDisclosures
      */
     protected $copyCostPerPage;
     /**
+     * Specifies the fee collection method for cases in which the customer requires paper copies of the document.
+
+     Maximum Length: 255 characters
+     *
      * @var string
      */
     protected $copyFeeCollectionMethod;
@@ -57,6 +69,8 @@ class AccountConsumerDisclosures
      */
     protected $enableEsign;
     /**
+     * The Electronic Record and Signature Disclosure text. The disclosure text includes the html formatting.
+     *
      * @var string
      */
     protected $esignAgreement;
@@ -89,68 +103,110 @@ class AccountConsumerDisclosures
      */
     protected $useConsumerDisclosureWithinAccountMetadata;
     /**
+     * Contains the first address line of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 100 characters.
+     *
      * @var string
      */
     protected $withdrawAddressLine1;
     /**
+     * Contains the second address line of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 100 characters.
+     *
      * @var string
      */
     protected $withdrawAddressLine2;
     /**
+     * Indicates whether the customer can withdraw consent by email.
+     *
      * @var string
      */
     protected $withdrawByEmail;
     /**
+     * Indicates whether the customer can withdraw consent by postal mail.
+     *
      * @var string
      */
     protected $withdrawByMail;
     /**
+     * Indicates whether the customer can withdraw consent by phone.
+     *
      * @var string
      */
     protected $withdrawByPhone;
     /**
+     * Contains the city of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 50 characters.
+     *
      * @var string
      */
     protected $withdrawCity;
     /**
+     * Indicates the consequences of withdrawing consent.
+     *
      * @var string
      */
     protected $withdrawConsequences;
     /**
+     * Contains the email address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 100 characters.
+     *
      * @var string
      */
     protected $withdrawEmail;
     /**
+     * Indicates other information need to withdraw consent.
+
+     Maximum length: 255 characters.
+     *
      * @var string
      */
     protected $withdrawOther;
     /**
+     * Contains the phone number which a customer can call to register consent withdrawal notification.
+
+     Maximum length: 20 characters.
+     *
      * @var string
      */
     protected $withdrawPhone;
     /**
+     * Contains the postal code of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 20 characters.
+     *
      * @var string
      */
     protected $withdrawPostalCode;
     /**
+     * Contains the state of the postal address to which a customer can send a consent withdrawal notification.
+     *
      * @var string
      */
     protected $withdrawState;
 
     /**
+     * A GUID identifying the account associated with the consumer disclosure.
+     *
      * @return string
      */
-    public function getAccountEsignId()
+    public function getAccountEsignId(): ?string
     {
         return $this->accountEsignId;
     }
 
     /**
+     * A GUID identifying the account associated with the consumer disclosure.
+     *
      * @param string $accountEsignId
      *
      * @return self
      */
-    public function setAccountEsignId($accountEsignId = null)
+    public function setAccountEsignId(?string $accountEsignId): self
     {
         $this->accountEsignId = $accountEsignId;
 
@@ -158,19 +214,23 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Indicates whether the customer can withdraw their acceptance of the consumer disclosure.
+     *
      * @return string
      */
-    public function getAllowCDWithdraw()
+    public function getAllowCDWithdraw(): ?string
     {
         return $this->allowCDWithdraw;
     }
 
     /**
+     * Indicates whether the customer can withdraw their acceptance of the consumer disclosure.
+     *
      * @param string $allowCDWithdraw
      *
      * @return self
      */
-    public function setAllowCDWithdraw($allowCDWithdraw = null)
+    public function setAllowCDWithdraw(?string $allowCDWithdraw): self
     {
         $this->allowCDWithdraw = $allowCDWithdraw;
 
@@ -180,7 +240,7 @@ class AccountConsumerDisclosures
     /**
      * @return SettingsMetadata
      */
-    public function getAllowCDWithdrawMetadata()
+    public function getAllowCDWithdrawMetadata(): ?SettingsMetadata
     {
         return $this->allowCDWithdrawMetadata;
     }
@@ -190,7 +250,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setAllowCDWithdrawMetadata(SettingsMetadata $allowCDWithdrawMetadata = null)
+    public function setAllowCDWithdrawMetadata(?SettingsMetadata $allowCDWithdrawMetadata): self
     {
         $this->allowCDWithdrawMetadata = $allowCDWithdrawMetadata;
 
@@ -200,7 +260,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getChangeEmail()
+    public function getChangeEmail(): ?string
     {
         return $this->changeEmail;
     }
@@ -210,7 +270,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setChangeEmail($changeEmail = null)
+    public function setChangeEmail(?string $changeEmail): self
     {
         $this->changeEmail = $changeEmail;
 
@@ -220,7 +280,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getChangeEmailOther()
+    public function getChangeEmailOther(): ?string
     {
         return $this->changeEmailOther;
     }
@@ -230,7 +290,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setChangeEmailOther($changeEmailOther = null)
+    public function setChangeEmailOther(?string $changeEmailOther): self
     {
         $this->changeEmailOther = $changeEmailOther;
 
@@ -238,19 +298,23 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * The name of the company associated with the consumer disclosure.
+     *
      * @return string
      */
-    public function getCompanyName()
+    public function getCompanyName(): ?string
     {
         return $this->companyName;
     }
 
     /**
+     * The name of the company associated with the consumer disclosure.
+     *
      * @param string $companyName
      *
      * @return self
      */
-    public function setCompanyName($companyName = null)
+    public function setCompanyName(?string $companyName): self
     {
         $this->companyName = $companyName;
 
@@ -258,19 +322,23 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * The phone number of the company associated with the consumer disclosure.
+     *
      * @return string
      */
-    public function getCompanyPhone()
+    public function getCompanyPhone(): ?string
     {
         return $this->companyPhone;
     }
 
     /**
+     * The phone number of the company associated with the consumer disclosure.
+     *
      * @param string $companyPhone
      *
      * @return self
      */
-    public function setCompanyPhone($companyPhone = null)
+    public function setCompanyPhone(?string $companyPhone): self
     {
         $this->companyPhone = $companyPhone;
 
@@ -280,7 +348,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getCopyCostPerPage()
+    public function getCopyCostPerPage(): ?string
     {
         return $this->copyCostPerPage;
     }
@@ -290,7 +358,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setCopyCostPerPage($copyCostPerPage = null)
+    public function setCopyCostPerPage(?string $copyCostPerPage): self
     {
         $this->copyCostPerPage = $copyCostPerPage;
 
@@ -298,19 +366,27 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Specifies the fee collection method for cases in which the customer requires paper copies of the document.
+
+     Maximum Length: 255 characters
+     *
      * @return string
      */
-    public function getCopyFeeCollectionMethod()
+    public function getCopyFeeCollectionMethod(): ?string
     {
         return $this->copyFeeCollectionMethod;
     }
 
     /**
+     * Specifies the fee collection method for cases in which the customer requires paper copies of the document.
+
+     Maximum Length: 255 characters
+     *
      * @param string $copyFeeCollectionMethod
      *
      * @return self
      */
-    public function setCopyFeeCollectionMethod($copyFeeCollectionMethod = null)
+    public function setCopyFeeCollectionMethod(?string $copyFeeCollectionMethod): self
     {
         $this->copyFeeCollectionMethod = $copyFeeCollectionMethod;
 
@@ -320,7 +396,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getCopyRequestEmail()
+    public function getCopyRequestEmail(): ?string
     {
         return $this->copyRequestEmail;
     }
@@ -330,7 +406,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setCopyRequestEmail($copyRequestEmail = null)
+    public function setCopyRequestEmail(?string $copyRequestEmail): self
     {
         $this->copyRequestEmail = $copyRequestEmail;
 
@@ -340,7 +416,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getCustom()
+    public function getCustom(): ?string
     {
         return $this->custom;
     }
@@ -350,7 +426,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setCustom($custom = null)
+    public function setCustom(?string $custom): self
     {
         $this->custom = $custom;
 
@@ -360,7 +436,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getEnableEsign()
+    public function getEnableEsign(): ?string
     {
         return $this->enableEsign;
     }
@@ -370,7 +446,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setEnableEsign($enableEsign = null)
+    public function setEnableEsign(?string $enableEsign): self
     {
         $this->enableEsign = $enableEsign;
 
@@ -378,19 +454,23 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * The Electronic Record and Signature Disclosure text. The disclosure text includes the html formatting.
+     *
      * @return string
      */
-    public function getEsignAgreement()
+    public function getEsignAgreement(): ?string
     {
         return $this->esignAgreement;
     }
 
     /**
+     * The Electronic Record and Signature Disclosure text. The disclosure text includes the html formatting.
+     *
      * @param string $esignAgreement
      *
      * @return self
      */
-    public function setEsignAgreement($esignAgreement = null)
+    public function setEsignAgreement(?string $esignAgreement): self
     {
         $this->esignAgreement = $esignAgreement;
 
@@ -400,7 +480,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getEsignText()
+    public function getEsignText(): ?string
     {
         return $this->esignText;
     }
@@ -410,7 +490,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setEsignText($esignText = null)
+    public function setEsignText(?string $esignText): self
     {
         $this->esignText = $esignText;
 
@@ -420,7 +500,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getLanguageCode()
+    public function getLanguageCode(): ?string
     {
         return $this->languageCode;
     }
@@ -430,7 +510,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setLanguageCode($languageCode = null)
+    public function setLanguageCode(?string $languageCode): self
     {
         $this->languageCode = $languageCode;
 
@@ -440,7 +520,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getMustAgreeToEsign()
+    public function getMustAgreeToEsign(): ?string
     {
         return $this->mustAgreeToEsign;
     }
@@ -450,7 +530,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setMustAgreeToEsign($mustAgreeToEsign = null)
+    public function setMustAgreeToEsign(?string $mustAgreeToEsign): self
     {
         $this->mustAgreeToEsign = $mustAgreeToEsign;
 
@@ -460,7 +540,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getPdfId()
+    public function getPdfId(): ?string
     {
         return $this->pdfId;
     }
@@ -470,7 +550,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setPdfId($pdfId = null)
+    public function setPdfId(?string $pdfId): self
     {
         $this->pdfId = $pdfId;
 
@@ -480,7 +560,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getUseBrand()
+    public function getUseBrand(): ?string
     {
         return $this->useBrand;
     }
@@ -490,7 +570,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setUseBrand($useBrand = null)
+    public function setUseBrand(?string $useBrand): self
     {
         $this->useBrand = $useBrand;
 
@@ -500,7 +580,7 @@ class AccountConsumerDisclosures
     /**
      * @return string
      */
-    public function getUseConsumerDisclosureWithinAccount()
+    public function getUseConsumerDisclosureWithinAccount(): ?string
     {
         return $this->useConsumerDisclosureWithinAccount;
     }
@@ -510,7 +590,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setUseConsumerDisclosureWithinAccount($useConsumerDisclosureWithinAccount = null)
+    public function setUseConsumerDisclosureWithinAccount(?string $useConsumerDisclosureWithinAccount): self
     {
         $this->useConsumerDisclosureWithinAccount = $useConsumerDisclosureWithinAccount;
 
@@ -520,7 +600,7 @@ class AccountConsumerDisclosures
     /**
      * @return SettingsMetadata
      */
-    public function getUseConsumerDisclosureWithinAccountMetadata()
+    public function getUseConsumerDisclosureWithinAccountMetadata(): ?SettingsMetadata
     {
         return $this->useConsumerDisclosureWithinAccountMetadata;
     }
@@ -530,7 +610,7 @@ class AccountConsumerDisclosures
      *
      * @return self
      */
-    public function setUseConsumerDisclosureWithinAccountMetadata(SettingsMetadata $useConsumerDisclosureWithinAccountMetadata = null)
+    public function setUseConsumerDisclosureWithinAccountMetadata(?SettingsMetadata $useConsumerDisclosureWithinAccountMetadata): self
     {
         $this->useConsumerDisclosureWithinAccountMetadata = $useConsumerDisclosureWithinAccountMetadata;
 
@@ -538,19 +618,27 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Contains the first address line of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 100 characters.
+     *
      * @return string
      */
-    public function getWithdrawAddressLine1()
+    public function getWithdrawAddressLine1(): ?string
     {
         return $this->withdrawAddressLine1;
     }
 
     /**
+     * Contains the first address line of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 100 characters.
+     *
      * @param string $withdrawAddressLine1
      *
      * @return self
      */
-    public function setWithdrawAddressLine1($withdrawAddressLine1 = null)
+    public function setWithdrawAddressLine1(?string $withdrawAddressLine1): self
     {
         $this->withdrawAddressLine1 = $withdrawAddressLine1;
 
@@ -558,19 +646,27 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Contains the second address line of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 100 characters.
+     *
      * @return string
      */
-    public function getWithdrawAddressLine2()
+    public function getWithdrawAddressLine2(): ?string
     {
         return $this->withdrawAddressLine2;
     }
 
     /**
+     * Contains the second address line of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 100 characters.
+     *
      * @param string $withdrawAddressLine2
      *
      * @return self
      */
-    public function setWithdrawAddressLine2($withdrawAddressLine2 = null)
+    public function setWithdrawAddressLine2(?string $withdrawAddressLine2): self
     {
         $this->withdrawAddressLine2 = $withdrawAddressLine2;
 
@@ -578,19 +674,23 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Indicates whether the customer can withdraw consent by email.
+     *
      * @return string
      */
-    public function getWithdrawByEmail()
+    public function getWithdrawByEmail(): ?string
     {
         return $this->withdrawByEmail;
     }
 
     /**
+     * Indicates whether the customer can withdraw consent by email.
+     *
      * @param string $withdrawByEmail
      *
      * @return self
      */
-    public function setWithdrawByEmail($withdrawByEmail = null)
+    public function setWithdrawByEmail(?string $withdrawByEmail): self
     {
         $this->withdrawByEmail = $withdrawByEmail;
 
@@ -598,19 +698,23 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Indicates whether the customer can withdraw consent by postal mail.
+     *
      * @return string
      */
-    public function getWithdrawByMail()
+    public function getWithdrawByMail(): ?string
     {
         return $this->withdrawByMail;
     }
 
     /**
+     * Indicates whether the customer can withdraw consent by postal mail.
+     *
      * @param string $withdrawByMail
      *
      * @return self
      */
-    public function setWithdrawByMail($withdrawByMail = null)
+    public function setWithdrawByMail(?string $withdrawByMail): self
     {
         $this->withdrawByMail = $withdrawByMail;
 
@@ -618,19 +722,23 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Indicates whether the customer can withdraw consent by phone.
+     *
      * @return string
      */
-    public function getWithdrawByPhone()
+    public function getWithdrawByPhone(): ?string
     {
         return $this->withdrawByPhone;
     }
 
     /**
+     * Indicates whether the customer can withdraw consent by phone.
+     *
      * @param string $withdrawByPhone
      *
      * @return self
      */
-    public function setWithdrawByPhone($withdrawByPhone = null)
+    public function setWithdrawByPhone(?string $withdrawByPhone): self
     {
         $this->withdrawByPhone = $withdrawByPhone;
 
@@ -638,19 +746,27 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Contains the city of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 50 characters.
+     *
      * @return string
      */
-    public function getWithdrawCity()
+    public function getWithdrawCity(): ?string
     {
         return $this->withdrawCity;
     }
 
     /**
+     * Contains the city of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 50 characters.
+     *
      * @param string $withdrawCity
      *
      * @return self
      */
-    public function setWithdrawCity($withdrawCity = null)
+    public function setWithdrawCity(?string $withdrawCity): self
     {
         $this->withdrawCity = $withdrawCity;
 
@@ -658,19 +774,23 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Indicates the consequences of withdrawing consent.
+     *
      * @return string
      */
-    public function getWithdrawConsequences()
+    public function getWithdrawConsequences(): ?string
     {
         return $this->withdrawConsequences;
     }
 
     /**
+     * Indicates the consequences of withdrawing consent.
+     *
      * @param string $withdrawConsequences
      *
      * @return self
      */
-    public function setWithdrawConsequences($withdrawConsequences = null)
+    public function setWithdrawConsequences(?string $withdrawConsequences): self
     {
         $this->withdrawConsequences = $withdrawConsequences;
 
@@ -678,19 +798,27 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Contains the email address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 100 characters.
+     *
      * @return string
      */
-    public function getWithdrawEmail()
+    public function getWithdrawEmail(): ?string
     {
         return $this->withdrawEmail;
     }
 
     /**
+     * Contains the email address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 100 characters.
+     *
      * @param string $withdrawEmail
      *
      * @return self
      */
-    public function setWithdrawEmail($withdrawEmail = null)
+    public function setWithdrawEmail(?string $withdrawEmail): self
     {
         $this->withdrawEmail = $withdrawEmail;
 
@@ -698,19 +826,27 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Indicates other information need to withdraw consent.
+
+     Maximum length: 255 characters.
+     *
      * @return string
      */
-    public function getWithdrawOther()
+    public function getWithdrawOther(): ?string
     {
         return $this->withdrawOther;
     }
 
     /**
+     * Indicates other information need to withdraw consent.
+
+     Maximum length: 255 characters.
+     *
      * @param string $withdrawOther
      *
      * @return self
      */
-    public function setWithdrawOther($withdrawOther = null)
+    public function setWithdrawOther(?string $withdrawOther): self
     {
         $this->withdrawOther = $withdrawOther;
 
@@ -718,19 +854,27 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Contains the phone number which a customer can call to register consent withdrawal notification.
+
+     Maximum length: 20 characters.
+     *
      * @return string
      */
-    public function getWithdrawPhone()
+    public function getWithdrawPhone(): ?string
     {
         return $this->withdrawPhone;
     }
 
     /**
+     * Contains the phone number which a customer can call to register consent withdrawal notification.
+
+     Maximum length: 20 characters.
+     *
      * @param string $withdrawPhone
      *
      * @return self
      */
-    public function setWithdrawPhone($withdrawPhone = null)
+    public function setWithdrawPhone(?string $withdrawPhone): self
     {
         $this->withdrawPhone = $withdrawPhone;
 
@@ -738,19 +882,27 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Contains the postal code of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 20 characters.
+     *
      * @return string
      */
-    public function getWithdrawPostalCode()
+    public function getWithdrawPostalCode(): ?string
     {
         return $this->withdrawPostalCode;
     }
 
     /**
+     * Contains the postal code of the postal address to which a customer can send a consent withdrawal notification.
+
+     Maximum length: 20 characters.
+     *
      * @param string $withdrawPostalCode
      *
      * @return self
      */
-    public function setWithdrawPostalCode($withdrawPostalCode = null)
+    public function setWithdrawPostalCode(?string $withdrawPostalCode): self
     {
         $this->withdrawPostalCode = $withdrawPostalCode;
 
@@ -758,19 +910,23 @@ class AccountConsumerDisclosures
     }
 
     /**
+     * Contains the state of the postal address to which a customer can send a consent withdrawal notification.
+     *
      * @return string
      */
-    public function getWithdrawState()
+    public function getWithdrawState(): ?string
     {
         return $this->withdrawState;
     }
 
     /**
+     * Contains the state of the postal address to which a customer can send a consent withdrawal notification.
+     *
      * @param string $withdrawState
      *
      * @return self
      */
-    public function setWithdrawState($withdrawState = null)
+    public function setWithdrawState(?string $withdrawState): self
     {
         $this->withdrawState = $withdrawState;
 

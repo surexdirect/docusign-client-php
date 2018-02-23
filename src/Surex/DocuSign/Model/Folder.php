@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class Folder
 {
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -17,10 +19,14 @@ class Folder
      */
     protected $filter;
     /**
+     * The ID of the folder being accessed.
+     *
      * @var string
      */
     protected $folderId;
     /**
+     * A collection of folder objects returned in a response.
+     *
      * @var Folder[]
      */
     protected $folders;
@@ -49,6 +55,8 @@ class Folder
      */
     protected $parentFolderUri;
     /**
+     * Type of the user. Valid values: type_owner, type_participant.
+     *
      * @var string
      */
     protected $type;
@@ -58,19 +66,23 @@ class Folder
     protected $uri;
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -80,7 +92,7 @@ class Folder
     /**
      * @return Filter
      */
-    public function getFilter()
+    public function getFilter(): ?Filter
     {
         return $this->filter;
     }
@@ -90,7 +102,7 @@ class Folder
      *
      * @return self
      */
-    public function setFilter(Filter $filter = null)
+    public function setFilter(?Filter $filter): self
     {
         $this->filter = $filter;
 
@@ -98,19 +110,23 @@ class Folder
     }
 
     /**
+     * The ID of the folder being accessed.
+     *
      * @return string
      */
-    public function getFolderId()
+    public function getFolderId(): ?string
     {
         return $this->folderId;
     }
 
     /**
+     * The ID of the folder being accessed.
+     *
      * @param string $folderId
      *
      * @return self
      */
-    public function setFolderId($folderId = null)
+    public function setFolderId(?string $folderId): self
     {
         $this->folderId = $folderId;
 
@@ -118,19 +134,23 @@ class Folder
     }
 
     /**
+     * A collection of folder objects returned in a response.
+     *
      * @return Folder[]
      */
-    public function getFolders()
+    public function getFolders(): ?array
     {
         return $this->folders;
     }
 
     /**
+     * A collection of folder objects returned in a response.
+     *
      * @param Folder[] $folders
      *
      * @return self
      */
-    public function setFolders(array $folders = null)
+    public function setFolders(?array $folders): self
     {
         $this->folders = $folders;
 
@@ -140,7 +160,7 @@ class Folder
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -150,7 +170,7 @@ class Folder
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -160,7 +180,7 @@ class Folder
     /**
      * @return string
      */
-    public function getOwnerEmail()
+    public function getOwnerEmail(): ?string
     {
         return $this->ownerEmail;
     }
@@ -170,7 +190,7 @@ class Folder
      *
      * @return self
      */
-    public function setOwnerEmail($ownerEmail = null)
+    public function setOwnerEmail(?string $ownerEmail): self
     {
         $this->ownerEmail = $ownerEmail;
 
@@ -180,7 +200,7 @@ class Folder
     /**
      * @return string
      */
-    public function getOwnerUserId()
+    public function getOwnerUserId(): ?string
     {
         return $this->ownerUserId;
     }
@@ -190,7 +210,7 @@ class Folder
      *
      * @return self
      */
-    public function setOwnerUserId($ownerUserId = null)
+    public function setOwnerUserId(?string $ownerUserId): self
     {
         $this->ownerUserId = $ownerUserId;
 
@@ -200,7 +220,7 @@ class Folder
     /**
      * @return string
      */
-    public function getOwnerUserName()
+    public function getOwnerUserName(): ?string
     {
         return $this->ownerUserName;
     }
@@ -210,7 +230,7 @@ class Folder
      *
      * @return self
      */
-    public function setOwnerUserName($ownerUserName = null)
+    public function setOwnerUserName(?string $ownerUserName): self
     {
         $this->ownerUserName = $ownerUserName;
 
@@ -220,7 +240,7 @@ class Folder
     /**
      * @return string
      */
-    public function getParentFolderId()
+    public function getParentFolderId(): ?string
     {
         return $this->parentFolderId;
     }
@@ -230,7 +250,7 @@ class Folder
      *
      * @return self
      */
-    public function setParentFolderId($parentFolderId = null)
+    public function setParentFolderId(?string $parentFolderId): self
     {
         $this->parentFolderId = $parentFolderId;
 
@@ -240,7 +260,7 @@ class Folder
     /**
      * @return string
      */
-    public function getParentFolderUri()
+    public function getParentFolderUri(): ?string
     {
         return $this->parentFolderUri;
     }
@@ -250,7 +270,7 @@ class Folder
      *
      * @return self
      */
-    public function setParentFolderUri($parentFolderUri = null)
+    public function setParentFolderUri(?string $parentFolderUri): self
     {
         $this->parentFolderUri = $parentFolderUri;
 
@@ -258,19 +278,23 @@ class Folder
     }
 
     /**
+     * Type of the user. Valid values: type_owner, type_participant.
+     *
      * @return string
      */
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
     /**
+     * Type of the user. Valid values: type_owner, type_participant.
+     *
      * @param string $type
      *
      * @return self
      */
-    public function setType($type = null)
+    public function setType(?string $type): self
     {
         $this->type = $type;
 
@@ -280,7 +304,7 @@ class Folder
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -290,7 +314,7 @@ class Folder
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 

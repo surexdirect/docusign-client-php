@@ -13,6 +13,8 @@ class UserPasswordRules
      */
     protected $passwordRules;
     /**
+     * The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+     *
      * @var string
      */
     protected $userId;
@@ -20,7 +22,7 @@ class UserPasswordRules
     /**
      * @return AccountPasswordRules
      */
-    public function getPasswordRules()
+    public function getPasswordRules(): ?AccountPasswordRules
     {
         return $this->passwordRules;
     }
@@ -30,7 +32,7 @@ class UserPasswordRules
      *
      * @return self
      */
-    public function setPasswordRules(AccountPasswordRules $passwordRules = null)
+    public function setPasswordRules(?AccountPasswordRules $passwordRules): self
     {
         $this->passwordRules = $passwordRules;
 
@@ -38,19 +40,23 @@ class UserPasswordRules
     }
 
     /**
+     * The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+     *
      * @return string
      */
-    public function getUserId()
+    public function getUserId(): ?string
     {
         return $this->userId;
     }
 
     /**
+     * The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
+     *
      * @param string $userId
      *
      * @return self
      */
-    public function setUserId($userId = null)
+    public function setUserId(?string $userId): self
     {
         $this->userId = $userId;
 

@@ -9,30 +9,44 @@ namespace Surex\DocuSign\Model;
 class ConnectConfigurations
 {
     /**
+     * When set to **true**, data is sent to the urlToPublishTo web address. This option can be set to false to stop sending data while maintaining the Connect configuration information.
+     *
      * @var string
      */
     protected $allowEnvelopePublish;
     /**
+     * When set to **true**, the tracked envelope and recipient events for all users, including users that are added a later time, are sent through Connect.
+     *
      * @var string
      */
     protected $allUsers;
     /**
+     * If merge field's are being used, specifies the type of the merge field. The only  supported value is **salesforce**.
+     *
      * @var string
      */
     protected $configurationType;
     /**
+     *  Specifies the DocuSign generated ID for the Connect configuration.
+     *
      * @var string
      */
     protected $connectId;
     /**
+     * This turns Connect logging on or off. When set to **true**, logging is turned on.
+     *
      * @var string
      */
     protected $enableLog;
     /**
+     * A comma separated list of Envelope related events that are tracked through Connect. The possible event values are: Sent, Delivered, Completed, Declined, and Voided.
+     *
      * @var string
      */
     protected $envelopeEvents;
     /**
+     * When set to **true**, the Connect Service includes the Certificate of Completion with completed envelopes.
+     *
      * @var string
      */
     protected $includeCertificateOfCompletion;
@@ -41,72 +55,106 @@ class ConnectConfigurations
      */
     protected $includeCertSoapHeader;
     /**
+     * When set to **true**, the Document Fields associated with the envelope's documents are included in the notification messages. Document Fields are optional custom name-value pairs added to documents using the API.
+     *
      * @var string
      */
     protected $includeDocumentFields;
     /**
+     * When set to **true**, Connect will send the PDF document along with the update XML.
+     *
      * @var string
      */
     protected $includeDocuments;
     /**
+     * When set to **true**, Connect will include the voidedReason for voided envelopes.
+     *
      * @var string
      */
     protected $includeEnvelopeVoidReason;
     /**
+     * When set to **true**, Connect will include the sender account as Custom Field in the data.
+     *
      * @var string
      */
     protected $includeSenderAccountasCustomField;
     /**
+     * When set to **true**, Connect will include the envelope time zone information.
+     *
      * @var string
      */
     protected $includeTimeZoneInformation;
     /**
+     * The name of the Connect configuration. The name helps identify the configuration in the list.
+     *
      * @var string
      */
     protected $name;
     /**
+     * A comma separated list of *Recipient* related events that will trigger a notification to your webhook Connect listener. The possible event values are: Sent, Delivered, Completed, Declined, AuthenticationFailed, and AutoResponded.
+     *
      * @var string
      */
     protected $recipientEvents;
     /**
+     * When set to **true**, and a publication message fails to be acknowledged, the message goes back into the queue and the system will retry delivery after a successful acknowledgement is received. If the delivery fails a second time, the message is not returned to the queue for sending until Connect receives a successful acknowledgement and it has been at least 24 hours since the previous retry. There is a maximum of ten retries Alternately, you can use Republish Connect Information to manually republish the envelope information.
+     *
      * @var string
      */
     protected $requiresAcknowledgement;
     /**
+     * When set to **true**, Mutual TLS will be enabled for notifications. Mutual TLS must be initiated by the listener (the customer's web server) during the TLS handshake protocol.
+     *
      * @var string
      */
     protected $signMessageWithX509Certificate;
     /**
+     * The namespace of the SOAP interface.
+
+     The namespace value must be set if useSoapInterface is set to true.
+     *
      * @var string
      */
     protected $soapNamespace;
     /**
+     * This is the web address and name of your listener or Retrieving Service endpoint. You need to include HTTPS:// in the web address.
+     *
      * @var string
      */
     protected $urlToPublishTo;
     /**
+     * A comma separated list of userIds. This sets the users associated with the tracked envelope and recipient events. When a tracked event occurs for a set user, the a notification message is sent to your Connect listener.
+
+     ###### Note: If allUsers is set to `false` then you must provide a list of user ids.
+     *
      * @var string
      */
     protected $userIds;
     /**
+     * When set to **true**, indicates that the `urlToPublishTo` property contains a SOAP endpoint.
+     *
      * @var string
      */
     protected $useSoapInterface;
 
     /**
+     * When set to **true**, data is sent to the urlToPublishTo web address. This option can be set to false to stop sending data while maintaining the Connect configuration information.
+     *
      * @return string
      */
-    public function getAllowEnvelopePublish()
+    public function getAllowEnvelopePublish(): ?string
     {
         return $this->allowEnvelopePublish;
     }
 
     /**
+     * When set to **true**, data is sent to the urlToPublishTo web address. This option can be set to false to stop sending data while maintaining the Connect configuration information.
+     *
      * @param string $allowEnvelopePublish
      *
      * @return self
      */
-    public function setAllowEnvelopePublish($allowEnvelopePublish = null)
+    public function setAllowEnvelopePublish(?string $allowEnvelopePublish): self
     {
         $this->allowEnvelopePublish = $allowEnvelopePublish;
 
@@ -114,19 +162,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, the tracked envelope and recipient events for all users, including users that are added a later time, are sent through Connect.
+     *
      * @return string
      */
-    public function getAllUsers()
+    public function getAllUsers(): ?string
     {
         return $this->allUsers;
     }
 
     /**
+     * When set to **true**, the tracked envelope and recipient events for all users, including users that are added a later time, are sent through Connect.
+     *
      * @param string $allUsers
      *
      * @return self
      */
-    public function setAllUsers($allUsers = null)
+    public function setAllUsers(?string $allUsers): self
     {
         $this->allUsers = $allUsers;
 
@@ -134,19 +186,23 @@ class ConnectConfigurations
     }
 
     /**
+     * If merge field's are being used, specifies the type of the merge field. The only  supported value is **salesforce**.
+     *
      * @return string
      */
-    public function getConfigurationType()
+    public function getConfigurationType(): ?string
     {
         return $this->configurationType;
     }
 
     /**
+     * If merge field's are being used, specifies the type of the merge field. The only  supported value is **salesforce**.
+     *
      * @param string $configurationType
      *
      * @return self
      */
-    public function setConfigurationType($configurationType = null)
+    public function setConfigurationType(?string $configurationType): self
     {
         $this->configurationType = $configurationType;
 
@@ -154,19 +210,23 @@ class ConnectConfigurations
     }
 
     /**
+     *  Specifies the DocuSign generated ID for the Connect configuration.
+     *
      * @return string
      */
-    public function getConnectId()
+    public function getConnectId(): ?string
     {
         return $this->connectId;
     }
 
     /**
+     *  Specifies the DocuSign generated ID for the Connect configuration.
+     *
      * @param string $connectId
      *
      * @return self
      */
-    public function setConnectId($connectId = null)
+    public function setConnectId(?string $connectId): self
     {
         $this->connectId = $connectId;
 
@@ -174,19 +234,23 @@ class ConnectConfigurations
     }
 
     /**
+     * This turns Connect logging on or off. When set to **true**, logging is turned on.
+     *
      * @return string
      */
-    public function getEnableLog()
+    public function getEnableLog(): ?string
     {
         return $this->enableLog;
     }
 
     /**
+     * This turns Connect logging on or off. When set to **true**, logging is turned on.
+     *
      * @param string $enableLog
      *
      * @return self
      */
-    public function setEnableLog($enableLog = null)
+    public function setEnableLog(?string $enableLog): self
     {
         $this->enableLog = $enableLog;
 
@@ -194,19 +258,23 @@ class ConnectConfigurations
     }
 
     /**
+     * A comma separated list of Envelope related events that are tracked through Connect. The possible event values are: Sent, Delivered, Completed, Declined, and Voided.
+     *
      * @return string
      */
-    public function getEnvelopeEvents()
+    public function getEnvelopeEvents(): ?string
     {
         return $this->envelopeEvents;
     }
 
     /**
+     * A comma separated list of Envelope related events that are tracked through Connect. The possible event values are: Sent, Delivered, Completed, Declined, and Voided.
+     *
      * @param string $envelopeEvents
      *
      * @return self
      */
-    public function setEnvelopeEvents($envelopeEvents = null)
+    public function setEnvelopeEvents(?string $envelopeEvents): self
     {
         $this->envelopeEvents = $envelopeEvents;
 
@@ -214,19 +282,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, the Connect Service includes the Certificate of Completion with completed envelopes.
+     *
      * @return string
      */
-    public function getIncludeCertificateOfCompletion()
+    public function getIncludeCertificateOfCompletion(): ?string
     {
         return $this->includeCertificateOfCompletion;
     }
 
     /**
+     * When set to **true**, the Connect Service includes the Certificate of Completion with completed envelopes.
+     *
      * @param string $includeCertificateOfCompletion
      *
      * @return self
      */
-    public function setIncludeCertificateOfCompletion($includeCertificateOfCompletion = null)
+    public function setIncludeCertificateOfCompletion(?string $includeCertificateOfCompletion): self
     {
         $this->includeCertificateOfCompletion = $includeCertificateOfCompletion;
 
@@ -236,7 +308,7 @@ class ConnectConfigurations
     /**
      * @return string
      */
-    public function getIncludeCertSoapHeader()
+    public function getIncludeCertSoapHeader(): ?string
     {
         return $this->includeCertSoapHeader;
     }
@@ -246,7 +318,7 @@ class ConnectConfigurations
      *
      * @return self
      */
-    public function setIncludeCertSoapHeader($includeCertSoapHeader = null)
+    public function setIncludeCertSoapHeader(?string $includeCertSoapHeader): self
     {
         $this->includeCertSoapHeader = $includeCertSoapHeader;
 
@@ -254,19 +326,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, the Document Fields associated with the envelope's documents are included in the notification messages. Document Fields are optional custom name-value pairs added to documents using the API.
+     *
      * @return string
      */
-    public function getIncludeDocumentFields()
+    public function getIncludeDocumentFields(): ?string
     {
         return $this->includeDocumentFields;
     }
 
     /**
+     * When set to **true**, the Document Fields associated with the envelope's documents are included in the notification messages. Document Fields are optional custom name-value pairs added to documents using the API.
+     *
      * @param string $includeDocumentFields
      *
      * @return self
      */
-    public function setIncludeDocumentFields($includeDocumentFields = null)
+    public function setIncludeDocumentFields(?string $includeDocumentFields): self
     {
         $this->includeDocumentFields = $includeDocumentFields;
 
@@ -274,19 +350,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, Connect will send the PDF document along with the update XML.
+     *
      * @return string
      */
-    public function getIncludeDocuments()
+    public function getIncludeDocuments(): ?string
     {
         return $this->includeDocuments;
     }
 
     /**
+     * When set to **true**, Connect will send the PDF document along with the update XML.
+     *
      * @param string $includeDocuments
      *
      * @return self
      */
-    public function setIncludeDocuments($includeDocuments = null)
+    public function setIncludeDocuments(?string $includeDocuments): self
     {
         $this->includeDocuments = $includeDocuments;
 
@@ -294,19 +374,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, Connect will include the voidedReason for voided envelopes.
+     *
      * @return string
      */
-    public function getIncludeEnvelopeVoidReason()
+    public function getIncludeEnvelopeVoidReason(): ?string
     {
         return $this->includeEnvelopeVoidReason;
     }
 
     /**
+     * When set to **true**, Connect will include the voidedReason for voided envelopes.
+     *
      * @param string $includeEnvelopeVoidReason
      *
      * @return self
      */
-    public function setIncludeEnvelopeVoidReason($includeEnvelopeVoidReason = null)
+    public function setIncludeEnvelopeVoidReason(?string $includeEnvelopeVoidReason): self
     {
         $this->includeEnvelopeVoidReason = $includeEnvelopeVoidReason;
 
@@ -314,19 +398,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, Connect will include the sender account as Custom Field in the data.
+     *
      * @return string
      */
-    public function getIncludeSenderAccountasCustomField()
+    public function getIncludeSenderAccountasCustomField(): ?string
     {
         return $this->includeSenderAccountasCustomField;
     }
 
     /**
+     * When set to **true**, Connect will include the sender account as Custom Field in the data.
+     *
      * @param string $includeSenderAccountasCustomField
      *
      * @return self
      */
-    public function setIncludeSenderAccountasCustomField($includeSenderAccountasCustomField = null)
+    public function setIncludeSenderAccountasCustomField(?string $includeSenderAccountasCustomField): self
     {
         $this->includeSenderAccountasCustomField = $includeSenderAccountasCustomField;
 
@@ -334,19 +422,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, Connect will include the envelope time zone information.
+     *
      * @return string
      */
-    public function getIncludeTimeZoneInformation()
+    public function getIncludeTimeZoneInformation(): ?string
     {
         return $this->includeTimeZoneInformation;
     }
 
     /**
+     * When set to **true**, Connect will include the envelope time zone information.
+     *
      * @param string $includeTimeZoneInformation
      *
      * @return self
      */
-    public function setIncludeTimeZoneInformation($includeTimeZoneInformation = null)
+    public function setIncludeTimeZoneInformation(?string $includeTimeZoneInformation): self
     {
         $this->includeTimeZoneInformation = $includeTimeZoneInformation;
 
@@ -354,19 +446,23 @@ class ConnectConfigurations
     }
 
     /**
+     * The name of the Connect configuration. The name helps identify the configuration in the list.
+     *
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
+     * The name of the Connect configuration. The name helps identify the configuration in the list.
+     *
      * @param string $name
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -374,19 +470,23 @@ class ConnectConfigurations
     }
 
     /**
+     * A comma separated list of *Recipient* related events that will trigger a notification to your webhook Connect listener. The possible event values are: Sent, Delivered, Completed, Declined, AuthenticationFailed, and AutoResponded.
+     *
      * @return string
      */
-    public function getRecipientEvents()
+    public function getRecipientEvents(): ?string
     {
         return $this->recipientEvents;
     }
 
     /**
+     * A comma separated list of *Recipient* related events that will trigger a notification to your webhook Connect listener. The possible event values are: Sent, Delivered, Completed, Declined, AuthenticationFailed, and AutoResponded.
+     *
      * @param string $recipientEvents
      *
      * @return self
      */
-    public function setRecipientEvents($recipientEvents = null)
+    public function setRecipientEvents(?string $recipientEvents): self
     {
         $this->recipientEvents = $recipientEvents;
 
@@ -394,19 +494,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, and a publication message fails to be acknowledged, the message goes back into the queue and the system will retry delivery after a successful acknowledgement is received. If the delivery fails a second time, the message is not returned to the queue for sending until Connect receives a successful acknowledgement and it has been at least 24 hours since the previous retry. There is a maximum of ten retries Alternately, you can use Republish Connect Information to manually republish the envelope information.
+     *
      * @return string
      */
-    public function getRequiresAcknowledgement()
+    public function getRequiresAcknowledgement(): ?string
     {
         return $this->requiresAcknowledgement;
     }
 
     /**
+     * When set to **true**, and a publication message fails to be acknowledged, the message goes back into the queue and the system will retry delivery after a successful acknowledgement is received. If the delivery fails a second time, the message is not returned to the queue for sending until Connect receives a successful acknowledgement and it has been at least 24 hours since the previous retry. There is a maximum of ten retries Alternately, you can use Republish Connect Information to manually republish the envelope information.
+     *
      * @param string $requiresAcknowledgement
      *
      * @return self
      */
-    public function setRequiresAcknowledgement($requiresAcknowledgement = null)
+    public function setRequiresAcknowledgement(?string $requiresAcknowledgement): self
     {
         $this->requiresAcknowledgement = $requiresAcknowledgement;
 
@@ -414,19 +518,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, Mutual TLS will be enabled for notifications. Mutual TLS must be initiated by the listener (the customer's web server) during the TLS handshake protocol.
+     *
      * @return string
      */
-    public function getSignMessageWithX509Certificate()
+    public function getSignMessageWithX509Certificate(): ?string
     {
         return $this->signMessageWithX509Certificate;
     }
 
     /**
+     * When set to **true**, Mutual TLS will be enabled for notifications. Mutual TLS must be initiated by the listener (the customer's web server) during the TLS handshake protocol.
+     *
      * @param string $signMessageWithX509Certificate
      *
      * @return self
      */
-    public function setSignMessageWithX509Certificate($signMessageWithX509Certificate = null)
+    public function setSignMessageWithX509Certificate(?string $signMessageWithX509Certificate): self
     {
         $this->signMessageWithX509Certificate = $signMessageWithX509Certificate;
 
@@ -434,19 +542,27 @@ class ConnectConfigurations
     }
 
     /**
+     * The namespace of the SOAP interface.
+
+     The namespace value must be set if useSoapInterface is set to true.
+     *
      * @return string
      */
-    public function getSoapNamespace()
+    public function getSoapNamespace(): ?string
     {
         return $this->soapNamespace;
     }
 
     /**
+     * The namespace of the SOAP interface.
+
+     The namespace value must be set if useSoapInterface is set to true.
+     *
      * @param string $soapNamespace
      *
      * @return self
      */
-    public function setSoapNamespace($soapNamespace = null)
+    public function setSoapNamespace(?string $soapNamespace): self
     {
         $this->soapNamespace = $soapNamespace;
 
@@ -454,19 +570,23 @@ class ConnectConfigurations
     }
 
     /**
+     * This is the web address and name of your listener or Retrieving Service endpoint. You need to include HTTPS:// in the web address.
+     *
      * @return string
      */
-    public function getUrlToPublishTo()
+    public function getUrlToPublishTo(): ?string
     {
         return $this->urlToPublishTo;
     }
 
     /**
+     * This is the web address and name of your listener or Retrieving Service endpoint. You need to include HTTPS:// in the web address.
+     *
      * @param string $urlToPublishTo
      *
      * @return self
      */
-    public function setUrlToPublishTo($urlToPublishTo = null)
+    public function setUrlToPublishTo(?string $urlToPublishTo): self
     {
         $this->urlToPublishTo = $urlToPublishTo;
 
@@ -474,19 +594,27 @@ class ConnectConfigurations
     }
 
     /**
+     * A comma separated list of userIds. This sets the users associated with the tracked envelope and recipient events. When a tracked event occurs for a set user, the a notification message is sent to your Connect listener.
+
+     ###### Note: If allUsers is set to `false` then you must provide a list of user ids.
+     *
      * @return string
      */
-    public function getUserIds()
+    public function getUserIds(): ?string
     {
         return $this->userIds;
     }
 
     /**
+     * A comma separated list of userIds. This sets the users associated with the tracked envelope and recipient events. When a tracked event occurs for a set user, the a notification message is sent to your Connect listener.
+
+     ###### Note: If allUsers is set to `false` then you must provide a list of user ids.
+     *
      * @param string $userIds
      *
      * @return self
      */
-    public function setUserIds($userIds = null)
+    public function setUserIds(?string $userIds): self
     {
         $this->userIds = $userIds;
 
@@ -494,19 +622,23 @@ class ConnectConfigurations
     }
 
     /**
+     * When set to **true**, indicates that the `urlToPublishTo` property contains a SOAP endpoint.
+     *
      * @return string
      */
-    public function getUseSoapInterface()
+    public function getUseSoapInterface(): ?string
     {
         return $this->useSoapInterface;
     }
 
     /**
+     * When set to **true**, indicates that the `urlToPublishTo` property contains a SOAP endpoint.
+     *
      * @param string $useSoapInterface
      *
      * @return self
      */
-    public function setUseSoapInterface($useSoapInterface = null)
+    public function setUseSoapInterface(?string $useSoapInterface): self
     {
         $this->useSoapInterface = $useSoapInterface;
 

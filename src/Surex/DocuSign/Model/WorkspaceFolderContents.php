@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class WorkspaceFolderContents
 {
     /**
+     * The last position in the result set.
+     *
      * @var string
      */
     protected $endPosition;
@@ -25,36 +27,48 @@ class WorkspaceFolderContents
      */
     protected $parentFolders;
     /**
+     * The number of results returned in this response.
+     *
      * @var string
      */
     protected $resultSetSize;
     /**
+     * Starting position of the current result set.
+     *
      * @var string
      */
     protected $startPosition;
     /**
+     * The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+     *
      * @var string
      */
     protected $totalSetSize;
     /**
+     * The id of the workspace, always populated.
+     *
      * @var string
      */
     protected $workspaceId;
 
     /**
+     * The last position in the result set.
+     *
      * @return string
      */
-    public function getEndPosition()
+    public function getEndPosition(): ?string
     {
         return $this->endPosition;
     }
 
     /**
+     * The last position in the result set.
+     *
      * @param string $endPosition
      *
      * @return self
      */
-    public function setEndPosition($endPosition = null)
+    public function setEndPosition(?string $endPosition): self
     {
         $this->endPosition = $endPosition;
 
@@ -64,7 +78,7 @@ class WorkspaceFolderContents
     /**
      * @return WorkspaceItems
      */
-    public function getFolder()
+    public function getFolder(): ?WorkspaceItems
     {
         return $this->folder;
     }
@@ -74,7 +88,7 @@ class WorkspaceFolderContents
      *
      * @return self
      */
-    public function setFolder(WorkspaceItems $folder = null)
+    public function setFolder(?WorkspaceItems $folder): self
     {
         $this->folder = $folder;
 
@@ -84,7 +98,7 @@ class WorkspaceFolderContents
     /**
      * @return WorkspaceItems[]
      */
-    public function getItems()
+    public function getItems(): ?array
     {
         return $this->items;
     }
@@ -94,7 +108,7 @@ class WorkspaceFolderContents
      *
      * @return self
      */
-    public function setItems(array $items = null)
+    public function setItems(?array $items): self
     {
         $this->items = $items;
 
@@ -104,7 +118,7 @@ class WorkspaceFolderContents
     /**
      * @return WorkspaceItems[]
      */
-    public function getParentFolders()
+    public function getParentFolders(): ?array
     {
         return $this->parentFolders;
     }
@@ -114,7 +128,7 @@ class WorkspaceFolderContents
      *
      * @return self
      */
-    public function setParentFolders(array $parentFolders = null)
+    public function setParentFolders(?array $parentFolders): self
     {
         $this->parentFolders = $parentFolders;
 
@@ -122,19 +136,23 @@ class WorkspaceFolderContents
     }
 
     /**
+     * The number of results returned in this response.
+     *
      * @return string
      */
-    public function getResultSetSize()
+    public function getResultSetSize(): ?string
     {
         return $this->resultSetSize;
     }
 
     /**
+     * The number of results returned in this response.
+     *
      * @param string $resultSetSize
      *
      * @return self
      */
-    public function setResultSetSize($resultSetSize = null)
+    public function setResultSetSize(?string $resultSetSize): self
     {
         $this->resultSetSize = $resultSetSize;
 
@@ -142,19 +160,23 @@ class WorkspaceFolderContents
     }
 
     /**
+     * Starting position of the current result set.
+     *
      * @return string
      */
-    public function getStartPosition()
+    public function getStartPosition(): ?string
     {
         return $this->startPosition;
     }
 
     /**
+     * Starting position of the current result set.
+     *
      * @param string $startPosition
      *
      * @return self
      */
-    public function setStartPosition($startPosition = null)
+    public function setStartPosition(?string $startPosition): self
     {
         $this->startPosition = $startPosition;
 
@@ -162,19 +184,23 @@ class WorkspaceFolderContents
     }
 
     /**
+     * The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+     *
      * @return string
      */
-    public function getTotalSetSize()
+    public function getTotalSetSize(): ?string
     {
         return $this->totalSetSize;
     }
 
     /**
+     * The total number of items in the search's result set. It will always be greater than or equal to the value of the `resultSetSize` field.
+     *
      * @param string $totalSetSize
      *
      * @return self
      */
-    public function setTotalSetSize($totalSetSize = null)
+    public function setTotalSetSize(?string $totalSetSize): self
     {
         $this->totalSetSize = $totalSetSize;
 
@@ -182,19 +208,23 @@ class WorkspaceFolderContents
     }
 
     /**
+     * The id of the workspace, always populated.
+     *
      * @return string
      */
-    public function getWorkspaceId()
+    public function getWorkspaceId(): ?string
     {
         return $this->workspaceId;
     }
 
     /**
+     * The id of the workspace, always populated.
+     *
      * @param string $workspaceId
      *
      * @return self
      */
-    public function setWorkspaceId($workspaceId = null)
+    public function setWorkspaceId(?string $workspaceId): self
     {
         $this->workspaceId = $workspaceId;
 

@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class SigningGroups
 {
     /**
+     * The UTC DateTime when the workspace user authorization was created.
+     *
      * @var string
      */
     protected $created;
@@ -17,6 +19,8 @@ class SigningGroups
      */
     protected $createdBy;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -25,10 +29,14 @@ class SigningGroups
      */
     protected $groupEmail;
     /**
+     * The name of the group.
+     *
      * @var string
      */
     protected $groupName;
     /**
+     * The group type.
+     *
      * @var string
      */
     protected $groupType;
@@ -41,6 +49,8 @@ class SigningGroups
      */
     protected $modifiedBy;
     /**
+     * When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+     *
      * @var string
      */
     protected $signingGroupId;
@@ -50,19 +60,23 @@ class SigningGroups
     protected $users;
 
     /**
+     * The UTC DateTime when the workspace user authorization was created.
+     *
      * @return string
      */
-    public function getCreated()
+    public function getCreated(): ?string
     {
         return $this->created;
     }
 
     /**
+     * The UTC DateTime when the workspace user authorization was created.
+     *
      * @param string $created
      *
      * @return self
      */
-    public function setCreated($created = null)
+    public function setCreated(?string $created): self
     {
         $this->created = $created;
 
@@ -72,7 +86,7 @@ class SigningGroups
     /**
      * @return string
      */
-    public function getCreatedBy()
+    public function getCreatedBy(): ?string
     {
         return $this->createdBy;
     }
@@ -82,7 +96,7 @@ class SigningGroups
      *
      * @return self
      */
-    public function setCreatedBy($createdBy = null)
+    public function setCreatedBy(?string $createdBy): self
     {
         $this->createdBy = $createdBy;
 
@@ -90,19 +104,23 @@ class SigningGroups
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -112,7 +130,7 @@ class SigningGroups
     /**
      * @return string
      */
-    public function getGroupEmail()
+    public function getGroupEmail(): ?string
     {
         return $this->groupEmail;
     }
@@ -122,7 +140,7 @@ class SigningGroups
      *
      * @return self
      */
-    public function setGroupEmail($groupEmail = null)
+    public function setGroupEmail(?string $groupEmail): self
     {
         $this->groupEmail = $groupEmail;
 
@@ -130,19 +148,23 @@ class SigningGroups
     }
 
     /**
+     * The name of the group.
+     *
      * @return string
      */
-    public function getGroupName()
+    public function getGroupName(): ?string
     {
         return $this->groupName;
     }
 
     /**
+     * The name of the group.
+     *
      * @param string $groupName
      *
      * @return self
      */
-    public function setGroupName($groupName = null)
+    public function setGroupName(?string $groupName): self
     {
         $this->groupName = $groupName;
 
@@ -150,19 +172,23 @@ class SigningGroups
     }
 
     /**
+     * The group type.
+     *
      * @return string
      */
-    public function getGroupType()
+    public function getGroupType(): ?string
     {
         return $this->groupType;
     }
 
     /**
+     * The group type.
+     *
      * @param string $groupType
      *
      * @return self
      */
-    public function setGroupType($groupType = null)
+    public function setGroupType(?string $groupType): self
     {
         $this->groupType = $groupType;
 
@@ -172,7 +198,7 @@ class SigningGroups
     /**
      * @return string
      */
-    public function getModified()
+    public function getModified(): ?string
     {
         return $this->modified;
     }
@@ -182,7 +208,7 @@ class SigningGroups
      *
      * @return self
      */
-    public function setModified($modified = null)
+    public function setModified(?string $modified): self
     {
         $this->modified = $modified;
 
@@ -192,7 +218,7 @@ class SigningGroups
     /**
      * @return string
      */
-    public function getModifiedBy()
+    public function getModifiedBy(): ?string
     {
         return $this->modifiedBy;
     }
@@ -202,7 +228,7 @@ class SigningGroups
      *
      * @return self
      */
-    public function setModifiedBy($modifiedBy = null)
+    public function setModifiedBy(?string $modifiedBy): self
     {
         $this->modifiedBy = $modifiedBy;
 
@@ -210,19 +236,23 @@ class SigningGroups
     }
 
     /**
+     * When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+     *
      * @return string
      */
-    public function getSigningGroupId()
+    public function getSigningGroupId(): ?string
     {
         return $this->signingGroupId;
     }
 
     /**
+     * When set to **true** and the feature is enabled in the sender's account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+     *
      * @param string $signingGroupId
      *
      * @return self
      */
-    public function setSigningGroupId($signingGroupId = null)
+    public function setSigningGroupId(?string $signingGroupId): self
     {
         $this->signingGroupId = $signingGroupId;
 
@@ -232,7 +262,7 @@ class SigningGroups
     /**
      * @return SigningGroupUser[]
      */
-    public function getUsers()
+    public function getUsers(): ?array
     {
         return $this->users;
     }
@@ -242,7 +272,7 @@ class SigningGroups
      *
      * @return self
      */
-    public function setUsers(array $users = null)
+    public function setUsers(?array $users): self
     {
         $this->users = $users;
 

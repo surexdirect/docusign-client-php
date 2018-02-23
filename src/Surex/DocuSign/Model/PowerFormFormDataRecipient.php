@@ -21,6 +21,8 @@ class PowerFormFormDataRecipient
      */
     protected $name;
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @var string
      */
     protected $recipientId;
@@ -28,7 +30,7 @@ class PowerFormFormDataRecipient
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -38,7 +40,7 @@ class PowerFormFormDataRecipient
      *
      * @return self
      */
-    public function setEmail($email = null)
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -48,7 +50,7 @@ class PowerFormFormDataRecipient
     /**
      * @return NameValue[]
      */
-    public function getFormData()
+    public function getFormData(): ?array
     {
         return $this->formData;
     }
@@ -58,7 +60,7 @@ class PowerFormFormDataRecipient
      *
      * @return self
      */
-    public function setFormData(array $formData = null)
+    public function setFormData(?array $formData): self
     {
         $this->formData = $formData;
 
@@ -68,7 +70,7 @@ class PowerFormFormDataRecipient
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -78,7 +80,7 @@ class PowerFormFormDataRecipient
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -86,19 +88,23 @@ class PowerFormFormDataRecipient
     }
 
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @return string
      */
-    public function getRecipientId()
+    public function getRecipientId(): ?string
     {
         return $this->recipientId;
     }
 
     /**
+     * Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document.
+     *
      * @param string $recipientId
      *
      * @return self
      */
-    public function setRecipientId($recipientId = null)
+    public function setRecipientId(?string $recipientId): self
     {
         $this->recipientId = $recipientId;
 

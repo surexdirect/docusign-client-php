@@ -17,6 +17,8 @@ class UserSettingsInformation
      */
     protected $senderEmailNotifications;
     /**
+     * An array of email notifications that specifies the email the user receives when they are a sender. When the specific email notification is set to true, the user receives those types of email notifications from DocuSign. The user inherits the default account sender email notification settings when the user is created.
+     *
      * @var SignerEmailNotifications
      */
     protected $signerEmailNotifications;
@@ -28,7 +30,7 @@ class UserSettingsInformation
     /**
      * @return UserAccountManagementGranularInformation
      */
-    public function getAccountManagementGranular()
+    public function getAccountManagementGranular(): ?UserAccountManagementGranularInformation
     {
         return $this->accountManagementGranular;
     }
@@ -38,7 +40,7 @@ class UserSettingsInformation
      *
      * @return self
      */
-    public function setAccountManagementGranular(UserAccountManagementGranularInformation $accountManagementGranular = null)
+    public function setAccountManagementGranular(?UserAccountManagementGranularInformation $accountManagementGranular): self
     {
         $this->accountManagementGranular = $accountManagementGranular;
 
@@ -48,7 +50,7 @@ class UserSettingsInformation
     /**
      * @return SenderEmailNotifications
      */
-    public function getSenderEmailNotifications()
+    public function getSenderEmailNotifications(): ?SenderEmailNotifications
     {
         return $this->senderEmailNotifications;
     }
@@ -58,7 +60,7 @@ class UserSettingsInformation
      *
      * @return self
      */
-    public function setSenderEmailNotifications(SenderEmailNotifications $senderEmailNotifications = null)
+    public function setSenderEmailNotifications(?SenderEmailNotifications $senderEmailNotifications): self
     {
         $this->senderEmailNotifications = $senderEmailNotifications;
 
@@ -66,19 +68,23 @@ class UserSettingsInformation
     }
 
     /**
+     * An array of email notifications that specifies the email the user receives when they are a sender. When the specific email notification is set to true, the user receives those types of email notifications from DocuSign. The user inherits the default account sender email notification settings when the user is created.
+     *
      * @return SignerEmailNotifications
      */
-    public function getSignerEmailNotifications()
+    public function getSignerEmailNotifications(): ?SignerEmailNotifications
     {
         return $this->signerEmailNotifications;
     }
 
     /**
+     * An array of email notifications that specifies the email the user receives when they are a sender. When the specific email notification is set to true, the user receives those types of email notifications from DocuSign. The user inherits the default account sender email notification settings when the user is created.
+     *
      * @param SignerEmailNotifications $signerEmailNotifications
      *
      * @return self
      */
-    public function setSignerEmailNotifications(SignerEmailNotifications $signerEmailNotifications = null)
+    public function setSignerEmailNotifications(?SignerEmailNotifications $signerEmailNotifications): self
     {
         $this->signerEmailNotifications = $signerEmailNotifications;
 
@@ -88,7 +94,7 @@ class UserSettingsInformation
     /**
      * @return NameValue[]
      */
-    public function getUserSettings()
+    public function getUserSettings(): ?array
     {
         return $this->userSettings;
     }
@@ -98,7 +104,7 @@ class UserSettingsInformation
      *
      * @return self
      */
-    public function setUserSettings(array $userSettings = null)
+    public function setUserSettings(?array $userSettings): self
     {
         $this->userSettings = $userSettings;
 

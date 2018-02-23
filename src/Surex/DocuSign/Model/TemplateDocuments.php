@@ -13,6 +13,8 @@ class TemplateDocuments
      */
     protected $templateDocuments;
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @var string
      */
     protected $templateId;
@@ -20,7 +22,7 @@ class TemplateDocuments
     /**
      * @return EnvelopeDocument[]
      */
-    public function getTemplateDocuments()
+    public function getTemplateDocuments(): ?array
     {
         return $this->templateDocuments;
     }
@@ -30,7 +32,7 @@ class TemplateDocuments
      *
      * @return self
      */
-    public function setTemplateDocuments(array $templateDocuments = null)
+    public function setTemplateDocuments(?array $templateDocuments): self
     {
         $this->templateDocuments = $templateDocuments;
 
@@ -38,19 +40,23 @@ class TemplateDocuments
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @return string
      */
-    public function getTemplateId()
+    public function getTemplateId(): ?string
     {
         return $this->templateId;
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @param string $templateId
      *
      * @return self
      */
-    public function setTemplateId($templateId = null)
+    public function setTemplateId(?string $templateId): self
     {
         $this->templateId = $templateId;
 

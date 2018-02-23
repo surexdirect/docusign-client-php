@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class SeatDiscount
 {
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $beginSeatCount;
@@ -17,24 +19,30 @@ class SeatDiscount
      */
     protected $discountPercent;
     /**
+     * Reserved: TBD.
+     *
      * @var string
      */
     protected $endSeatCount;
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getBeginSeatCount()
+    public function getBeginSeatCount(): ?string
     {
         return $this->beginSeatCount;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $beginSeatCount
      *
      * @return self
      */
-    public function setBeginSeatCount($beginSeatCount = null)
+    public function setBeginSeatCount(?string $beginSeatCount): self
     {
         $this->beginSeatCount = $beginSeatCount;
 
@@ -44,7 +52,7 @@ class SeatDiscount
     /**
      * @return string
      */
-    public function getDiscountPercent()
+    public function getDiscountPercent(): ?string
     {
         return $this->discountPercent;
     }
@@ -54,7 +62,7 @@ class SeatDiscount
      *
      * @return self
      */
-    public function setDiscountPercent($discountPercent = null)
+    public function setDiscountPercent(?string $discountPercent): self
     {
         $this->discountPercent = $discountPercent;
 
@@ -62,19 +70,23 @@ class SeatDiscount
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @return string
      */
-    public function getEndSeatCount()
+    public function getEndSeatCount(): ?string
     {
         return $this->endSeatCount;
     }
 
     /**
+     * Reserved: TBD.
+     *
      * @param string $endSeatCount
      *
      * @return self
      */
-    public function setEndSeatCount($endSeatCount = null)
+    public function setEndSeatCount(?string $endSeatCount): self
     {
         $this->endSeatCount = $endSeatCount;
 

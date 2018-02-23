@@ -25,6 +25,8 @@ class AccountSignatureProvider
      */
     protected $signatureProviderId;
     /**
+     * The name of an Electronic or Standards Based Signature (digital signature) provider for the signer to use. [The current provider list.](../../../../guide/appendix/standards_based_signatures.html#signature-provider-options).
+     *
      * @var string
      */
     protected $signatureProviderName;
@@ -40,7 +42,7 @@ class AccountSignatureProvider
     /**
      * @return string
      */
-    public function getIsRequired()
+    public function getIsRequired(): ?string
     {
         return $this->isRequired;
     }
@@ -50,7 +52,7 @@ class AccountSignatureProvider
      *
      * @return self
      */
-    public function setIsRequired($isRequired = null)
+    public function setIsRequired(?string $isRequired): self
     {
         $this->isRequired = $isRequired;
 
@@ -60,7 +62,7 @@ class AccountSignatureProvider
     /**
      * @return string
      */
-    public function getPriority()
+    public function getPriority(): ?string
     {
         return $this->priority;
     }
@@ -70,7 +72,7 @@ class AccountSignatureProvider
      *
      * @return self
      */
-    public function setPriority($priority = null)
+    public function setPriority(?string $priority): self
     {
         $this->priority = $priority;
 
@@ -80,7 +82,7 @@ class AccountSignatureProvider
     /**
      * @return string
      */
-    public function getSignatureProviderDisplayName()
+    public function getSignatureProviderDisplayName(): ?string
     {
         return $this->signatureProviderDisplayName;
     }
@@ -90,7 +92,7 @@ class AccountSignatureProvider
      *
      * @return self
      */
-    public function setSignatureProviderDisplayName($signatureProviderDisplayName = null)
+    public function setSignatureProviderDisplayName(?string $signatureProviderDisplayName): self
     {
         $this->signatureProviderDisplayName = $signatureProviderDisplayName;
 
@@ -100,7 +102,7 @@ class AccountSignatureProvider
     /**
      * @return string
      */
-    public function getSignatureProviderId()
+    public function getSignatureProviderId(): ?string
     {
         return $this->signatureProviderId;
     }
@@ -110,7 +112,7 @@ class AccountSignatureProvider
      *
      * @return self
      */
-    public function setSignatureProviderId($signatureProviderId = null)
+    public function setSignatureProviderId(?string $signatureProviderId): self
     {
         $this->signatureProviderId = $signatureProviderId;
 
@@ -118,19 +120,23 @@ class AccountSignatureProvider
     }
 
     /**
+     * The name of an Electronic or Standards Based Signature (digital signature) provider for the signer to use. [The current provider list.](../../../../guide/appendix/standards_based_signatures.html#signature-provider-options).
+     *
      * @return string
      */
-    public function getSignatureProviderName()
+    public function getSignatureProviderName(): ?string
     {
         return $this->signatureProviderName;
     }
 
     /**
+     * The name of an Electronic or Standards Based Signature (digital signature) provider for the signer to use. [The current provider list.](../../../../guide/appendix/standards_based_signatures.html#signature-provider-options).
+     *
      * @param string $signatureProviderName
      *
      * @return self
      */
-    public function setSignatureProviderName($signatureProviderName = null)
+    public function setSignatureProviderName(?string $signatureProviderName): self
     {
         $this->signatureProviderName = $signatureProviderName;
 
@@ -140,7 +146,7 @@ class AccountSignatureProvider
     /**
      * @return AccountSignatureProviderOption[]
      */
-    public function getSignatureProviderOptionsMetadata()
+    public function getSignatureProviderOptionsMetadata(): ?array
     {
         return $this->signatureProviderOptionsMetadata;
     }
@@ -150,7 +156,7 @@ class AccountSignatureProvider
      *
      * @return self
      */
-    public function setSignatureProviderOptionsMetadata(array $signatureProviderOptionsMetadata = null)
+    public function setSignatureProviderOptionsMetadata(?array $signatureProviderOptionsMetadata): self
     {
         $this->signatureProviderOptionsMetadata = $signatureProviderOptionsMetadata;
 
@@ -160,7 +166,7 @@ class AccountSignatureProvider
     /**
      * @return SignatureProviderRequiredOption[]
      */
-    public function getSignatureProviderRequiredOptions()
+    public function getSignatureProviderRequiredOptions(): ?array
     {
         return $this->signatureProviderRequiredOptions;
     }
@@ -170,7 +176,7 @@ class AccountSignatureProvider
      *
      * @return self
      */
-    public function setSignatureProviderRequiredOptions(array $signatureProviderRequiredOptions = null)
+    public function setSignatureProviderRequiredOptions(?array $signatureProviderRequiredOptions): self
     {
         $this->signatureProviderRequiredOptions = $signatureProviderRequiredOptions;
 

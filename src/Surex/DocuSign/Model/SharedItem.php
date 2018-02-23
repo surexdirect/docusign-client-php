@@ -9,10 +9,14 @@ namespace Surex\DocuSign\Model;
 class SharedItem
 {
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @var string
      */
     protected $shared;
@@ -22,19 +26,23 @@ class SharedItem
     protected $user;
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -42,19 +50,23 @@ class SharedItem
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @return string
      */
-    public function getShared()
+    public function getShared(): ?string
     {
         return $this->shared;
     }
 
     /**
+     * When set to **true**, this custom tab is shared.
+     *
      * @param string $shared
      *
      * @return self
      */
-    public function setShared($shared = null)
+    public function setShared(?string $shared): self
     {
         $this->shared = $shared;
 
@@ -64,7 +76,7 @@ class SharedItem
     /**
      * @return UserInfo
      */
-    public function getUser()
+    public function getUser(): ?UserInfo
     {
         return $this->user;
     }
@@ -74,7 +86,7 @@ class SharedItem
      *
      * @return self
      */
-    public function setUser(UserInfo $user = null)
+    public function setUser(?UserInfo $user): self
     {
         $this->user = $user;
 

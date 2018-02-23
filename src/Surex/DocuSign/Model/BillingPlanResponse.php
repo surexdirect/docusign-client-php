@@ -9,6 +9,8 @@ namespace Surex\DocuSign\Model;
 class BillingPlanResponse
 {
     /**
+     * Contains information about a billing plan.
+     *
      * @var BillingPlan
      */
     protected $billingPlan;
@@ -18,19 +20,23 @@ class BillingPlanResponse
     protected $successorPlans;
 
     /**
+     * Contains information about a billing plan.
+     *
      * @return BillingPlan
      */
-    public function getBillingPlan()
+    public function getBillingPlan(): ?BillingPlan
     {
         return $this->billingPlan;
     }
 
     /**
+     * Contains information about a billing plan.
+     *
      * @param BillingPlan $billingPlan
      *
      * @return self
      */
-    public function setBillingPlan(BillingPlan $billingPlan = null)
+    public function setBillingPlan(?BillingPlan $billingPlan): self
     {
         $this->billingPlan = $billingPlan;
 
@@ -40,7 +46,7 @@ class BillingPlanResponse
     /**
      * @return BillingPlan[]
      */
-    public function getSuccessorPlans()
+    public function getSuccessorPlans(): ?array
     {
         return $this->successorPlans;
     }
@@ -50,7 +56,7 @@ class BillingPlanResponse
      *
      * @return self
      */
-    public function setSuccessorPlans(array $successorPlans = null)
+    public function setSuccessorPlans(?array $successorPlans): self
     {
         $this->successorPlans = $successorPlans;
 

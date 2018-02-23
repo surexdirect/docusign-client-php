@@ -6,37 +6,39 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class PlanInformationNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class PlanInformationNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\PlanInformation' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\PlanInformation' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\PlanInformation) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\PlanInformation;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\PlanInformation();
         if (property_exists($data, 'addOns')) {
             $values = [];
             foreach ($data->{'addOns'} as $value) {
-                $values[] = $this->serializer->deserialize($value, 'Surex\\DocuSign\\Model\\AddOn', 'raw', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'Surex\\DocuSign\\Model\\AddOn', 'json', $context);
             }
             $object->setAddOns($values);
         }
@@ -49,7 +51,7 @@ class PlanInformationNormalizer extends SerializerAwareNormalizer implements Den
         if (property_exists($data, 'planFeatureSets')) {
             $values_1 = [];
             foreach ($data->{'planFeatureSets'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\FeatureSet', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\FeatureSet', 'json', $context);
             }
             $object->setPlanFeatureSets($values_1);
         }
@@ -59,7 +61,7 @@ class PlanInformationNormalizer extends SerializerAwareNormalizer implements Den
         if (property_exists($data, 'recipientDomains')) {
             $values_2 = [];
             foreach ($data->{'recipientDomains'} as $value_2) {
-                $values_2[] = $this->serializer->deserialize($value_2, 'Surex\\DocuSign\\Model\\RecipientDomain', 'raw', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'Surex\\DocuSign\\Model\\RecipientDomain', 'json', $context);
             }
             $object->setRecipientDomains($values_2);
         }
@@ -73,7 +75,7 @@ class PlanInformationNormalizer extends SerializerAwareNormalizer implements Den
         if (null !== $object->getAddOns()) {
             $values = [];
             foreach ($object->getAddOns() as $value) {
-                $values[] = $this->serializer->serialize($value, 'raw', $context);
+                $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data->{'addOns'} = $values;
         }
@@ -86,7 +88,7 @@ class PlanInformationNormalizer extends SerializerAwareNormalizer implements Den
         if (null !== $object->getPlanFeatureSets()) {
             $values_1 = [];
             foreach ($object->getPlanFeatureSets() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'planFeatureSets'} = $values_1;
         }
@@ -96,7 +98,7 @@ class PlanInformationNormalizer extends SerializerAwareNormalizer implements Den
         if (null !== $object->getRecipientDomains()) {
             $values_2 = [];
             foreach ($object->getRecipientDomains() as $value_2) {
-                $values_2[] = $this->serializer->serialize($value_2, 'raw', $context);
+                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data->{'recipientDomains'} = $values_2;
         }

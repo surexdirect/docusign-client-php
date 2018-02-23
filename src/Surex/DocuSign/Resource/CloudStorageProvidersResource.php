@@ -133,7 +133,7 @@ class CloudStorageProvidersResource extends Resource
     /**
      * Deletes the user authentication information for the specified cloud storage provider. The next time the user tries to access the cloud storage provider, they must pass normal authentication for this cloud storage provider.
      *
-     * @param string $serviceId  The ID of the service to access.
+     * @param string $serviceId  the ID of the service to access
      * @param string $userId     The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
      * @param array  $parameters List of parameters
      * @param string $fetch      Fetch mode (object or response)
@@ -171,7 +171,7 @@ class CloudStorageProvidersResource extends Resource
     /**
      * Retrieves the list of cloud storage providers enabled for the account and the configuration information for the user.
      *
-     * @param string $serviceId  The ID of the service to access.
+     * @param string $serviceId  the ID of the service to access
      * @param string $userId     The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing.
      * @param array  $parameters {
      *

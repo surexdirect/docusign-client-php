@@ -9,14 +9,24 @@ namespace Surex\DocuSign\Model;
 class PowerForms
 {
     /**
+     * Indicates the date and time the item was created.
+     *
      * @var string
      */
     protected $createdDateTime;
     /**
+     * Specifies the email body of the message sent to the recipient.
+
+     Maximum length: 10000 characters.
+     *
      * @var string
      */
     protected $emailBody;
     /**
+     * Specifies the subject of the email that is sent to all recipients.
+
+     See [ML:Template Email Subject Merge Fields] for information about adding merge field information to the email subject.
+     *
      * @var string
      */
     protected $emailSubject;
@@ -25,6 +35,8 @@ class PowerForms
      */
     protected $envelopes;
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @var ErrorDetails
      */
     protected $errorDetails;
@@ -69,6 +81,8 @@ class PowerForms
      */
     protected $powerFormUrl;
     /**
+     * An array of powerform recipients.
+     *
      * @var PowerFormRecipient[]
      */
     protected $recipients;
@@ -85,6 +99,8 @@ class PowerForms
      */
     protected $signingMode;
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @var string
      */
     protected $templateId;
@@ -106,19 +122,23 @@ class PowerForms
     protected $usesRemaining;
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @return string
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): ?string
     {
         return $this->createdDateTime;
     }
 
     /**
+     * Indicates the date and time the item was created.
+     *
      * @param string $createdDateTime
      *
      * @return self
      */
-    public function setCreatedDateTime($createdDateTime = null)
+    public function setCreatedDateTime(?string $createdDateTime): self
     {
         $this->createdDateTime = $createdDateTime;
 
@@ -126,19 +146,27 @@ class PowerForms
     }
 
     /**
+     * Specifies the email body of the message sent to the recipient.
+
+     Maximum length: 10000 characters.
+     *
      * @return string
      */
-    public function getEmailBody()
+    public function getEmailBody(): ?string
     {
         return $this->emailBody;
     }
 
     /**
+     * Specifies the email body of the message sent to the recipient.
+
+     Maximum length: 10000 characters.
+     *
      * @param string $emailBody
      *
      * @return self
      */
-    public function setEmailBody($emailBody = null)
+    public function setEmailBody(?string $emailBody): self
     {
         $this->emailBody = $emailBody;
 
@@ -146,19 +174,27 @@ class PowerForms
     }
 
     /**
+     * Specifies the subject of the email that is sent to all recipients.
+
+     See [ML:Template Email Subject Merge Fields] for information about adding merge field information to the email subject.
+     *
      * @return string
      */
-    public function getEmailSubject()
+    public function getEmailSubject(): ?string
     {
         return $this->emailSubject;
     }
 
     /**
+     * Specifies the subject of the email that is sent to all recipients.
+
+     See [ML:Template Email Subject Merge Fields] for information about adding merge field information to the email subject.
+     *
      * @param string $emailSubject
      *
      * @return self
      */
-    public function setEmailSubject($emailSubject = null)
+    public function setEmailSubject(?string $emailSubject): self
     {
         $this->emailSubject = $emailSubject;
 
@@ -168,7 +204,7 @@ class PowerForms
     /**
      * @return Envelopes[]
      */
-    public function getEnvelopes()
+    public function getEnvelopes(): ?array
     {
         return $this->envelopes;
     }
@@ -178,7 +214,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setEnvelopes(array $envelopes = null)
+    public function setEnvelopes(?array $envelopes): self
     {
         $this->envelopes = $envelopes;
 
@@ -186,19 +222,23 @@ class PowerForms
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @return ErrorDetails
      */
-    public function getErrorDetails()
+    public function getErrorDetails(): ?ErrorDetails
     {
         return $this->errorDetails;
     }
 
     /**
+     * This object describes errors that occur. It is only valid for responses, and ignored in requests.
+     *
      * @param ErrorDetails $errorDetails
      *
      * @return self
      */
-    public function setErrorDetails(ErrorDetails $errorDetails = null)
+    public function setErrorDetails(?ErrorDetails $errorDetails): self
     {
         $this->errorDetails = $errorDetails;
 
@@ -208,7 +248,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getInstructions()
+    public function getInstructions(): ?string
     {
         return $this->instructions;
     }
@@ -218,7 +258,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setInstructions($instructions = null)
+    public function setInstructions(?string $instructions): self
     {
         $this->instructions = $instructions;
 
@@ -228,7 +268,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getIsActive()
+    public function getIsActive(): ?string
     {
         return $this->isActive;
     }
@@ -238,7 +278,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setIsActive($isActive = null)
+    public function setIsActive(?string $isActive): self
     {
         $this->isActive = $isActive;
 
@@ -248,7 +288,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getLastUsed()
+    public function getLastUsed(): ?string
     {
         return $this->lastUsed;
     }
@@ -258,7 +298,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setLastUsed($lastUsed = null)
+    public function setLastUsed(?string $lastUsed): self
     {
         $this->lastUsed = $lastUsed;
 
@@ -268,7 +308,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getLimitUseInterval()
+    public function getLimitUseInterval(): ?string
     {
         return $this->limitUseInterval;
     }
@@ -278,7 +318,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setLimitUseInterval($limitUseInterval = null)
+    public function setLimitUseInterval(?string $limitUseInterval): self
     {
         $this->limitUseInterval = $limitUseInterval;
 
@@ -288,7 +328,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getLimitUseIntervalEnabled()
+    public function getLimitUseIntervalEnabled(): ?string
     {
         return $this->limitUseIntervalEnabled;
     }
@@ -298,7 +338,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setLimitUseIntervalEnabled($limitUseIntervalEnabled = null)
+    public function setLimitUseIntervalEnabled(?string $limitUseIntervalEnabled): self
     {
         $this->limitUseIntervalEnabled = $limitUseIntervalEnabled;
 
@@ -308,7 +348,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getLimitUseIntervalUnits()
+    public function getLimitUseIntervalUnits(): ?string
     {
         return $this->limitUseIntervalUnits;
     }
@@ -318,7 +358,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setLimitUseIntervalUnits($limitUseIntervalUnits = null)
+    public function setLimitUseIntervalUnits(?string $limitUseIntervalUnits): self
     {
         $this->limitUseIntervalUnits = $limitUseIntervalUnits;
 
@@ -328,7 +368,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getMaxUseEnabled()
+    public function getMaxUseEnabled(): ?string
     {
         return $this->maxUseEnabled;
     }
@@ -338,7 +378,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setMaxUseEnabled($maxUseEnabled = null)
+    public function setMaxUseEnabled(?string $maxUseEnabled): self
     {
         $this->maxUseEnabled = $maxUseEnabled;
 
@@ -348,7 +388,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -358,7 +398,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setName($name = null)
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -368,7 +408,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getPowerFormId()
+    public function getPowerFormId(): ?string
     {
         return $this->powerFormId;
     }
@@ -378,7 +418,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setPowerFormId($powerFormId = null)
+    public function setPowerFormId(?string $powerFormId): self
     {
         $this->powerFormId = $powerFormId;
 
@@ -388,7 +428,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getPowerFormUrl()
+    public function getPowerFormUrl(): ?string
     {
         return $this->powerFormUrl;
     }
@@ -398,7 +438,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setPowerFormUrl($powerFormUrl = null)
+    public function setPowerFormUrl(?string $powerFormUrl): self
     {
         $this->powerFormUrl = $powerFormUrl;
 
@@ -406,19 +446,23 @@ class PowerForms
     }
 
     /**
+     * An array of powerform recipients.
+     *
      * @return PowerFormRecipient[]
      */
-    public function getRecipients()
+    public function getRecipients(): ?array
     {
         return $this->recipients;
     }
 
     /**
+     * An array of powerform recipients.
+     *
      * @param PowerFormRecipient[] $recipients
      *
      * @return self
      */
-    public function setRecipients(array $recipients = null)
+    public function setRecipients(?array $recipients): self
     {
         $this->recipients = $recipients;
 
@@ -428,7 +472,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getSenderName()
+    public function getSenderName(): ?string
     {
         return $this->senderName;
     }
@@ -438,7 +482,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setSenderName($senderName = null)
+    public function setSenderName(?string $senderName): self
     {
         $this->senderName = $senderName;
 
@@ -448,7 +492,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getSenderUserId()
+    public function getSenderUserId(): ?string
     {
         return $this->senderUserId;
     }
@@ -458,7 +502,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setSenderUserId($senderUserId = null)
+    public function setSenderUserId(?string $senderUserId): self
     {
         $this->senderUserId = $senderUserId;
 
@@ -468,7 +512,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getSigningMode()
+    public function getSigningMode(): ?string
     {
         return $this->signingMode;
     }
@@ -478,7 +522,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setSigningMode($signingMode = null)
+    public function setSigningMode(?string $signingMode): self
     {
         $this->signingMode = $signingMode;
 
@@ -486,19 +530,23 @@ class PowerForms
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @return string
      */
-    public function getTemplateId()
+    public function getTemplateId(): ?string
     {
         return $this->templateId;
     }
 
     /**
+     * The unique identifier of the template. If this is not provided, DocuSign will generate a value.
+     *
      * @param string $templateId
      *
      * @return self
      */
-    public function setTemplateId($templateId = null)
+    public function setTemplateId(?string $templateId): self
     {
         $this->templateId = $templateId;
 
@@ -508,7 +556,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getTemplateName()
+    public function getTemplateName(): ?string
     {
         return $this->templateName;
     }
@@ -518,7 +566,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setTemplateName($templateName = null)
+    public function setTemplateName(?string $templateName): self
     {
         $this->templateName = $templateName;
 
@@ -528,7 +576,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getTimesUsed()
+    public function getTimesUsed(): ?string
     {
         return $this->timesUsed;
     }
@@ -538,7 +586,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setTimesUsed($timesUsed = null)
+    public function setTimesUsed(?string $timesUsed): self
     {
         $this->timesUsed = $timesUsed;
 
@@ -548,7 +596,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getUri()
+    public function getUri(): ?string
     {
         return $this->uri;
     }
@@ -558,7 +606,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setUri($uri = null)
+    public function setUri(?string $uri): self
     {
         $this->uri = $uri;
 
@@ -568,7 +616,7 @@ class PowerForms
     /**
      * @return string
      */
-    public function getUsesRemaining()
+    public function getUsesRemaining(): ?string
     {
         return $this->usesRemaining;
     }
@@ -578,7 +626,7 @@ class PowerForms
      *
      * @return self
      */
-    public function setUsesRemaining($usesRemaining = null)
+    public function setUsesRemaining(?string $usesRemaining): self
     {
         $this->usesRemaining = $usesRemaining;
 

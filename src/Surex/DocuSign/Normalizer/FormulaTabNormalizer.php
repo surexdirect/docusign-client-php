@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class FormulaTabNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class FormulaTabNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\FormulaTab' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\FormulaTab' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\FormulaTab) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\FormulaTab;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\FormulaTab();
         if (property_exists($data, 'anchorCaseSensitive')) {
             $object->setAnchorCaseSensitive($data->{'anchorCaseSensitive'});
@@ -79,7 +81,7 @@ class FormulaTabNormalizer extends SerializerAwareNormalizer implements Denormal
             $object->setDocumentId($data->{'documentId'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'font')) {
             $object->setFont($data->{'font'});
@@ -109,7 +111,7 @@ class FormulaTabNormalizer extends SerializerAwareNormalizer implements Denormal
             $object->setMaxLength($data->{'maxLength'});
         }
         if (property_exists($data, 'mergeField')) {
-            $object->setMergeField($this->serializer->deserialize($data->{'mergeField'}, 'Surex\\DocuSign\\Model\\MergeField', 'raw', $context));
+            $object->setMergeField($this->denormalizer->denormalize($data->{'mergeField'}, 'Surex\\DocuSign\\Model\\MergeField', 'json', $context));
         }
         if (property_exists($data, 'name')) {
             $object->setName($data->{'name'});
@@ -121,7 +123,7 @@ class FormulaTabNormalizer extends SerializerAwareNormalizer implements Denormal
             $object->setPageNumber($data->{'pageNumber'});
         }
         if (property_exists($data, 'paymentDetails')) {
-            $object->setPaymentDetails($this->serializer->deserialize($data->{'paymentDetails'}, 'Surex\\DocuSign\\Model\\PaymentDetails', 'raw', $context));
+            $object->setPaymentDetails($this->denormalizer->denormalize($data->{'paymentDetails'}, 'Surex\\DocuSign\\Model\\PaymentDetails', 'json', $context));
         }
         if (property_exists($data, 'recipientId')) {
             $object->setRecipientId($data->{'recipientId'});
@@ -236,7 +238,7 @@ class FormulaTabNormalizer extends SerializerAwareNormalizer implements Denormal
             $data->{'documentId'} = $object->getDocumentId();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getFont()) {
             $data->{'font'} = $object->getFont();
@@ -266,7 +268,7 @@ class FormulaTabNormalizer extends SerializerAwareNormalizer implements Denormal
             $data->{'maxLength'} = $object->getMaxLength();
         }
         if (null !== $object->getMergeField()) {
-            $data->{'mergeField'} = $this->serializer->serialize($object->getMergeField(), 'raw', $context);
+            $data->{'mergeField'} = $this->normalizer->normalize($object->getMergeField(), 'json', $context);
         }
         if (null !== $object->getName()) {
             $data->{'name'} = $object->getName();
@@ -278,7 +280,7 @@ class FormulaTabNormalizer extends SerializerAwareNormalizer implements Denormal
             $data->{'pageNumber'} = $object->getPageNumber();
         }
         if (null !== $object->getPaymentDetails()) {
-            $data->{'paymentDetails'} = $this->serializer->serialize($object->getPaymentDetails(), 'raw', $context);
+            $data->{'paymentDetails'} = $this->normalizer->normalize($object->getPaymentDetails(), 'json', $context);
         }
         if (null !== $object->getRecipientId()) {
             $data->{'recipientId'} = $object->getRecipientId();

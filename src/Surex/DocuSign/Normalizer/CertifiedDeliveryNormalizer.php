@@ -6,32 +6,34 @@
 
 namespace Surex\DocuSign\Normalizer;
 
+use Symfony\Component\Serializer\Exception\InvalidArgumentException;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\SerializerAwareNormalizer;
 
-class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements DenormalizerInterface, NormalizerInterface
+class CertifiedDeliveryNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
+    use DenormalizerAwareTrait;
+    use NormalizerAwareTrait;
+
     public function supportsDenormalization($data, $type, $format = null)
     {
-        if ('Surex\\DocuSign\\Model\\CertifiedDelivery' !== $type) {
-            return false;
-        }
-
-        return true;
+        return 'Surex\\DocuSign\\Model\\CertifiedDelivery' === $type;
     }
 
     public function supportsNormalization($data, $format = null)
     {
-        if ($data instanceof \Surex\DocuSign\Model\CertifiedDelivery) {
-            return true;
-        }
-
-        return false;
+        return $data instanceof \Surex\DocuSign\Model\CertifiedDelivery;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
     {
+        if (!is_object($data)) {
+            throw new InvalidArgumentException();
+        }
         $object = new \Surex\DocuSign\Model\CertifiedDelivery();
         if (property_exists($data, 'accessCode')) {
             $object->setAccessCode($data->{'accessCode'});
@@ -64,7 +66,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
         if (property_exists($data, 'documentVisibility')) {
             $values_1 = [];
             foreach ($data->{'documentVisibility'} as $value_1) {
-                $values_1[] = $this->serializer->deserialize($value_1, 'Surex\\DocuSign\\Model\\DocumentVisibility', 'raw', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'Surex\\DocuSign\\Model\\DocumentVisibility', 'json', $context);
             }
             $object->setDocumentVisibility($values_1);
         }
@@ -72,7 +74,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $object->setEmail($data->{'email'});
         }
         if (property_exists($data, 'emailNotification')) {
-            $object->setEmailNotification($this->serializer->deserialize($data->{'emailNotification'}, 'Surex\\DocuSign\\Model\\RecipientEmailNotification', 'raw', $context));
+            $object->setEmailNotification($this->denormalizer->denormalize($data->{'emailNotification'}, 'Surex\\DocuSign\\Model\\RecipientEmailNotification', 'json', $context));
         }
         if (property_exists($data, 'emailRecipientPostSigningURL')) {
             $object->setEmailRecipientPostSigningURL($data->{'emailRecipientPostSigningURL'});
@@ -81,7 +83,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $object->setEmbeddedRecipientStartURL($data->{'embeddedRecipientStartURL'});
         }
         if (property_exists($data, 'errorDetails')) {
-            $object->setErrorDetails($this->serializer->deserialize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'raw', $context));
+            $object->setErrorDetails($this->denormalizer->denormalize($data->{'errorDetails'}, 'Surex\\DocuSign\\Model\\ErrorDetails', 'json', $context));
         }
         if (property_exists($data, 'excludedDocuments')) {
             $values_2 = [];
@@ -97,7 +99,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $object->setIdCheckConfigurationName($data->{'idCheckConfigurationName'});
         }
         if (property_exists($data, 'idCheckInformationInput')) {
-            $object->setIdCheckInformationInput($this->serializer->deserialize($data->{'idCheckInformationInput'}, 'Surex\\DocuSign\\Model\\IdCheckInformationInput', 'raw', $context));
+            $object->setIdCheckInformationInput($this->denormalizer->denormalize($data->{'idCheckInformationInput'}, 'Surex\\DocuSign\\Model\\IdCheckInformationInput', 'json', $context));
         }
         if (property_exists($data, 'inheritEmailNotificationConfiguration')) {
             $object->setInheritEmailNotificationConfiguration($data->{'inheritEmailNotificationConfiguration'});
@@ -109,17 +111,17 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $object->setNote($data->{'note'});
         }
         if (property_exists($data, 'phoneAuthentication')) {
-            $object->setPhoneAuthentication($this->serializer->deserialize($data->{'phoneAuthentication'}, 'Surex\\DocuSign\\Model\\RecipientPhoneAuthentication', 'raw', $context));
+            $object->setPhoneAuthentication($this->denormalizer->denormalize($data->{'phoneAuthentication'}, 'Surex\\DocuSign\\Model\\RecipientPhoneAuthentication', 'json', $context));
         }
         if (property_exists($data, 'recipientAttachments')) {
             $values_3 = [];
             foreach ($data->{'recipientAttachments'} as $value_3) {
-                $values_3[] = $this->serializer->deserialize($value_3, 'Surex\\DocuSign\\Model\\RecipientAttachment', 'raw', $context);
+                $values_3[] = $this->denormalizer->denormalize($value_3, 'Surex\\DocuSign\\Model\\RecipientAttachment', 'json', $context);
             }
             $object->setRecipientAttachments($values_3);
         }
         if (property_exists($data, 'recipientAuthenticationStatus')) {
-            $object->setRecipientAuthenticationStatus($this->serializer->deserialize($data->{'recipientAuthenticationStatus'}, 'Surex\\DocuSign\\Model\\AuthenticationStatus', 'raw', $context));
+            $object->setRecipientAuthenticationStatus($this->denormalizer->denormalize($data->{'recipientAuthenticationStatus'}, 'Surex\\DocuSign\\Model\\AuthenticationStatus', 'json', $context));
         }
         if (property_exists($data, 'recipientId')) {
             $object->setRecipientId($data->{'recipientId'});
@@ -137,7 +139,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $object->setRoutingOrder($data->{'routingOrder'});
         }
         if (property_exists($data, 'samlAuthentication')) {
-            $object->setSamlAuthentication($this->serializer->deserialize($data->{'samlAuthentication'}, 'Surex\\DocuSign\\Model\\RecipientSAMLAuthentication', 'raw', $context));
+            $object->setSamlAuthentication($this->denormalizer->denormalize($data->{'samlAuthentication'}, 'Surex\\DocuSign\\Model\\RecipientSAMLAuthentication', 'json', $context));
         }
         if (property_exists($data, 'sentDateTime')) {
             $object->setSentDateTime($data->{'sentDateTime'});
@@ -154,17 +156,17 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
         if (property_exists($data, 'signingGroupUsers')) {
             $values_4 = [];
             foreach ($data->{'signingGroupUsers'} as $value_4) {
-                $values_4[] = $this->serializer->deserialize($value_4, 'Surex\\DocuSign\\Model\\UserInfo', 'raw', $context);
+                $values_4[] = $this->denormalizer->denormalize($value_4, 'Surex\\DocuSign\\Model\\UserInfo', 'json', $context);
             }
             $object->setSigningGroupUsers($values_4);
         }
         if (property_exists($data, 'smsAuthentication')) {
-            $object->setSmsAuthentication($this->serializer->deserialize($data->{'smsAuthentication'}, 'Surex\\DocuSign\\Model\\RecipientSMSAuthentication', 'raw', $context));
+            $object->setSmsAuthentication($this->denormalizer->denormalize($data->{'smsAuthentication'}, 'Surex\\DocuSign\\Model\\RecipientSMSAuthentication', 'json', $context));
         }
         if (property_exists($data, 'socialAuthentications')) {
             $values_5 = [];
             foreach ($data->{'socialAuthentications'} as $value_5) {
-                $values_5[] = $this->serializer->deserialize($value_5, 'Surex\\DocuSign\\Model\\SocialAuthentication', 'raw', $context);
+                $values_5[] = $this->denormalizer->denormalize($value_5, 'Surex\\DocuSign\\Model\\SocialAuthentication', 'json', $context);
             }
             $object->setSocialAuthentications($values_5);
         }
@@ -221,7 +223,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
         if (null !== $object->getDocumentVisibility()) {
             $values_1 = [];
             foreach ($object->getDocumentVisibility() as $value_1) {
-                $values_1[] = $this->serializer->serialize($value_1, 'raw', $context);
+                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data->{'documentVisibility'} = $values_1;
         }
@@ -229,7 +231,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $data->{'email'} = $object->getEmail();
         }
         if (null !== $object->getEmailNotification()) {
-            $data->{'emailNotification'} = $this->serializer->serialize($object->getEmailNotification(), 'raw', $context);
+            $data->{'emailNotification'} = $this->normalizer->normalize($object->getEmailNotification(), 'json', $context);
         }
         if (null !== $object->getEmailRecipientPostSigningURL()) {
             $data->{'emailRecipientPostSigningURL'} = $object->getEmailRecipientPostSigningURL();
@@ -238,7 +240,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $data->{'embeddedRecipientStartURL'} = $object->getEmbeddedRecipientStartURL();
         }
         if (null !== $object->getErrorDetails()) {
-            $data->{'errorDetails'} = $this->serializer->serialize($object->getErrorDetails(), 'raw', $context);
+            $data->{'errorDetails'} = $this->normalizer->normalize($object->getErrorDetails(), 'json', $context);
         }
         if (null !== $object->getExcludedDocuments()) {
             $values_2 = [];
@@ -254,7 +256,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $data->{'idCheckConfigurationName'} = $object->getIdCheckConfigurationName();
         }
         if (null !== $object->getIdCheckInformationInput()) {
-            $data->{'idCheckInformationInput'} = $this->serializer->serialize($object->getIdCheckInformationInput(), 'raw', $context);
+            $data->{'idCheckInformationInput'} = $this->normalizer->normalize($object->getIdCheckInformationInput(), 'json', $context);
         }
         if (null !== $object->getInheritEmailNotificationConfiguration()) {
             $data->{'inheritEmailNotificationConfiguration'} = $object->getInheritEmailNotificationConfiguration();
@@ -266,17 +268,17 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $data->{'note'} = $object->getNote();
         }
         if (null !== $object->getPhoneAuthentication()) {
-            $data->{'phoneAuthentication'} = $this->serializer->serialize($object->getPhoneAuthentication(), 'raw', $context);
+            $data->{'phoneAuthentication'} = $this->normalizer->normalize($object->getPhoneAuthentication(), 'json', $context);
         }
         if (null !== $object->getRecipientAttachments()) {
             $values_3 = [];
             foreach ($object->getRecipientAttachments() as $value_3) {
-                $values_3[] = $this->serializer->serialize($value_3, 'raw', $context);
+                $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data->{'recipientAttachments'} = $values_3;
         }
         if (null !== $object->getRecipientAuthenticationStatus()) {
-            $data->{'recipientAuthenticationStatus'} = $this->serializer->serialize($object->getRecipientAuthenticationStatus(), 'raw', $context);
+            $data->{'recipientAuthenticationStatus'} = $this->normalizer->normalize($object->getRecipientAuthenticationStatus(), 'json', $context);
         }
         if (null !== $object->getRecipientId()) {
             $data->{'recipientId'} = $object->getRecipientId();
@@ -294,7 +296,7 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
             $data->{'routingOrder'} = $object->getRoutingOrder();
         }
         if (null !== $object->getSamlAuthentication()) {
-            $data->{'samlAuthentication'} = $this->serializer->serialize($object->getSamlAuthentication(), 'raw', $context);
+            $data->{'samlAuthentication'} = $this->normalizer->normalize($object->getSamlAuthentication(), 'json', $context);
         }
         if (null !== $object->getSentDateTime()) {
             $data->{'sentDateTime'} = $object->getSentDateTime();
@@ -311,17 +313,17 @@ class CertifiedDeliveryNormalizer extends SerializerAwareNormalizer implements D
         if (null !== $object->getSigningGroupUsers()) {
             $values_4 = [];
             foreach ($object->getSigningGroupUsers() as $value_4) {
-                $values_4[] = $this->serializer->serialize($value_4, 'raw', $context);
+                $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
             $data->{'signingGroupUsers'} = $values_4;
         }
         if (null !== $object->getSmsAuthentication()) {
-            $data->{'smsAuthentication'} = $this->serializer->serialize($object->getSmsAuthentication(), 'raw', $context);
+            $data->{'smsAuthentication'} = $this->normalizer->normalize($object->getSmsAuthentication(), 'json', $context);
         }
         if (null !== $object->getSocialAuthentications()) {
             $values_5 = [];
             foreach ($object->getSocialAuthentications() as $value_5) {
-                $values_5[] = $this->serializer->serialize($value_5, 'raw', $context);
+                $values_5[] = $this->normalizer->normalize($value_5, 'json', $context);
             }
             $data->{'socialAuthentications'} = $values_5;
         }
