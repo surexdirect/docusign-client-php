@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<'EOF'
-Copyright (c) 2017, SurexDirect Ltd.
+Copyright (c) 2018, SurexDirect Ltd.
 EOF;
 
 return PhpCsFixer\Config::create()
