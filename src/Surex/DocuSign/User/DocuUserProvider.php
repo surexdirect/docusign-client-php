@@ -20,18 +20,20 @@ class DocuUserProvider implements DocuSignUserProvider
      *
      * @param string $userId
      */
-    public function __construct($userId)
+    public function __construct(string $userId)
     {
         $this->docuSignUser = new DefaultDocuSignUser($userId);
     }
 
-    public function getDocuSignUser()
+    public function getDocuSignUser(): DocuSignUser
     {
         return $this->docuSignUser;
     }
 
-    public function connectDocuSignUser(array $info)
+    public function connectDocuSignUser(array $info): bool
     {
         $this->docuSignUser = new DefaultDocuSignUser($info['sub']);
+
+        return true;
     }
 }

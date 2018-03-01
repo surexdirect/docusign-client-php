@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (c) 2017, SurexDirect Ltd.
+ * Copyright (c) 2018, SurexDirect Ltd.
  */
 
 namespace Surex\DocuSign\Authentication;
@@ -29,11 +29,6 @@ class Token implements \JsonSerializable
     protected $refreshToken;
 
     /**
-     * @var int
-     */
-    protected $refreshTokenExpires;
-
-    /**
      * @var array
      */
     protected $values = [];
@@ -52,6 +47,10 @@ class Token implements \JsonSerializable
 
         if (isset($options['expires_in'])) {
             $this->expires = 0 !== $options['expires_in'] ? time() + $options['expires_in'] : 0;
+        }
+
+        if (isset($options['expires'])) {
+            $this->expires = $options['expires'];
         }
 
         $this->values = array_diff_key($options, array_flip([
@@ -142,7 +141,7 @@ class Token implements \JsonSerializable
         }
 
         if ($this->expires) {
-            $parameters['expires_in'] = $this->expires;
+            $parameters['expires'] = $this->expires;
         }
 
         return $parameters;

@@ -16,7 +16,7 @@ interface DocuSignUserProvider
     /**
      * @return DocuSignUser
      */
-    public function getDocuSignUser();
+    public function getDocuSignUser(): DocuSignUser;
 
     /**
      * @param array $info {
@@ -37,5 +37,5 @@ interface DocuSignUserProvider
      *
      * @return bool
      */
-    public function connectDocuSignUser(array $info);
+    public function connectDocuSignUser(array $info): bool;
 }

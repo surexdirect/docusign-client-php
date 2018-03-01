@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Copyright (c) 2018, SurexDirect Ltd.
+ */
+
 namespace Surex\DocuSign\Cache;
 
 use Psr\Cache\CacheItemInterface;
@@ -64,7 +68,7 @@ class CacheItem implements CacheItemInterface
             return false;
         }
 
-        if ($this->expiration === null) {
+        if (null === $this->expiration) {
             return true;
         }
 
@@ -104,7 +108,7 @@ class CacheItem implements CacheItemInterface
             gettype($expiration)
         );
 
-        $this->handleError($error);
+        throw new \TypeError($error);
     }
 
     /**
@@ -116,43 +120,29 @@ class CacheItem implements CacheItemInterface
             $this->expiration = new \DateTime("now + $time seconds");
         } elseif ($time instanceof \DateInterval) {
             $this->expiration = (new \DateTime())->add($time);
-        } elseif ($time === null) {
+        } elseif (null === $time) {
             $this->expiration = $time;
         } else {
-            $message = 'Argument 1 passed to %s::expiresAfter() must be an ' .
+            $message = 'Argument 1 passed to %s::expiresAfter() must be an '.
                 'instance of DateInterval or of the type integer, %s given';
             $error = sprintf($message, get_class($this), gettype($time));
 
-            $this->handleError($error);
+            throw new \TypeError($error);
         }
 
         return $this;
     }
 
     /**
-     * Handles an error.
-     *
-     * @param string $error
-     * @throws \TypeError
-     */
-    private function handleError($error)
-    {
-        if (class_exists('TypeError')) {
-            throw new \TypeError($error);
-        }
-
-        trigger_error($error, E_USER_ERROR);
-    }
-
-    /**
      * Determines if an expiration is valid based on the rules defined by PSR6.
      *
      * @param mixed $expiration
+     *
      * @return bool
      */
     private function isValidExpiration($expiration)
     {
-        if ($expiration === null) {
+        if (null === $expiration) {
             return true;
         }
 

@@ -10,7 +10,7 @@ namespace Surex\DocuSign\Authentication;
 interface TokenFetcher
 {
     /**
-     * @return Token|null
+     * @return Token
      */
-    public function fetchAccessToken();
+    public function fetchAccessToken(): Token;
 }

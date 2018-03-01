@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Copyright (c) 2018, SurexDirect Ltd.
+ */
+
 namespace Surex\DocuSign\Cache;
 
 use Psr\Cache\CacheItemInterface;
@@ -59,7 +63,7 @@ class MemoryCacheItemPool implements CacheItemPoolInterface
      */
     public function clear()
     {
-        $this->items = [];
+        $this->items         = [];
         $this->deferredItems = [];
 
         return true;
@@ -125,15 +129,17 @@ class MemoryCacheItemPool implements CacheItemPoolInterface
      * Determines if the provided key is valid.
      *
      * @param string $key
-     * @return bool
+     *
      * @throws \InvalidArgumentException
+     *
+     * @return bool
      */
     private function isValidKey($key)
     {
         $invalidCharacters = '{}()/\\\\@:';
 
         if (!is_string($key) || preg_match("#[$invalidCharacters]#", $key)) {
-            throw new \InvalidArgumentException('The provided key is not valid: ' . var_export($key, true));
+            throw new \InvalidArgumentException('The provided key is not valid: '.var_export($key, true));
         }
 
         return true;

@@ -16,10 +16,10 @@ interface DocuSignUser
     /**
      * @return string
      */
-    public function getDocuSignUserId();
+    public function getDocuSignUserId(): string;
 
     /**
      * @param string $id
      */
-    public function setDocuSignUserId($id);
+    public function setDocuSignUserId(string $id);
 }

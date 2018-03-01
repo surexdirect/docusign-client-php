@@ -29,5 +29,10 @@
     ],
     "autoload": {
         "psr-0": {"Surex\\DocuSign\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Surex\\Tests\\": "tests/"
+        }
     }
 }

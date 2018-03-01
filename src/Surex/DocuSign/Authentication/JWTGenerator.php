@@ -43,7 +43,7 @@ class JWTGenerator
      * @param string      $host
      * @param string|null $scope
      */
-    public function __construct($privateKey, $integratorKey, $host, $scope = null)
+    public function __construct(string $privateKey, string $integratorKey, string $host, ?string $scope = null)
     {
         $this->privateKey    = $privateKey;
         $this->integratorKey = $integratorKey;
@@ -53,7 +53,7 @@ class JWTGenerator
         }
     }
 
-    public function generate($userId)
+    public function generate(string $userId): string
     {
         $now = time();
 

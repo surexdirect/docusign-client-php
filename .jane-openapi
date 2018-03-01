@@ -2,6 +2,6 @@
 
 return [
     'openapi-file' => __DIR__ . '/esignature.rest.swagger.json',
-    'namespace' => 'Surex\DocuSign',
-    'directory' => __DIR__ . '/src/Surex/DocuSign',
+    'namespace' => 'Surex\DocuSign\Generated',
+    'directory' => __DIR__ . '/src/Surex/DocuSign/Generated',
 ];

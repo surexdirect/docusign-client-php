@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (c) 2017, SurexDirect Ltd.
+ * Copyright (c) 2018, SurexDirect Ltd.
  */
 
 namespace Surex\DocuSign\Http\Message\Authentication;
@@ -9,7 +9,6 @@ namespace Surex\DocuSign\Http\Message\Authentication;
 use Http\Message\Authentication;
 use Psr\Http\Message\RequestInterface;
 use Surex\DocuSign\Authentication\TokenFetcher;
-use Surex\DocuSign\Exception\AuthenticationException;
 
 /**
  * Class JWTGenerator.
@@ -25,6 +24,7 @@ class JWTAuthentication implements Authentication
 
     /**
      * JWTAuthentication constructor.
+     *
      * @param TokenFetcher $tokenFetcher
      */
     public function __construct(TokenFetcher $tokenFetcher)
@@ -37,10 +37,9 @@ class JWTAuthentication implements Authentication
      */
     public function authenticate(RequestInterface $request)
     {
-        if (!$token = $this->tokenFetcher->fetchAccessToken()) {
-            throw new AuthenticationException('Cannot fetch access token');
-        }
-
-        return $request->withHeader('Authorization', sprintf('Bearer %s', $token->getToken()));
+        return $request->withHeader(
+            'Authorization',
+            sprintf('Bearer %s', $this->tokenFetcher->fetchAccessToken()->getToken())
+        );
     }
 }

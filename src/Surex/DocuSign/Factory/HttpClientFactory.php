@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (c) 2017, SurexDirect Ltd.
+ * Copyright (c) 2018, SurexDirect Ltd.
  */
 
 namespace Surex\DocuSign\Factory;
@@ -16,12 +16,12 @@ use Http\Message\MessageFactory;
 use Http\Message\StreamFactory;
 use Http\Message\UriFactory;
 use Psr\Cache\CacheItemPoolInterface;
+use Surex\DocuSign\Authentication\CachedTokenFetcher;
 use Surex\DocuSign\Authentication\JWTGenerator;
 use Surex\DocuSign\Authentication\JWTTokenFetcher;
 use Surex\DocuSign\Cache\MemoryCacheItemPool;
 use Surex\DocuSign\Http\Client\CodeAuthorizationClient;
 use Surex\DocuSign\Http\Message\Authentication\JWTAuthentication;
-use Surex\DocuSign\Authentication\CachedTokenFetcher;
 use Surex\DocuSign\User\DocuSignUserProvider;
 
 class HttpClientFactory
@@ -157,7 +157,7 @@ class HttpClientFactory
      */
     public function createServiceIntegrationClient(DocuSignUserProvider $user)
     {
-        $plugins = $this->getDefaultApiPlugins();
+        $plugins   = $this->getDefaultApiPlugins();
         $plugins[] = new Plugin\AuthenticationPlugin(
             new JWTAuthentication($this->getTokenStorage($user, true))
         );
@@ -169,7 +169,6 @@ class HttpClientFactory
 //                    'RequestUri',
 //                ])]
 //            ),
-
 
         return new PluginClient($this->getHttpClient(), $plugins);
     }

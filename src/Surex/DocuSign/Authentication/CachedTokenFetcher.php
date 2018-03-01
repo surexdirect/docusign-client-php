@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (c) 2017, SurexDirect Ltd.
+ * Copyright (c) 2018, SurexDirect Ltd.
  */
 
 namespace Surex\DocuSign\Authentication;
@@ -47,8 +47,9 @@ class CachedTokenFetcher implements TokenFetcher
 
     /**
      * @return Token
+     * @throws \Psr\Cache\InvalidArgumentException
      */
-    public function fetchAccessToken()
+    public function fetchAccessToken(): Token
     {
         $cacheKey = $this->getCacheKey($this->userProvider->getDocuSignUser()->getDocuSignUserId());
         $item     = $this->cache->getItem($cacheKey);
@@ -67,7 +68,7 @@ class CachedTokenFetcher implements TokenFetcher
         return $token;
     }
 
-    private function getCacheKey($key)
+    private function getCacheKey(string $key): string
     {
         $key = $this->cachePrefix.$key;
 

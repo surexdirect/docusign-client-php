@@ -60,7 +60,10 @@ class JWTTokenFetcher implements TokenFetcher
         $this->userProvider   = $user;
     }
 
-    public function fetchAccessToken()
+    /**
+     * @return Token
+     */
+    public function fetchAccessToken(): Token
     {
         $request = $this->requestFactory->createRequest(
             'POST',

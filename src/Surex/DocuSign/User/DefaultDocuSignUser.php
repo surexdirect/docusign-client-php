@@ -20,7 +20,7 @@ class DefaultDocuSignUser implements DocuSignUser
      *
      * @param string $userId
      */
-    public function __construct($userId)
+    public function __construct(string $userId)
     {
         $this->userId = $userId;
     }
@@ -28,7 +28,7 @@ class DefaultDocuSignUser implements DocuSignUser
     /**
      * {@inheritdoc}
      */
-    public function getDocuSignUserId()
+    public function getDocuSignUserId(): string
     {
         return $this->userId;
     }
@@ -36,7 +36,7 @@ class DefaultDocuSignUser implements DocuSignUser
     /**
      * {@inheritdoc}
      */
-    public function setDocuSignUserId($id)
+    public function setDocuSignUserId(string $id)
     {
         $this->userId = $id;
     }
